@@ -12,8 +12,8 @@ exports.procGetUser = function(id){
     return db.fnRow('procGetUser', [id]);
 }
 
-exports.procInsertUser = function(firstname, lastname, email, password, role){
-    return db.fnRow('procInsertUser', [firstname, lastname, email, password, role])
+exports.procInsertUser = function(firstname, lastname, email, password, role, dj){
+    return db.fnRow('procInsertUser', [firstname, lastname, email, password, role, dj])
 }
 
 exports.procUpdateUser = function(id, firstname, lastname, email, password, role){
