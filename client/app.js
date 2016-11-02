@@ -12,13 +12,13 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/events.html',
         controller: 'EventController'
     })
+    .when('/magazine/:id', {
+        templateUrl: 'views/article.html',
+        controller: 'ArticleController'
+    })
     .when('/magazine', {
         templateUrl: 'views/magazine.html',
         controller: 'MagazineController'
-    })
-    .when('/magazine/:id', {
-        templateUrl: 'views/article/html',
-        controller: 'ArticleController'
     })
     .when('/compose', {
         templateUrl: 'views/compose.html',
@@ -35,5 +35,13 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
     .when('/admin', {
         templateUrl: 'views/admin.html',
         controller: 'AdminController'
+    })
+    .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+    })
+    .when('/users/create', {
+        templateUrl: 'views/createuser.html',
+        controller: 'CreateUserController'
     })
 }]);
