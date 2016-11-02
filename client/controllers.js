@@ -74,7 +74,6 @@ angular.module('Substrate.controllers', [])
         $scope.sendMessage = function () {
             console.log('inside contact controller');
             var contactInfo = {
-                name: $scope.name,
                 fromEmail: $scope.fromEmail,
                 subject: $scope.subject,
                 content: $scope.content
