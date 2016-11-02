@@ -4,4 +4,7 @@ angular.module('Substrate.factories', [])
 }])
 .factory('Users', ['$resource', function($resource) {
     return $resource('/api/users/:id', { id: '@id' });
+}])
+.factory("Contact", ["$resource", function ($resource) {
+        return $resource('/api/contact/:id');
 }]);
