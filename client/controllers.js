@@ -1,6 +1,6 @@
 angular.module('Substrate.controllers', [])
 
-.controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('Home Controller');
 
         SEOService.setSEO({
@@ -20,8 +20,26 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('MagazineController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
         console.log('Magazine Controller');
+
+        // UserService.isLoggedIn();
+        // $scope.loggedIn = false;
+        // UserService.me().then(function(me){
+        //     $scope.ME = me;
+        //     $scope.loggedIn = true;
+        // });
+        // $scope.logout = function () {
+        //     UserService.logout().then(function(){
+        //     $route.reload();
+        //     });
+        // }
+
+        function getPosts() {
+            $scope.posts = Posts.query();
+            console.log($scope.posts) 
+        }
+        getPosts();
 
         SEOService.setSEO({
             title: 'Substrate Radio | Magazine',
@@ -114,4 +132,36 @@ angular.module('Substrate.controllers', [])
             $location.path(dest).search('p', null).replace();
         }
 
+    }])
+    .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
+        $scope.create = function () {
+            var data = {
+                email: $scope.email,
+                password: $scope.password,
+                firstname: $scope.firstname,
+                lastname: $scope.lastname,
+                role: $scope.role,
+                dj: $scope.dj
+
+            }
+
+            var u = new Users(data);
+            u.$save(function () {
+                $location.path('/users');
+            });
+        };
+
+        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
+
+        $scope.roles = [
+            { name: 'User', value: 'user' },
+            { name: 'Admin', value: 'admin' }
+        ];
+
+        $scope.djValues = [
+            { name: 'Yes', value: 0 },
+            { name: 'No', value: 1 }
+        ];
+
+        $scope.role_default = 'user';
     }])
