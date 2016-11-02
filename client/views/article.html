@@ -14,8 +14,8 @@
     <div class="list-group" id="list-content">
             <div class="list-group-item">
                 <h1 id="titleline">  {{ post.title }} </h1>
-                <h3 id="byline"> by {{ post.firstname }} {{ post.lastname }} </h3>
-                <h5 id="catDateLine">{{ post.categoryname }} {{ post.createdAt | date: 'short' }}</h5>
+                <h3 id="byline"> by {{ post.firstName }} {{ post.lastName }} </h3>
+                <h5 id="pubDate"> published: {{ post.createdat | date: 'short' }}</h5>
             </div>
             <div id="postDiv" class="list-group-item">
                 {{ post.content }}
