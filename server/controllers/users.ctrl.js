@@ -53,8 +53,9 @@ router.post('/', function(req, res){//you can only post/create a user if you are
     var u = req.body;
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
     .then(function(hash){
-        return procedures.procInsertUser(u.email, hash, u.firstname, u.lastname, u.role, u.dj);// calls users.proc.js specifically the create function
+        return procedures.procInsertUser(u.firstname, u.lastname, u.email, hash, u.role, u.dj);// calls users.proc.js specifically the create function
     }).then(function(id){
+        console.log(id);
         res.status(201).send(id);
     }).catch(function(err){
         console.log(err);
