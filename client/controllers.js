@@ -89,7 +89,7 @@ angular.module('Substrate.controllers', [])
         }
     }])
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-        console.log("Login Controller");
+        console.log("Login Controller")
         UserService.me().then(function (me) {
             redirect();
         });
