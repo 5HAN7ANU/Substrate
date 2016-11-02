@@ -1,0 +1,24 @@
+{
+  "name": "final-projct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "nodemon -e js,less --exec \"lessc client/styles/main.less client/style.css && node server/index.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-mysql-session": "^1.2.0",
+    "express-session": "^1.14.2",
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "prerender-node": "^2.5.0",
+    "sendgrid": "^4.7.1"
+  }
+}

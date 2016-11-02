@@ -1,0 +1,122 @@
+body {
+    background-color: grey;
+}
+.custom-drawer {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: @drawer-width;
+    background-color: grey;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            width: 100%;
+            height: @navbar-height;
+            line-height: @navbar-height;
+            vertical-align: middle;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+    }
+}
+
+
+.app {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: right 0.2s linear;
+    transition: right 0.2s linear;
+
+    .custom-navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: @navbar-height;
+        background-color: whitesmoke;
+        color: black;
+        border: 1px solid black;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            li {
+                display: inline-block;
+                height: @navbar-height;
+                line-height: @navbar-height;
+                vertical-align: middle;
+                color: black;
+                padding-right: 40px;
+
+                a {
+                    display: block;
+                    padding: 0 10px;
+                    text-decoration: none;
+                    color: inherit;
+                    margin-right: 18px;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: @navbar-height;
+            background-color: black;
+        }
+    }
+
+    .site-content {
+        margin-top: @navbar-height;
+        padding-bottom: @navbar-height;
+        height: 100%;
+        .verticalOverflow();
+    }
+}
+
+@media screen and (max-width: @mobile-breakpoint) {
+    .custom-drawer {
+        display: block;
+    }
+    .app {
+        &.showing-drawer {
+            right: @drawer-width;
+            -webkit-box-shadow: 2px 0 10px 0 rgba(0.0, 0.0, 0.0, 0.7);
+            box-shadow: 2px 0 10px 0 rgba(0.0, 0.0, 0.0, 0.7);
+        }
+        .custom-navbar {
+            ul {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+    }
+}
