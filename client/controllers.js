@@ -165,10 +165,10 @@ angular.module('Substrate.controllers', [])
     .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
         $scope.create = function () {
             var data = {
-                email: $scope.email,
-                password: $scope.password,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
+                email: $scope.email,
+                password: $scope.password,
                 role: $scope.role,
                 dj: $scope.dj
 
