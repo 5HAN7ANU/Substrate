@@ -27,7 +27,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         controller: 'AboutController'
     })
     .when('/contact', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'views/contact.html',
         controller: 'ContactController'
     })
     .when('/admin', {
