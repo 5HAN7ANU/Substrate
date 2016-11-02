@@ -29,8 +29,9 @@ router.post('/login', function(req, res, next){//its a post request because you 
     })(req, res, next);
 });
 
-router.route('*')//everything after this point, we are ensuring the user is logged in.
-    .all(auth.isLoggedIn);//includes all methods 'get, put, post, delete, etc'
+//everything after this point, we are ensuring the user is logged in.
+// router.route('*')
+//     .all(auth.isLoggedIn);//includes all methods 'get, put, post, delete, etc'
 
 router.get('/logout', function(req, res){//it could be a post request, but its a get request just so we could go to /api/users/logout to logout
     req.session.destroy(function(){
@@ -40,7 +41,7 @@ router.get('/logout', function(req, res){//it could be a post request, but its a
 });
 
 //really /api/users
-router.get('/', auth.isAdmin, function(req, res){//includes isAdmin, i.e. you can only view all users if you are an admin
+router.get('/', function(req, res){//includes isAdmin, i.e. you can only view all users if you are an admin
     procedures.procGetUsers().then(function(users){
         res.send(users);
     }, function(err){
@@ -48,11 +49,11 @@ router.get('/', auth.isAdmin, function(req, res){//includes isAdmin, i.e. you ca
     });
 });
 
-router.post('/', auth.isAdmin, function(req, res){//you can only post/create a user if you are an admin //post = create in this case
+router.post('/', function(req, res){//you can only post/create a user if you are an admin //post = create in this case
     var u = req.body;
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
     .then(function(hash){
-        return procedures.procInsertUser(u.email, hash, u.firstname, u.lastname, u.role);// calls users.proc.js specifically the create function
+        return procedures.procInsertUser(u.email, hash, u.firstname, u.lastname, u.role, u.dj);// calls users.proc.js specifically the create function
     }).then(function(id){
         res.status(201).send(id);
     }).catch(function(err){
