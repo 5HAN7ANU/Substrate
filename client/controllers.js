@@ -20,8 +20,26 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('MagazineController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
         console.log('Magazine Controller');
+
+        // UserService.isLoggedIn();
+        // $scope.loggedIn = false;
+        // UserService.me().then(function(me){
+        //     $scope.ME = me;
+        //     $scope.loggedIn = true;
+        // });
+        // $scope.logout = function () {
+        //     UserService.logout().then(function(){
+        //     $route.reload();
+        //     });
+        // }
+
+        function getPosts() {
+            $scope.posts = Posts.query();
+            console.log($scope.posts) 
+        }
+        getPosts();
 
         SEOService.setSEO({
             title: 'Substrate Radio | Magazine',
