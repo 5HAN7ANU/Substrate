@@ -1,6 +1,8 @@
 angular.module('Substrate.factories', [])
 .factory('Posts', ['$resource', function($resource) {
-    return $resource('/api/products/:id', { id: '@id' });
+    return $resource('/api/posts/:id', { id: '@id' }, {
+        update: { method: 'PUT' }
+    });
 }])
 .factory('Users', ['$resource', function($resource) {
     return $resource('/api/users/:id', { id: '@id' });
