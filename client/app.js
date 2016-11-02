@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'NavbarApp.directives'])
-=======
-angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services', 'Substrate.factories', 'NavbarApp.directives'])
->>>>>>> bcb202f437d47282815173b6130dbcb3b82b7ab9
+
+
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider

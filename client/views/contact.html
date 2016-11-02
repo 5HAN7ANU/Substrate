@@ -2,7 +2,7 @@
 <br />
 <div class="inner contact">
     <div class="contact-form">
-        <form id="contact-us" method="post" action="#">
+        <form id="contact-us" ng-submit="sendMessage()">
             <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                 <!--<input type="text" name="name" id="name" required="required" class="form" placeholder="Name" ng-model="name"/>-->
                 <input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email"  ng-model="fromEmail"/>
@@ -12,7 +12,7 @@
                 <textarea name="message" id="message" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
             </div>
             <div class="relative fullwidth col-xs-12">
-                <button type="submit" id="submit" name="submit" class="form-btn semibold" ng-click="sendMessage">Send Message</button>
+                <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
             </div>
             <div class="clear"></div>
         </form>

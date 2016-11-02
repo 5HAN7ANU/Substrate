@@ -71,6 +71,7 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
+        console.log("ContactController");
         $scope.sendMessage = function () {
             console.log('inside contact controller');
             var contactInfo = {
@@ -88,6 +89,7 @@ angular.module('Substrate.controllers', [])
         }
     }])
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+        console.log("Login Controller");
         UserService.me().then(function (me) {
             redirect();
         });
