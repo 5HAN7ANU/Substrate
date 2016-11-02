@@ -34,4 +34,8 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/admin.html',
         controller: 'AdminController'
     })
+    .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+    })
 }]);
