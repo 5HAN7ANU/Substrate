@@ -12,8 +12,8 @@ var prerender = require('prerender-node');
 var app = express();
 var clientPath = path.join(__dirname, '../client');
 
-// prerender.set('prerenderToken', process.env.PRERENDER_TOKEN);
-// app.use(prerender);
+prerender.set('prerenderToken', process.env.PRERENDER_TOKEN);
+app.use(prerender);
 
 app.use(express.static(clientPath));
 app.use(cookieParser());
