@@ -67,7 +67,7 @@ angular.module('Substrate.controllers', [])
         console.log(singleId);
         $scope.post = Posts.get( {id: singleId} ); 
             
-        console.log($scope);
+        console.log($scope.post);
 
         $scope.goToUpdate = function() {
             $location.path('magazine/' + singleId + '/update');
