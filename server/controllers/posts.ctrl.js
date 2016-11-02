@@ -39,6 +39,7 @@ router.route('/')
 router.route('/:id')
     .get(function(req, res) {
         procedures.procRead(req.params.id).then(function(post) {
+            console.log(post);
             res.send(post);
         }, function(err) {
             console.log(err);
