@@ -8,7 +8,7 @@ var router = express.Router();
 router
     .use('/posts', posts)
     .use('/users', users)
-    .use('/login', users)
+    // .use('/login', users)
     .use('/contact', contact);
 
 module.exports = router;

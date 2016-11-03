@@ -4,8 +4,10 @@ angular.module('Substrate.factories', [])
         update: { method: 'PUT' }
     });
 }])
-.factory('Users', ['$resource', function($resource) {
-    return $resource('/api/users/:id', { id: '@id' });
+.factory('Users', ['$resource', function($resource){
+    var r = $resource('/api/users/:id', { id: '@id'}, {
+        update: { method: 'PUT', headers: {'Content-Type': 'application/json'}}});
+    return r;
 }])
 .factory('Contact', ['$resource', function ($resource) {
         return $resource('/api/contact/:id');
