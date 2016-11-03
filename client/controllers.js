@@ -1,6 +1,6 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', function($scope, $location, SEOService) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('Home Controller');
 
         SEOService.setSEO({
@@ -10,7 +10,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('EventController', ['$scope', '$location', 'SEOService', function($scope, $location, SEOService) {
+    .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('Event Controller');
 
         SEOService.setSEO({
@@ -20,7 +20,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function($scope, $location, SEOService, Posts, Users, UserService, $route) {
+    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
         console.log('Magazine Controller');
 
         // UserService.isLoggedIn();
@@ -48,7 +48,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
+    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
         console.log('Article Controller');
 
         // UserService.isLoggedIn();
@@ -69,7 +69,7 @@ angular.module('Substrate.controllers', [])
 
         console.log($scope.post);
 
-        $scope.goToUpdate = function() {
+        $scope.goToUpdate = function () {
             $location.path('magazine/' + singleId + '/update');
         }
 
@@ -87,13 +87,13 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('AboutController', ['$scope', '$location', 'SEOService', function($scope, $location, SEOService) {
+    .controller('AboutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('About Controller');
 
         $scope.procUserdj = procUserdj.query();
         console.log(procUserdj);
 
-        
+
         SEOService.setSEO({
             title: 'Substrate Radio | About Us',
             description: 'Get to know Substrate Radio',
@@ -101,7 +101,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
+    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         console.log('Compose Controller');
 
         SEOService.setSEO({
@@ -121,9 +121,9 @@ angular.module('Substrate.controllers', [])
     //         url: $location.absUrl()
     //     });
     // }])
-    .controller('ContactController', ['$scope', 'Contact', '$location', function($scope, Contact, $location) {
+    .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
         console.log("ContactController");
-        $scope.sendMessage = function() {
+        $scope.sendMessage = function () {
             console.log('inside contact controller');
             var contactInfo = {
                 fromEmail: $scope.fromEmail,
@@ -131,28 +131,28 @@ angular.module('Substrate.controllers', [])
                 content: $scope.content
             }
             var contact = new Contact(contactInfo);
-            contact.$save(function() {
+            contact.$save(function () {
                 console.log('Email send ok');
                 $location.path('/');
-            }, function(err) {
+            }, function (err) {
                 console.log(err);
             });
         }
     }])
-    .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
+    .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         console.log("Login Controller");
-        UserService.me().then(function(me) {
+        UserService.me().then(function (me) {
             redirect();
         });
         // SEOService.setSEO({
         //     title: 'Login',
         //     description: 'Login'
         // });
-        $scope.login = function(user) {
+        $scope.login = function (user) {
             UserService.login($scope.email, $scope.password)
-                .then(function() {
+                .then(function () {
                     redirect();
-                }, function(err) {
+                }, function (err) {
                     console.log(err);
                     $scope.error = err.data.message;
                 });
@@ -167,8 +167,8 @@ angular.module('Substrate.controllers', [])
         }
 
     }])
-    .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function($scope, Users, UserService, $location) {
-        $scope.create = function() {
+    .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
+        $scope.create = function () {
             var data = {
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
@@ -180,7 +180,7 @@ angular.module('Substrate.controllers', [])
             }
 
             var u = new Users(data);
-            u.$save(function() {
+            u.$save(function () {
                 $location.path('/users');
             });
         };
@@ -199,7 +199,7 @@ angular.module('Substrate.controllers', [])
 
         $scope.role_default = 'user';
     }])
-    .controller('UserListController', ['$scope', '$location', 'Users', 'UserService', function($scope, $location, Users, UserService) {
+    .controller('UserListController', ['$scope', '$location', 'Users', 'UserService', function ($scope, $location, Users, UserService) {
         UserService.requireLogin();
         UserService.me();
         console.log('controllers.js/UserListController: The user is logged in');
@@ -207,36 +207,44 @@ angular.module('Substrate.controllers', [])
         console.log('controllers.js/UserListController: users acquired')
         console.log($scope.users);
 
-        $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
+        $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstName + ' ' + UserService.user.lastName + ', who is a ' + UserService.user.role;
 
-        $scope.logout = function() {
+        $scope.logout = function () {
             UserService.logout()
-                .then(function() {
+                .then(function () {
                     $location.path('/');
                 })
         }
 
-        $scope.deleteUser = function(user) {
+        $scope.deleteUser = function (user) {
             console.log('controllers.js/UserListController: The user to be deleted is: ');
             console.log(user);
             var shouldDelete = confirm('Are you sure you want to delete this user?');
             console.log(shouldDelete);
             if (shouldDelete) {
                 console.log('user clicked OK');
-                user.$delete(function() {
+                user.$delete(function () {
                     console.log('User Deleted!');
                     console.log(user);
                     $scope.users = Users.query();
                 });
             }
         }
+
+        $scope.logoutPage = function () {
+            UserService.logout().then(function () {
+                console.log('logged out!');
+                $route.reload();
+            });
+            alert('You have been logged out!');
+        };
     }])
-    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function($scope, $routeParams, Users, UserService) {
+    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
         UserService.me();
         var userId = $routeParams.id;
 
-        $scope.featuredUser = Users.get({ id: userId }, function() {
+        $scope.featuredUser = Users.get({ id: userId }, function () {
             console.log('The user is: ' + $scope.featuredUser.firstname);
             $scope.id = $scope.featuredUser.id;
             $scope.firstname = $scope.featuredUser.firstname;
@@ -248,7 +256,7 @@ angular.module('Substrate.controllers', [])
             console.log('controllers.js/UpdateUserController: The user role is: ' + $scope.role);
         });
 
-        $scope.updateUser = function() {
+        $scope.updateUser = function () {
             console.log('Controllers.js/UpdateUserController: entered the updateUser function');
 
             $scope.featuredUser.id = $scope.id;
@@ -265,7 +273,7 @@ angular.module('Substrate.controllers', [])
 
             console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
 
-            $scope.featuredUser.$update(function(success) {
+            $scope.featuredUser.$update(function (success) {
                 console.log('controllers.js/UpdateUserController: The user was updated!');
                 location.pathname = '/users';
             });
