@@ -8,7 +8,6 @@ var api = require('./api');
 var fs = require('fs');  // do we need?  INSTALL!!
 var prerender = require('prerender-node');
 
-
 var app = express();
 var clientPath = path.join(__dirname, '../client');
 
