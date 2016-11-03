@@ -20,6 +20,11 @@
             <option ng-repeat="role in roles" value="{{role.value}}">{{role.name}}</option>
         </select>
         <p></p>
+        <select ng-model="dj">
+            <option value="">Is this user a DJ?</option>
+            <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
+        </select>
+        <p></p>
         <button id="button" ng-click="updateUser()">UPDATE USER</button>
     </center>
 </div>
