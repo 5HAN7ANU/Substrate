@@ -17,6 +17,7 @@ angular.module('Substrate.services', [])
             var current = $location.path();
             $location.path('/login').search('p', current);
         }else{
+            this.user = user;
             console.log('services.js/this.requireLogin(): The user is logged in');
         }
     }

@@ -189,8 +189,8 @@ angular.module('Substrate.controllers', [])
         ];
 
         $scope.djValues = [
-            { name: 'Yes', value: 0 },
-            { name: 'No', value: 1 }
+            { name: 'Yes', value: 1 },
+            { name: 'No', value: 0 }
         ];
 
         $scope.role_default = 'user';
@@ -222,7 +222,7 @@ angular.module('Substrate.controllers', [])
                 user.$delete(function() {
                     console.log('User Deleted!');
                     console.log(user);
-                    $scope.users = User.query();
+                    $scope.users = Users.query();
                 });
             }
         }
