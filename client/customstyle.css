@@ -176,6 +176,7 @@ textarea.form-control {
 
 /*end compose css*/
 
+<<<<<<< HEAD
 
 #djbox{
   border: 2px solid red;
@@ -195,3 +196,18 @@ textarea.form-control {
      border-radius: 8px;
      position: relative;
  }
+=======
+/*userlist.html*/
+#usersList {
+  float: left;
+  padding: 20px;
+  color: red;
+}
+/*end userlist.html*/
+
+/*updateuser.html*/
+  #updateUser {
+    color: red;
+  }
+/*end updateuser.html*/
+>>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
