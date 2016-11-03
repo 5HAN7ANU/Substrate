@@ -1,5 +1,8 @@
 <div>
         <h1>About us</h1>
-
-    
+</div>
+<div id="box" ng-repeat="pizza in dj">
+        <h1>{{ pizza.firstname }}</h1>
+        <p><img ng-src="{{ pizza.imageurl }}" alt="djimage"></p>
+        <p>{{ pizza.bio }} </p>
 </div>

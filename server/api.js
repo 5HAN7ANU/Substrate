@@ -12,5 +12,4 @@ router
     // .use('/login', users)
     .use('/contact', contact)
     .use('/calendar', calendar);
-
 module.exports = router;

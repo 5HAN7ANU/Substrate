@@ -1,11 +1,11 @@
 /*index.html*/
 #indexBackground {
-  background: url('../assets/substrateBackground.jpeg');
+  /*background: url('../assets/background1.jpg');*/
   background-repeat: no-repeat;
   -moz-background-size: contain;
   -o-background-size: contain;
   -webkit-background-size: contain;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
 
 }
@@ -175,3 +175,23 @@ textarea.form-control {
 
 
 /*end compose css*/
+
+
+#djbox{
+  border: 2px solid red;
+}
+.picdiv{
+  border: 2px solid red;
+  height:200px;
+  width: 100px;
+}
+ #box {
+     border: 3px solid yellow;
+     color: grey;
+     width: 270px;
+     height: 405px;
+     float: left;
+     margin: 20px;
+     border-radius: 8px;
+     position: relative;
+ }

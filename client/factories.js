@@ -6,7 +6,16 @@ angular.module('Substrate.factories', [])
 }])
 .factory('Users', ['$resource', function($resource){
     var r = $resource('/api/users/:id', { id: '@id'}, {
-        update: { method: 'PUT', headers: {'Content-Type': 'application/json'}}});
+        update: {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'}
+        },
+        getDj: {//custom api to get all dj
+            method: 'GET',
+            isArray: true,
+            url: '/api/users/dj'
+        }
+    });
     return r;
 }])
 .factory('Contact', ['$resource', function ($resource) {
