@@ -23,3 +23,17 @@
 .event-location {
     font-size: 15px;
 }
+
+#map {
+    width: 50%;
+    height: 400px;
+    background-color: grey;
+    border: black solid 1px;
+    margin: auto;
+}
+
+.map-container {
+    text-align: center;
+    margin: 20px auto;
+    clear: both;
+}

@@ -15,7 +15,25 @@
   <h4 class="card-title">{{ event.start.dateTime | date: 'shortDate' }}</h4>
   <p class="card-text">{{ event.summary }}</p>
   <p class="card-text">{{ event.location }}</p>
-  <a href="#" class="card-link">Card link</a>
-  <a href="#" class="card-link">Another link</a>
+</div>
+<div class="map-container">
+  <h3>My Google Maps Demo</h3>
+  <div id="map"></div>
+  <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0xMsHqpTjV94yPTeTo7RVEvz6RLxAARA&callback=initMap">
+    </script>
 </div>
 
