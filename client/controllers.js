@@ -234,7 +234,7 @@ angular.module('Substrate.controllers', [])
         $scope.logoutPage = function () {
             UserService.logout().then(function () {
                 console.log('logged out!');
-                $route.reload();
+                $location.path('/login');
             });
             alert('You have been logged out!');
         };
