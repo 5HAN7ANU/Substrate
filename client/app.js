@@ -1,4 +1,6 @@
-angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services', 'Substrate.factories', 'NavbarApp.directives'])
+angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'NavbarApp.directives'])
+
+
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
@@ -38,8 +40,20 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+    .when('/logout', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+    })
     .when('/users/create', {
         templateUrl: 'views/createuser.html',
         controller: 'CreateUserController'
+    })
+    .when('/users', {
+        templateUrl: 'views/userlist.html',
+        controller: 'UserListController'
+    })
+    .when('/users/:id/update', {
+        templateUrl: 'views/update_user.html',
+        controller: 'UpdateUserController'
     })
 }]);
