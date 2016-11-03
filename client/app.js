@@ -40,6 +40,10 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+    .when('/postlist', {
+        templateUrl: 'views/managemagazine.html',
+        controller: 'ManageMagazineController'
+    })
     .when('/logout', {
         templateUrl: 'views/login.html',
         controller: 'LoginController'
