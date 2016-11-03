@@ -175,3 +175,11 @@ textarea.form-control {
 
 
 /*end compose css*/
+
+/*userlist.html*/
+#usersList {
+  float: left;
+  padding: 20px;
+  color: red;
+}
+/*end userlist.html*/
