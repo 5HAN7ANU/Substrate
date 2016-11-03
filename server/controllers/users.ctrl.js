@@ -77,7 +77,8 @@ router.get('/:id', auth.isAdmin, function (req, res) {
 
 router.put('/:id', auth.isAdmin, function (req, res) {
     var u = req.body;
-
+    console.log('users.ctrl.js/router.put/:id - req.body is');
+    console.log(u);
     console.log('users.ctrl.js/router.put/:id - the request body is: ' + u);
 
     console.log('users.ctrl.js/router.put/:id - the user password is: ' + u.password);

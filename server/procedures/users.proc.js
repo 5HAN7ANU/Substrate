@@ -17,7 +17,7 @@ exports.procInsertUser = function(firstname, lastname, email, password, role, dj
 }
 
 exports.procUpdateUser = function(id, firstname, lastname, email, password, role, dj){
-    return db.fnEmpty('procUpdateUser', [id, firstname, lastname, email, password, role, dj])
+    return db.fnEmpty('procUpdateUser', [id, firstname, lastname, email, password, role, dj]);
 }
 
 exports.procDeleteUser = function(id){
