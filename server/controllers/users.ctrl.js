@@ -107,14 +107,15 @@ router.put('/:id', auth.isAdmin, function (req, res) {
         });
 });
 
-router.delete('/:id', auth.isAdmin, function (req, res, next) {//need to add auth.isAdmin back when ready router.delete('/:id', function(req, res, next) {
+router.delete('/:id', auth.isAdmin, function (req, res, next) {
     if (req.user.id === Number(req.params.id)) { // If the user is trying to delete him/herself, say Unauthorized
+        alert('You cannot delete yourself!');
         res.sendStatus(401);
     } else {
         next();
     }
 }, function (req, res) {
-    procedures.procDeleteUser(req.user.id)
+    procedures.procDeleteUser(req.params.id)
         .then(function () {
             console.log('users.ctrl.js/deleteuser: user deleted!');
             res.sendStatus(204);
