@@ -1,0 +1,21 @@
+<!--<div class="container">
+    <div class="row">
+        <div class="col s12 m6 card event-box" ng-repeat="event in events">
+          <div class="card-block">
+              <span class="event-time"> {{ event.start.dateTime | date: 'shortDate' }}</span>
+                <p class="event-title"> {{ event.summary }} </p>
+                <p class="event-location"> {{ event.location }} </p>
+          </div>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="card card-block" ng-repeat="event in events">
+  <h4 class="card-title">{{ event.start.dateTime | date: 'shortDate' }}</h4>
+  <p class="card-text">{{ event.summary }}</p>
+  <p class="card-text">{{ event.location }}</p>
+  <a href="#" class="card-link">Card link</a>
+  <a href="#" class="card-link">Another link</a>
+</div>
+
