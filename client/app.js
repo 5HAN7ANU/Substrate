@@ -1,4 +1,4 @@
-angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'NavbarApp.directives'])
+angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'Substrate.directives','NavbarApp.directives'])
 
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -39,6 +39,10 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginController'
+    })
+    .when('/postlist', {
+        templateUrl: 'views/managemagazine.html',
+        controller: 'ManageMagazineController'
     })
     .when('/logout', {
         templateUrl: 'views/login.html',
