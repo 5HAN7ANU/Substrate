@@ -23,3 +23,7 @@ exports.procUpdateUser = function(id, firstname, lastname, email, password, role
 exports.procDeleteUser = function(id){
    return db.fnEmpty('procDeleteUser', [id]);
 }
+
+exports.procUserDj = function(firstname, imageurl, bio){
+    return db.fnRow('procUserDj', [firstname, imageurl, bio])
+}
