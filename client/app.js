@@ -40,8 +40,20 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+    .when('/logout', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+    })
+    .when('/users/:id/update', {
+        templateUrl: 'views/updateuser.html',
+        controller: 'UpdateUserController'
+    })
     .when('/users/create', {
         templateUrl: 'views/createuser.html',
         controller: 'CreateUserController'
+    })
+    .when('/users', {
+        templateUrl: 'views/userlist.html',
+        controller: 'UserListController'
     })
 }]);

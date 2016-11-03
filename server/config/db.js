@@ -13,7 +13,7 @@ exports.pool = pool;
 
 // Use this function to call a procedure that doesn't return anything
 exports.fnEmpty = function(procName, args) {
-    return callProcedure(ProcName, args)
+    return callProcedure(procName, args)
         .then( function() {} ); // throwing away the resultset
 }
 

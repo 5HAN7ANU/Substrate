@@ -40,7 +40,7 @@ function configurePassport(app){
     });
 
     passport.deserializeUser(function(id, done){
-        userProc.procRead(id).then(function(user) {
+        userProc.procGetUser(id).then(function(user) {
             done(null, user);
         }, function(err){
             done(err);
