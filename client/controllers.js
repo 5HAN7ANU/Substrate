@@ -232,7 +232,7 @@ angular.module('Substrate.controllers', [])
         UserService.me();
         var userId = $routeParams.id;
 
-        $scope.featuredUser = User.get({ id: userId }, function() {
+        $scope.featuredUser = Users.get({ id: userId }, function() {
             console.log('The user is: ' + $scope.featuredUser.firstname);
             $scope.id = $scope.featuredUser.id;
             $scope.firstname = $scope.featuredUser.firstname;
