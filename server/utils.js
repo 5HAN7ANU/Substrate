@@ -26,6 +26,7 @@ exports.checkPassword = function(pw, hash){
     })
 }
 
+//does this need to be here?
 exports.isAsset = function(urlPath) {
     var pieces = urlPath.split('/');
     if (pieces.length === 0) {
