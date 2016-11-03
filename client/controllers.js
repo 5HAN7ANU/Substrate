@@ -203,7 +203,7 @@ angular.module('Substrate.controllers', [])
         console.log('controllers.js/UserListController: users acquired')
         console.log($scope.users);
 
-        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
+        $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
 
         $scope.logout = function() {
             UserService.logout()
@@ -227,7 +227,7 @@ angular.module('Substrate.controllers', [])
             }
         }
     }])
-    .controller('UpdateUserController', ['$scope', '$routeParams', 'User', 'UserService', function($scope, $routeParams, User, UserService) {
+    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
         UserService.me();
         var userId = $routeParams.id;
