@@ -2,10 +2,10 @@
 #indexBackground {
   background: url('../assets/substrateBackground.jpeg');
   background-repeat: no-repeat;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  -webkit-background-size: contain;
-  background-size: contain;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
   background-position: center center;
 
 }

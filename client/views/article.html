@@ -17,9 +17,10 @@
                 <h3 id="byline"> by {{ post.firstName }} {{ post.lastName }} </h3>
                 <h5 id="pubDate"> published: {{ post.createdat | date: 'short' }}</h5>
             </div>
-            <div id="postDiv" class="list-group-item">
+             <markdown-renderer text="post.content" id="postDiv" class="list-group-item"></markdown-renderer>
+            <!--<div id="postDiv" class="list-group-item">
                 {{ post.content }}
-            </div>
+            </div>-->
             <!--<button id ="editButton" class="btn btn-default" type="button" ng-show="ifAdmin" ng-click="goToUpdate()">Edit/Update</button>  -->
     </div>
 </div>
