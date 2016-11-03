@@ -1,4 +1,4 @@
-angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'NavbarApp.directives'])
+angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'Substrate.directives','NavbarApp.directives'])
 
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
