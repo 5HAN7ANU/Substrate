@@ -17,17 +17,27 @@
   <p class="card-text">{{ event.location }}</p>
 </div>
 <div class="map-container">
-  <h3>My Google Maps Demo</h3>
+  <h3>Venue Locations</h3>
   <div id="map"></div>
   <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var depot = {lat: 33.5113, lng: -86.8129};
+        var saturn = {lat: 33.52, lng: -86.774};
+        var ironCity = {lat: 33.508, lng: -86.7980};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 15,
+          center: depot
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
+        var depotMarker = new google.maps.Marker({
+          position: depot,
+          map: map
+        });
+        var saturnMarker = new google.maps.Marker({
+          position: saturn,
+          map: map
+        });
+        var ironCityMarker = new google.maps.Marker({
+          position: ironCity,
           map: map
         });
       }
