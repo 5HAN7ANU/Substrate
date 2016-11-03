@@ -10,7 +10,6 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
     .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function($scope, $location, SEOService, CalendarService) {
         
         CalendarService.getEvents()
@@ -18,10 +17,6 @@ angular.module('Substrate.controllers', [])
                 $scope.events = events;
             });
             console.log($scope.events);
-=======
-    .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-        console.log('Event Controller');
->>>>>>> 976b4aed48049e1350f0758041ae84cd185f57b6
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
