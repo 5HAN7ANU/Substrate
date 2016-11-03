@@ -1,0 +1,9 @@
+<div class="calendar">
+    <div id="calendar-event" ng-repeat="event in events">
+        <div class="event-box" id="{{ event.id }}">
+            <h3 class="event-title"> "{{ event.summary }}"</h3>
+            <h3 class="event-location">"{{ event.location }}"</h3>
+            <h3 class="event-time"> "{{ event.start.dateTime | date: 'short' }}"</h3>
+        </div>
+    </div>
+</div>
