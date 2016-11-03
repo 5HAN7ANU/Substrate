@@ -1,10 +1,8 @@
 angular.module('Substrate.controllers', [])
 
-<<<<<<< HEAD
-.controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-=======
+
     .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
+
         console.log('Home Controller');
 
         SEOService.setSEO({
@@ -14,18 +12,16 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
+
     .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('Event Controller');
-=======
-    .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function($scope, $location, SEOService, CalendarService) {
-        
+
         CalendarService.getEvents()
             .then(function(events) {
                 $scope.events = events;
             });
             console.log($scope.events);
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
+
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -62,7 +58,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
+
     .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
         console.log('About Controller');
     
@@ -76,8 +72,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-=======
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
+
     .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
         console.log('Article Controller');
 
@@ -119,26 +114,10 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
+
 
 .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-=======
-    .controller('AboutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-        console.log('About Controller');
 
-        $scope.procUserdj = procUserdj.query();
-        console.log(procUserdj);
-
-
-        SEOService.setSEO({
-            title: 'Substrate Radio | About Us',
-            description: 'Get to know Substrate Radio',
-            image: 'http://' + $location.host() + '/images/blog.png',
-            url: $location.absUrl()
-        });
-    }])
-    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
         console.log('Compose Controller');
 
         SEOService.setSEO({
@@ -151,7 +130,7 @@ angular.module('Substrate.controllers', [])
     // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
     //     console.log('Admin Controller');
 
-<<<<<<< HEAD
+
 //     SEOService.setSEO({
 //         title: 'Substrate Radio | Admin',
 //         description: 'Do your thing boss-man',
@@ -159,8 +138,7 @@ angular.module('Substrate.controllers', [])
 //         url: $location.absUrl()
 //     });
 // }])
-.controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
-=======
+
     //     SEOService.setSEO({
     //         title: 'Substrate Radio | Admin',
     //         description: 'Do your thing boss-man',
@@ -169,7 +147,7 @@ angular.module('Substrate.controllers', [])
     //     });
     // }])
     .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
+
         console.log("ContactController");
         $scope.sendMessage = function () {
             console.log('inside contact controller');
@@ -298,13 +276,9 @@ angular.module('Substrate.controllers', [])
         UserService.me();
         var userId = $routeParams.id;
 
-<<<<<<< HEAD
-        $scope.featuredUser = Users.get({
-            id: userId
-        }, function () {
-=======
+
         $scope.featuredUser = Users.get({ id: userId }, function () {
->>>>>>> d5bb26418c048fd2746c0a32d92f9c7d54b06727
+
             console.log('The user is: ' + $scope.featuredUser.firstname);
             $scope.id = $scope.featuredUser.id;
             $scope.firstname = $scope.featuredUser.firstname;
