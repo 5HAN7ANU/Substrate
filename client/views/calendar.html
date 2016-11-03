@@ -1,0 +1,49 @@
+<!--<div class="container">
+    <div class="row">
+        <div class="col s12 m6 card event-box" ng-repeat="event in events">
+          <div class="card-block">
+              <span class="event-time"> {{ event.start.dateTime | date: 'shortDate' }}</span>
+                <p class="event-title"> {{ event.summary }} </p>
+                <p class="event-location"> {{ event.location }} </p>
+          </div>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="card card-block" ng-repeat="event in events">
+  <h4 class="card-title">{{ event.start.dateTime | date: 'shortDate' }}</h4>
+  <p class="card-text">{{ event.summary }}</p>
+  <p class="card-text">{{ event.location }}</p>
+</div>
+<div class="map-container">
+  <h3>Venue Locations</h3>
+  <div id="map"></div>
+  <script>
+      function initMap() {
+        var depot = {lat: 33.5113, lng: -86.8129};
+        var saturn = {lat: 33.52, lng: -86.774};
+        var ironCity = {lat: 33.508, lng: -86.7980};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: depot
+        });
+        var depotMarker = new google.maps.Marker({
+          position: depot,
+          map: map
+        });
+        var saturnMarker = new google.maps.Marker({
+          position: saturn,
+          map: map
+        });
+        var ironCityMarker = new google.maps.Marker({
+          position: ironCity,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0xMsHqpTjV94yPTeTo7RVEvz6RLxAARA&callback=initMap">
+    </script>
+</div>
+

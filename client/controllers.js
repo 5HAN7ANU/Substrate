@@ -59,6 +59,7 @@ angular.module('Substrate.controllers', [])
         });
     }])
 
+
     .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
         console.log('About Controller');
     
@@ -71,6 +72,18 @@ angular.module('Substrate.controllers', [])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
+    }])
+
+
+    .controller('ManageMagazineController', ['$scope', '$routeParams', 'Posts', 'SEOService', function($scope, $routeParams, Posts, SEOService){
+        SEOService.setSEO({
+            title: 'Substrate Radio | Magazine Controller',
+            description: 'Articles from our Substrate Radio contributors',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+
+        $scope.posts = Posts.query();//posts that are published
     }])
 
     .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
@@ -94,7 +107,7 @@ angular.module('Substrate.controllers', [])
             id: singleId
         });
 
-        console.log($scope.post);
+        // console.log($scope.post);
 
         $scope.goToUpdate = function () {
             $location.path('magazine/' + singleId + '/update');
@@ -127,6 +140,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
+
     // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
     //     console.log('Admin Controller');
 
@@ -146,6 +160,25 @@ angular.module('Substrate.controllers', [])
     //         url: $location.absUrl()
     //     });
     // }])
+
+    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
+        console.log('Admin Controller');
+
+        $scope.logout = function () {
+            UserService.logout()
+                .then(function () {
+                    $location.path('/');
+                })
+        }
+
+        SEOService.setSEO({
+            title: 'Substrate Radio | Admin',
+            description: 'Do your thing boss-man',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+
     .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
 
         console.log("ContactController");
@@ -187,7 +220,7 @@ angular.module('Substrate.controllers', [])
         function redirect() {
             var dest = $location.search().p;
             if (!dest) {
-                dest = '/users';
+                dest = '/admin';
             }
             $location.path(dest).search('p', null).replace();
         }

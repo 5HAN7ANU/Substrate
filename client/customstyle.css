@@ -2,9 +2,15 @@
 #indexBackground {
   /*background: url('../assets/background1.jpg');*/
   background-repeat: no-repeat;
+<<<<<<< HEAD
   -moz-background-size: contain;
   -o-background-size: contain;
   -webkit-background-size: contain;
+=======
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+>>>>>>> 672a96bd0d3b2881c39109ce025d83d7c88e7c71
   background-size: cover;
   background-position: center center;
 
