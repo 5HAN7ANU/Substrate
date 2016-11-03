@@ -90,6 +90,10 @@ angular.module('Substrate.controllers', [])
     .controller('AboutController', ['$scope', '$location', 'SEOService', function($scope, $location, SEOService) {
         console.log('About Controller');
 
+        $scope.procUserdj = procUserdj.query();
+        console.log(procUserdj);
+
+        
         SEOService.setSEO({
             title: 'Substrate Radio | About Us',
             description: 'Get to know Substrate Radio',
