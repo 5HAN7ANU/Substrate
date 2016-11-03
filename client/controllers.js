@@ -222,7 +222,7 @@ angular.module('Substrate.controllers', [])
                 user.$delete(function() {
                     console.log('User Deleted!');
                     console.log(user);
-                    $scope.users = User.query();
+                    $scope.users = Users.query();
                 });
             }
         }
