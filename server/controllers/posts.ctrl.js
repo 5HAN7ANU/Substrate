@@ -25,6 +25,18 @@ router.route('/')
         });
     });
 
+
+//this may or may not work
+router.route('/unpublished')   //getting unpublished Posts
+    .get(function(req, res){
+        procedures.procGetUnpublishedPosts().then(function(posts) {
+            res.send(posts);
+        }, function(err) {
+            console.log(err);
+            res.sendStatus(500);
+        });
+    })
+
 // = /api/posts/user/:id          getting posts by user
     // router.get('/user/:id', function(req, res){
     //     procedures.procGetPostsByUser(req.params.id).then(function(posts){
@@ -34,6 +46,8 @@ router.route('/')
     //         res.sendStatus(500);
     //     });
     // });
+
+
 
 // = /api/posts/:id
 router.route('/:id')

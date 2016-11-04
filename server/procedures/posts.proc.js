@@ -3,7 +3,9 @@ var db = require('../config/db');
 exports.procAll = function (){
     return db.fnRows('procGetPosts');
 }
-
+exports.procGetUnpublishedPosts = function (){
+    return db.fnRows('procGetUnpublishedPosts')
+}
 exports.procRead = function(id) {
     return db.fnRow('procGetPost', [id]);
 }
