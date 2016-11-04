@@ -1,7 +1,5 @@
 /*index.html*/
-body{
-  background-color: black;
-}
+
 #indexBackground {
   background: url('../assets/background1.jpg');
   background-repeat: no-repeat;
