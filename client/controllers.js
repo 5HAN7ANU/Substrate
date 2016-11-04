@@ -1,7 +1,13 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
         console.log('Home Controller');
+
+        CalendarService.getEvents(10)
+            .then(function(events) {
+                $scope.events = events;
+                console.log($scope.events);
+            });
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -12,11 +18,30 @@ angular.module('Substrate.controllers', [])
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
-        CalendarService.getEvents(15)
-            .then(function (events) {
-                $scope.events = events;
+        CalendarService.getEvents(31)
+            .then(function(events) {
+                var calendarArray = [];
+                var calendarDay;
+                var calendarMonth;
+                for (i = 0; i < events.length; i++) {
+                    var eventDate = new Date(events[i].start.dateTime).getDate();
+                    var eventMonth = new Date(events[i].start.dateTime).getMonth();
+                    if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
+                        var eventArray = [];
+                        eventArray.push(events[i]);
+                        calendarArray.push(eventArray);
+                        calendarDay = eventDate;
+                        calendarMonth = eventMonth;
+                    } else { // not a new day
+                        var eventArray = calendarArray[calendarArray.length - 1];
+                        eventArray.push(events[i]);
+                    }
+                }
+                $scope.calendar = calendarArray;
+                // $scope.events = events;
+                // console.log($scope.events);
             });
-        console.log($scope.events);
+        
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
