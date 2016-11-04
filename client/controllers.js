@@ -13,7 +13,7 @@ angular.module('Substrate.controllers', [])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
         CalendarService.getEvents(15)
-            .then(function(events) {
+            .then(function (events) {
                 $scope.events = events;
             });
         console.log($scope.events);
@@ -26,19 +26,19 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
-        console.log('Magazine Controller'); 
+        console.log('Magazine Controller');
 
-        // UserService.isLoggedIn();
-        // $scope.loggedIn = false;
-        // UserService.me().then(function(me){
-        //     $scope.ME = me;
-        //     $scope.loggedIn = true;
-        // });
-        // $scope.logout = function () {
-        //     UserService.logout().then(function(){
-        //     $route.reload();
-        //     });
-        // }
+        UserService.isLoggedIn();
+        $scope.loggedIn = false;
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+            $scope.loggedIn = true;
+        });
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
+            });
+        }
 
         function getPosts() {
             $scope.posts = Posts.query();
@@ -132,30 +132,80 @@ angular.module('Substrate.controllers', [])
     .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         console.log('Compose Controller');
 
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+        })
+
+        $scope.logout = function () {
+            UserService.logout()
+            $location.path('/posts');
+        }
+
+
+
+        $scope.submitArticle = function () {
+            UserService.me().then(function (me) {
+
+                var data = {
+                    title: $scope.post.title,
+                    userid: me.id,
+                    categoryid: $scope.post.categoryid,
+                    content: $scope.post.content,
+                }
+
+                // var blogPostToCreate = new blogPost(data);
+                // blogPostToCreate.$save(function (success) {
+                //     console.log('post saved successfully')
+                //     $location.path('/posts');
+                // });
+
+            });
+
+        }
+        // $scope.goBack = function () {
+        //     $location.path('/posts');
+        // }
         SEOService.setSEO({
             title: 'Substrate Radio | Compose',
             description: 'Compose an article for Substrate Magazine',
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
-        });
+         });
     }])
+
+    
+
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-        console.log('Admin Controller');
+    console.log('Admin Controller');
 
-        $scope.logout = function () {
-            UserService.logout()
-                .then(function () {
-                    $location.path('/');
-                })
-        }
-
-        SEOService.setSEO({
-            title: 'Substrate Radio | Admin',
-            description: 'Do your thing boss-man',
-            image: 'http://' + $location.host() + '/images/blog.png',
-            url: $location.absUrl()
+    UserService.isLoggedIn();
+    $scope.loggedIn = false;
+    UserService.me().then(function (me) {
+        $scope.ME = me;
+        $scope.loggedIn = true;
+    });
+    $scope.logout = function () {
+        UserService.logout().then(function () {
+            $route.reload();
         });
-    }])
+    }
+    // $scope.logout = function () {
+    //     UserService.logout()
+    //         .then(function () {
+    //             $location.path('/');
+    //         })
+    // }
+
+    SEOService.setSEO({
+        title: 'Substrate Radio | Admin',
+        description: 'Do your thing boss-man',
+        image: 'http://' + $location.host() + '/images/blog.png',
+        url: $location.absUrl()
+    });
+}])
     .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
         console.log("ContactController");
         $scope.sendMessage = function () {
@@ -202,42 +252,42 @@ angular.module('Substrate.controllers', [])
         }
 
     }])
-    .controller('UserProfileController',['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function($scope, Posts, UserService, Users, $location, $http){
-    UserService.requireLogin();
-    UserService.isLoggedIn();
+    .controller('UserProfileController', ['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function ($scope, Posts, UserService, Users, $location, $http) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
 
-    $scope.loggedIn = false;
-    UserService.me().then(function(me){
-        $scope.ME = me;
-        $scope.loggedIn = true;
-       
-    });
-     $scope.logout = function () {
+        $scope.loggedIn = false;
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+            $scope.loggedIn = true;
+
+        });
+        $scope.logout = function () {
             UserService.logout()
             $location.path('/magazine');
-    }  
+        }
 
-    function getUsers(){
-        $scope.users= Users.query();
-        console.log($scope.users);
-    }
-    getUsers();
+        function getUsers() {
+            $scope.users = Users.query();
+            console.log($scope.users);
+        }
+        getUsers();
 
-    UserService.me().then(function(me){  // TO GET POSTS BY LOGGED IN USER
-        var ME = me;
-        var myUserId = ME.id;
-        console.log("this is my user id: " + myUserId);
-        $http({
-            method: 'GET',
-            url: '/api/posts/user/' + myUserId
-        }).then(function(success) {
-            $scope.myPosts = success.data;
-            console.log($scope.myPosts);
-        }, function(err) {
-            console.log(err);
-        });
-    })
-}])
+        UserService.me().then(function (me) {  // TO GET POSTS BY LOGGED IN USER
+            var ME = me;
+            var myUserId = ME.id;
+            console.log("this is my user id: " + myUserId);
+            $http({
+                method: 'GET',
+                url: '/api/posts/user/' + myUserId
+            }).then(function (success) {
+                $scope.myPosts = success.data;
+                console.log($scope.myPosts);
+            }, function (err) {
+                console.log(err);
+            });
+        })
+    }])
     .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
         $scope.create = function () {
             var data = {
@@ -420,15 +470,15 @@ angular.module('Substrate.controllers', [])
             name: 'User',
             value: 'user'
         }, {
-            name: 'Admin',
-            value: 'admin'
-        }];
+                name: 'Admin',
+                value: 'admin'
+            }];
 
         $scope.djValues = [{
             name: 'Yes',
             value: 0
         }, {
-            name: 'No',
-            value: 1
-        }];
+                name: 'No',
+                value: 1
+            }];
     }])
