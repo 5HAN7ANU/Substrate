@@ -1,0 +1,15 @@
+<div>
+    <h1>PUBLISHED POSTS</h1>
+    <div ng-repeat="publishedPost in publishedPosts">
+        <h2>{{ publishedPost.title }}</h2>
+        <h3>{{ publishedPost.authorfirstname }}{{ publishedPost.authorlastname }}</h3>
+    </div>
+</div>
+
+<div>
+    <h1>UNPUBLISHED POSTS</h1>
+    <div ng-repeat="unpublishedPost in unpublishedPosts">
+        <h2>{{ unpublishedPost.title }}</h2>
+        <h3>{{ unpublishedPost.authorfirstname }}{{ publishedPost.authorlastname }}</h3>
+    </div>
+</div>
