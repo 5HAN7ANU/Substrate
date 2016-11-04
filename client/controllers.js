@@ -325,7 +325,6 @@ angular.module('Substrate.controllers', [])
             { name: 'Yes', value: 0 },
             { name: 'No', value: 1 }
         ];
-    }]) }
 
         $scope.logoutPage = function () {
             UserService.logout().then(function () {
