@@ -9,7 +9,6 @@ var router = express.Router();
 router
     .use('/posts', posts)
     .use('/users', users)
-    // .use('/login', users)
     .use('/contact', contact)
     .use('/calendar', calendar);
 module.exports = router;
