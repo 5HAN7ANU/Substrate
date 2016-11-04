@@ -115,7 +115,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('AboutController', ['$scope', '$location', 'SEOService','Users', function ($scope, $location, SEOService, Users) {
+    .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
         console.log('About Controller');
 
         $scope.dj = Users.getDj();
@@ -173,39 +173,39 @@ angular.module('Substrate.controllers', [])
             description: 'Compose an article for Substrate Magazine',
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
-         });
+        });
     }])
 
-    
+
 
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-    console.log('Admin Controller');
+        console.log('Admin Controller');
 
-    UserService.isLoggedIn();
-    $scope.loggedIn = false;
-    UserService.me().then(function (me) {
-        $scope.ME = me;
-        $scope.loggedIn = true;
-    });
-    $scope.logout = function () {
-        UserService.logout().then(function () {
-            $route.reload();
+        UserService.isLoggedIn();
+        $scope.loggedIn = false;
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+            $scope.loggedIn = true;
         });
-    }
-    // $scope.logout = function () {
-    //     UserService.logout()
-    //         .then(function () {
-    //             $location.path('/');
-    //         })
-    // }
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
+            });
+        }
+        // $scope.logout = function () {
+        //     UserService.logout()
+        //         .then(function () {
+        //             $location.path('/');
+        //         })
+        // }
 
-    SEOService.setSEO({
-        title: 'Substrate Radio | Admin',
-        description: 'Do your thing boss-man',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
+        SEOService.setSEO({
+            title: 'Substrate Radio | Admin',
+            description: 'Do your thing boss-man',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
     .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
         console.log("ContactController");
         $scope.sendMessage = function () {
@@ -255,6 +255,7 @@ angular.module('Substrate.controllers', [])
     .controller('UserProfileController', ['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function ($scope, Posts, UserService, Users, $location, $http) {
         UserService.requireLogin();
         UserService.isLoggedIn();
+        UserService.isAdmin();
 
         $scope.loggedIn = false;
         UserService.me().then(function (me) {
@@ -262,9 +263,16 @@ angular.module('Substrate.controllers', [])
             $scope.loggedIn = true;
 
         });
+
+        $scope.amAdmin = false;
+        if (UserService.isAdmin()) {
+            $scope.amAdmin = true;
+        }
+
         $scope.logout = function () {
-            UserService.logout()
-            $location.path('/magazine');
+            UserService.logout().then(function () {
+                $location.path('/magazine');
+            });
         }
 
         function getUsers() {
