@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="customstyle.css">
         <link rel="stylesheet" href="magstyle.css">
         <link rel="stylesheet" href="calendar.css">
+        <link rel="stylesheet" href="grid.css">
+        <link rel="stylesheet" href="style.scss">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
@@ -39,10 +41,12 @@
         <script src="app.js"></script>
     </head>
     <body>
-        <custom-drawer></custom-drawer>
+        <!--<custom-drawer></custom-drawer>
         <div class="app {{ showingDrawer ? 'showing-drawer' : '' }}">
             <custom-navbar></custom-navbar>
             <div id="indexBackground" class="site-content" ng-view></div>
+            -->
+            <div ng-view></div>
         </div>
     </body>
 </html>

@@ -1,16 +1,16 @@
 /*index.html*/
+body{
+  background-color: black;
+}
 #indexBackground {
-  /*background: url('../assets/background1.jpg');*/
+  background: url('../assets/background1.jpg');
   background-repeat: no-repeat;
-<<<<<<< HEAD
   -moz-background-size: contain;
   -o-background-size: contain;
   -webkit-background-size: contain;
-=======
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
->>>>>>> 672a96bd0d3b2881c39109ce025d83d7c88e7c71
   background-size: cover;
   background-position: center center;
 
@@ -80,6 +80,10 @@
     height: 200px;
     max-height: 200px;
     max-width: 100%;
+  }
+  #message{
+    border: 2px solid red;
+    height: 126px;
   }
   
 /* Generic Button Styles */
@@ -182,11 +186,9 @@ textarea.form-control {
 
 /*end compose css*/
 
-<<<<<<< HEAD
 
-#djbox{
-  border: 2px solid red;
-}
+
+
 .picdiv{
   border: 2px solid red;
   height:200px;
