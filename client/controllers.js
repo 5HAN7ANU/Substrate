@@ -26,7 +26,7 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
-        console.log('Magazine Controller');
+        console.log('Magazine Controller'); 
 
         // UserService.isLoggedIn();
         // $scope.loggedIn = false;
