@@ -10,10 +10,10 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
+    .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
-        CalendarService.getEvents()
-            .then(function (events) {
+        CalendarService.getEvents(15)
+            .then(function(events) {
                 $scope.events = events;
             });
         console.log($scope.events);

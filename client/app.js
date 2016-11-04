@@ -1,4 +1,4 @@
-angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'Substrate.directives','NavbarApp.directives'])
+angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', 'Substrate.services','Substrate.factories', 'Substrate.directives'])
 
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -10,7 +10,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
     })
     .when('/events', { 
         templateUrl: 'views/calendar.html',
-        controller: 'EventController'
+        controller: 'CalendarController'
     })
     .when('/magazine/:id', {
         templateUrl: 'views/article.html',

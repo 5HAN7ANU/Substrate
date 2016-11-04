@@ -1,4 +1,4 @@
-angular.module('NavbarApp.directives', [])
+angular.module('Substrate.directives', [])
 .directive('customNavbar', function() {
     return {
         templateUrl: 'views/directives/navbar.html',
@@ -21,9 +21,7 @@ angular.module('NavbarApp.directives', [])
             });
         }
     }
-}]);
-
-angular.module('Substrate.directives', [])
+}])
 .directive('markdownRenderer',  function(){
     marked.setOptions({
         renderer: new marked.Renderer(),
