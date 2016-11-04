@@ -10,7 +10,7 @@ angular.module('Substrate.factories', [])
             method: 'PUT',
             headers: {'Content-Type': 'application/json'}
         },
-        getDj: {//custom api to get all dj
+        getDj: {
             method: 'GET',
             isArray: true,
             url: '/api/users/dj'

@@ -115,11 +115,11 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('AboutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('AboutController', ['$scope', '$location', 'SEOService','Users', function ($scope, $location, SEOService, Users) {
         console.log('About Controller');
 
-        $scope.procUserdj = procUserdj.query();
-        console.log(procUserdj);
+        $scope.dj = Users.getDj();
+        console.log($scope.dj);
 
 
         SEOService.setSEO({
