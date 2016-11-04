@@ -214,11 +214,11 @@ angular.module('Substrate.controllers', [])
     });
      $scope.logout = function () {
             UserService.logout()
-            $location.path('/posts');
+            $location.path('/magazine');
     }  
 
     function getUsers(){
-        $scope.users= UserFactory.query();
+        $scope.users= Users.query();
         console.log($scope.users);
     }
     getUsers();
