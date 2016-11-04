@@ -13,12 +13,10 @@ angular.module('Substrate.controllers', [])
     });
 }])
 
-<<<<<<< HEAD
+
 
     .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-=======
-.controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
->>>>>>> nepal-dev
+
         console.log('Event Controller');
 
         CalendarService.getEvents()
@@ -65,11 +63,7 @@ angular.module('Substrate.controllers', [])
     }])
 
 
-.controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
-    console.log('About Controller');
 
-<<<<<<< HEAD
- 
     .controller('ManageMagazineController', ['$scope', '$http', '$routeParams', 'Posts', 'SEOService', '$location', function ($scope, $http, $routeParams, Posts, SEOService, $location) {
 
         SEOService.setSEO({
@@ -95,21 +89,10 @@ angular.module('Substrate.controllers', [])
         });
     }])
 
-    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
-        console.log('Article Controller');
+.controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
+    console.log('About Controller');
 
-        // UserService.isLoggedIn();
-        // $scope.loggedIn = false;
-        // UserService.me().then(function(me){
-        //     $scope.ME = me;
-        //     $scope.loggedIn = true;
-        // })
-        // $scope.logout = function () {
-        //     UserService.logout().then(function(){
-        //     $route.reload();
-        //     });
-        // }
-=======
+ 
     $scope.dj = Users.getDj();
     console.log($scope.dj);
 
@@ -160,7 +143,7 @@ angular.module('Substrate.controllers', [])
     //     $route.reload();
     //     });
     // }
->>>>>>> nepal-dev
+
 
     var singleId = $routeParams.id;
     console.log(singleId);
@@ -191,10 +174,8 @@ angular.module('Substrate.controllers', [])
 
 
 .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-
     console.log('Compose Controller');
 
-<<<<<<< HEAD
         SEOService.setSEO({
             title: 'Substrate Radio | Compose',
             description: 'Compose an article for Substrate Magazine',
@@ -204,45 +185,15 @@ angular.module('Substrate.controllers', [])
     }])
         // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
     //     console.log('Admin Controller');
-=======
-    SEOService.setSEO({
-        title: 'Substrate Radio | Compose',
-        description: 'Compose an article for Substrate Magazine',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
-
-// .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
-//     console.log('Admin Controller');
->>>>>>> nepal-dev
 
 
-//     SEOService.setSEO({
-//         title: 'Substrate Radio | Admin',
-//         description: 'Do your thing boss-man',
-//         image: 'http://' + $location.host() + '/images/blog.png',
-//         url: $location.absUrl()
-//     });
-// }])
 
-//     SEOService.setSEO({
-//         title: 'Substrate Radio | Admin',
-//         description: 'Do your thing boss-man',
-//         image: 'http://' + $location.host() + '/images/blog.png',
-//         url: $location.absUrl()
-//     });
-// }])
 
-<<<<<<< HEAD
 
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
 
         console.log('Admin Controller');
-=======
-.controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-    console.log('Admin Controller');
->>>>>>> nepal-dev
+
 
     $scope.logout = function () {
         UserService.logout()
