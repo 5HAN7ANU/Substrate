@@ -129,7 +129,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', 'Posts', function ($scope, $location, UserService, SEOService, Posts) {
         console.log('Compose Controller');
 
         UserService.requireLogin();
@@ -143,9 +143,6 @@ angular.module('Substrate.controllers', [])
             UserService.logout()
             $location.path('/posts');
         }
-
-
-
         $scope.submitArticle = function () {
             UserService.me().then(function (me) {
 
@@ -156,18 +153,18 @@ angular.module('Substrate.controllers', [])
                     content: $scope.post.content,
                 }
 
-                // var blogPostToCreate = new blogPost(data);
-                // blogPostToCreate.$save(function (success) {
-                //     console.log('post saved successfully')
-                //     $location.path('/posts');
-                // });
+                var articleToPost = new Posts(data);
+                articleToPost.$save(function (success) {
+                    console.log('Article submitted successfully')
+                    $location.path('/userprofile');
+                });
 
             });
 
         }
-        // $scope.goBack = function () {
-        //     $location.path('/posts');
-        // }
+        $scope.goBack = function () {
+            $location.path('/userprofile');
+        }
         SEOService.setSEO({
             title: 'Substrate Radio | Compose',
             description: 'Compose an article for Substrate Magazine',
