@@ -11,7 +11,8 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 
-exports.getEventList = function() {
+exports.getEventList = function(eventCount) {
+  console.log(eventCount)
   return new Promise(function(resolve, reject) {
     // Load client secrets from a local file.
     fs.readFile('./client_secret.json', function processClientSecrets(err, content) {
@@ -28,7 +29,7 @@ exports.getEventList = function() {
   .then(function(credentials) {
     return authorize(credentials);
   }).then(function(oauth2) {
-    return listEvents(oauth2);
+    return listEvents(oauth2, eventCount);
   });
   // .then(authorize)
   // .then(listEvents);
@@ -120,14 +121,14 @@ function storeToken(token) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth) {
+function listEvents(auth, eventCount) {
   return new Promise(function(resolve, reject) {
     var calendar = google.calendar('v3');
     calendar.events.list({
       auth: auth,
       calendarId: 'primary',
       timeMin: (new Date()).toISOString(),
-      maxResults: 28,
+      maxResults: eventCount,
       singleEvents: true,
       orderBy: 'startTime'
     }, function(err, response) {

@@ -48,8 +48,6 @@ router.get('/', auth.isAdmin, function (req, res) {//includes isAdmin, i.e. you 
         res.status(500).send(err);
     });
 });
-
-
 router.post('/', auth.isAdmin, function (req, res) {//you can only post/create a user if you are an admin //post = create in this case
     var u = req.body;
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
@@ -68,7 +66,14 @@ router.get('/me', function (req, res) {//get request to /api/users/me
     res.send(req.user);//we are guaranteed that we are going to be logged in, and we are sending a user object with the current logged in user back with its properties (id, email, firstname, lastname) // passport sets req.user
 });
 
-
+router.get('/dj', function(req, res) {
+    procedures.procUserDj()
+    .then(function(procUserDj) {
+        res.send(procUserDj);
+    }, function(err){
+        res.status(500).send(err);
+    })
+})
 
 router.get('/:id', auth.isAdmin, function (req, res) {
     procedures.procGetUser(req.params.id).then(function (user) {
@@ -119,5 +124,6 @@ router.delete('/:id', auth.isAdmin, function (req, res, next) {
             res.status(500);
         });
 });
+
 
 module.exports = router;

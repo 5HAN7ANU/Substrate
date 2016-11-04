@@ -11,5 +11,4 @@ router
     .use('/users', users)
     .use('/contact', contact)
     .use('/calendar', calendar);
-
 module.exports = router;
