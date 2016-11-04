@@ -23,14 +23,26 @@
     width: 257px;
     height: 200px;
     box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
     margin: 5% auto 0 auto;
     background-size: cover;
     border-radius: 5px;
     overflow: hidden;
     margin-left: 53px;
+	 border-radius: 20%;
+	 position: relative;
+	 float: left;
 }
+
+ /*#box {
+     border: 3px solid yellow;
+     color: grey;
+     width: 270px;
+     height: 405px;
+     float: left;
+     margin: 20px;
+     border-radius: 8px;
+     position: relative;
+ }*/
 
 #bio {
     font-size: 12px;

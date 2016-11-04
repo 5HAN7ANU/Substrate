@@ -192,7 +192,7 @@ textarea.form-control {
   height:200px;
   width: 100px;
 }
- #box {
+ /*#box {
      border: 3px solid yellow;
      color: grey;
      width: 270px;
@@ -201,7 +201,7 @@ textarea.form-control {
      margin: 20px;
      border-radius: 8px;
      position: relative;
- }
+ }*/
 
 /*userlist.html*/
 #usersList {
