@@ -1,7 +1,10 @@
 
 
  <div class="container" id="top-container">
-   
+      <select id="publish-selector" ng-model= "post.publish">
+                    <option value="">Select Category</option>
+                    <!--<option value="{{ category.id }}" ng-repeat="category in categories" ng-model="post.categoryid">{{ category.name }}</option>-->
+        </select>
       <input type="text" id = 'editTitleBox' class="form-control" ng-model="post.title">
 </div>
 
@@ -15,4 +18,4 @@
           <button id = 'deleteButton' class="btn btn-default" type="button" ng-click="promptDelete()">Delete</button>   
           <button id = 'cancelUpdateButton' class="btn btn-default" type="button" ng-click="cancelupdate()">Go Back</button>
        
- </div>
+    </div>
