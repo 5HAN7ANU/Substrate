@@ -16,7 +16,7 @@ angular.module('Substrate.controllers', [])
             .then(function(events) {
                 $scope.events = events;
             });
-            console.log($scope.events);
+        console.log($scope.events);
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -53,7 +53,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('ManageMagazineController', ['$scope', '$routeParams', 'Posts', 'SEOService', function($scope, $routeParams, Posts, SEOService){
+    .controller('ManageMagazineController', ['$scope', '$http', '$routeParams', 'Posts', 'SEOService', '$location', function ($scope, $http, $routeParams, Posts, SEOService, $location) {
         SEOService.setSEO({
             title: 'Substrate Radio | Magazine Controller',
             description: 'Articles from our Substrate Radio contributors',
@@ -61,7 +61,20 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
 
-        $scope.posts = Posts.query();//posts that are published
+        $scope.publishedPosts = Posts.query();//posts that are published
+
+        // function getUnpublishedPosts(){
+
+        // }
+        $http({
+            method: 'GET',
+            url: '/api/posts/unpublished'
+        }).then(function (success) {
+            $scope.unpublishedPosts = success.data;
+            console.log($scope.unpublishedPosts);
+        }, function (err) {
+            console.log(err);
+        });
     }])
     .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
         console.log('Article Controller');
@@ -126,7 +139,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
+    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         console.log('Admin Controller');
 
         $scope.logout = function () {
