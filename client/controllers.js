@@ -202,7 +202,7 @@ angular.module('Substrate.controllers', [])
 
     $scope.update = function() {
         $scope.post.$update(function(success) {
-            $location.path('/' + id );
+            $location.path('/userprofile');
         });  
     }
     $scope.promptDelete = function() {
