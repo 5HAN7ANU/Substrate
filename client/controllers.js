@@ -198,6 +198,51 @@ angular.module('Substrate.controllers', [])
         });
     }])
 
+  .controller('EditArticleController',['$scope', 'UserService', 'Posts', '$routeParams', '$location', function($scope, UserService, Posts, $routeParams, $location){
+     UserService.requireLogin();
+     UserService.requiresAdmin();
+     UserService.isLoggedIn();
+
+
+//--------------------------------------NAV BAR
+    $scope.loggedIn = false;
+    $scope.ifAdmin = false;
+    UserService.me().then(function(me){
+        $scope.ME = me;
+        $scope.loggedIn = true;
+        if (me.role === 'admin') {
+            $scope.ifAdmin = true;
+        }
+    });
+    $scope.logout = function () {
+        UserService.logout().then(function(){
+        $route.reload();
+        });
+    }
+//------------------------------------------
+
+    var id = $routeParams.id;
+    $scope.post = Posts.get({ id: id});
+
+
+    $scope.update = function() {
+        $scope.post.$update(function(success) {
+            $location.path('/' + id );
+        });  
+    }
+    $scope.promptDelete = function() {
+        var shouldDelete = confirm('Are you sure you want to delete this entry?');
+        if (shouldDelete) {
+            $scope.post.$delete(function(success) {
+                $location.path('/posts');
+            });
+        }
+    }
+    $scope.cancelupdate = function() {
+        $location.path('/' + id );
+    }
+}])
+
 
 
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
