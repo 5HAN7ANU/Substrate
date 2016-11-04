@@ -1,7 +1,13 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
         console.log('Home Controller');
+
+        CalendarService.getEvents(10)
+            .then(function(events) {
+                $scope.events = events;
+                console.log($scope.events);
+            });
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -12,11 +18,30 @@ angular.module('Substrate.controllers', [])
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
-        CalendarService.getEvents(15)
-            .then(function (events) {
-                $scope.events = events;
+        CalendarService.getEvents(31)
+            .then(function(events) {
+                var calendarArray = [];
+                var calendarDay;
+                var calendarMonth;
+                for (i = 0; i < events.length; i++) {
+                    var eventDate = new Date(events[i].start.dateTime).getDate();
+                    var eventMonth = new Date(events[i].start.dateTime).getMonth();
+                    if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
+                        var eventArray = [];
+                        eventArray.push(events[i]);
+                        calendarArray.push(eventArray);
+                        calendarDay = eventDate;
+                        calendarMonth = eventMonth;
+                    } else { // not a new day
+                        var eventArray = calendarArray[calendarArray.length - 1];
+                        eventArray.push(events[i]);
+                    }
+                }
+                $scope.calendar = calendarArray;
+                // $scope.events = events;
+                // console.log($scope.events);
             });
-        console.log($scope.events);
+        
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -129,7 +154,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', 'Posts', function ($scope, $location, UserService, SEOService, Posts) {
         console.log('Compose Controller');
 
         UserService.requireLogin();
@@ -143,9 +168,6 @@ angular.module('Substrate.controllers', [])
             UserService.logout()
             $location.path('/posts');
         }
-
-
-
         $scope.submitArticle = function () {
             UserService.me().then(function (me) {
 
@@ -156,18 +178,18 @@ angular.module('Substrate.controllers', [])
                     content: $scope.post.content,
                 }
 
-                // var blogPostToCreate = new blogPost(data);
-                // blogPostToCreate.$save(function (success) {
-                //     console.log('post saved successfully')
-                //     $location.path('/posts');
-                // });
+                var articleToPost = new Posts(data);
+                articleToPost.$save(function (success) {
+                    console.log('Article submitted successfully')
+                    $location.path('/userprofile');
+                });
 
             });
 
         }
-        // $scope.goBack = function () {
-        //     $location.path('/posts');
-        // }
+        $scope.goBack = function () {
+            $location.path('/userprofile');
+        }
         SEOService.setSEO({
             title: 'Substrate Radio | Compose',
             description: 'Compose an article for Substrate Magazine',
@@ -175,6 +197,51 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
+
+  .controller('EditArticleController',['$scope', 'UserService', 'Posts', '$routeParams', '$location', function($scope, UserService, Posts, $routeParams, $location){
+     UserService.requireLogin();
+     UserService.requiresAdmin();
+     UserService.isLoggedIn();
+
+
+//--------------------------------------NAV BAR
+    $scope.loggedIn = false;
+    $scope.ifAdmin = false;
+    UserService.me().then(function(me){
+        $scope.ME = me;
+        $scope.loggedIn = true;
+        if (me.role === 'admin') {
+            $scope.ifAdmin = true;
+        }
+    });
+    $scope.logout = function () {
+        UserService.logout().then(function(){
+        $route.reload();
+        });
+    }
+//------------------------------------------
+
+    var id = $routeParams.id;
+    $scope.post = Posts.get({ id: id});
+
+
+    $scope.update = function() {
+        $scope.post.$update(function(success) {
+            $location.path('/userprofile');
+        });  
+    }
+    $scope.promptDelete = function() {
+        var shouldDelete = confirm('Are you sure you want to delete this entry?');
+        if (shouldDelete) {
+            $scope.post.$delete(function(success) {
+                $location.path('/posts');
+            });
+        }
+    }
+    $scope.cancelupdate = function() {
+        $location.path('/' + id );
+    }
+}])
 
 
 

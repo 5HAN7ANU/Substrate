@@ -16,7 +16,7 @@
             <div class="container " id="post-container ">
                   <div class="list-group " id="list-content " ng-repeat="post in myPosts ">
                     <div class="list-group-item ">
-                        <p class="titlebyline "><a class='link' ng-href="/{{ post.id }} " >{{ post.title }} </a><br>by {{ post.firstname }} {{ post.lastname }}</p> 
+                        <p class="titlebyline "><a class='link' ng-href="/magazine/{{ post.id }} " >{{ post.title }} </a><br>by {{ post.firstname }} {{ post.lastname }}</p> 
                         <p class="pubDate"> {{ post.createdAt | date: 'short' }}</p>  
                     </div> 
                 </div>
