@@ -10,10 +10,10 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-    .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
+    .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
-        CalendarService.getEvents()
-            .then(function (events) {
+        CalendarService.getEvents(15)
+            .then(function(events) {
                 $scope.events = events;
             });
         console.log($scope.events);
@@ -26,7 +26,7 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
-        console.log('Magazine Controller');
+        console.log('Magazine Controller'); 
 
         // UserService.isLoggedIn();
         // $scope.loggedIn = false;
@@ -361,4 +361,74 @@ angular.module('Substrate.controllers', [])
             { name: 'Yes', value: 0 },
             { name: 'No', value: 1 }
         ];
+
+        $scope.logoutPage = function () {
+            UserService.logout().then(function () {
+                console.log('logged out!');
+                $location.path('/login');
+            });
+            alert('You have been logged out!');
+        };
+    }])
+    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
+        console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
+        UserService.me();
+        var userId = $routeParams.id;
+
+
+        $scope.featuredUser = Users.get({
+            id: userId
+        }, function () {
+
+            console.log('The user is: ' + $scope.featuredUser.firstname);
+            $scope.id = $scope.featuredUser.id;
+            $scope.firstname = $scope.featuredUser.firstname;
+            $scope.lastname = $scope.featuredUser.lastname;
+            $scope.email = $scope.featuredUser.email;
+            $scope.password = $scope.featuredUser.password;
+            $scope.role = $scope.featuredUser.role;
+            $scope.dj = $scope.featuredUser.dj;
+            console.log('controllers.js/UpdateUserController: The user role is: ' + $scope.role);
+        });
+
+        $scope.updateUser = function () {
+            console.log('Controllers.js/UpdateUserController: entered the updateUser function');
+
+            $scope.featuredUser.id = $scope.id;
+            $scope.featuredUser.firstname = $scope.firstname;
+            $scope.featuredUser.lastname = $scope.lastname;
+            $scope.featuredUser.email = $scope.email;
+            $scope.featuredUser.password = $scope.password;
+            $scope.featuredUser.role = $scope.role;
+            $scope.featuredUser.dj = $scope.dj;
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.email ' + $scope.featuredUser.email);
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
+
+            $scope.featuredUser.$update(function (success) {
+                console.log('controllers.js/UpdateUserController: The user was updated!');
+                location.pathname = '/users';
+            });
+        };
+
+        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
+
+        $scope.roles = [{
+            name: 'User',
+            value: 'user'
+        }, {
+            name: 'Admin',
+            value: 'admin'
+        }];
+
+        $scope.djValues = [{
+            name: 'Yes',
+            value: 0
+        }, {
+            name: 'No',
+            value: 1
+        }];
     }])

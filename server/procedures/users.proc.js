@@ -24,6 +24,6 @@ exports.procDeleteUser = function(id){
    return db.fnEmpty('procDeleteUser', [id]);
 }
 
-exports.procUserDj = function(firstname, imageurl, bio){
-    return db.fnRow('procUserDj', [firstname, imageurl, bio])
+exports.procUserDj = function(){
+    return db.fnRows('procUserDj');
 }

@@ -1,7 +1,11 @@
 /*index.html*/
+
 #indexBackground {
-  background: url('../assets/substrateBackground.jpeg');
+  background: url('../assets/background1.jpg');
   background-repeat: no-repeat;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  -webkit-background-size: contain;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -74,6 +78,10 @@
     height: 200px;
     max-height: 200px;
     max-width: 100%;
+  }
+  #message{
+    border: 2px solid red;
+    height: 126px;
   }
   
 /* Generic Button Styles */
@@ -176,6 +184,25 @@ textarea.form-control {
 
 /*end compose css*/
 
+
+
+
+.picdiv{
+  border: 2px solid red;
+  height:200px;
+  width: 100px;
+}
+ /*#box {
+     border: 3px solid yellow;
+     color: grey;
+     width: 270px;
+     height: 405px;
+     float: left;
+     margin: 20px;
+     border-radius: 8px;
+     position: relative;
+ }*/
+
 /*userlist.html*/
 #usersList {
   float: left;
@@ -189,3 +216,4 @@ textarea.form-control {
     color: red;
   }
 /*end updateuser.html*/
+
