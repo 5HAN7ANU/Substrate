@@ -5,23 +5,27 @@
 }
 
 .card-block {
-    width: 25%;
-    height: 25%;
+    width: 30%;
+    min-height: 275px;
     border: slategray solid 1px;
+    color: white;
     float: left;
     margin: 5px;
+    clear: right;
 }
 
-.event-time {
-    font-size: 30px;
+.date-time {
+    font-size: 40px;
 }
 
-.event-title {
+.date-title {
     font-size: 18px;
+    margin-top: 30px;
 }
 
-.event-location {
+.date-location {
     font-size: 15px;
+    margin-bottom: 15px;
 }
 
 #map {
@@ -36,4 +40,21 @@
     text-align: center;
     margin: 20px auto;
     clear: both;
+}
+
+#cal {
+    margin-left: 7%;
+    margin-top: 50px;
+}
+
+.date-information {
+    text-align: center; 
+    vertical-align: middle;
+
+}
+
+.calendar-header {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
 }

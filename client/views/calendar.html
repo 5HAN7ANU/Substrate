@@ -1,12 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="card card-block" ng-repeat="event in events">
-      <h4 class="card-title">{{ event.start.dateTime | date: 'shortDate' }}</h4>
-      <p class="card-text">{{ event.summary }}</p>
-      <p class="card-text">{{ event.location }}</p>
-    </div>
+<div class="calendar-header">
+  <h2>Upcoming Events</h2>
+</div>
+<div class="container" id="cal">
+  <div class="card card-block" ng-repeat="day in calendar">
+      <div class="date-header">
+        <h4 class="date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
+      </div>
+      <div ng-repeat="event in day">
+        <div class="date-information">
+          <p class="date-title">{{ event.summary }}</p>
+          <p class="date-text">{{ event.location }}</p>
+        </div>
+      </div>
   </div>
 </div>
+</container>
 <div class="map-container">
   <h3>Venue Locations</h3>
   <div id="map"></div>
