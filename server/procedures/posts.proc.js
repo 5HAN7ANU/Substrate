@@ -22,6 +22,6 @@ exports.procDestroy = function(id) {
     return db.fnEmpty('procDeletePost', [id]);
 }
 
-// exports.procGetPostsByUser = function(id) {
-//     return db.fnRows('procGetPostsByUser', [id]);
-// }
+exports.procGetPostsByUser = function(id) {
+    return db.fnRows('procGetPostsByUser', [id]);
+}
