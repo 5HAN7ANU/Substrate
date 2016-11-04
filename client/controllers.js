@@ -1,30 +1,22 @@
 angular.module('Substrate.controllers', [])
 
+    .controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+        console.log('Home Controller');
 
-.controller('HomeController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-
-    console.log('Home Controller');
-
-    SEOService.setSEO({
-        title: 'Substrate Radio | Home',
-        description: 'Welcome to Substrate Radio',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
-
-
-
-    .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
-
-        console.log('Event Controller');
+        SEOService.setSEO({
+            title: 'Substrate Radio | Home',
+            description: 'Welcome to Substrate Radio',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+    .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
         CalendarService.getEvents()
             .then(function (events) {
                 $scope.events = events;
             });
         console.log($scope.events);
-
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -34,7 +26,7 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
-        console.log('Magazine Controller');
+        console.log('Magazine Controller'); 
 
         // UserService.isLoggedIn();
         // $scope.loggedIn = false;
@@ -61,11 +53,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-
-
-
     .controller('ManageMagazineController', ['$scope', '$http', '$routeParams', 'Posts', 'SEOService', '$location', function ($scope, $http, $routeParams, Posts, SEOService, $location) {
-
         SEOService.setSEO({
             title: 'Substrate Radio | Magazine Controller',
             description: 'Articles from our Substrate Radio contributors',
@@ -88,93 +76,61 @@ angular.module('Substrate.controllers', [])
             console.log(err);
         });
     }])
+    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
+        console.log('Article Controller');
 
-.controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
-    console.log('About Controller');
+        // UserService.isLoggedIn();
+        // $scope.loggedIn = false;
+        // UserService.me().then(function(me){
+        //     $scope.ME = me;
+        //     $scope.loggedIn = true;
+        // })
+        // $scope.logout = function () {
+        //     UserService.logout().then(function(){
+        //     $route.reload();
+        //     });
+        // }
 
- 
-    $scope.dj = Users.getDj();
-    console.log($scope.dj);
+        var singleId = $routeParams.id;
+        console.log(singleId);
+        $scope.post = Posts.get({ id: singleId });
 
-    $scope.detailMode = false;
-    $scope.toggleDetails = function (dj) {
-        if (dj.showingDetails === true) { // if the clicked dj is already showing details
-            dj.showingDetails = false; // make the clicked dj not show details
-            $scope.detailMode = false; // indicate that we are NOT showing details somewhere on the page
-        } else { // the clicked dj is not already showing details
-            if ($scope.detailMode !== true) { // if we are NOT showing details anywhere on the page
-                dj.showingDetails = true; // show details for this dj
-                $scope.detailMode = true; // indicate that we ARE showing details somewhere on the page
-            }
+        // console.log($scope.post);
+
+        $scope.goToUpdate = function () {
+            $location.path('magazine/' + singleId + '/update');
         }
-    };
-
-    SEOService.setSEO({
-        title: 'Substrate Radio | About Us',
-        description: 'Get to know Substrate Radio',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
 
 
-.controller('ManageMagazineController', ['$scope', '$routeParams', 'Posts', 'SEOService', function ($scope, $routeParams, Posts, SEOService) {
-    SEOService.setSEO({
-        title: 'Substrate Radio | Magazine Controller',
-        description: 'Articles from our Substrate Radio contributors',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
+        // $scope.goHome = function() {
+        //     $location.path('/posts');
+        // }
 
-    $scope.posts = Posts.query(); //posts that are published
-}])
+        // }])
 
-.controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
-    console.log('Article Controller');
+        SEOService.setSEO({
+            title: 'Substrate Radio | Magazine',
+            description: 'Articles from our Substrate Radio contributors',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+    .controller('AboutController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
+        console.log('About Controller');
 
-    // UserService.isLoggedIn();
-    // $scope.loggedIn = false;
-    // UserService.me().then(function(me){
-    //     $scope.ME = me;
-    //     $scope.loggedIn = true;
-    // })
-    // $scope.logout = function () {
-    //     UserService.logout().then(function(){
-    //     $route.reload();
-    //     });
-    // }
+        $scope.procUserdj = procUserdj.query();
+        console.log(procUserdj);
 
 
-    var singleId = $routeParams.id;
-    console.log(singleId);
-    $scope.post = Posts.get({
-        id: singleId
-    });
-
-    // console.log($scope.post);
-
-    $scope.goToUpdate = function () {
-        $location.path('magazine/' + singleId + '/update');
-    }
-
-
-    // $scope.goHome = function() {
-    //     $location.path('/posts');
-    // }
-
-    // }])
-
-    SEOService.setSEO({
-        title: 'Substrate Radio | Magazine',
-        description: 'Articles from our Substrate Radio contributors',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
-
-
-.controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-    console.log('Compose Controller');
+        SEOService.setSEO({
+            title: 'Substrate Radio | About Us',
+            description: 'Get to know Substrate Radio',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+        console.log('Compose Controller');
 
         SEOService.setSEO({
             title: 'Substrate Radio | Compose',
@@ -183,35 +139,24 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-        // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
-    //     console.log('Admin Controller');
-
-
-
-
-
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
-
         console.log('Admin Controller');
 
+        $scope.logout = function () {
+            UserService.logout()
+                .then(function () {
+                    $location.path('/');
+                })
+        }
 
-    $scope.logout = function () {
-        UserService.logout()
-            .then(function () {
-                $location.path('/');
-            })
-    }
-
-    SEOService.setSEO({
-        title: 'Substrate Radio | Admin',
-        description: 'Do your thing boss-man',
-        image: 'http://' + $location.host() + '/images/blog.png',
-        url: $location.absUrl()
-    });
-}])
-
-.controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
-
+        SEOService.setSEO({
+            title: 'Substrate Radio | Admin',
+            description: 'Do your thing boss-man',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+    .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
         console.log("ContactController");
         $scope.sendMessage = function () {
             console.log('inside contact controller');
@@ -277,21 +222,15 @@ angular.module('Substrate.controllers', [])
 
         // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
 
-        $scope.roles = [{
-            name: 'User',
-            value: 'user'
-        }, {
-            name: 'Admin',
-            value: 'admin'
-        }];
+        $scope.roles = [
+            { name: 'User', value: 'user' },
+            { name: 'Admin', value: 'admin' }
+        ];
 
-        $scope.djValues = [{
-            name: 'Yes',
-            value: 1
-        }, {
-            name: 'No',
-            value: 0
-        }];
+        $scope.djValues = [
+            { name: 'Yes', value: 1 },
+            { name: 'No', value: 0 }
+        ];
 
         $scope.role_default = 'user';
     }])
@@ -326,6 +265,67 @@ angular.module('Substrate.controllers', [])
                 });
             }
         }
+
+        $scope.logoutPage = function () {
+            UserService.logout().then(function () {
+                console.log('logged out!');
+                $location.path('/login');
+            });
+            alert('You have been logged out!');
+        };
+    }])
+    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
+        console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
+        UserService.me();
+        var userId = $routeParams.id;
+
+        $scope.featuredUser = Users.get({ id: userId }, function () {
+            console.log('The user is: ' + $scope.featuredUser.firstname);
+            $scope.id = $scope.featuredUser.id;
+            $scope.firstname = $scope.featuredUser.firstname;
+            $scope.lastname = $scope.featuredUser.lastname;
+            $scope.email = $scope.featuredUser.email;
+            $scope.password = $scope.featuredUser.password;
+            $scope.role = $scope.featuredUser.role;
+            $scope.dj = $scope.featuredUser.dj;
+            console.log('controllers.js/UpdateUserController: The user role is: ' + $scope.role);
+        });
+
+        $scope.updateUser = function () {
+            console.log('Controllers.js/UpdateUserController: entered the updateUser function');
+
+            $scope.featuredUser.id = $scope.id;
+            $scope.featuredUser.firstname = $scope.firstname;
+            $scope.featuredUser.lastname = $scope.lastname;
+            $scope.featuredUser.email = $scope.email;
+            $scope.featuredUser.password = $scope.password;
+            $scope.featuredUser.role = $scope.role;
+            $scope.featuredUser.dj = $scope.dj;
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.email ' + $scope.featuredUser.email);
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
+
+            $scope.featuredUser.$update(function (success) {
+                console.log('controllers.js/UpdateUserController: The user was updated!');
+                location.pathname = '/users';
+            });
+        };
+
+        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
+
+        $scope.roles = [
+            { name: 'User', value: 'user' },
+            { name: 'Admin', value: 'admin' }
+        ];
+
+        $scope.djValues = [
+            { name: 'Yes', value: 0 },
+            { name: 'No', value: 1 }
+        ];
+    }]) }
 
         $scope.logoutPage = function () {
             UserService.logout().then(function () {
