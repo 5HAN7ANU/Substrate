@@ -196,12 +196,48 @@ angular.module('Substrate.controllers', [])
         function redirect() {
             var dest = $location.search().p;
             if (!dest) {
-                dest = '/admin';
+                dest = '/userprofile';
             }
             $location.path(dest).search('p', null).replace();
         }
 
     }])
+    .controller('UserProfileController',['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function($scope, Posts, UserService, Users, $location, $http){
+    UserService.requireLogin();
+    UserService.isLoggedIn();
+
+    $scope.loggedIn = false;
+    UserService.me().then(function(me){
+        $scope.ME = me;
+        $scope.loggedIn = true;
+       
+    });
+     $scope.logout = function () {
+            UserService.logout()
+            $location.path('/posts');
+    }  
+
+    function getUsers(){
+        $scope.users= UserFactory.query();
+        console.log($scope.users);
+    }
+    getUsers();
+
+    UserService.me().then(function(me){  // TO GET POSTS BY LOGGED IN USER
+        var ME = me;
+        var myUserId = ME.id;
+        console.log("this is my user id: " + myUserId);
+        $http({
+            method: 'GET',
+            url: '/api/posts/user/' + myUserId
+        }).then(function(success) {
+            $scope.myPosts = success.data;
+            console.log($scope.myPosts);
+        }, function(err) {
+            console.log(err);
+        });
+    })
+}])
     .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
         $scope.create = function () {
             var data = {

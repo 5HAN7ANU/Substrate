@@ -48,6 +48,10 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+    .when('/userprofile',{
+        templateUrl: 'views/userprofile.html',
+        controller: 'UserProfileController'
+    })
     .when('/users/:id/update', {
         templateUrl: 'views/updateuser.html',
         controller: 'UpdateUserController'
