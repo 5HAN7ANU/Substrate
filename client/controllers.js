@@ -12,17 +12,12 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
+
 
     .controller('EventController', ['$scope', '$location', 'SEOService', function ($scope, $location, SEOService) {
         console.log('Event Controller');
 
         CalendarService.getEvents()
-=======
-    .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function($scope, $location, SEOService, CalendarService) {
-        
-        CalendarService.getEvents(15)
->>>>>>> 95f49c53c6072de667adf7741b0f4029efbe19c0
             .then(function(events) {
                 $scope.events = events;
             });
@@ -64,7 +59,6 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
 
 
     .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
@@ -82,10 +76,9 @@ angular.module('Substrate.controllers', [])
     }])
 
 
-    .controller('ManageMagazineController', ['$scope', '$routeParams', 'Posts', 'SEOService', function($scope, $routeParams, Posts, SEOService){
-=======
+ 
     .controller('ManageMagazineController', ['$scope', '$http', '$routeParams', 'Posts', 'SEOService', '$location', function ($scope, $http, $routeParams, Posts, SEOService, $location) {
->>>>>>> 95f49c53c6072de667adf7741b0f4029efbe19c0
+
         SEOService.setSEO({
             title: 'Substrate Radio | Magazine Controller',
             description: 'Articles from our Substrate Radio contributors',
@@ -163,9 +156,7 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
-<<<<<<< HEAD
-
-    // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
+        // .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
     //     console.log('Admin Controller');
 
 
@@ -185,10 +176,9 @@ angular.module('Substrate.controllers', [])
     //     });
     // }])
 
-    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
-=======
+
     .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
->>>>>>> 95f49c53c6072de667adf7741b0f4029efbe19c0
+
         console.log('Admin Controller');
 
         $scope.logout = function () {
