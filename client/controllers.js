@@ -12,7 +12,7 @@ angular.module('Substrate.controllers', [])
     }])
     .controller('EventController', ['$scope', '$location', 'SEOService', 'CalendarService', function($scope, $location, SEOService, CalendarService) {
         
-        CalendarService.getEvents()
+        CalendarService.getEvents(15)
             .then(function(events) {
                 $scope.events = events;
             });

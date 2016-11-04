@@ -97,10 +97,11 @@ angular.module('Substrate.services', [])
     }
 }])
 .service('CalendarService', ['$http', '$location', function($http, $location) {
-    this.getEvents = function() {
+    this.getEvents = function(eventCount) {
+        console.log(eventCount);
         return $http({
             method: 'GET',
-            url: '/api/calendar/events'
+            url: '/api/calendar/events/' + eventCount
         }).then(function(response) {
             console.log(response.data);
             return response.data;
