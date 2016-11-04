@@ -9,7 +9,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         controller: 'HomeController'
     })
     .when('/events', { 
-        templateUrl: 'views/events.html',
+        templateUrl: 'views/calendar.html',
         controller: 'EventController'
     })
     .when('/magazine/:id', {

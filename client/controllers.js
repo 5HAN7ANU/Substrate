@@ -54,7 +54,14 @@ angular.module('Substrate.controllers', [])
         });
     }])
     .controller('ManageMagazineController', ['$scope', '$routeParams', 'Posts', 'SEOService', function($scope, $routeParams, Posts, SEOService){
-        
+        SEOService.setSEO({
+            title: 'Substrate Radio | Magazine Controller',
+            description: 'Articles from our Substrate Radio contributors',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+
+        $scope.posts = Posts.query();//posts that are published
     }])
     .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
         console.log('Article Controller');

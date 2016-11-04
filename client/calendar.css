@@ -1,11 +1,39 @@
-.card-title {
-    font-size: 40px;
+.row {
+    border: slategrey 1px solid;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-block {
+    width: 25%;
+    height: 25%;
+    border: slategray solid 1px;
+    float: left;
+    margin: 5px;
+}
+
+.event-time {
+    font-size: 30px;
 }
 
 .event-title {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .event-location {
-    font-size: 30px;
+    font-size: 15px;
+}
+
+#map {
+    width: 50%;
+    height: 400px;
+    background-color: grey;
+    border: black solid 1px;
+    margin: auto;
+}
+
+.map-container {
+    text-align: center;
+    margin: 20px auto;
+    clear: both;
 }
