@@ -254,7 +254,7 @@ angular.module('Substrate.controllers', [])
 
         var id = $routeParams.id;
         $scope.post = Posts.get({ id: id });
->>>>>>> ecedeb6916acbd148ffc3bbb3c50aead227c05a0
+
 
 
         $scope.update = function () {
