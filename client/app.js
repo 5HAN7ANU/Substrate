@@ -44,10 +44,6 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
-    .when('/postlist', {
-        templateUrl: 'views/managemagazine.html',
-        controller: 'ManageMagazineController'
-    })
     .when('/logout', {
         templateUrl: 'views/login.html',
         controller: 'LoginController'
@@ -63,9 +59,5 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
     .when('/users/create', {
         templateUrl: 'views/createuser.html',
         controller: 'CreateUserController'
-    })
-    .when('/users', {
-        templateUrl: 'views/userlist.html',
-        controller: 'UserListController'
     })
 }]);

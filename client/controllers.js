@@ -4,7 +4,7 @@ angular.module('Substrate.controllers', [])
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
-            .then(function(events) {
+            .then(function (events) {
                 $scope.events = events;
                 console.log($scope.events);
             });
@@ -19,7 +19,7 @@ angular.module('Substrate.controllers', [])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
         CalendarService.getEvents(31)
-            .then(function(events) {
+            .then(function (events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -41,7 +41,7 @@ angular.module('Substrate.controllers', [])
                 // $scope.events = events;
                 // console.log($scope.events);
             });
-        
+
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -198,55 +198,58 @@ angular.module('Substrate.controllers', [])
         });
     }])
 
-  .controller('EditArticleController',['$scope', 'UserService', 'Posts', '$routeParams', '$location', function($scope, UserService, Posts, $routeParams, $location){
-     UserService.requireLogin();
-     UserService.requiresAdmin();
-     UserService.isLoggedIn();
+    .controller('EditArticleController', ['$scope', 'UserService', 'Posts', '$routeParams', '$location', function ($scope, UserService, Posts, $routeParams, $location) {
+        UserService.requireLogin();
+        UserService.requiresAdmin();
+        UserService.isLoggedIn();
 
 
-//--------------------------------------NAV BAR
-    $scope.loggedIn = false;
-    $scope.ifAdmin = false;
-    UserService.me().then(function(me){
-        $scope.ME = me;
-        $scope.loggedIn = true;
-        if (me.role === 'admin') {
-            $scope.ifAdmin = true;
-        }
-    });
-    $scope.logout = function () {
-        UserService.logout().then(function(){
-        $route.reload();
+        //--------------------------------------NAV BAR
+        $scope.loggedIn = false;
+        $scope.ifAdmin = false;
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+            $scope.loggedIn = true;
+            if (me.role === 'admin') {
+                $scope.ifAdmin = true;
+            }
         });
-    }
-//------------------------------------------
-
-    var id = $routeParams.id;
-    $scope.post = Posts.get({ id: id});
-
-
-    $scope.update = function() {
-        $scope.post.$update(function(success) {
-            $location.path('/userprofile');
-        });  
-    }
-    $scope.promptDelete = function() {
-        var shouldDelete = confirm('Are you sure you want to delete this entry?');
-        if (shouldDelete) {
-            $scope.post.$delete(function(success) {
-                $location.path('/posts');
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
             });
         }
-    }
-    $scope.cancelupdate = function() {
-        $location.path('/' + id );
-    }
-}])
+        //------------------------------------------
+
+        var id = $routeParams.id;
+        $scope.post = Posts.get({ id: id });
+
+
+        $scope.update = function () {
+            $scope.post.$update(function (success) {
+                $location.path('/userprofile');
+            });
+        }
+        $scope.promptDelete = function () {
+            var shouldDelete = confirm('Are you sure you want to delete this entry?');
+            if (shouldDelete) {
+                $scope.post.$delete(function (success) {
+                    $location.path('/posts');
+                });
+            }
+        }
+        $scope.cancelupdate = function () {
+            $location.path('/' + id);
+        }
+    }])
 
 
 
-    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
+
+        $('#magazineDiv').hide();
+        $('#usersDiv').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -259,12 +262,48 @@ angular.module('Substrate.controllers', [])
                 $route.reload();
             });
         }
-        // $scope.logout = function () {
-        //     UserService.logout()
-        //         .then(function () {
-        //             $location.path('/');
-        //         })
-        // }
+
+        $scope.showUserDetails = function () {
+            $('#magazineDiv').hide();
+            $('#usersDiv').show();
+        };
+
+        $scope.showPostDetails = function () {
+            $('#magazineDiv').show();
+            $('#usersDiv').hide();
+        }
+
+        //----------*******Post List********-----------------
+        $scope.publishedPosts = Posts.query();
+        $http({
+            method: 'GET',
+            url: '/api/posts/unpublished'
+        }).then(function (success) {
+            $scope.unpublishedPosts = success.data;
+            console.log($scope.unpublishedPosts);
+        }, function (err) {
+            console.log(err);
+        });
+
+        //----------*******User List********-----------------
+        $scope.users = Users.query();
+        console.log('controllers.js/UserListController: users acquired')
+        console.log($scope.users);
+
+        $scope.deleteUser = function (user) {
+            console.log('controllers.js/UserListController: The user to be deleted is: ');
+            console.log(user);
+            var shouldDelete = confirm('Are you sure you want to delete this user?');
+            console.log(shouldDelete);
+            if (shouldDelete) {
+                console.log('user clicked OK');
+                user.$delete(function () {
+                    console.log('User Deleted!');
+                    console.log(user);
+                    $scope.users = Users.query();
+                });
+            }
+        }
 
         SEOService.setSEO({
             title: 'Substrate Radio | Admin',
@@ -545,15 +584,15 @@ angular.module('Substrate.controllers', [])
             name: 'User',
             value: 'user'
         }, {
-                name: 'Admin',
-                value: 'admin'
-            }];
+            name: 'Admin',
+            value: 'admin'
+        }];
 
         $scope.djValues = [{
             name: 'Yes',
             value: 0
         }, {
-                name: 'No',
-                value: 1
-            }];
+            name: 'No',
+            value: 1
+        }];
     }])
