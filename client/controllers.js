@@ -181,7 +181,7 @@ angular.module('Substrate.controllers', [])
 
         $scope.loggedIn = false;
         $scope.ifAdmin = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me){
             $scope.ME = me;
             $scope.loggedIn = true;
             if (me.role === 'admin') {
@@ -189,11 +189,10 @@ angular.module('Substrate.controllers', [])
             }
         });
         $scope.logout = function () {
-            UserService.logout().then(function () {
-                $route.reload();
+            UserService.logout().then(function(){
+            $route.reload();
             });
         }
-
 
         var id = $routeParams.id;
         $scope.post = Posts.get({ id: id }, function () {
@@ -209,6 +208,7 @@ angular.module('Substrate.controllers', [])
             { name: 'Yes', value: '1' }
         ];
 
+        
         $scope.update = function () {
             $scope.post.$update(function (success) {
                 $location.path('/admin');
