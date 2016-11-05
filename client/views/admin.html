@@ -6,8 +6,6 @@
         <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
 </div>
 
-<!--<button id="button" ng-click="logoutPage()">LOGOUT</button>-->
-
 <!--<button ng-click="showUserDetails = ! showUserDetails">MANAGE USERS</button>-->
 
 <button ng-click="showUserDetails()">MANAGE USERS</button>
@@ -18,18 +16,34 @@
 
 <div id="magazineDiv" ng-show="showPostDetails">
     <div>
-        <h1>PUBLISHED POSTS</h1>
-        <div ng-repeat="publishedPost in publishedPosts">
-            <h2>{{ publishedPost.title }}</h2>
-            <h6>{{ publishedPost.authorfirstname }}{{ publishedPost.authorlastname }}</h6>
+        <h1 class="adminPosts">UNPUBLISHED POSTS</h1>
+        <div ng-repeat="unpublishedPost in unpublishedPosts">
+            <div class="list-group-item">
+                {{ unpublishedPost.title }}
+                <p></p> by {{ unpublishedPost.authorfirstname }} {{ unpublishedPost.authorlastname }}
+                <p></p>
+                created: {{ unpublishedPost.createdat | date: 'short' }}
+                <a href="/magazine/{{ unpublishedPost.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
         </div>
     </div>
 
     <div>
-        <h1>UNPUBLISHED POSTS</h1>
-        <div ng-repeat="unpublishedPost in unpublishedPosts">
-            <h2>{{ unpublishedPost.title }}</h2>
-            <h6>{{ unpublishedPost.authorfirstname }}{{ publishedPost.authorlastname }}</h6>
+        <h1 class="adminPosts">PUBLISHED POSTS</h1>
+        <div ng-repeat="publishedPost in publishedPosts">
+            <div class="list-group-item">
+                {{ publishedPost.title }}
+                <p></p> by {{ publishedPost.authorfirstname }} {{ publishedPost.authorlastname }}
+                <p></p>
+                created: {{ publishedPost.createdat | date: 'short' }}
+                <a href="/magazine/{{ publishedPost.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
         </div>
     </div>
 </div>

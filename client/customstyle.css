@@ -217,6 +217,12 @@ textarea.form-control {
   }
 /*end updateuser.html*/
 
+/*admin.html*/
+  .adminPosts {
+    color: red;
+  }
+/*end admin.html*/
+
 @font-face {
     font-family: 'LuloCleanOne';
     src: url(../luloFont/LuloCleanFour.otf),
