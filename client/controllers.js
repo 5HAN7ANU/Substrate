@@ -204,7 +204,7 @@ angular.module('Substrate.controllers', [])
      UserService.isLoggedIn();
 
 
-//--------------------------------------NAV BAR
+
     $scope.loggedIn = false;
     $scope.ifAdmin = false;
     UserService.me().then(function(me){
@@ -219,10 +219,20 @@ angular.module('Substrate.controllers', [])
         $route.reload();
         });
     }
-//------------------------------------------
+  
 
     var id = $routeParams.id;
-    $scope.post = Posts.get({ id: id});
+    $scope.post = Posts.get({ id: id}, function(){
+        console.log("this article's publish value = " + $scope.post.publish);
+        $scope.publish = $scope.post.publish;
+        console.log('1 = publish / 0 = not publish');
+        
+    });
+   
+    $scope.publishValues = [
+            { name: 'No', value: '0' },
+            { name: 'Yes', value: '1' }
+    ];
 
 
     $scope.update = function() {
