@@ -1,38 +1,33 @@
-
- <div class="container subNavBar" id="top-container">
-      <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
-       <p class="navbar-text navbar-right" ><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
-      <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
-      <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
- </div>
+<div class="container subNavBar" id="top-container">
+    <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
+    <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
+    <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
+    <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
+        <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
+</div>
 
 <div id="updateUser">
-    <center>
-        <a href="/users">
-            <button id="button">VIEW USERS</button>
-        </a>
-        <a href="/">
-            <button id="button">RETURN HOME</button>
-        </a>
-        <br><br><br>
-        <input type="text" ng-model="firstname" placeholder="First Name">
-        <p></p>
-        <input type="text" ng-model="lastname" placeholder="Last Name">
-        <p></p>
-        <input type="email" ng-model="email" placeholder="Email">
-        <p></p>
-        <input type="password" ng-model="password" placeholder="Enter New Password">
-        <p></p>
-        <select ng-model="role">
-            <option value="">Select Role</option>
+    <a href="/admin">
+        <button id="button">Admin Page</button>
+    </a>
+    <br><br><br>
+    <input type="text" ng-model="firstname" placeholder="First Name">
+    <p></p>
+    <input type="text" ng-model="lastname" placeholder="Last Name">
+    <p></p>
+    <input type="email" ng-model="email" placeholder="Email">
+    <p></p>
+    <input type="password" ng-model="password" placeholder="Enter New Password">
+    <p></p>
+    <label for="userRole">Role </label>
+    <select name="userRole" ng-model="featuredUser.role">
             <option ng-repeat="role in roles" value="{{role.value}}">{{role.name}}</option>
         </select>
-        <p></p>
-        <select ng-model="dj">
-            <option value="">Is this user a DJ?</option>
+    <p></p>
+    <label for="userDJ">DJ?</label>
+    <select name="userDJ" ng-model="dj">
             <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
         </select>
-        <p></p>
-        <button id="button" ng-click="updateUser()">UPDATE USER</button>
-    </center>
+    <p></p>
+    <button id="button" ng-click="updateUser()">UPDATE USER</button>
 </div>
