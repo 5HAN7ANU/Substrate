@@ -206,39 +206,9 @@ angular.module('Substrate.controllers', [])
 
 
 
-    $scope.loggedIn = false;
-    $scope.ifAdmin = false;
-    UserService.me().then(function(me){
-        $scope.ME = me;
-        $scope.loggedIn = true;
-        if (me.role === 'admin') {
-            $scope.ifAdmin = true;
-        }
-    });
-    $scope.logout = function () {
-        UserService.logout().then(function(){
-        $route.reload();
-        });
-    }
-  
-
-    var id = $routeParams.id;
-    $scope.post = Posts.get({ id: id}, function(){
-        console.log("this article's publish value = " + $scope.post.publish);
-        $scope.publish = $scope.post.publish;
-        console.log('1 = publish / 0 = not publish');
-        
-    });
-   
-    $scope.publishValues = [
-            { name: 'No', value: '0' },
-            { name: 'Yes', value: '1' }
-    ];
-
-        //--------------------------------------NAV BAR
         $scope.loggedIn = false;
         $scope.ifAdmin = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me){
             $scope.ME = me;
             $scope.loggedIn = true;
             if (me.role === 'admin') {
@@ -246,17 +216,30 @@ angular.module('Substrate.controllers', [])
             }
         });
         $scope.logout = function () {
-            UserService.logout().then(function () {
-                $route.reload();
+            UserService.logout().then(function(){
+            $route.reload();
             });
         }
-        //------------------------------------------
+    
 
-        var id = $routeParams.id;
-        $scope.post = Posts.get({ id: id });
+        var postId = $routeParams.id;
+        $scope.post = Posts.get({ id : postId}, function(){
+            console.log('post object: ');
+            console.log($scope.post);
+            console.log("this article's publish value = ");
+            console.log($scope.post.publish);
+            $scope.publish = $scope.post.publish;
+            console.log('1 = publish / 0 = not publish');
+            var publishString = String($scope.post.publish);
+            $scope.post.publish = publishString;
+        });
+    
+        $scope.publishValues = [
+                { name: 'No', value: '0' },
+                { name: 'Yes', value: '1' }
+        ];
 
-
-
+        
         $scope.update = function () {
             $scope.post.$update(function (success) {
                 $location.path('/userprofile');
