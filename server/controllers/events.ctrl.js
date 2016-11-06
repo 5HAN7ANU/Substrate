@@ -27,6 +27,15 @@ router.route('/')
 
 // =========== get unpublished events here  ======== //
 
+router.route('/unpublished')
+    .get(function(req, res){
+        procedures.procGetUnpublishedFeaturedEvents().then(function(events){
+            res.send(events);
+        }, function(err){
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
 
 //=====================================================//
 
