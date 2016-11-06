@@ -236,11 +236,12 @@ angular.module('Substrate.controllers', [])
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($scope, $location, UserService, SEOService, Users, Posts, $http) {
+    .controller('AdminController', ['FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function (FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
 
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
+        $('#featuredEventsDiv').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -256,6 +257,7 @@ angular.module('Substrate.controllers', [])
 
         $scope.showUserDetails = function () {
             $('#magazineDiv').hide();
+            $('#featuredEventsDiv').hide();
             $('#usersDiv').show();
         };
 
@@ -264,6 +266,7 @@ angular.module('Substrate.controllers', [])
             $('#usersDiv').hide();
             $('#unpublishedPostsDiv').hide();
             $('#publishedPostsDiv').hide();
+            $('#featuredEventsDiv').hide();
         }
 
         $scope.showPublishedPosts = function(){
@@ -276,6 +279,26 @@ angular.module('Substrate.controllers', [])
             $('#unpublishedPostsDiv').show();
         }
 
+        $scope.showFeaturedEventDetails = function(){
+            $('#magazineDiv').hide();
+            $('#usersDiv').hide();
+            $('#unpublishedPostsDiv').hide();
+            $('#publishedPostsDiv').hide();
+            $('#featuredEventsDiv').show();
+            $('#publishedEventsDiv').hide();
+            $('#unpublishedEventsDiv').hide();
+        }
+
+        $scope.showPublishedEvents = function(){
+            $('#publishedEventsDiv').show();
+            $('#unpublishedEventsDiv').hide();
+        }
+
+        $scope.showUnpublishedEvents = function(){
+            $('#publishedEventsDiv').hide();
+            $('#unpublishedEventsDiv').show();
+        }
+
         //----------*******Post List********-----------------
         $scope.publishedPosts = Posts.query();
         $http({
@@ -285,6 +308,20 @@ angular.module('Substrate.controllers', [])
             $scope.unpublishedPosts = success.data;
             console.log($scope.unpublishedPosts);
         }, function (err) {
+            console.log(err);
+        });
+
+        //----------*******Featured Events List********-----------------
+
+        $scope.publishedEvents = FeaturedEvents.query();
+        console.log($scope.publishedEvents);
+        $http({
+            method: 'GET',
+            url: '/api/featuredevents/unpublished'
+        }).then(function(success){
+            $scope.unpublishedEvents = success.data;
+            console.log($scope.unpublishedEvents);
+        }, function(err){
             console.log(err);
         });
 
