@@ -20,4 +20,14 @@ angular.module('Substrate.factories', [])
 }])
 .factory('Contact', ['$resource', function ($resource) {
         return $resource('/api/contact/:id');
+}])
+.factory('Ads', ['$resource', function($resource){
+    return $resource('api/ads/:id', { id: '@id' }, {
+        update: { method: 'PUT'}
+    });
+}])
+.factory('FeaturedEvents', ['$resource', function($resource){
+    return $resource('api/featuredevents/:id', { id: '@id' }, {
+        update: { method: 'PUT'}
+    });
 }]);

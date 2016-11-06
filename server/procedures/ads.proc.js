@@ -4,14 +4,23 @@ var db = require('../config/db');
 exports.procGetAds = function() {
     return db.fnRows('procGetAds');
 }
-exports.procInsertAds = function(adName, imageurl, adLink, publish){
-    return db.fnRow('procInsertUser', [adName, imageurl, adLink, publish])
+//write one for getAd
+exports.procInsertAd = function(adName, imageurl, adLink, publish){
+    return db.fnRow('procInsertAd', [adName, imageurl, adLink, publish])
 }
 
-exports.procUpdateAds = function(adName, imageurl, adLink, publish){
-    return db.fnEmpty('procUpdateUser', [adName, imageurl, adLink, publish]);
+exports.procGetAd = function(id){
+    return db.fnRow('procGetAd', [id]);
 }
 
-exports.procDeleteAds = function(id){
-   return db.fnEmpty('procDeleteUser', [id]);
+exports.procUpdateAd = function(adName, imageurl, adLink, publish){
+    return db.fnEmpty('procUpdateAd', [adName, imageurl, adLink, publish]);
+}
+
+exports.procDeleteAd = function(id){
+   return db.fnEmpty('procDeleteAd', [id]);
+}
+
+exports.procGetUnpublishedAds = function(){
+    return db.fnRows('procGetUnpublishedAds');
 }
