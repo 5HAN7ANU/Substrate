@@ -25,7 +25,3 @@ exports.procDestroy = function(id) {
 exports.procGetPostsByUser = function(id) {
     return db.fnRows('procGetPostsByUser', [id]);
 }
-
-exports.procPreview = function(id, title, previewContent){
-    return db.fnempty('procPreview', [id, title, previewContent])
-}

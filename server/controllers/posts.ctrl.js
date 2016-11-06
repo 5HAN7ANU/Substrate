@@ -47,27 +47,6 @@ router.get('/user/:id', function (req, res) {
     });
 });
 
-router.route('/:id/preview')
-    .get(function (req, res) {
-        procedures.procRead(req.params.id).then(function (post) {
-            console.log(post);
-            res.send(post);
-        }, function (err) {
-            console.log(err);
-            res.sendStatus(500);
-        });
-    })
-    .put(function (req, res) {
-        var p = req.body;
-        procedures.procPreview(req.params.id, p.title, p.content)
-            .then(function () {
-                res.sendStatus(204);
-            }, function (err) {
-                console.log(err);
-                res.sendStatus(500);
-            });
-    })
-
 // = /api/posts/:id
 router.route('/:id')
     .get(function (req, res) {
