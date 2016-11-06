@@ -1,22 +1,22 @@
 var express = require('express');
-var procedures = require('../procedures/posts.proc');
+var procedures = require('../procedures/events.proc');
 var auth = require('../middleware/auth.mw');
 
 var router = express.Router();
 
-//  = /api/posts 
+ 
 router.route('/')
     .get(function (req, res) {
-        procedures.procAll().then(function (posts) {
-            res.send(posts);
+        procedures.procGetFeaturedEvents().then(function (events) {
+            res.send(events);
         }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
     })
     .post(function (req, res) {
-        var p = req.body;
-        procedures.procCreate(p.title, p.userid, p.content)
+        var e = req.body;
+        procedures.procInsertFeaturedEvent(e.eventName, e.eventDate, e.eventDescription, e.imageurl, e.publish)
             .then(function (id) {
                 res.status(201).send(id);
             }, function (err) {
@@ -25,42 +25,34 @@ router.route('/')
             });
     });
 
+// =========== get unpublished events here  ======== //
 
-//this may or may not work
-router.route('/unpublished')   //getting unpublished Posts
-    .get(function (req, res) {
-        procedures.procGetUnpublishedPosts().then(function (posts) {
-            res.send(posts);
-        }, function (err) {
+router.route('/unpublished')
+    .get(function(req, res){
+        procedures.procGetUnpublishedFeaturedEvents().then(function(events){
+            res.send(events);
+        }, function(err){
             console.log(err);
             res.sendStatus(500);
         });
-    })
-
-// /api/posts/user/:id          //getting posts by user
-router.get('/user/:id', function (req, res) {
-    procedures.procGetPostsByUser(req.params.id).then(function (posts) {
-        res.send(posts);
-    }, function (err) {
-        console.log(err);
-        res.sendStatus(500);
     });
-});
 
-// = /api/posts/:id
+//=====================================================//
+
+
 router.route('/:id')
     .get(function (req, res) {
-        procedures.procRead(req.params.id).then(function (post) {
-            console.log(post);
-            res.send(post);
+        procedures.procGetFeaturedEvent(req.params.id).then(function (event) {
+            console.log(event);
+            res.send(event);
         }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
     })
     .put(function (req, res) {
-        var p = req.body;
-        procedures.procUpdate(req.params.id, p.title, p.content, p.publish)
+        var e = req.body;
+        procedures.procUpdateFeaturedEvent(req.params.id, e.eventName, e.eventDate, e.eventDescription, e.imageurl, e.publish)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -69,7 +61,7 @@ router.route('/:id')
             });
     })
     .delete(function (req, res) {
-        procedures.procDestroy(req.params.id)
+        procedures.procDeleteFeaturedEvent(req.params.id)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -77,7 +69,5 @@ router.route('/:id')
                 res.sendStatus(500);
             });
     });
-
-
 
 module.exports = router;

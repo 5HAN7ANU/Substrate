@@ -1,29 +1,71 @@
-<!--<form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="exampleInputEmail3" >Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" ng-model="email">
-    </div>
-    <div class="form-group">
-        <label class="sr-only" for="exampleInputPassword3">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" ng-model="password">
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="login">Sign in</button>
-</form>-->
+<div class="container subNavBar" id="top-container">
+    <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
+    <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
+    <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
+    <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
+        <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
+</div>
 
- <div class="container subNavBar" id="top-container">
-      <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
-       <p class="navbar-text navbar-right" ><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
-      <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
-      <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
- </div>
-    
+<!--<button ng-click="showUserDetails = ! showUserDetails">MANAGE USERS</button>-->
 
-<center>
-    <!--<button id="button" ng-click="logoutPage()">LOGOUT</button>-->
-    <a href="/users">
-        <button>MANAGE USERS</button>
+<button ng-click="showUserDetails()">MANAGE USERS</button>
+
+<!--<button ng-click="showPostDetails = ! showPostDetails">MANAGE MAGAZINE</button>-->
+
+<button ng-click="showPostDetails()">MANAGE MAGAZINE</button>
+
+<div id="magazineDiv">
+    <br><br>
+    <button ng-click="showPublishedPosts()">PUBLISHED POSTS</button>
+    <button ng-click="showUnpublishedPosts()">UNPUBLISHED POSTS</button>
+    <div id="unpublishedPostsDiv">
+        <h1 class="adminPosts">UNPUBLISHED POSTS</h1>
+        <div ng-repeat="unpublishedPost in unpublishedPosts">
+            <div class="list-group-item">
+                {{ unpublishedPost.title }}
+                <p></p> by {{ unpublishedPost.authorfirstname }} {{ unpublishedPost.authorlastname }}
+                <p></p>
+                created: {{ unpublishedPost.createdat | date: 'short' }}
+                <a href="/magazine/{{ unpublishedPost.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <div id="publishedPostsDiv">
+        <h1 class="adminPosts">PUBLISHED POSTS</h1>
+        <div ng-repeat="publishedPost in publishedPosts">
+            <div class="list-group-item">
+                {{ publishedPost.title }}
+                <p></p> by {{ publishedPost.authorfirstname }} {{ publishedPost.authorlastname }}
+                <p></p>
+                created: {{ publishedPost.createdat | date: 'short' }}
+                <a href="/magazine/{{ publishedPost.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="usersDiv">
+    <br><br><br>
+    <a href="/users/create">
+        <button id="button">CREATE USER</button>
     </a>
-    <a href="/postlist">
-        <button>MANAGE MAGAZINE</button>
-    </a>
-</center>
+    <br>
+    <div id="userListContainer">
+        <div id="usersList" ng-repeat="u in users">
+            <h3>{{ u.firstname }} {{ u.lastname }}</h3>
+            <h4>{{ u.email }}</h4>
+            <h4>{{ u.role }}</h4>
+            <a href="/users/{{ u.id }}/update">
+                <button id="button">EDIT</button>
+            </a>
+            <button id="button" ng-click="deleteUser(u)">DELETE</button>
+        </div>
+    </div>
+</div>

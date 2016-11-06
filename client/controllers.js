@@ -1,13 +1,21 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents) {
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
-            .then(function(events) {
+            .then(function (events) {
                 $scope.events = events;
                 console.log($scope.events);
             });
+
+          
+        $scope.ads = Ads.query();
+        console.log($scope.ads);
+
+        $scope.featuredEvents = FeaturedEvents.query();
+        console.log($scope.featuredEvents);
+        
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -19,7 +27,7 @@ angular.module('Substrate.controllers', [])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
         CalendarService.getEvents(31)
-            .then(function(events) {
+            .then(function (events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -41,7 +49,7 @@ angular.module('Substrate.controllers', [])
                 // $scope.events = events;
                 // console.log($scope.events);
             });
-        
+
 
         SEOService.setSEO({
             title: 'Substrate Radio | Events',
@@ -76,29 +84,6 @@ angular.module('Substrate.controllers', [])
             description: 'Articles from our Substrate Radio contributors',
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
-        });
-    }])
-    .controller('ManageMagazineController', ['$scope', '$http', '$routeParams', 'Posts', 'SEOService', '$location', function ($scope, $http, $routeParams, Posts, SEOService, $location) {
-        SEOService.setSEO({
-            title: 'Substrate Radio | Magazine Controller',
-            description: 'Articles from our Substrate Radio contributors',
-            image: 'http://' + $location.host() + '/images/blog.png',
-            url: $location.absUrl()
-        });
-
-        $scope.publishedPosts = Posts.query();//posts that are published
-
-        // function getUnpublishedPosts(){
-
-        // }
-        $http({
-            method: 'GET',
-            url: '/api/posts/unpublished'
-        }).then(function (success) {
-            $scope.unpublishedPosts = success.data;
-            console.log($scope.unpublishedPosts);
-        }, function (err) {
-            console.log(err);
         });
     }])
     .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
@@ -197,56 +182,65 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
+    .controller('EditArticleController', ['$scope', 'UserService', 'Posts', '$routeParams', '$location', '$http', function ($scope, UserService, Posts, $routeParams, $location, $http) {
+        UserService.requireLogin();
+        UserService.requiresAdmin();
+        UserService.isLoggedIn();
 
-  .controller('EditArticleController',['$scope', 'UserService', 'Posts', '$routeParams', '$location', function($scope, UserService, Posts, $routeParams, $location){
-     UserService.requireLogin();
-     UserService.requiresAdmin();
-     UserService.isLoggedIn();
-
-
-//--------------------------------------NAV BAR
-    $scope.loggedIn = false;
-    $scope.ifAdmin = false;
-    UserService.me().then(function(me){
-        $scope.ME = me;
-        $scope.loggedIn = true;
-        if (me.role === 'admin') {
-            $scope.ifAdmin = true;
-        }
-    });
-    $scope.logout = function () {
-        UserService.logout().then(function(){
-        $route.reload();
+        $scope.loggedIn = false;
+        $scope.ifAdmin = false;
+        UserService.me().then(function(me){
+            $scope.ME = me;
+            $scope.loggedIn = true;
+            if (me.role === 'admin') {
+                $scope.ifAdmin = true;
+            }
         });
-    }
-//------------------------------------------
-
-    var id = $routeParams.id;
-    $scope.post = Posts.get({ id: id});
-
-
-    $scope.update = function() {
-        $scope.post.$update(function(success) {
-            $location.path('/' + id );
-        });  
-    }
-    $scope.promptDelete = function() {
-        var shouldDelete = confirm('Are you sure you want to delete this entry?');
-        if (shouldDelete) {
-            $scope.post.$delete(function(success) {
-                $location.path('/posts');
+        $scope.logout = function () {
+            UserService.logout().then(function(){
+            $route.reload();
             });
         }
-    }
-    $scope.cancelupdate = function() {
-        $location.path('/' + id );
-    }
-}])
 
+        var id = $routeParams.id;
+        $scope.post = Posts.get({ id: id }, function () {
+            console.log("this article's publish value = " + $scope.post.publish);
+            $scope.post.publish = String($scope.post.publish);
+            console.log('1 = publish / 0 = not publish');
+            $scope.publish = $scope.post.publish;
+            $scope.previewPost = $scope.post;
+        });
 
+        $scope.publishValues = [
+            { name: 'No', value: '0' },
+            { name: 'Yes', value: '1' }
+        ];
 
-    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+        
+        $scope.update = function () {
+            $scope.post.$update(function (success) {
+                $location.path('/admin');
+            });
+        }
+
+        $scope.promptDelete = function () {
+            var shouldDelete = confirm('Are you sure you want to delete this entry?');
+            if (shouldDelete) {
+                $scope.post.$delete(function (success) {
+                    $location.path('/admin');
+                });
+            }
+        }
+
+        $scope.cancelupdate = function () {
+            $location.path('/admin');
+        }
+    }])
+    .controller('AdminController', ['$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
+
+        $('#magazineDiv').hide();
+        $('#usersDiv').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -259,12 +253,60 @@ angular.module('Substrate.controllers', [])
                 $route.reload();
             });
         }
-        // $scope.logout = function () {
-        //     UserService.logout()
-        //         .then(function () {
-        //             $location.path('/');
-        //         })
-        // }
+
+        $scope.showUserDetails = function () {
+            $('#magazineDiv').hide();
+            $('#usersDiv').show();
+        };
+
+        $scope.showPostDetails = function () {
+            $('#magazineDiv').show();
+            $('#usersDiv').hide();
+            $('#unpublishedPostsDiv').hide();
+            $('#publishedPostsDiv').hide();
+        }
+
+        $scope.showPublishedPosts = function(){
+            $('#publishedPostsDiv').show();
+            $('#unpublishedPostsDiv').hide();
+        }
+
+        $scope.showUnpublishedPosts = function(){
+            $('#publishedPostsDiv').hide();
+            $('#unpublishedPostsDiv').show();
+        }
+
+        //----------*******Post List********-----------------
+        $scope.publishedPosts = Posts.query();
+        $http({
+            method: 'GET',
+            url: '/api/posts/unpublished'
+        }).then(function (success) {
+            $scope.unpublishedPosts = success.data;
+            console.log($scope.unpublishedPosts);
+        }, function (err) {
+            console.log(err);
+        });
+
+        //----------*******User List********-----------------
+        $scope.users = Users.query();
+        console.log('controllers.js/UserListController: users acquired')
+        console.log($scope.users);
+
+        $scope.deleteUser = function (user) {
+            console.log('controllers.js/UserListController: The user to be deleted is: ');
+            console.log(user);
+            var shouldDelete = confirm('Are you sure you want to delete this user?');
+            console.log(shouldDelete);
+            if (shouldDelete) {
+                console.log('user clicked OK');
+                user.$delete(function () {
+                    console.log('User Deleted!');
+                    console.log(user);
+                    $scope.users = Users.query();
+                });
+            }
+        }
 
         SEOService.setSEO({
             title: 'Substrate Radio | Admin',
@@ -395,46 +437,6 @@ angular.module('Substrate.controllers', [])
 
         $scope.role_default = 'user';
     }])
-    .controller('UserListController', ['$scope', '$location', 'Users', 'UserService', function ($scope, $location, Users, UserService) {
-        UserService.requireLogin();
-        UserService.me();
-        console.log('controllers.js/UserListController: The user is logged in');
-        $scope.users = Users.query();
-        console.log('controllers.js/UserListController: users acquired')
-        console.log($scope.users);
-
-        $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstName + ' ' + UserService.user.lastName + ', who is a ' + UserService.user.role;
-
-        $scope.logout = function () {
-            UserService.logout()
-                .then(function () {
-                    $location.path('/');
-                })
-        }
-
-        $scope.deleteUser = function (user) {
-            console.log('controllers.js/UserListController: The user to be deleted is: ');
-            console.log(user);
-            var shouldDelete = confirm('Are you sure you want to delete this user?');
-            console.log(shouldDelete);
-            if (shouldDelete) {
-                console.log('user clicked OK');
-                user.$delete(function () {
-                    console.log('User Deleted!');
-                    console.log(user);
-                    $scope.users = Users.query();
-                });
-            }
-        }
-
-        $scope.logoutPage = function () {
-            UserService.logout().then(function () {
-                console.log('logged out!');
-                $location.path('/login');
-            });
-            alert('You have been logged out!');
-        };
-    }])
     .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
         UserService.me();
@@ -442,6 +444,8 @@ angular.module('Substrate.controllers', [])
 
         $scope.featuredUser = Users.get({ id: userId }, function () {
             console.log('The user is: ' + $scope.featuredUser.firstname);
+            $scope.featuredUser.role = String($scope.featuredUser.role);
+            $scope.featuredUser.dj = String($scope.featuredUser.dj);
             $scope.id = $scope.featuredUser.id;
             $scope.firstname = $scope.featuredUser.firstname;
             $scope.lastname = $scope.featuredUser.lastname;
@@ -449,7 +453,13 @@ angular.module('Substrate.controllers', [])
             $scope.password = $scope.featuredUser.password;
             $scope.role = $scope.featuredUser.role;
             $scope.dj = $scope.featuredUser.dj;
-            console.log('controllers.js/UpdateUserController: The user role is: ' + $scope.role);
+
+            console.log('Controllers.js/UpdateUserController: The user is ');
+            console.log($scope.featuredUser);
+
+            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.dj ' + $scope.featuredUser.dj);
+
+            console.log('Controllers.js/UpdateUserController: $scope.dj = ' + $scope.dj);
         });
 
         $scope.updateUser = function () {
@@ -471,11 +481,9 @@ angular.module('Substrate.controllers', [])
 
             $scope.featuredUser.$update(function (success) {
                 console.log('controllers.js/UpdateUserController: The user was updated!');
-                location.pathname = '/users';
+                location.pathname = '/admin';
             });
         };
-
-        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
 
         $scope.roles = [
             { name: 'User', value: 'user' },
@@ -483,8 +491,8 @@ angular.module('Substrate.controllers', [])
         ];
 
         $scope.djValues = [
-            { name: 'Yes', value: 0 },
-            { name: 'No', value: 1 }
+            { name: 'No', value: 0 },
+            { name: 'Yes', value: 1 }
         ];
 
         $scope.logoutPage = function () {
@@ -494,66 +502,4 @@ angular.module('Substrate.controllers', [])
             });
             alert('You have been logged out!');
         };
-    }])
-    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
-        console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
-        UserService.me();
-        var userId = $routeParams.id;
-
-
-        $scope.featuredUser = Users.get({
-            id: userId
-        }, function () {
-
-            console.log('The user is: ' + $scope.featuredUser.firstname);
-            $scope.id = $scope.featuredUser.id;
-            $scope.firstname = $scope.featuredUser.firstname;
-            $scope.lastname = $scope.featuredUser.lastname;
-            $scope.email = $scope.featuredUser.email;
-            $scope.password = $scope.featuredUser.password;
-            $scope.role = $scope.featuredUser.role;
-            $scope.dj = $scope.featuredUser.dj;
-            console.log('controllers.js/UpdateUserController: The user role is: ' + $scope.role);
-        });
-
-        $scope.updateUser = function () {
-            console.log('Controllers.js/UpdateUserController: entered the updateUser function');
-
-            $scope.featuredUser.id = $scope.id;
-            $scope.featuredUser.firstname = $scope.firstname;
-            $scope.featuredUser.lastname = $scope.lastname;
-            $scope.featuredUser.email = $scope.email;
-            $scope.featuredUser.password = $scope.password;
-            $scope.featuredUser.role = $scope.role;
-            $scope.featuredUser.dj = $scope.dj;
-
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
-
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.email ' + $scope.featuredUser.email);
-
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
-
-            $scope.featuredUser.$update(function (success) {
-                console.log('controllers.js/UpdateUserController: The user was updated!');
-                location.pathname = '/users';
-            });
-        };
-
-        // $scope.loggedInUser = 'The logged in user is: ' + UserService.user.firstname + ' ' + UserService.user.lastname + ', who is a ' + UserService.user.role;
-
-        $scope.roles = [{
-            name: 'User',
-            value: 'user'
-        }, {
-                name: 'Admin',
-                value: 'admin'
-            }];
-
-        $scope.djValues = [{
-            name: 'Yes',
-            value: 0
-        }, {
-                name: 'No',
-                value: 1
-            }];
     }])

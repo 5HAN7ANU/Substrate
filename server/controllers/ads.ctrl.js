@@ -1,22 +1,22 @@
 var express = require('express');
-var procedures = require('../procedures/posts.proc');
+var procedures = require('../procedures/ads.proc');
 var auth = require('../middleware/auth.mw');
 
 var router = express.Router();
 
-//  = /api/posts 
+ 
 router.route('/')
     .get(function (req, res) {
-        procedures.procAll().then(function (posts) {
-            res.send(posts);
+        procedures.procGetAds().then(function (ads) {
+            res.send(ads);
         }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
     })
     .post(function (req, res) {
-        var p = req.body;
-        procedures.procCreate(p.title, p.userid, p.content)
+        var a = req.body;
+        procedures.procInsertAd(a.adName, a.imageurl, a.adLink, a.publish)
             .then(function (id) {
                 res.status(201).send(id);
             }, function (err) {
@@ -25,42 +25,35 @@ router.route('/')
             });
     });
 
+// =========== get unpublished ads here  ======== //
 
-//this may or may not work
-router.route('/unpublished')   //getting unpublished Posts
-    .get(function (req, res) {
-        procedures.procGetUnpublishedPosts().then(function (posts) {
-            res.send(posts);
-        }, function (err) {
+router.route('/unpublished')
+    .get(function(req, res){
+        procedures.procGetUnpublishedAds().then(function(ads){
+            res.send(ads);
+        }, function(err){
             console.log(err);
             res.sendStatus(500);
         });
-    })
-
-// /api/posts/user/:id          //getting posts by user
-router.get('/user/:id', function (req, res) {
-    procedures.procGetPostsByUser(req.params.id).then(function (posts) {
-        res.send(posts);
-    }, function (err) {
-        console.log(err);
-        res.sendStatus(500);
     });
-});
 
-// = /api/posts/:id
+
+//=====================================================//
+
+
 router.route('/:id')
     .get(function (req, res) {
-        procedures.procRead(req.params.id).then(function (post) {
-            console.log(post);
-            res.send(post);
+        procedures.procGetAd(req.params.id).then(function (ad) {
+            console.log(ad);
+            res.send(ad);
         }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
     })
     .put(function (req, res) {
-        var p = req.body;
-        procedures.procUpdate(req.params.id, p.title, p.content, p.publish)
+        var a = req.body;
+        procedures.procUpdateAd(req.params.id, a.adName, a.imageurl, a.adLink, a.publish)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -69,7 +62,7 @@ router.route('/:id')
             });
     })
     .delete(function (req, res) {
-        procedures.procDestroy(req.params.id)
+        procedures.procDeleteAd(req.params.id)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -78,6 +71,4 @@ router.route('/:id')
             });
     });
 
-
-
-module.exports = router;
+    module.exports = router;

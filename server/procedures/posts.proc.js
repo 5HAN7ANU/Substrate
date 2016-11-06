@@ -14,8 +14,8 @@ exports.procCreate = function(title, userid, content) {
     return db.fnRow('procInsertPost', [title, userid, content]);
 }
 
-exports.procUpdate = function(id, title, content) {
-    return db.fnEmpty('procUpdatePost', [id, title, content]);
+exports.procUpdate = function(id, title, content, publish) {
+    return db.fnEmpty('procUpdatePost', [id, title, content, publish]);
 }
 
 exports.procDestroy = function(id) {
