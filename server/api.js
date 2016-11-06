@@ -3,8 +3,8 @@ var posts = require('./controllers/posts.ctrl');
 var users = require('./controllers/users.ctrl');
 var contact = require('./controllers/contact.ctrl');
 var calendar = require('./controllers/calendar.ctrl');
-var events = require('./contollers/events.ctrl');
-var ads = require('./contollers/ads.ctrl');
+var events = require('./controllers/events.ctrl');
+var ads = require('./controllers/ads.ctrl');
 
 var router = express.Router();
 
@@ -13,7 +13,7 @@ router
     .use('/users', users)
     .use('/contact', contact)
     .use('/calendar', calendar)
-    .use('/featuredevents', events)
-    .use('/ads', ads);
+    // .use('/featuredevents', events)
+    // .use('/ads', ads);
 
 module.exports = router;
