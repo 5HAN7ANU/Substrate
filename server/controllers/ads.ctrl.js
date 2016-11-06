@@ -60,3 +60,5 @@ router.route('/:id')
                 res.sendStatus(500);
             });
     });
+
+    module.exports = router;

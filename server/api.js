@@ -13,7 +13,7 @@ router
     .use('/users', users)
     .use('/contact', contact)
     .use('/calendar', calendar)
-    // .use('/featuredevents', events)
-    // .use('/ads', ads);
+    .use('/featuredevents', events)
+    .use('/ads', ads);
 
 module.exports = router;
