@@ -27,6 +27,16 @@ router.route('/')
 
 // =========== get unpublished ads here  ======== //
 
+router.route('/unpublished')
+    .get(function(req, res){
+        procedures.procGetUnpublishedAds().then(function(ads){
+            res.send(ads);
+        }, function(err){
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
 
 //=====================================================//
 
