@@ -15,9 +15,24 @@
   color: white
 }
 
+/*//===============event calender Container ==============//*/
+#eventCalendarContainer {
+  height: 300px;
+  /*width: 550px;*/
+  background-color: rgba(128, 128, 128, 0.7);
+  /*float: left;*/
+  /*margin-left: 25px;*/
+  padding: 0px;
+}
 
-/*//========== home page ads Div=====================//*/
+.iframe-side-calendar{
+  margin: 0px;
+  padding: 0px;
+}
+/*//=============================================//*/
 
+
+/*//========== home page ads Container=====================//*/
 #featuredEventContainer {
   height: 300px;
   /*width: 600px;*/
@@ -25,38 +40,17 @@
   /*float: left;*/
   /*margin: 25px;*/
 }
-
-#eventBox {
-  height: 300px;
-  /*width: 550px;*/
-  background-color: rgba(128, 128, 128, 0.7);
-  /*float: left;*/
-  /*margin-left: 25px;*/
-}
-
-
 /*//=================================================//*/
 
 
-/*//=======   home page featured Event Div   ========//*/
-
+/*//=======   home page featured Event Container  ========//*/
 #adContainer {
-  height: 400px;
-  width: 300px;
-  background-color: rgba(128, 128, 128, 0.5);
-  float: left;
-  margin: 25px;
-}
-
-#adBox {
   height: 300px;
   /*width: 250px;*/
   background-color: rgba(128, 128, 128, 0.7);
   /*float: left;*/
   /*margin-left: 25px;*/
 }
-
-
 /*//================================================//*/
 
 
