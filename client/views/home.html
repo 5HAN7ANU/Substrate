@@ -1,17 +1,4 @@
 
-
-<!--<div>
-    <h1>About us</h1>
-    <div >
-        <div id="djbox" ng-repeat="dj in procUserDj">
-            <h1>{{ dj.firstname}}</h1>
-        </div>
-    </div>
-</div>-->
-
-
-
-
 <div class="row">
     <div class="col-xs-10">
         <img src="./assets/logo.png" alt="">
@@ -21,44 +8,70 @@
             <img id="phone" src="./assets/phone.png" alt=""></a>
     </div>
 </div>
-
 <br><br>
-
-<div class="container middlesection">
+<div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3" id="eventCalendarContainer">
-           
-              <iframe  class= "iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago" style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
-          
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-             <!--<p > {{ featuredEvents.eventName }} </p>-->
-            
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
-             <!--<p > {{ ads.adName }} </p>-->
+        <div class="col xs-12" id="navigation">
+            <ul id="menumiddle">
+                <li><a href="/">Home</a></li>
+                <li><a href="/events">Calendar</a></li>
+                <li><a href="/magazine">Magazine</a></li>
+                <li><a href="/store">Store</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
         </div>
     </div>
 </div>
-
-
-<br>
-<div class="container">
-<div class="col-xs-12 aboutBackground">
-    <!--<img src="./assets/aboutBackground.jpg" alt="">-->
-    <h1>This is About us page</h1>
-</div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="container middlesection">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3" id="eventBox">
+            <br><br>
+            <div class="container middlesection">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3" id="eventCalendarContainer">
+                        <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
+                            style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
+                        <!--<p > {{ featuredEvents.eventName }} </p>-->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
+                        <!--<p > {{ ads.adName }} </p>-->
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="aboutBackground back">
+                <!--<img src="./assets/aboutBackground.jpg" alt="">-->
+                <p id="abouttext">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, dolor ac tempor auctor, metus velit mollis justo,
+                    eget eleifend augue lorem nec mauris. Fusce efficitur elit ultricies ex accumsan elementum. Cras ac aliquet
+                    arcu, nec laoreet lacus. Morbi dapibus diam nisi, non lacinia lectus interdum molestie. Donec tincidunt
+                    viverra tellus, et posuere tortor. Aenean nulla arcu, gravida nec pulvinar quis, volutpat a lorem. Ut
+                    molestie tellus vitae volutpat ullamcorper. Fusce a velit vitae ipsum tincidunt iaculis. Sed tempus fermentum
+                    laoreet. Mauris pretium nulla non odio cursus condimentum. Donec tincidunt, leo vel iaculis malesuada,
+                    augue lectus lacinia elit, sit amet varius felis felis non arcu. Suspendisse pharetra justo vitae arcu
+                    bibendum, at dapibus erat consequat. Phasellus posuere at eros facilisis. Phasellus sodales elit odio.
+                    Nullam tincidunt felis massa, a imperdiet ex maximus sit amet. Proin egestas metus neque, eget dapibus
+                    mauris molestie vel. Maecenas sed nulla nunc. Nulla interdum, ligula vitae malesuada finibus, risus urna
+                    gravida augue, in condimentum mauris arcu bibendum augue.
+                </p>
+                </<span>Hello</span>
+                <div class="divider"></div>
+                <br><br>
+                <hr>
+                <div>
+                    <div id="djbox">
+                        <div ng-repeat="dj in dj">
+                            <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
+                                <div id="overlay">
+                                    <span id="plus">
+                            <h1>{{dj.firstname}}</h1>
+                            <p id="bio">{{dj.bio}}</p>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
