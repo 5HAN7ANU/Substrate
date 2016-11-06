@@ -303,6 +303,25 @@ textarea.form-control {
 #phone {
   margin-top: 20px;
 }
+#navigation ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+#navigation ul li
+{
+    list-style-type: none;
+    display: inline;
+}
+
+#navigation li:not(:first-child):before {
+    content: " | ";
+}
+#menumiddle{
+  text-align: center;
+  font-size: 20px;
+}
 
 .middlesection {
   width: 96%;
@@ -312,13 +331,20 @@ textarea.form-control {
   background-color: white;
   height: 400px;
   width: 100%;
-  color: black
+  color: black;
+  padding: 10px;
+}
+#abouttext{
+  border: 1px solid red;
+  width: 68%;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
 }
 
-/*.aboutBackground img {
-  background-image: url('./assets/aboutBackground');
-  position: absolute;
-  margin-left: 200px;
-  height: 400px;
-  opacity: 0.6;
-}*/
+.vr{
+  display: inline-block; vertical-align: middle;
+  height: 100px;
+  width: 1px;
+  background-color: #000;
+}

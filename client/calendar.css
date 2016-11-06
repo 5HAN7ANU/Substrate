@@ -1,7 +1,7 @@
 .row {
-    border: slategrey 1px solid;
+    /*border: slategrey 1px solid;*/
     overflow: hidden;
-    /*width: 100%;*/
+    width: 100%;
 }
 
 .card-block {
