@@ -110,7 +110,7 @@
 MEDIA QUERIES
 *************************************************************************************/
 /* for 980px or less */
-@media screen and (max-width: 980px) {
+/*@media screen and (max-width: 980px) {
 	
 	#pagewrap {
 		width: 94%;
@@ -135,11 +135,11 @@ MEDIA QUERIES
 
 	header, footer {
 		padding: 1% 4%;
-	}
+	}*/
 }
 
 /* for 700px or less */
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
 
 	#content {
 		width: auto;
@@ -157,10 +157,10 @@ MEDIA QUERIES
 		float: none;
 	}
 
-}
+}*/
 
 /* for 480px or less */
-@media screen and (max-width: 480px) {
+/*@media screen and (max-width: 480px) {
 
 	header {
 		height: auto;
@@ -172,10 +172,10 @@ MEDIA QUERIES
 		display: none;
 	}
 
-}
+}*/
 
 
-#content {
+/*#content {
 	background: #f8f8f8;
 }
 #sidebar {
@@ -187,4 +187,4 @@ header, #content, #middle, #sidebar {
 
 #pagewrap, header, #content, #middle, #sidebar, footer {
 	border: solid 1px #ccc;
-}
+}*/
