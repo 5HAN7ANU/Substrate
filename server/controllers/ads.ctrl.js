@@ -7,7 +7,7 @@ var router = express.Router();
  
 router.route('/')
     .get(function (req, res) {
-        procedures.procAll().then(function (ads) {
+        procedures.procGetAds().then(function (ads) {
             res.send(ads);
         }, function (err) {
             console.log(err);
@@ -16,7 +16,7 @@ router.route('/')
     })
     .post(function (req, res) {
         var a = req.body;
-        procedures.procCreate(a.adName, a.imageurl, a.adLink, a.publish)
+        procedures.procInsertAd(a.adName, a.imageurl, a.adLink, a.publish)
             .then(function (id) {
                 res.status(201).send(id);
             }, function (err) {
@@ -27,13 +27,23 @@ router.route('/')
 
 // =========== get unpublished ads here  ======== //
 
+router.route('/unpublished')
+    .get(function(req, res){
+        procedures.procGetUnpublishedAds().then(function(ads){
+            res.send(ads);
+        }, function(err){
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
 
 //=====================================================//
 
 
 router.route('/:id')
     .get(function (req, res) {
-        procedures.procRead(req.params.id).then(function (ad) {
+        procedures.procGetAd(req.params.id).then(function (ad) {
             console.log(ad);
             res.send(ad);
         }, function (err) {
@@ -43,7 +53,7 @@ router.route('/:id')
     })
     .put(function (req, res) {
         var a = req.body;
-        procedures.procUpdate(req.params.id, a.adName, a.imageurl, a.adLink, a.publish)
+        procedures.procUpdateAd(req.params.id, a.adName, a.imageurl, a.adLink, a.publish)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -52,7 +62,7 @@ router.route('/:id')
             });
     })
     .delete(function (req, res) {
-        procedures.procDestroy(req.params.id)
+        procedures.procDeleteAd(req.params.id)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
