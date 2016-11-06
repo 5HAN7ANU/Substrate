@@ -14,6 +14,10 @@
 
 <button ng-click="showPostDetails()">MANAGE MAGAZINE</button>
 
+<button ng-click="showFeaturedEventDetails()">MANAGE FEATURED EVENTS</button>
+
+<button ng-click="showAdDetails()">MANAGE ADS</button>
+
 <div id="magazineDiv">
     <br><br>
     <button ng-click="showPublishedPosts()">PUBLISHED POSTS</button>
@@ -68,4 +72,39 @@
             <button id="button" ng-click="deleteUser(u)">DELETE</button>
         </div>
     </div>
+</div>
+
+<div id="featuredEventsDiv">
+    <br><br>
+    <button ng-click="showPublishedEvents()">PUBLISHED FEATURED EVENTS</button>
+    <button ng-click="showUnpublishedEvents()">UNPUBLISHED FEATURED EVENTS</button>
+    <div id="unpublishedEventsDiv">
+        <h1 class="adminEvents">UNPUBLISHED FEATURED EVENTS</h1>
+        <div ng-repeat="unpublishedEvent in unpublishedEvents">
+            <div class="list-group-item">
+                {{ unpublishedEvent.eventName }}
+                <a href="/featuredEvents/{{ unpublishedEvent.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <div id="publishedEventsDiv">
+        <h1 class="adminEvents">PUBLISHED EVENTS</h1>
+        <div ng-repeat="publishedEvent in publishedEvents">
+            <div class="list-group-item">
+                {{ publishedEvent.eventName }}
+                <a href="/featuredEvents/{{ publishedEvent.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="adsDiv">
+
 </div>

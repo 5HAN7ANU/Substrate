@@ -1,4 +1,5 @@
-/*index.html*/
+/*/========================INDEX.html======================/*/
+/*********************************************************/
 
 #indexBackground {
   background: url('../assets/background1.jpg');
@@ -14,192 +15,254 @@
   background-size: cover;
   color: white
 }
-
-/*//===============event calender Container ==============//*/
-#eventCalendarContainer {
-  height: 300px;
-  /*width: 550px;*/
-  background-color: rgba(128, 128, 128, 0.7);
-  /*float: left;*/
-  /*margin-left: 25px;*/
-  padding: 0px;
-}
-
-.iframe-side-calendar{
-  margin: 0px;
-  padding: 0px;
-}
-/*//=============================================//*/
+/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 
 
-/*//========== home page ads Container=====================//*/
-#featuredEventContainer {
-  height: 300px;
-  /*width: 600px;*/
-  background-color: rgba(128, 128, 128, 0.5);
-  /*float: left;*/
-  /*margin: 25px;*/
-}
-/*//=================================================//*/
 
 
-/*//=======   home page featured Event Container  ========//*/
-#adContainer {
-  height: 300px;
-  /*width: 250px;*/
-  background-color: rgba(128, 128, 128, 0.7);
-  /*float: left;*/
-  /*margin-left: 25px;*/
-}
-/*//================================================//*/
+/*/========================home.html======================/*/
+/*********************************************************/
+
+      #phone {
+        margin-top: 20px;
+      }
+      #navigation ul
+      {
+          margin: 0;
+          padding: 0;
+      }
+
+      #navigation ul li
+      {
+          list-style-type: none;
+          display: inline;
+      }
+
+      #navigation li:not(:first-child):before {
+          content: " | ";
+      }
+      #menumiddle{
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .middlesection {
+        width: 96%;
+      }
+
+      /*//===============event calender Container ==============//*/
+      #eventCalendarContainer {
+        height: 300px;
+        /*width: 550px;*/
+        background-color: rgba(128, 128, 128, 0.7);
+        /*float: left;*/
+        /*margin-left: 25px;*/
+        padding: 0px;
+      }
+
+      .iframe-side-calendar{
+        margin: 0px;
+        padding: 0px;
+      }
+      /*//=============================================//*/
 
 
-/*contactpage*/
-
-#contact {
-  padding: 10px 0 10px;
-}
-
-.contact-text {
-  margin: 45px auto;
-}
-
-.mail-message-area {
-  width: 100%;
-  padding: 0 15px;
-}
-
-.mail-message {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8) !important;
-  -webkit-transition: all 0.7s;
-  -moz-transition: all 0.7s;
-  transition: all 0.7s;
-  margin: 0 auto;
-  border-radius: 0;
-}
-
-.not-visible-message {
-  height: 0px;
-  opacity: 0;
-}
-
-.visible-message {
-  height: auto;
-  opacity: 1;
-  margin: 25px auto 0;
-}
+      /*//========== home page ads Container=====================//*/
+      #featuredEventContainer {
+        height: 300px;
+        /*width: 600px;*/
+        background-color: rgba(128, 128, 128, 0.5);
+        /*float: left;*/
+        /*margin: 25px;*/
+      }
+      /*//-----------------------------------------------------//*/
 
 
-/* Input Styles */
+      /*//=======   home page featured Event Container  ========//*/
+      #adContainer {
+        height: 300px;
+        /*width: 250px;*/
+        background-color: rgba(128, 128, 128, 0.7);
+        /*float: left;*/
+        /*margin-left: 25px;*/
+      }
+      /*//-----------------------------------------------------//*/
 
-.form {
-  width: 100%;
-  padding: 15px;
-  background: #f8f8f8;
-  border: 1px solid rgba(0, 0, 0, 0.075);
-  margin-bottom: 25px;
-  color: #727272 !important;
-  font-size: 13px;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
+      /*//================ about section ====================//*/
+      .aboutBackground {
+        background-color: white;
+        height: 400px;
+        width: 100%;
+        color: black;
+        padding: 10px;
+      }
+      #abouttext{
+        border: 1px solid red;
+        width: 68%;
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+      }
 
-.form:hover {
-  border: 1px solid #8BC3A3;
-}
-
-.form:focus {
-  color: white;
-  outline: none;
-  border: 1px solid #8BC3A3;
-}
-
-.textarea {
-  height: 200px;
-  max-height: 200px;
-  max-width: 100%;
-}
-
-#message {
-  border: 2px solid red;
-  height: 126px;
-}
+      .vr{
+        display: inline-block; vertical-align: middle;
+        height: 100px;
+        width: 1px;
+        background-color: #000;
+      }
+      /*//-----------------------------------------------------//*/
 
 
-/* Generic Button Styles */
-
-.button {
-  padding: 8px 12px;
-  background: #0A5175;
-  display: block;
-  width: 120px;
-  margin: 10px 0 0px 0;
-  border-radius: 3px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  font-size: 0.8em;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-}
-
-.button:hover {
-  background: #8BC3A3;
-  color: white;
-}
+/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 
 
-/* Send Button Styles */
+/*/========================contact.html======================/*/
+/*************************************************************/
 
-.form-btn {
-  width: 180px;
-  display: block;
-  height: auto;
-  padding: 15px;
-  color: #fff;
-  background: #8BC3A3;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  margin: auto;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-}
+        #contact {
+          padding: 10px 0 10px;
+        }
 
-.form-btn:hover {
-  background: #111;
-  color: white;
-  border: none;
-}
+        .contact-text {
+          margin: 45px auto;
+        }
 
-.form-btn:active {
-  opacity: 0.9;
-}
+        .mail-message-area {
+          width: 100%;
+          padding: 0 15px;
+        }
 
-center {
-  margin-top: 330px;
-}
+        .mail-message {
+          width: 100%;
+          background: rgba(255, 255, 255, 0.8) !important;
+          -webkit-transition: all 0.7s;
+          -moz-transition: all 0.7s;
+          transition: all 0.7s;
+          margin: 0 auto;
+          border-radius: 0;
+        }
 
-input {
-  position: relative;
-  z-index: 9999;
-}
+        .not-visible-message {
+          height: 0px;
+          opacity: 0;
+        }
+
+        .visible-message {
+          height: auto;
+          opacity: 1;
+          margin: 25px auto 0;
+        }
 
 
-/*end contact form*/
+        /* Input Styles */
+
+        .form {
+          width: 100%;
+          padding: 15px;
+          background: #f8f8f8;
+          border: 1px solid rgba(0, 0, 0, 0.075);
+          margin-bottom: 25px;
+          color: #727272 !important;
+          font-size: 13px;
+          -webkit-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          transition: all 0.4s;
+        }
+
+        .form:hover {
+          border: 1px solid #8BC3A3;
+        }
+
+        .form:focus {
+          color: white;
+          outline: none;
+          border: 1px solid #8BC3A3;
+        }
+
+        .textarea {
+          height: 200px;
+          max-height: 200px;
+          max-width: 100%;
+        }
+
+        #message {
+          border: 2px solid red;
+          height: 126px;
+        }
+
+
+        /* Generic Button Styles */
+
+        .button {
+          padding: 8px 12px;
+          background: #0A5175;
+          display: block;
+          width: 120px;
+          margin: 10px 0 0px 0;
+          border-radius: 3px;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          text-align: center;
+          font-size: 0.8em;
+          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+          -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+          -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+        }
+
+        .button:hover {
+          background: #8BC3A3;
+          color: white;
+        }
+
+
+        /* Send Button Styles */
+
+        .form-btn {
+          width: 180px;
+          display: block;
+          height: auto;
+          padding: 15px;
+          color: #fff;
+          background: #8BC3A3;
+          border: none;
+          border-radius: 3px;
+          outline: none;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          margin: auto;
+          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+          -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+          -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+        }
+
+        .form-btn:hover {
+          background: #111;
+          color: white;
+          border: none;
+        }
+
+        .form-btn:active {
+          opacity: 0.9;
+        }
+
+        center {
+          margin-top: 330px;
+        }
+
+        input {
+          position: relative;
+          z-index: 9999;
+        }
+
+/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+
 
 
 /*compose css*/
 
-#file-input {
+/*#file-input {
   display: none;
 }
 
@@ -220,7 +283,7 @@ form {
 
 textarea.form-control {
   box-shadow: 0 0 0 0!important;
-  /*// this is a bootstrap class. you can't add properties to it without messing bootsrap up*/
+  // this is a bootstrap class. you can't add properties to it without messing bootsrap up
   border-radius: 0;
   margin-bottom: 1%;
   max-width: 100%;
@@ -231,16 +294,16 @@ textarea.form-control {
 
 .thumbnail {
   border-radius: 0!important;
-}
+}*/
 
 
 /*end compose css*/
-
+/*
 .picdiv {
   border: 2px solid red;
   height: 200px;
   width: 100px;
-}
+}*/
 
 
 /*#box {
@@ -292,53 +355,3 @@ textarea.form-control {
 }
 
 
-/*****home.html*/
-
-#phone {
-  margin-top: 20px;
-}
-#navigation ul
-{
-    margin: 0;
-    padding: 0;
-}
-
-#navigation ul li
-{
-    list-style-type: none;
-    display: inline;
-}
-
-#navigation li:not(:first-child):before {
-    content: " | ";
-}
-#menumiddle{
-  text-align: center;
-  font-size: 20px;
-}
-
-.middlesection {
-  width: 96%;
-}
-
-.aboutBackground {
-  background-color: white;
-  height: 400px;
-  width: 100%;
-  color: black;
-  padding: 10px;
-}
-#abouttext{
-  border: 1px solid red;
-  width: 68%;
-  font-size: 18px;
-  text-align: center;
-  padding: 10px;
-}
-
-.vr{
-  display: inline-block; vertical-align: middle;
-  height: 100px;
-  width: 1px;
-  background-color: #000;
-}
