@@ -254,6 +254,18 @@ angular.module('Substrate.controllers', [])
         $scope.showPostDetails = function () {
             $('#magazineDiv').show();
             $('#usersDiv').hide();
+            $('#unpublishedPostsDiv').hide();
+            $('#publishedPostsDiv').hide();
+        }
+
+        $scope.showPublishedPosts = function(){
+            $('#publishedPostsDiv').show();
+            $('#unpublishedPostsDiv').hide();
+        }
+
+        $scope.showUnpublishedPosts = function(){
+            $('#publishedPostsDiv').hide();
+            $('#unpublishedPostsDiv').show();
         }
 
         //----------*******Post List********-----------------
