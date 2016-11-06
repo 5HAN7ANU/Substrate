@@ -15,7 +15,10 @@
 <button ng-click="showPostDetails()">MANAGE MAGAZINE</button>
 
 <div id="magazineDiv" ng-show="showPostDetails">
-    <div>
+    <br><br>
+    <button ng-click="showPublishedPosts()">PUBLISHED POSTS</button>
+    <button ng-click="showUnpublishedPosts()">UNPUBLISHED POSTS</button>
+    <div id="unpublishedPostsDiv">
         <h1 class="adminPosts">UNPUBLISHED POSTS</h1>
         <div ng-repeat="unpublishedPost in unpublishedPosts">
             <div class="list-group-item">
@@ -31,7 +34,7 @@
         </div>
     </div>
 
-    <div>
+    <div id="publishedPostsDiv">
         <h1 class="adminPosts">PUBLISHED POSTS</h1>
         <div ng-repeat="publishedPost in publishedPosts">
             <div class="list-group-item">
