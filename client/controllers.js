@@ -1,6 +1,6 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents','Users', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users) {
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
@@ -9,6 +9,8 @@ angular.module('Substrate.controllers', [])
                 console.log($scope.events);
             });
 
+        $scope.dj = Users.getDj();
+        console.log($scope.dj);
           
         $scope.ads = Ads.query();
         console.log($scope.ads);
