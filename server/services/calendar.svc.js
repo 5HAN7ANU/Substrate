@@ -117,7 +117,7 @@ function storeToken(token) {
 }
 
 /**
- * Lists the next 10 events on the user's primary calendar.
+ * Lists the next X amount of events on the user's primary calendar.
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
@@ -126,7 +126,7 @@ function listEvents(auth, eventCount) {
     var calendar = google.calendar('v3');
     calendar.events.list({
       auth: auth,
-      calendarId: 'primary',
+      calendarId: 'primary', 
       timeMin: (new Date()).toISOString(),
       maxResults: eventCount,
       singleEvents: true,

@@ -8,10 +8,11 @@
     width: 30%;
     min-height: 275px;
     border: slategray solid 1px;
-    color: white;
+    color: black;
     float: left;
     margin: 5px;
     clear: right;
+    background-color: white;
 }
 
 .date-time {
