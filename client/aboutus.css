@@ -28,7 +28,7 @@
     border-radius: 5px;
     overflow: hidden;
     margin-left: 53px;
-	 border-radius: 20%;
+	 /*border-radius: 20%;*/
 	 position: relative;
 	 float: left;
 }
@@ -136,7 +136,7 @@ MEDIA QUERIES
 	header, footer {
 		padding: 1% 4%;
 	}*/
-}
+
 
 /* for 700px or less */
 /*@media screen and (max-width: 600px) {
