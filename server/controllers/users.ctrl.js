@@ -29,6 +29,15 @@ router.post('/login', function (req, res, next) {//its a post request because yo
     })(req, res, next);
 });
 
+router.get('/dj', function(req, res) {
+    procedures.procUserDj()
+    .then(function(procUserDj) {
+        res.send(procUserDj);
+    }, function(err){
+        res.status(500).send(err);
+    })
+});
+
 // everything after this point, we are ensuring the user is logged in.
 router.route('*')
     .all(auth.isLoggedIn);//includes all methods 'get, put, post, delete, etc'
@@ -65,15 +74,6 @@ router.post('/', auth.isAdmin, function (req, res) {//you can only post/create a
 router.get('/me', function (req, res) {//get request to /api/users/me
     res.send(req.user);//we are guaranteed that we are going to be logged in, and we are sending a user object with the current logged in user back with its properties (id, email, firstname, lastname) // passport sets req.user
 });
-
-router.get('/dj', function(req, res) {
-    procedures.procUserDj()
-    .then(function(procUserDj) {
-        res.send(procUserDj);
-    }, function(err){
-        res.status(500).send(err);
-    })
-})
 
 router.get('/:id', auth.isAdmin, function (req, res) {
     procedures.procGetUser(req.params.id).then(function (user) {

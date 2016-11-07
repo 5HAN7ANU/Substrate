@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-xs-10">
         <img src="./assets/logo.png" alt="">
@@ -33,16 +32,24 @@
 <div class="container middlesection">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3" id="eventCalendarContainer">
-           
-              <iframe  class= "iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago" style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
-          
+
+            <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
+                style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
+
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-             <!--<p > {{ featuredEvents.eventName }} </p>-->
-            
+            <div ng-repeat="featuredEvents in featuredEventArray"> 
+                <p>{{ featuredEvents.eventName }}</p>
+                <p>{{ featuredEvents.eventDate }} </p>
+                <div>{{ featuredEvents.eventDescription }}</div>
+                <!--<div>{{ featuredEvents.imageurl }}  </div>-->
+                
+            </div>
+             
+
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
-             <!--<p > {{ ads.adName }} </p>-->
+            <p ng-repeat="ads in adArray"> {{ ads.adName }} </p>
         </div>
     </div>
 </div>
@@ -56,18 +63,17 @@
     <!--<img src="./assets/aboutBackground.jpg" alt="">-->
     <p id="abouttext">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium, dolor ac tempor auctor, metus velit mollis justo,
-        eget eleifend augue lorem nec mauris. Fusce efficitur elit ultricies ex accumsan elementum. Cras ac aliquet
-        arcu, nec laoreet lacus. Morbi dapibus diam nisi, non lacinia lectus interdum molestie. Donec tincidunt
-        viverra tellus, et posuere tortor. Aenean nulla arcu, gravida nec pulvinar quis, volutpat a lorem. Ut
-        molestie tellus vitae volutpat ullamcorper. Fusce a velit vitae ipsum tincidunt iaculis. Sed tempus fermentum
-        laoreet. Mauris pretium nulla non odio cursus condimentum. Donec tincidunt, leo vel iaculis malesuada,
-        augue lectus lacinia elit, sit amet varius felis felis non arcu. Suspendisse pharetra justo vitae arcu
-        bibendum, at dapibus erat consequat. Phasellus posuere at eros facilisis. Phasellus sodales elit odio.
-        Nullam tincidunt felis massa, a imperdiet ex maximus sit amet. Proin egestas metus neque, eget dapibus
-        mauris molestie vel. Maecenas sed nulla nunc. Nulla interdum, ligula vitae malesuada finibus, risus urna
-        gravida augue, in condimentum mauris arcu bibendum augue.
+        eget eleifend augue lorem nec mauris. Fusce efficitur elit ultricies ex accumsan elementum. Cras ac aliquet arcu,
+        nec laoreet lacus. Morbi dapibus diam nisi, non lacinia lectus interdum molestie. Donec tincidunt viverra tellus,
+        et posuere tortor. Aenean nulla arcu, gravida nec pulvinar quis, volutpat a lorem. Ut molestie tellus vitae volutpat
+        ullamcorper. Fusce a velit vitae ipsum tincidunt iaculis. Sed tempus fermentum laoreet. Mauris pretium nulla non
+        odio cursus condimentum. Donec tincidunt, leo vel iaculis malesuada, augue lectus lacinia elit, sit amet varius felis
+        felis non arcu. Suspendisse pharetra justo vitae arcu bibendum, at dapibus erat consequat. Phasellus posuere at eros
+        facilisis. Phasellus sodales elit odio. Nullam tincidunt felis massa, a imperdiet ex maximus sit amet. Proin egestas
+        metus neque, eget dapibus mauris molestie vel. Maecenas sed nulla nunc. Nulla interdum, ligula vitae malesuada finibus,
+        risus urna gravida augue, in condimentum mauris arcu bibendum augue.
     </p>
-    
+
     <div class="divider"></div>
     <br><br>
     <hr>
