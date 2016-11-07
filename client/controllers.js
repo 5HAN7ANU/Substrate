@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http','Podcasts', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts) {
         console.log('Home Controller');
         $scope.eventInterval = 4000;
         $scope.adInterval = 9000;
@@ -69,7 +69,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.dj = Users.getDj();
         console.log($scope.dj);
 
-
+        $scope.podcasts = Podcasts.query();
+        console.log($scope.podcasts);
+        
         $scope.ads = Ads.query();
         console.log($scope.ads);
 
