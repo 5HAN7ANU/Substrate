@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http',  function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
         $scope.eventInterval = 4000;
         $scope.adInterval = 9000;
@@ -23,16 +23,16 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             console.log('this is adArray: ');
             console.log($scope.adArray);
             //setting up carousel ==================
-                for(i = 0; i< $scope.adArray.length; i++){
-                    var featuredAd = $scope.adArray[i];
-                    console.log('check it:')
-                    console.log($scope.adArray[i]);
-                    var adSlide = {
-                        image: featuredAd.imageurl
-                    };
-                    $scope.adSlides.push(adSlide);
-                      
-                    }
+            for (i = 0; i < $scope.adArray.length; i++) {
+                var featuredAd = $scope.adArray[i];
+                console.log('check it:')
+                console.log($scope.adArray[i]);
+                var adSlide = {
+                    image: featuredAd.imageurl
+                };
+                $scope.adSlides.push(adSlide);
+
+            }
         }, function (err) {
             console.log(err);
         });
@@ -44,23 +44,23 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/featuredevents'
-        }).then(function (success){
+        }).then(function (success) {
             console.log(success.data);
             $scope.featuredEventArray = success.data;
             console.log('this is featuredEventArray: ');
             console.log($scope.featuredEventArray);
-                //setting up carousel ==================
-                    for (i = 0; i < $scope.featuredEventArray.length; i++) {
-                        var featuredEvent = $scope.featuredEventArray[i];
-                        console.log('check it:');
-                        console.log($scope.featuredEventArray[i]);
-                        var eventSlide = {
-                            image: featuredEvent.imageurl
-                        };
-                        $scope.eventSlides.push(eventSlide);
-                      
-                    }
-        }, function(err) {
+            //setting up carousel ==================
+            for (i = 0; i < $scope.featuredEventArray.length; i++) {
+                var featuredEvent = $scope.featuredEventArray[i];
+                console.log('check it:');
+                console.log($scope.featuredEventArray[i]);
+                var eventSlide = {
+                    image: featuredEvent.imageurl
+                };
+                $scope.eventSlides.push(eventSlide);
+
+            }
+        }, function (err) {
             console.log(err);
         });
 
@@ -84,9 +84,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
-        
+
         CalendarService.getEvents(1000)
-            .then(function(events) {
+            .then(function (events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -312,7 +312,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('EditAdController', ['$scope', 'UserService', 'Ads', '$routeParams', '$location', '$http', function($scope, UserService, Ads, $routeParams, $location, $http){
+    .controller('EditAdController', ['$scope', 'UserService', 'Ads', '$routeParams', '$location', '$http', function ($scope, UserService, Ads, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
@@ -359,7 +359,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/admin');
         }
     }])
-    .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function($scope, UserService, FeaturedEvents, $routeParams, $location, $http){
+    .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function ($scope, UserService, FeaturedEvents, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
@@ -479,11 +479,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             });
         }
 
-        $scope.composeFeaturedEventPage = function(){
+        $scope.composeFeaturedEventPage = function () {
             $location.path('/composefeaturedevent');
         };
 
-        $scope.composeAdPage = function(){
+        $scope.composeAdPage = function () {
             $location.path('/composead');
         };
 
@@ -534,7 +534,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#unpublishedEventsDiv').show();
         }
 
-        $scope.showAdDetails = function(){
+        $scope.showAdDetails = function () {
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
             $('#featuredEventsDiv').hide();
@@ -566,15 +566,15 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
 
         //----------*******Ads List********-----------------
-        
+
         $scope.publishedAds = Ads.query();
         $http({
             method: 'GET',
             url: '/api/ads/unpublished'
-        }).then(function(success){
+        }).then(function (success) {
             $scope.unpublishedAds = success.data;
             console.log($scope.unpublishedAds);
-        }, function(err){
+        }, function (err) {
             console.log(err);
         });
 
@@ -757,6 +757,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.password = $scope.featuredUser.password;
             $scope.role = $scope.featuredUser.role;
             $scope.dj = $scope.featuredUser.dj;
+            $scope.imageurl = $scope.featuredUser.imageurl;
+            $scope.bio = $scope.featuredUser.bio;
 
             console.log('Controllers.js/UpdateUserController: The user is ');
             console.log($scope.featuredUser);
@@ -776,6 +778,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.featuredUser.password = $scope.password;
             $scope.featuredUser.role = $scope.role;
             $scope.featuredUser.dj = $scope.dj;
+            $scope.featuredUser.imageurl = $scope.imageurl;
+            $scope.featuredUser.bio = $scope.bio;
 
             console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
 
