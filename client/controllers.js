@@ -1,10 +1,5 @@
 angular.module('Substrate.controllers', [])
-
-<<<<<<< HEAD
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users) {
-=======
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
->>>>>>> 7dd90816132ddeea51598f3345eb1e673c22b7ca
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
@@ -51,18 +46,13 @@ angular.module('Substrate.controllers', [])
         //----------------------------------------------
         $scope.dj = Users.getDj();
         console.log($scope.dj);
-<<<<<<< HEAD
+
 
         $scope.ads = Ads.query();
         console.log($scope.ads);
 
         $scope.featuredEvents = FeaturedEvents.query();
         console.log($scope.featuredEvents);
-=======
-
-
->>>>>>> 7dd90816132ddeea51598f3345eb1e673c22b7ca
-
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
