@@ -90,32 +90,55 @@
 
       /*//================ about section ====================//*/
       .aboutBackground {
+        background-image: url('./assets/Logoabout.png');
         background-color: white;
-        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        /*height: 400px;*/
         width: 100%;
         color: black;
         padding: 10px;
       }
       #abouttext{
-        border: 1px solid red;
+        /*border: 1px solid red;*/
         width: 68%;
         font-size: 18px;
         text-align: center;
         padding: 10px;
       }
-
-      .vr{
-        display: inline-block; vertical-align: middle;
-        height: 100px;
-        width: 1px;
-        background-color: #000;
+      #wearesubstrate{
+        font-weight: bolder;
+        margin-left: 9em;
       }
+
+      .djsection{
+        background-color: white;
+        padding: 10px;
+      }
+
       /*//-----------------------------------------------------//*/
 
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+/*/========================podcast/follow us  section======================/*/
+      .podcast{
+        background-color: lightgrey;
+        height: 200px;
+        color: black;
+        text-align: center;
+      }
 
-
+      .followus{
+        background-image: url('/assets/background7.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        height: 200px;
+        background-color: whitesmoke;
+        color: black;
+        text-align: center;
+      }
 /*/========================contact.html======================/*/
 /*************************************************************/
 
