@@ -12,6 +12,14 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         templateUrl: 'views/calendar.html',
         controller: 'CalendarController'
     })
+    .when('/featuredevents/:id/update',{
+        templateUrl: 'views/editfeaturedevent.html',
+        controller: 'EditFeaturedEventController'
+    })
+    .when('/featuredevents/:id', {
+        templateUrl: 'views/featuredevent.html',
+        controller: 'FeaturedEventController'
+    })
     .when('/magazine/:id/update',{
         templateUrl: 'views/editarticle.html',
         controller: 'EditArticleController'
