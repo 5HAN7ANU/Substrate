@@ -7,11 +7,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.adSlides = [];
 
 
-        CalendarService.getEvents(10)
-            .then(function (events) {
-                $scope.events = events;
-                console.log($scope.events);
-            });
+        // CalendarService.getEvents(10)
+        //     .then(function (events) {
+        //         $scope.events = events;
+        //         console.log($scope.events);
+        //     });
 
         //Getting Ads ====================================
         $http({
@@ -105,6 +105,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         var lastDayOfMonth = lastDayString[2];
         var timeMin = ISODateString(d, firstDayOfMonth);
         var timeMax = ISODateString(d, lastDayOfMonth);
+
+        console.log(timeMin);
+        console.log(timeMax);
         
         CalendarService.getEvents(1000, timeMin, timeMax)
             .then(function(events) {

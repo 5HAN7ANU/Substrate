@@ -8,7 +8,6 @@ router.post('/events/:id', function(req, res) {
     calendarSvc.getEventList(req.params.id, req.body.timeMin, req.body.timeMax)
     .then(function(events) {
         console.log('done');
-        console.log(events);
         res.send(events);
     }, function(err) {
         console.log(err);
