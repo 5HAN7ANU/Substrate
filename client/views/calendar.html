@@ -1,14 +1,14 @@
 <div class="calendar-header">
-  <h2>Upcoming Events</h2>
+  <p>Upcoming Events</p>
 </div>
 <div class="container" id="cal">
-  <div class="card card-block" ng-repeat="day in calendar">
+  <div class="date" ng-repeat="day in calendar">
       <div class="date-header">
         <h4 class="date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
       </div>
       <div ng-repeat="event in day">
         <div class="date-information">
-          <p class="date-title">{{ event.summary }}</p>
+          <a class="date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>
           <p class="date-text">{{ event.location }}</p>
         </div>
       </div>
