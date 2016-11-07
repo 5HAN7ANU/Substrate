@@ -1,6 +1,6 @@
 angular.module('Substrate.controllers', [])
 
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents','Users', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
@@ -9,15 +9,47 @@ angular.module('Substrate.controllers', [])
                 console.log($scope.events);
             });
 
+        //Getting Ads ====================================
+        $http({
+            method: 'GET',
+            url: '/api/ads'
+        }).then(function (success) {
+            console.log(success.data);
+            $scope.adArray = success.data;
+            console.log('this is adArray: ');
+            console.log($scope.adArray);
+            // for(i = 0; i< adArray.length; i++){
+            // var featuredAd = adArray[i];
+            // console.log(featuredAd);
+        }, function (err) {
+            console.log(err);
+        });
+
+        //----------------------------------------------
+
+        // $scope.featuredEvents = FeaturedEvents.query();
+        // console.log($scope.featuredEvents);
+
+        //Getting Featured Events =========================
+        $http({
+            method: 'GET',
+            url: '/api/featuredevents'
+        }).then(function (success){
+            console.log(success.data);
+            $scope.featuredEventArray = success.data;
+            console.log('this is featuredEventArray: ');
+            console.log($scope.featuredEventArray);
+        }, function(err) {
+            console.log(err);
+        });
+
+
+        //----------------------------------------------
         $scope.dj = Users.getDj();
         console.log($scope.dj);
-          
-        $scope.ads = Ads.query();
-        console.log($scope.ads);
 
-        $scope.featuredEvents = FeaturedEvents.query();
-        console.log($scope.featuredEvents);
-        
+
+
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -191,7 +223,7 @@ angular.module('Substrate.controllers', [])
 
         $scope.loggedIn = false;
         $scope.ifAdmin = false;
-        UserService.me().then(function(me){
+        UserService.me().then(function (me) {
             $scope.ME = me;
             $scope.loggedIn = true;
             if (me.role === 'admin') {
@@ -199,8 +231,8 @@ angular.module('Substrate.controllers', [])
             }
         });
         $scope.logout = function () {
-            UserService.logout().then(function(){
-            $route.reload();
+            UserService.logout().then(function () {
+                $route.reload();
             });
         }
 
@@ -218,7 +250,7 @@ angular.module('Substrate.controllers', [])
             { name: 'Yes', value: '1' }
         ];
 
-        
+
         $scope.update = function () {
             $scope.post.$update(function (success) {
                 $location.path('/admin');
@@ -268,12 +300,12 @@ angular.module('Substrate.controllers', [])
             $('#publishedPostsDiv').hide();
         }
 
-        $scope.showPublishedPosts = function(){
+        $scope.showPublishedPosts = function () {
             $('#publishedPostsDiv').show();
             $('#unpublishedPostsDiv').hide();
         }
 
-        $scope.showUnpublishedPosts = function(){
+        $scope.showUnpublishedPosts = function () {
             $('#publishedPostsDiv').hide();
             $('#unpublishedPostsDiv').show();
         }
