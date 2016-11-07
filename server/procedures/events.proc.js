@@ -7,8 +7,8 @@ exports.procInsertFeaturedEvent = function(eventName, eventDate, eventDescriptio
     return db.fnRow('procInsertFeaturedEvent', [eventName, eventDate, eventDescription, imageurl, publish])
 }
 
-exports.procUpdateFeaturedEvent = function(eventName, eventDate, eventDescription, imageurl, publish){
-    return db.fnEmpty('procUpdateFeaturedEvent', [eventName, eventDate, eventDescription, imageurl, publish]);
+exports.procUpdateFeaturedEvent = function(id, eventName, eventDate, eventDescription, imageurl, publish){
+    return db.fnEmpty('procUpdateFeaturedEvent', [id, eventName, eventDate, eventDescription, imageurl, publish]);
 }
 
 exports.procGetFeaturedEvent = function(id){
