@@ -132,13 +132,11 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        /*height: 400px;*/
         width: 100%;
         color: black;
         padding: 10px;
       }
       #abouttext{
-        /*border: 1px solid red;*/
         width: 68%;
         font-size: 18px;
         text-align: center;
@@ -151,7 +149,6 @@
 
       .djsection{
         background-color: white;
-        padding: 0px;
         padding-bottom: 12px;
       }
 
@@ -163,6 +160,7 @@
       .podcast{
         background-color: lightgrey;
         height: 200px;
+        width: 100%;
         color: black;
         text-align: center;
       }
