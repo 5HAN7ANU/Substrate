@@ -38,7 +38,13 @@
 
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-            <p ng-repeat="featuredEvents in featuredEventArray"> {{ featuredEvents.eventName }} </p>
+            <div ng-repeat="featuredEvents in featuredEventArray"> 
+                <p>{{ featuredEvents.eventName }}</p>
+                <p>{{ featuredEvents.eventDate }} </p>
+                <div>{{ featuredEvents.eventDescription }}</div>
+                <!--<div>{{ featuredEvents.imageurl }}  </div>-->
+                
+            </div>
              
 
         </div>
