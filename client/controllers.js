@@ -356,7 +356,7 @@ angular.module('Substrate.controllers', [])
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function (FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
+    .controller('AdminController', ['$route', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
 
         $('#magazineDiv').hide();
