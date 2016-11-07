@@ -1,6 +1,10 @@
 angular.module('Substrate.controllers', [])
 
+<<<<<<< HEAD
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users) {
+=======
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
+>>>>>>> 7dd90816132ddeea51598f3345eb1e673c22b7ca
         console.log('Home Controller');
 
         CalendarService.getEvents(10)
@@ -9,14 +13,55 @@ angular.module('Substrate.controllers', [])
                 console.log($scope.events);
             });
 
+        //Getting Ads ====================================
+        $http({
+            method: 'GET',
+            url: '/api/ads'
+        }).then(function (success) {
+            console.log(success.data);
+            $scope.adArray = success.data;
+            console.log('this is adArray: ');
+            console.log($scope.adArray);
+            // for(i = 0; i< adArray.length; i++){
+            // var featuredAd = adArray[i];
+            // console.log(featuredAd);
+        }, function (err) {
+            console.log(err);
+        });
+
+        //----------------------------------------------
+
+        // $scope.featuredEvents = FeaturedEvents.query();
+        // console.log($scope.featuredEvents);
+
+        //Getting Featured Events =========================
+        $http({
+            method: 'GET',
+            url: '/api/featuredevents'
+        }).then(function (success){
+            console.log(success.data);
+            $scope.featuredEventArray = success.data;
+            console.log('this is featuredEventArray: ');
+            console.log($scope.featuredEventArray);
+        }, function(err) {
+            console.log(err);
+        });
+
+
+        //----------------------------------------------
         $scope.dj = Users.getDj();
         console.log($scope.dj);
+<<<<<<< HEAD
 
         $scope.ads = Ads.query();
         console.log($scope.ads);
 
         $scope.featuredEvents = FeaturedEvents.query();
         console.log($scope.featuredEvents);
+=======
+
+
+>>>>>>> 7dd90816132ddeea51598f3345eb1e673c22b7ca
 
 
         SEOService.setSEO({
