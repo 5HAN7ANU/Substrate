@@ -37,20 +37,35 @@
                 style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
 
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-            <div ng-repeat="featuredEvents in featuredEventArray"> 
-                <p>{{ featuredEvents.eventName }}</p>
-                <p>{{ featuredEvents.eventDate }} </p>
-                <div>{{ featuredEvents.eventDescription }}</div>
-                <!--<div>{{ featuredEvents.imageurl }}  </div>-->
-                
-            </div>
-             
 
+        <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
+            <div>
+                <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}">
+                    <div class="carousel-caption">
+                        <h4>Slide {{$index+1}}</h4>
+                    </div>
+                    </slide>
+                </carousel>
+            </div>
+    
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
             <p ng-repeat="ads in adArray"> {{ ads.adName }} </p>
+            <!--<div>
+                <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}">
+                    <div class="carousel-caption">
+                        <h4>Slide {{$index+1}}</h4>
+                    </div>
+                    </slide>
+                </carousel>
+            </div>-->
         </div>
+
     </div>
 </div>
 <!--//---------------------------------------------//-->
