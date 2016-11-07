@@ -20,17 +20,16 @@
 }
 
 #box {
-    width: 199px;
+    width: 184px;
     height: 179px;
     box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
-    margin: 5% auto 0 auto;
+    margin: 2% auto 2% auto;
     background-size: cover;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: hidden;
     margin-left: 53px;
-	 /*border-radius: 20%;*/
-	 position: relative;
-	 float: left;
+    /* border-radius: 20%; */
+    float: left;
 }
 
  /*#box {
@@ -51,7 +50,7 @@
 #overlay {
     background: rgba(0, 0, 0, .75);
     text-align: center;
-    padding: 45px 0 66px 0;
+    padding: 45px 0 84px 0;
     opacity: 0;
 }
 

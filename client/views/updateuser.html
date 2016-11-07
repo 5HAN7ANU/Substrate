@@ -25,9 +25,13 @@
         </select>
     <p></p>
     <label for="userDJ">DJ?</label>
-    <select name="userDJ" ng-model="dj">
+    <select id="userDJ" name="userDJ" ng-model="dj">
             <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
         </select>
+    <p></p>
+    <input id="userImageURL" type="text" ng-model="imageurl" placeholder="Image URL" ng-show="dj == 1">
+    <p></p>
+    <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
     <p></p>
     <button id="button" ng-click="updateUser()">UPDATE USER</button>
 </div>
