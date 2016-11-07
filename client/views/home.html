@@ -40,9 +40,9 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
             
-                <carousel class="col-lg-6 col-md-6 col-sm-6" interval="eventInterval">
+                <carousel interval="eventInterval">
                     <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
-                        <img ng-src="{{eventSlide.image}}">
+                        <img class="eventImg" ng-src="{{eventSlide.image}}">
                         <div class="carousel-caption">
                             <!--// if needed - display details  here:-->
                         </div>
@@ -54,9 +54,9 @@
 
         <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
             
-                <carousel class="col-lg-12 col-md-12 col-sm-12" interval="adInterval">
+                <carousel interval="adInterval">
                     <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
-                        <img ng-src="{{adSlide.image}}">
+                        <img class="adImg" ng-src="{{adSlide.image}}">
                         <div class="carousel-caption">
                             <!--// if needed - display details  here:-->
                         </div>

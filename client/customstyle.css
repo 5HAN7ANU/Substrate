@@ -52,7 +52,7 @@
 
       /*//===============event calender Container ==============//*/
       #eventCalendarContainer {
-        height: 300px;
+        height: 700px;
         /*width: 550px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -63,13 +63,14 @@
       .iframe-side-calendar{
         margin: 0px;
         padding: 0px;
+        height: 700px;
       }
       /*//=============================================//*/
 
 
       /*//========== home page ads Container=====================//*/
       #featuredEventContainer {
-        height: 300px;
+        height: 700px;
         /*width: 600px;*/
         background-color: rgba(128, 128, 128, 0.5);
         /*float: left;*/
@@ -78,26 +79,27 @@
 
         /*//-------carousel-------//*/
 
-            /*#slides_control > div{
+            #eventSlides_control > div{
               height: 200px;
             }
-            img{
-              margin:auto;
-              width: 400px;
+            .eventImg{
+              margin: 0px;
+              width: auto;
+              height: 100%;
             }
-            #slides_control {
+            #eventSlides_control {
               position:absolute;
               width: 400px;
               left:50%;
               top:20px;
             margin-left:-200px;
-            }*/
+            }
       /*//-----------------------------------------------------//*/
 
 
       /*//=======   home page featured Event Container  ========//*/
       #adContainer {
-        height: 300px;
+        height: 700px;
         /*width: 250px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -106,20 +108,21 @@
 
        /*//-------carousel-------//*/
 
-            /*#slides_control > div{
+            #adSlides_control > div{
               height: 200px;
             }
-            img{
-              margin:auto;
-              width: 400px;
+            .adImg{
+              margin: 0px;
+              width: 100%;
+              height: auto;
             }
-            #slides_control {
+            #adSlides_control {
               position:absolute;
               width: 400px;
               left:50%;
               top:20px;
             margin-left:-200px;
-            }*/
+            }
       /*//-----------------------------------------------------//*/
 
       /*//================ about section ====================//*/
