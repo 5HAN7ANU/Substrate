@@ -107,5 +107,33 @@
 </div>
 
 <div id="adsDiv">
+    <br><br>
+    <button ng-click="composeAdPage()">CREATE FEATURED AD</button>
+    <button ng-click="showPublishedAds()">PUBLISHED FEATURED ADS</button>
+    <button ng-click="showUnpublishedAds()">UNPUBLISHED FEATURED ADS</button>
+    <div id="unpublishedAdsDiv">
+        <h1 class="adminAds">UNPUBLISHED FEATURED ADS</h1>
+        <div ng-repeat="unpublishedAd in unpublishedAds">
+            <div class="list-group-item">
+                {{ unpublishedAd.adName }}
+                <a href="/ads/{{ unpublishedAd.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
 
+    <div id="publishedAdsDiv">
+        <h1 class="adminAds">PUBLISHED ADS</h1>
+        <div ng-repeat="publishedAd in publishedAds">
+            <div class="list-group-item">
+                {{ publishedAd.adName }}
+                <a href="/ads/{{ publishedAd.id }}/update">
+                    <button>EDIT</button>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
 </div>
