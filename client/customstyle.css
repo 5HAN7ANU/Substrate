@@ -346,7 +346,15 @@ textarea.form-control {
   color: red;
 }
 
+button {
+  background-color: black;
+  color: white;
+}
 
+.list-group-item {
+  background-color: black;
+  color: white;
+}
 /*end admin.html*/
 
 @font-face {

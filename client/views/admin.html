@@ -76,6 +76,7 @@
 
 <div id="featuredEventsDiv">
     <br><br>
+    <button ng-click="composeFeaturedEventPage()">CREATE FEATURED EVENT</button>
     <button ng-click="showPublishedEvents()">PUBLISHED FEATURED EVENTS</button>
     <button ng-click="showUnpublishedEvents()">UNPUBLISHED FEATURED EVENTS</button>
     <div id="unpublishedEventsDiv">
@@ -83,7 +84,7 @@
         <div ng-repeat="unpublishedEvent in unpublishedEvents">
             <div class="list-group-item">
                 {{ unpublishedEvent.eventName }}
-                <a href="/featuredEvents/{{ unpublishedEvent.id }}/update">
+                <a href="/featuredevents/{{ unpublishedEvent.id }}/update">
                     <button>EDIT</button>
                 </a>
             </div>
@@ -96,7 +97,7 @@
         <div ng-repeat="publishedEvent in publishedEvents">
             <div class="list-group-item">
                 {{ publishedEvent.eventName }}
-                <a href="/featuredEvents/{{ publishedEvent.id }}/update">
+                <a href="/featuredevents/{{ publishedEvent.id }}/update">
                     <button>EDIT</button>
                 </a>
             </div>
