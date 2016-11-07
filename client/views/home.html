@@ -27,20 +27,23 @@
 <!--//===============  side calendar/events/ads =================//-->
 <div class="container middlesection">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3" id="eventCalendarContainer">
+        <div class="col-lg-2 col-md-2 col-sm-3" id="eventCalendarContainer">
             <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
                 style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
         </div>
 
 
-        <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
+        <div class="col-lg-6 col-md-6 col-sm-4" id="featuredEventContainer">
             
                 <carousel interval="eventInterval">
-                    <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
-                        <img class="eventImg" ng-src="{{eventSlide.image}}">
-                        <div class="carousel-caption">
-                            <!--// if needed - display details  here:-->
+                    <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >
+                        <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" id="featuredEventBackground">
+                            <div class="carousel-caption">
+                              <!--<h3>if needed display info here</h3>-->
+                            </div>
                         </div>
+                            <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
+                        
                     </slide>
                 </carousel>
             
@@ -48,7 +51,7 @@
 
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
+        <div class="col-lg-2 col-md-2 col-sm-3" id="adContainer">
             
                 <carousel interval="adInterval">
                     <slide ng-repeat="adSlide in adSlides" active="adSlide.active">

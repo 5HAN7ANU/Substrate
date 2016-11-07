@@ -2,7 +2,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http',  function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
         $scope.eventInterval = 4000;
-        $scope.adInterval = 5000;
+        $scope.adInterval = 9000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
 
@@ -196,6 +196,42 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
+    .controller('ComposeAdController', ['$scope', '$location', 'Ads', 'UserService', 'SEOService', function ($scope, $location, Ads, UserService, SEOService) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+
+        $scope.logout = function () {
+            UserService.logout()
+            $location.path('/');
+        }
+
+        $scope.submitFeaturedAd = function () {
+            var data = {
+                adName: $scope.adName,
+                adLink: $scope.adLink,
+                imageurl: $scope.imageurl,
+                publish: 0
+            }
+
+            var featuredAdToPost = new Ads(data);
+            featuredAdToPost.$save(function (success) {
+                console.log('Ad submitted successfully');
+                $location.path('/admin');
+            });
+        }
+
+        $scope.goBack = function () {
+            $location.path('/admin');
+        }
+
+        SEOService.setSEO({
+            title: 'Substrate Radio | Compose Featured Event',
+            description: 'Compose a featured event',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
     .controller('ComposeFeaturedEventController', ['$scope', '$location', 'FeaturedEvents', 'UserService', 'SEOService', function ($scope, $location, FeaturedEvents, UserService, SEOService) {
         UserService.requireLogin();
         UserService.isLoggedIn();
@@ -203,7 +239,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.logout = function () {
             UserService.logout()
-            $location.path('/posts');
+            $location.path('/');
         }
 
         $scope.submitFeaturedEvent = function () {
@@ -275,6 +311,53 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
+    }])
+    .controller('EditAdController', ['$scope', 'UserService', 'Ads', '$routeParams', '$location', '$http', function($scope, UserService, Ads, $routeParams, $location, $http){
+        UserService.requireLogin();
+        UserService.requiresAdmin();
+        UserService.isLoggedIn();
+
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
+            });
+        }
+
+        var id = $routeParams.id;
+        $scope.featuredAd = Ads.get({ id: id }, function () {
+            console.log("this ad's publish value = " + $scope.featuredAd.publish);
+            $scope.featuredAd.publish = String($scope.featuredAd.publish);
+            console.log('1 = publish / 0 = not publish');
+            $scope.publish = $scope.featuredAd.publish;
+            $scope.imageurl = $scope.featuredAd.imageurl;
+            $scope.previewFeaturedAd = $scope.featuredAd;
+            $scope.adId = $scope.featuredAd.id;
+        });
+
+        $scope.publishValues = [
+            { name: 'No', value: '0' },
+            { name: 'Yes', value: '1' }
+        ];
+
+
+        $scope.update = function () {
+            $scope.featuredAd.$update(function (success) {
+                $location.path('/admin');
+            });
+        }
+
+        $scope.promptDelete = function () {
+            var shouldDelete = confirm('Are you sure you want to delete this Ad?');
+            if (shouldDelete) {
+                $scope.featuredAd.$delete(function (success) {
+                    $location.path('/admin');
+                });
+            }
+        }
+
+        $scope.cancelupdate = function () {
+            $location.path('/admin');
+        }
     }])
     .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function($scope, UserService, FeaturedEvents, $routeParams, $location, $http){
         UserService.requireLogin();
@@ -376,12 +459,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['$route', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
+    .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
 
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
         $('#featuredEventsDiv').hide();
+        $('#adsDiv').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -399,9 +483,14 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/composefeaturedevent');
         };
 
+        $scope.composeAdPage = function(){
+            $location.path('/composead');
+        };
+
         $scope.showUserDetails = function () {
             $('#magazineDiv').hide();
             $('#featuredEventsDiv').hide();
+            $('#adsDiv').hide();
             $('#usersDiv').show();
         };
 
@@ -411,6 +500,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#unpublishedPostsDiv').hide();
             $('#publishedPostsDiv').hide();
             $('#featuredEventsDiv').hide();
+            $('#adsDiv').hide();
         }
 
         $scope.showPublishedPosts = function () {
@@ -431,6 +521,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#featuredEventsDiv').show();
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').hide();
+            $('#adsDiv').hide();
         }
 
         $scope.showPublishedEvents = function () {
@@ -443,6 +534,25 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#unpublishedEventsDiv').show();
         }
 
+        $scope.showAdDetails = function(){
+            $('#magazineDiv').hide();
+            $('#usersDiv').hide();
+            $('#featuredEventsDiv').hide();
+            $('#adsDiv').show();
+            $('#publishedAdsDiv').hide();
+            $('#unpublishedAdsDiv').hide();
+        }
+
+        $scope.showPublishedAds = function () {
+            $('#publishedAdsDiv').show();
+            $('#unpublishedAdsDiv').hide();
+        }
+
+        $scope.showUnpublishedAds = function () {
+            $('#publishedAdsDiv').hide();
+            $('#unpublishedAdsDiv').show();
+        }
+
         //----------*******Post List********-----------------
         $scope.publishedPosts = Posts.query();
         $http({
@@ -452,6 +562,19 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.unpublishedPosts = success.data;
             console.log($scope.unpublishedPosts);
         }, function (err) {
+            console.log(err);
+        });
+
+        //----------*******Ads List********-----------------
+        
+        $scope.publishedAds = Ads.query();
+        $http({
+            method: 'GET',
+            url: '/api/ads/unpublished'
+        }).then(function(success){
+            $scope.unpublishedAds = success.data;
+            console.log($scope.unpublishedAds);
+        }, function(err){
             console.log(err);
         });
 
