@@ -2,7 +2,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http',  function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
         $scope.eventInterval = 4000;
-        $scope.adInterval = 5000;
+        $scope.adInterval = 9000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
 

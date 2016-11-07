@@ -54,6 +54,7 @@
       #eventCalendarContainer {
         margin-top:50px;
         margin-right: 5px;
+        margin-left: 5px;
         border-radius: 10px;
         height: 600px;
         /*width: 550px;*/
@@ -76,6 +77,8 @@
       #featuredEventContainer {
         height: 700px;
         border-radius: 10px;
+        margin-top: 10px;
+        padding: 0px;
         /*width: 600px;*/
         background-color: rgba(128, 128, 128, 0.5);
         /*float: left;*/
@@ -99,8 +102,13 @@
               top:20px;
             margin-left:-200px;
             }
-      /*//-----------------------------------------------------//*/
-
+            #featuredEventBackground{
+              background-size: cover;
+              width: auto;
+              height: 700px;
+              border-radius: 10px;
+            }
+            
 
       /*//=======   home page ads Container  ========//*/
       #adContainer {
