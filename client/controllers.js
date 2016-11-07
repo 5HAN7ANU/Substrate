@@ -1,6 +1,11 @@
-angular.module('Substrate.controllers', [])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
+angular.module('Substrate.controllers', ['ui.bootstrap'])
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http',  function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
+        $scope.eventInterval = 4000;
+        $scope.adInterval = 5000;
+        $scope.eventSlides = [];
+        $scope.adSlides = [];
+
 
         CalendarService.getEvents(10)
             .then(function (events) {
@@ -17,17 +22,23 @@ angular.module('Substrate.controllers', [])
             $scope.adArray = success.data;
             console.log('this is adArray: ');
             console.log($scope.adArray);
-            // for(i = 0; i< adArray.length; i++){
-            // var featuredAd = adArray[i];
-            // console.log(featuredAd);
+            //setting up carousel ==================
+                for(i = 0; i< $scope.adArray.length; i++){
+                    var featuredAd = $scope.adArray[i];
+                    console.log('check it:')
+                    console.log($scope.adArray[i]);
+                    var adSlide = {
+                        image: featuredAd.imageurl
+                    };
+                    $scope.adSlides.push(adSlide);
+                      
+                    }
         }, function (err) {
             console.log(err);
         });
 
         //----------------------------------------------
 
-        // $scope.featuredEvents = FeaturedEvents.query();
-        // console.log($scope.featuredEvents);
 
         //Getting Featured Events =========================
         $http({
@@ -38,6 +49,17 @@ angular.module('Substrate.controllers', [])
             $scope.featuredEventArray = success.data;
             console.log('this is featuredEventArray: ');
             console.log($scope.featuredEventArray);
+                //setting up carousel ==================
+                    for (i = 0; i < $scope.featuredEventArray.length; i++) {
+                        var featuredEvent = $scope.featuredEventArray[i];
+                        console.log('check it:');
+                        console.log($scope.featuredEventArray[i]);
+                        var eventSlide = {
+                            image: featuredEvent.imageurl
+                        };
+                        $scope.eventSlides.push(eventSlide);
+                      
+                    }
         }, function(err) {
             console.log(err);
         });

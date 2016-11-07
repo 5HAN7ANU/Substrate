@@ -52,7 +52,7 @@
 
       /*//===============event calender Container ==============//*/
       #eventCalendarContainer {
-        height: 300px;
+        height: 700px;
         /*width: 550px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -63,59 +63,119 @@
       .iframe-side-calendar{
         margin: 0px;
         padding: 0px;
+        height: 700px;
       }
       /*//=============================================//*/
 
 
       /*//========== home page ads Container=====================//*/
       #featuredEventContainer {
-        height: 300px;
+        height: 700px;
         /*width: 600px;*/
         background-color: rgba(128, 128, 128, 0.5);
         /*float: left;*/
         /*margin: 25px;*/
       }
+
+        /*//-------carousel-------//*/
+
+            #eventSlides_control > div{
+              height: 200px;
+            }
+            .eventImg{
+              margin: 0px;
+              width: auto;
+              height: 100%;
+            }
+            #eventSlides_control {
+              position:absolute;
+              width: 400px;
+              left:50%;
+              top:20px;
+            margin-left:-200px;
+            }
       /*//-----------------------------------------------------//*/
 
 
       /*//=======   home page featured Event Container  ========//*/
       #adContainer {
-        height: 300px;
+        height: 700px;
         /*width: 250px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
         /*margin-left: 25px;*/
       }
+
+       /*//-------carousel-------//*/
+
+            #adSlides_control > div{
+              height: 200px;
+            }
+            .adImg{
+              margin: 0px;
+              width: 100%;
+              height: auto;
+            }
+            #adSlides_control {
+              position:absolute;
+              width: 400px;
+              left:50%;
+              top:20px;
+            margin-left:-200px;
+            }
       /*//-----------------------------------------------------//*/
 
       /*//================ about section ====================//*/
       .aboutBackground {
+        background-image: url('./assets/Logoabout.png');
         background-color: white;
-        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        /*height: 400px;*/
         width: 100%;
         color: black;
         padding: 10px;
       }
       #abouttext{
-        border: 1px solid red;
+        /*border: 1px solid red;*/
         width: 68%;
         font-size: 18px;
         text-align: center;
         padding: 10px;
       }
-
-      .vr{
-        display: inline-block; vertical-align: middle;
-        height: 100px;
-        width: 1px;
-        background-color: #000;
+      #wearesubstrate{
+        font-weight: bolder;
+        margin-left: 9em;
       }
+
+      .djsection{
+        background-color: white;
+        padding: 10px;
+      }
+
       /*//-----------------------------------------------------//*/
 
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+/*/========================podcast/follow us  section======================/*/
+      .podcast{
+        background-color: lightgrey;
+        height: 200px;
+        color: black;
+        text-align: center;
+      }
 
-
+      .followus{
+        background-image: url('/assets/background7.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        height: 200px;
+        background-color: whitesmoke;
+        color: black;
+        text-align: center;
+      }
 /*/========================contact.html======================/*/
 /*************************************************************/
 

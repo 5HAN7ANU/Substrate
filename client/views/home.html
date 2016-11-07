@@ -7,9 +7,7 @@
             <img id="phone" src="./assets/phone.png" alt=""></a>
     </div>
 </div>
-
 <br><br>
-
 <!--//=============== navbar links =================//-->
 <div class="container">
     <div class="row">
@@ -26,38 +24,47 @@
     </div>
 </div>
 <!--//---------------------------------------------//-->
-
-
 <!--//===============  side calendar/events/ads =================//-->
 <div class="container middlesection">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3" id="eventCalendarContainer">
-
             <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
                 style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
-
         </div>
+
+
         <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-            <div ng-repeat="featuredEvents in featuredEventArray"> 
-                <p>{{ featuredEvents.eventName }}</p>
-                <p>{{ featuredEvents.eventDate }} </p>
-                <div>{{ featuredEvents.eventDescription }}</div>
-                <!--<div>{{ featuredEvents.imageurl }}  </div>-->
-                
-            </div>
-             
+            
+                <carousel interval="eventInterval">
+                    <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
+                        <img class="eventImg" ng-src="{{eventSlide.image}}">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
+                    </slide>
+                </carousel>
+            
+    
 
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
-            <p ng-repeat="ads in adArray"> {{ ads.adName }} </p>
+            
+                <carousel interval="adInterval">
+                    <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
+                        <img class="adImg" ng-src="{{adSlide.image}}">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
+                    </slide>
+                </carousel>
+           
         </div>
+
     </div>
 </div>
 <!--//---------------------------------------------//-->
-
 <br></br>
-
-
 <!--//===============  ABOUT SECTION =================//-->
 <div class="aboutBackground back">
     <!--<img src="./assets/aboutBackground.jpg" alt="">-->
@@ -73,23 +80,37 @@
         metus neque, eget dapibus mauris molestie vel. Maecenas sed nulla nunc. Nulla interdum, ligula vitae malesuada finibus,
         risus urna gravida augue, in condimentum mauris arcu bibendum augue.
     </p>
-
-    <div class="divider"></div>
-    <br><br>
-    <hr>
-    <div>
+    <p id="wearesubstrate">WE ARE SUBSTRATE</p>
+</div>
+<div class="row">
+    <div class="col-xs-12 djsection">
+        <!--<div class="djsection">-->
         <div id="djbox">
             <div ng-repeat="dj in dj">
                 <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
                     <div id="overlay">
                         <span id="plus">
-                <h1>{{dj.firstname}}</h1>
-                <p id="bio">{{dj.bio}}</p>
-            </span>
+                                <h1>{{dj.firstname}}</h1>
+                                <p id="bio">{{dj.bio}}</p>
+                            </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+<!--//---------------------------------------------//-->
+<!--//===============  podcast SECTION =================//-->
+<div class="row podcast">
+    <div class="col-xs-12" ng-repeat="podcast in podcasts">
+        <h1>{{ podcast.url}} podcast </h1>
+    </div>
+</div>
+<!--//---------------------------------------------//-->
+<!--//===============  follow us SECTION =================//-->
+<div class="row followus">
+   <h1>FOLLOW US ON</h1> 
+</div>
+<br>
 <!--//---------------------------------------------//-->
