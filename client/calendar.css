@@ -4,28 +4,33 @@
     width: 100%;
 }
 
-.card-block {
-    width: 30%;
-    min-height: 275px;
+.date {
+    width: 200px;
+    min-height: 200px;
+    max-height: 200px;
     border: slategray solid 1px;
-    color: white;
+    color: black;
     float: left;
-    margin: 5px;
+    margin: 0.5px;
     clear: right;
+    background-color: rgba(95, 111, 119, 0.8);
+    overflow: scroll;
 }
 
 .date-time {
-    font-size: 40px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .date-title {
-    font-size: 18px;
-    margin-top: 30px;
+    font-size: 14px;
+    margin-top: 5px;
+    color: white;
 }
 
-.date-location {
-    font-size: 15px;
-    margin-bottom: 15px;
+.date-text {
+    font-size: 10px;
+    margin-bottom: 10px;
 }
 
 #map {
@@ -43,18 +48,23 @@
 }
 
 #cal {
-    margin-left: 7%;
+    margin-left: 9%;
     margin-top: 50px;
 }
 
 .date-information {
     text-align: center; 
     vertical-align: middle;
+}
 
+.date-scroll {
+    overflow: scroll;
 }
 
 .calendar-header {
     text-align: center;
     color: white;
     font-family: sans-serif;
+    margin-top: 0px;
+    font-size: 30px;
 }

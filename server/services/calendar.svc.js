@@ -12,7 +12,25 @@ var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 
 exports.getEventList = function(eventCount) {
-  console.log(eventCount)
+  function ISODateString(d, monthDate){
+    function pad(n){return n<10 ? '0'+n : n}
+    return d.getUTCFullYear()+'-'
+        + pad(d.getUTCMonth()+1)+'-'
+        + monthDate + 'T'
+        + pad(d.getUTCHours())+':'
+        + pad(d.getUTCMinutes())+':'
+        + pad(d.getUTCSeconds())+'Z'}
+
+    var d = new Date();
+    var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
+    var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
+    var firstDayString = firstDay.split(" ");
+    var lastDayString = lastDay.split(" ");
+    var firstDayOfMonth = firstDayString[2];
+    var lastDayOfMonth = lastDayString[2];
+    var timeMin = ISODateString(d, firstDayOfMonth);
+    var timeMax = ISODateString(d, lastDayOfMonth);
+
   return new Promise(function(resolve, reject) {
     // Load client secrets from a local file.
     fs.readFile('./client_secret.json', function processClientSecrets(err, content) {
@@ -29,7 +47,7 @@ exports.getEventList = function(eventCount) {
   .then(function(credentials) {
     return authorize(credentials);
   }).then(function(oauth2) {
-    return listEvents(oauth2, eventCount);
+    return listEvents(oauth2, eventCount, timeMin, timeMax);
   });
   // .then(authorize)
   // .then(listEvents);
@@ -117,17 +135,18 @@ function storeToken(token) {
 }
 
 /**
- * Lists the next 10 events on the user's primary calendar.
+ * Lists the next X amount of events on the user's primary calendar.
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth, eventCount) {
+function listEvents(auth, eventCount, timeMin, timeMax) {
   return new Promise(function(resolve, reject) {
     var calendar = google.calendar('v3');
     calendar.events.list({
       auth: auth,
       calendarId: 'primary',
-      timeMin: (new Date()).toISOString(),
+      timeMax: timeMax,
+      timeMin: timeMin,
       maxResults: eventCount,
       singleEvents: true,
       orderBy: 'startTime'

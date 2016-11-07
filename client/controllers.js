@@ -84,9 +84,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
-
-        CalendarService.getEvents(31)
-            .then(function (events) {
+        
+        CalendarService.getEvents(1000)
+            .then(function(events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -105,8 +105,6 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     }
                 }
                 $scope.calendar = calendarArray;
-                // $scope.events = events;
-                // console.log($scope.events);
             });
 
 
