@@ -1,5 +1,4 @@
 angular.module('Substrate.controllers', [])
-
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
 
@@ -49,7 +48,11 @@ angular.module('Substrate.controllers', [])
         console.log($scope.dj);
 
 
+        $scope.ads = Ads.query();
+        console.log($scope.ads);
 
+        $scope.featuredEvents = FeaturedEvents.query();
+        console.log($scope.featuredEvents);
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -173,6 +176,43 @@ angular.module('Substrate.controllers', [])
             url: $location.absUrl()
         });
     }])
+    .controller('ComposeFeaturedEventController', ['$scope', '$location', 'FeaturedEvents', 'UserService', 'SEOService', function ($scope, $location, FeaturedEvents, UserService, SEOService) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+
+        $scope.logout = function () {
+            UserService.logout()
+            $location.path('/posts');
+        }
+
+        $scope.submitFeaturedEvent = function () {
+            var data = {
+                eventName: $scope.eventName,
+                eventDate: $scope.eventDate,
+                eventDescription: $scope.eventDescription,
+                imageurl: $scope.imageurl,
+                publish: 0
+            }
+
+            var featuredEventToPost = new FeaturedEvents(data);
+            featuredEventToPost.$save(function (success) {
+                console.log('Featured event submitted successfully');
+                $location.path('/admin');
+            });
+        }
+
+        $scope.goBack = function () {
+            $location.path('/admin');
+        }
+
+        SEOService.setSEO({
+            title: 'Substrate Radio | Compose Featured Event',
+            description: 'Compose a featured event',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
     .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', 'Posts', function ($scope, $location, UserService, SEOService, Posts) {
         console.log('Compose Controller');
 
@@ -194,7 +234,7 @@ angular.module('Substrate.controllers', [])
                     title: $scope.post.title,
                     userid: me.id,
                     categoryid: $scope.post.categoryid,
-                    content: $scope.post.content,
+                    content: $scope.post.content
                 }
 
                 var articleToPost = new Posts(data);
@@ -215,6 +255,52 @@ angular.module('Substrate.controllers', [])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
+    }])
+    .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function($scope, UserService, FeaturedEvents, $routeParams, $location, $http){
+        UserService.requireLogin();
+        UserService.requiresAdmin();
+        UserService.isLoggedIn();
+
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
+            });
+        }
+
+        var id = $routeParams.id;
+        $scope.featuredEvent = FeaturedEvents.get({ id: id }, function () {
+            console.log("this event's publish value = " + $scope.featuredEvent.publish);
+            $scope.featuredEvent.publish = String($scope.featuredEvent.publish);
+            console.log('1 = publish / 0 = not publish');
+            $scope.publish = $scope.featuredEvent.publish;
+            $scope.imageurl = $scope.featuredEvent.imageurl;
+            $scope.previewFeaturedEvent = $scope.featuredEvent;
+        });
+
+        $scope.publishValues = [
+            { name: 'No', value: '0' },
+            { name: 'Yes', value: '1' }
+        ];
+
+
+        $scope.update = function () {
+            $scope.featuredEvent.$update(function (success) {
+                $location.path('/admin');
+            });
+        }
+
+        $scope.promptDelete = function () {
+            var shouldDelete = confirm('Are you sure you want to delete this featured event?');
+            if (shouldDelete) {
+                $scope.featuredEvent.$delete(function (success) {
+                    $location.path('/admin');
+                });
+            }
+        }
+
+        $scope.cancelupdate = function () {
+            $location.path('/admin');
+        }
     }])
     .controller('EditArticleController', ['$scope', 'UserService', 'Posts', '$routeParams', '$location', '$http', function ($scope, UserService, Posts, $routeParams, $location, $http) {
         UserService.requireLogin();
@@ -289,6 +375,10 @@ angular.module('Substrate.controllers', [])
             });
         }
 
+        $scope.composeFeaturedEventPage = function(){
+            $location.path('/composefeaturedevent');
+        };
+
         $scope.showUserDetails = function () {
             $('#magazineDiv').hide();
             $('#featuredEventsDiv').hide();
@@ -313,7 +403,7 @@ angular.module('Substrate.controllers', [])
             $('#unpublishedPostsDiv').show();
         }
 
-        $scope.showFeaturedEventDetails = function(){
+        $scope.showFeaturedEventDetails = function () {
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
             $('#unpublishedPostsDiv').hide();
@@ -323,12 +413,12 @@ angular.module('Substrate.controllers', [])
             $('#unpublishedEventsDiv').hide();
         }
 
-        $scope.showPublishedEvents = function(){
+        $scope.showPublishedEvents = function () {
             $('#publishedEventsDiv').show();
             $('#unpublishedEventsDiv').hide();
         }
 
-        $scope.showUnpublishedEvents = function(){
+        $scope.showUnpublishedEvents = function () {
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').show();
         }
@@ -352,10 +442,10 @@ angular.module('Substrate.controllers', [])
         $http({
             method: 'GET',
             url: '/api/featuredevents/unpublished'
-        }).then(function(success){
+        }).then(function (success) {
             $scope.unpublishedEvents = success.data;
             console.log($scope.unpublishedEvents);
-        }, function(err){
+        }, function (err) {
             console.log(err);
         });
 
