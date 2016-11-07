@@ -85,7 +85,26 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
         
-        CalendarService.getEvents(1000)
+        function ISODateString(d, monthDate){
+            function pad(n){return n<10 ? '0'+n : n}
+            return d.getUTCFullYear()+'-'
+                + pad(d.getUTCMonth()+1)+'-'
+                + monthDate + 'T'
+                + pad(d.getUTCHours())+':'
+                + pad(d.getUTCMinutes())+':'
+                + pad(d.getUTCSeconds())+'Z'
+            }
+        var d = new Date();
+        var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
+        var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
+        var firstDayString = firstDay.split(" ");
+        var lastDayString = lastDay.split(" ");
+        var firstDayOfMonth = firstDayString[2];
+        var lastDayOfMonth = lastDayString[2];
+        var timeMin = ISODateString(d, firstDayOfMonth);
+        var timeMax = ISODateString(d, lastDayOfMonth);
+        
+        CalendarService.getEvents(1000, timeMin, timeMax)
             .then(function(events) {
                 var calendarArray = [];
                 var calendarDay;

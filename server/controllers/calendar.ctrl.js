@@ -3,9 +3,9 @@ var calendarSvc = require('../services/calendar.svc');
 
 var router = express.Router();
 
-router.get('/events/:id', function(req, res) {
+router.post('/events/:id', function(req, res) {
     console.log(req.params.id);
-    calendarSvc.getEventList(req.params.id)
+    calendarSvc.getEventList(req.params.id, req.body.timeMin, req.body.timeMax)
     .then(function(events) {
         console.log('done');
         console.log(events);
