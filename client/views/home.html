@@ -39,31 +39,30 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6" id="featuredEventContainer">
-            <div>
-                <carousel interval="myInterval">
-                    <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}">
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index+1}}</h4>
-                    </div>
+            
+                <carousel class="col-lg-6 col-md-6 col-sm-6" interval="eventInterval">
+                    <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
+                        <img ng-src="{{eventSlide.image}}">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
                     </slide>
                 </carousel>
-            </div>
+            
     
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-3" id="adContainer">
-            <p ng-repeat="ads in adArray"> {{ ads.adName }} </p>
-            <!--<div>
-                <carousel interval="myInterval">
-                    <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}">
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index+1}}</h4>
-                    </div>
+            
+                <carousel class="col-lg-12 col-md-12 col-sm-12" interval="adInterval">
+                    <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
+                        <img ng-src="{{adSlide.image}}">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
                     </slide>
                 </carousel>
-            </div>-->
+           
         </div>
 
     </div>

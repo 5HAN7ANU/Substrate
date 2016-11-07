@@ -1,8 +1,12 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http',  function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http) {
         console.log('Home Controller');
-        $scope.myInterval = 4000;
-        $scope.slides = [];
+        $scope.eventInterval = 4000;
+        $scope.adInterval = 5000;
+        $scope.eventSlides = [];
+        $scope.adSlides = [];
+
+
         CalendarService.getEvents(10)
             .then(function (events) {
                 $scope.events = events;
@@ -18,9 +22,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.adArray = success.data;
             console.log('this is adArray: ');
             console.log($scope.adArray);
-            // for(i = 0; i< adArray.length; i++){
-            // var featuredAd = adArray[i];
-            // console.log(featuredAd);
+            //setting up carousel ==================
+                for(i = 0; i< $scope.adArray.length; i++){
+                    var featuredAd = $scope.adArray[i];
+                    console.log('check it:')
+                    console.log($scope.adArray[i]);
+                    var adSlide = {
+                        image: featuredAd.imageurl
+                    };
+                    $scope.adSlides.push(adSlide);
+                      
+                    }
         }, function (err) {
             console.log(err);
         });
@@ -42,10 +54,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var featuredEvent = $scope.featuredEventArray[i];
                         console.log('check it:');
                         console.log($scope.featuredEventArray[i]);
-                        var slide = {
+                        var eventSlide = {
                             image: featuredEvent.imageurl
                         };
-                        $scope.slides.push(slide);
+                        $scope.eventSlides.push(eventSlide);
                       
                     }
         }, function(err) {
