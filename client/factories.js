@@ -30,4 +30,7 @@ angular.module('Substrate.factories', [])
     return $resource('api/featuredevents/:id', { id: '@id' }, {
         update: { method: 'PUT'}
     });
+}])
+.factory('Podcasts', ["$resource", function($resource){
+    return $resource('/api/podcasts/:id');
 }]);

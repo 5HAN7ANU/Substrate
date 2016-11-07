@@ -173,12 +173,13 @@
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 /*/========================podcast/follow us  section======================/*/
-      .podcast{
-        background-color: lightgrey;
-        height: 200px;
-        width: 100%;
-        color: black;
-        text-align: center;
+    .podcasts{
+      position: relative;
+      color:white;
+      float: left;
+      }
+      #podcasttext{
+        color: white;
       }
 
       .followus{
@@ -189,6 +190,9 @@
         height: 200px;
         background-color: whitesmoke;
         color: black;
+        text-align: center;
+      }
+      #djbox{
         text-align: center;
       }
 /*/========================contact.html======================/*/

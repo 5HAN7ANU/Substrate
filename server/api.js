@@ -5,6 +5,7 @@ var contact = require('./controllers/contact.ctrl');
 var calendar = require('./controllers/calendar.ctrl');
 var events = require('./controllers/events.ctrl');
 var ads = require('./controllers/ads.ctrl');
+var podcasts = require('./controllers/podcasts.ctrl');
 
 var router = express.Router();
 
@@ -14,6 +15,8 @@ router
     .use('/contact', contact)
     .use('/calendar', calendar)
     .use('/featuredevents', events)
-    .use('/ads', ads);
+    .use('/ads', ads)
+    .use('/podcasts', podcasts);
+
 
 module.exports = router;

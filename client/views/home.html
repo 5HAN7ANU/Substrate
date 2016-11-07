@@ -105,11 +105,20 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div class=" row podcast">
-    <div  ng-repeat="podcast in podcasts">
-        <h1>{{ podcast.url}} podcast </h1>
-    </div>
-</div>
+            <div id="djbox">
+                <h1>Latest Podcasts</h1>
+            <div ng-repeat="podcast in podcasts">
+                <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+                     <a href="{{podcast.url}}">
+                        <div id="overlay">
+                            <span id="podcasttext">
+                                <p>{{podcast.name}}</p>
+                            </span>
+                        </div>
+                     </a>
+                </div>
+            </div>
+        </div>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
 <div class="row followus">
