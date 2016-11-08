@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "test": "nodemon -e js,less --exec \"lessc client/styles/main.less client/style.css && source .variables && node server/index.js\""
+    "test": "source .variables && nodemon"
   },
   "author": "",
   "license": "ISC",

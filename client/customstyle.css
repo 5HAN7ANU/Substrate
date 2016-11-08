@@ -1,7 +1,7 @@
 /*/========================INDEX.html======================/*/
 /*********************************************************/
 
-#indexBackground {
+body {
   background: url('../assets/background1.jpg');
   background-repeat: no-repeat;
   /*-moz-background-size: contain;

@@ -1,15 +1,14 @@
+<!--<div class="container">
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-xs-4">
         <img src="./assets/logo.png" alt="">
     </div>
-    <div class="col-xs-2">
-        <a href="/contact">
-            <img id="phone" src="./assets/phone.png" alt=""></a>
-    </div>
+
 </div>
+</div>-->
 <br><br>
 <!--//=============== navbar links =================//-->
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col xs-12" id="navigation">
             <ul id="menumiddle">
@@ -22,7 +21,7 @@
             </ul>
         </div>
     </div>
-</div>
+</div>-->
 <!--//---------------------------------------------//-->
 <!--//===============  side calendar/events/ads =================//-->
 <div class="container middlesection">
@@ -31,39 +30,28 @@
             <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
                 style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
         </div>
-
-
         <div class="col-lg-6 col-md-6 col-sm-4" id="featuredEventContainer">
-            
-                <carousel interval="eventInterval">
-                    <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >
-                        <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" id="featuredEventBackground">
-                            <div class="carousel-caption">
-                              <!--<h3>if needed display info here</h3>-->
-                            </div>
-                        </div>
-                            <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
-                        
-                    </slide>
-                </carousel>
-            
-    
-
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-3" id="adContainer">
-            
-                <carousel interval="adInterval">
-                    <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
-                        <img class="adImg" ng-src="{{adSlide.image}}">
+            <carousel interval="eventInterval">
+                <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
+                    <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" id="featuredEventBackground">
                         <div class="carousel-caption">
-                            <!--// if needed - display details  here:-->
+                            <!--<h3>if needed display info here</h3>-->
                         </div>
-                    </slide>
-                </carousel>
-           
+                    </div>
+                    <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
+                </slide>
+            </carousel>
         </div>
-
+        <div class="col-lg-2 col-md-2 col-sm-3" id="adContainer">
+            <carousel interval="adInterval">
+                <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
+                    <img class="adImg" ng-src="{{adSlide.image}}">
+                    <div class="carousel-caption">
+                        <!--// if needed - display details  here:-->
+                    </div>
+                </slide>
+            </carousel>
+        </div>
     </div>
 </div>
 <!--//---------------------------------------------//-->
@@ -105,24 +93,72 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-            <div id="djbox">
-                <h1>Latest Podcasts</h1>
-            <div ng-repeat="podcast in podcasts">
-                <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
-                     <a href="{{podcast.url}}">
-                        <div id="overlay">
-                            <span id="podcasttext">
-                                <p>{{podcast.name}}</p>
-                            </span>
-                        </div>
-                     </a>
+<div @podcasts id="djbox">
+    <h1>Latest Podcasts</h1>
+    <div  ng-repeat="podcast in podcasts">
+        <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+            <a href="{{podcast.url}}">
+                <div id="overlay">
+                    <span id="podcasttext">
+                        <p>{{podcast.name}}</p>
+                    </span>
                 </div>
-            </div>
+            </a>
         </div>
+    </div>
+</div>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
 <div class="row followus">
-   <h1>FOLLOW US ON</h1> 
+    <h1>FOLLOW US ON</h1>
+
+<!-- Button modal transparent -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-transparent">
+  Contact us
+</button>
+
+<!-- Modal transparent -->
+
+<div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <div class="modal-body">
+        <center>        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
+
+                <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email"  ng-model="fromEmail"/><br>
+                <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"/><br>
+                <textarea name="message" id="contactmessage" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
+
+        </center>
+        
+      </div>
+      <div class="modal-footer">
+                <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
+    
+</div>
+
+
 <!--//---------------------------------------------//-->
+
+
+
+<script>
+    // .modal-backdrop classes
+
+$(".modal-transparent").on('show.bs.modal', function () {
+  setTimeout( function() {
+    $(".modal-backdrop").addClass("modal-backdrop-transparent");
+  }, 0);
+});
+$(".modal-transparent").on('hidden.bs.modal', function () {
+  $(".modal-backdrop").addClass("modal-backdrop-transparent");
+});
+
+</script>
