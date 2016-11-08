@@ -486,7 +486,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
         UserService.requireLogin();
-        UserService.requiresAdmin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
 
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
@@ -736,6 +737,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         })
     }])
     .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+        
         $scope.create = function () {
             var data = {
                 firstname: $scope.firstname,
@@ -769,6 +774,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
+
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+
         UserService.me();
         var userId = $routeParams.id;
 
