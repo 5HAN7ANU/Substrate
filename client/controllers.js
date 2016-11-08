@@ -485,6 +485,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
+        UserService.requireLogin();
+        UserService.requiresAdmin();
 
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
