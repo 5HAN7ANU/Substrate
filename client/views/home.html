@@ -28,12 +28,24 @@
 <div class="container middlesection">
     <div class="row">
         <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offeset-1 col-sm-12" id="eventCalendarContainer">
-            <iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
-                style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>
+            <!--<iframe class="iframe-side-calendar col-lg-12 col-md-12 col-sm-12" src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=substrateradio%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FChicago"
+                style="border-width:0" width="267.33" height="300" frameborder="0" scrolling="no"></iframe>-->
+            <div class="weekDate" ng-repeat="day in calendar">
+                <div class="week-date-header">
+                    <h4 class="week-date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
+                </div>
+                <div ng-repeat="event in day">
+                    <div class="week-date-information">
+                    <a class="week-date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>
+                    <p class="week-date-text">{{ event.location }}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
 
 
-        <div class=".col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
+        <div class="col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
             
                 <carousel interval="eventInterval">
                     <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >

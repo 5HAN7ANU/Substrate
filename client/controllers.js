@@ -5,13 +5,39 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.adInterval = 9000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
+        
+        //getting next 7 days of events 
 
+        var today = new Date();
+        var timeMin = today.toISOString();
+        var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
+        var timeMax = nextWeek.toISOString();
+        console.log(timeMin);
+        console.log(timeMax);
 
-        // CalendarService.getEvents(10)
-        //     .then(function (events) {
-        //         $scope.events = events;
-        //         console.log($scope.events);
-        //     });
+        CalendarService.getEvents(1000, timeMin, timeMax)
+            .then(function(events) {
+                var calendarArray = [];
+                var calendarDay;
+                var calendarMonth;
+                for (i = 0; i < events.length; i++) {
+                    var eventDate = new Date(events[i].start.dateTime).getDate();
+                    var eventMonth = new Date(events[i].start.dateTime).getMonth();
+                    if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
+                        var eventArray = [];
+                        eventArray.push(events[i]);
+                        calendarArray.push(eventArray);
+                        calendarDay = eventDate;
+                        calendarMonth = eventMonth;
+                    } else { // not a new day
+                        var eventArray = calendarArray[calendarArray.length - 1];
+                        eventArray.push(events[i]);
+                    }
+                }
+                $scope.calendar = calendarArray;
+                console.log(calendarArray);
+            });
+
 
         //Getting Ads ====================================
         $http({
@@ -87,24 +113,31 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
         
-        function ISODateString(d, monthDate){
-            function pad(n){return n<10 ? '0'+n : n}
-            return d.getUTCFullYear()+'-'
-                + pad(d.getUTCMonth()+1)+'-'
-                + monthDate + 'T'
-                + pad(d.getUTCHours())+':'
-                + pad(d.getUTCMinutes())+':'
-                + pad(d.getUTCSeconds())+'Z'
-            }
+        // function ISODateString(d, monthDate){
+        //     function pad(n){return n<10 ? '0'+n : n}
+        //     return d.getUTCFullYear()+'-'
+        //         + pad(d.getUTCMonth()+1)+'-'
+        //         + monthDate + 'T'
+        //         + pad(d.getUTCHours())+':'
+        //         + pad(d.getUTCMinutes())+':'
+        //         + pad(d.getUTCSeconds())+'Z'
+        //     }
         var d = new Date();
-        var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
-        var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
-        var firstDayString = firstDay.split(" ");
-        var lastDayString = lastDay.split(" ");
-        var firstDayOfMonth = firstDayString[2];
-        var lastDayOfMonth = lastDayString[2];
-        var timeMin = ISODateString(d, firstDayOfMonth);
-        var timeMax = ISODateString(d, lastDayOfMonth);
+        // var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
+        // var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
+        // var firstDayString = firstDay.split(" ");
+        // var lastDayString = lastDay.split(" ");
+        // var firstDayOfMonth = firstDayString[2];
+        // var lastDayOfMonth = lastDayString[2];
+        // var timeMin = ISODateString(d, firstDayOfMonth);
+        // var timeMax = ISODateString(d, lastDayOfMonth);
+
+        var d = new Date();
+        var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
+        var lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+
+        var timeMin = firstDay.toISOString();
+        var timeMax = lastDay.toISOString();
 
         console.log(timeMin);
         console.log(timeMax);
