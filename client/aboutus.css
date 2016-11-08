@@ -1,38 +1,39 @@
-#djimg {
-    border-radius: 100%;
-    height: 223px;
-    width: 202px;
+	#djimg {
+	border-radius: 100%;
+	height: 223px;
+	width: 202px;
 }
 
 .headline {
-    background-image: url('/assets/aboutus.jpg');
-    height: 35vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    align-items: center;
-    -webkit-align-items: center;
-    justify-content: center;
-    -webkit-justify-content: center;
-    color: white;
+	background-image: url('/assets/aboutus.jpg');
+	height: 35vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-justify-content: center;
+	color: white;
 }
 
 #box {
-    width: 184px;
-    height: 179px;
-    box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
-    margin: 2% auto 2% auto;
-    background-size: cover;
-    /* border-radius: 5px; */
-    overflow: hidden;
-    margin-left: 53px;
-    /* border-radius: 20%; */
-    float: left;
+	width: 184px;
+	height: 179px;
+	box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
+	margin: 2% auto 2% auto;
+	background-size: cover;
+	/* border-radius: 5px; */
+	overflow: hidden;
+	margin-left: 53px;
+	/* border-radius: 20%; */
+	float: left;
 }
 
- /*#box {
+
+/*#box {
      border: 3px solid yellow;
      color: grey;
      width: 270px;
@@ -44,39 +45,39 @@
  }*/
 
 #bio {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 #overlay {
-    background: rgba(0, 0, 0, .75);
-    text-align: center;
-    padding: 45px 0 84px 0;
-    opacity: 0;
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
 }
 
 #box:hover #overlay {
-    opacity: 1;
+	opacity: 1;
 }
 
 #plus {
-    font-family: Helvetica;
-    font-weight: 900;
-    color: rgba(255, 255, 255, .85);
-    font-size: 96px;
+	font-family: Helvetica;
+	font-weight: 900;
+	color: rgba(255, 255, 255, .85);
+	font-size: 96px;
 }
 
-#cform{
-  
-    /*border: 2px solid blue;*/
-    clear: both;
-    position: relative;
-    top: 26px;
-    color: white;
+#cform {
+	/*border: 2px solid blue;*/
+	clear: both;
+	position: relative;
+	top: 26px;
+	color: white;
 }
+
 
 /*logomain maain html*/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 /* STRUCTURE */
 
@@ -93,7 +94,8 @@
 }
 
 #middle {
-	width: 294px; /* Account for margins + border values */
+	width: 294px;
+	/* Account for margins + border values */
 	float: left;
 	padding: 5px 15px;
 	margin: 0px 5px 5px 5px;
@@ -105,10 +107,15 @@
 	float: left;
 }
 
+
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
+
+
 /* for 980px or less */
+
+
 /*@media screen and (max-width: 980px) {
 	
 	#pagewrap {
@@ -138,6 +145,8 @@ MEDIA QUERIES
 
 
 /* for 700px or less */
+
+
 /*@media screen and (max-width: 600px) {
 
 	#content {
@@ -158,7 +167,10 @@ MEDIA QUERIES
 
 }*/
 
+
 /* for 480px or less */
+
+
 /*@media screen and (max-width: 480px) {
 
 	header {
@@ -187,3 +199,4 @@ header, #content, #middle, #sidebar {
 #pagewrap, header, #content, #middle, #sidebar, footer {
 	border: solid 1px #ccc;
 }*/
+
