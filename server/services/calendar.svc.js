@@ -11,26 +11,7 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 
-exports.getEventList = function(eventCount) {
-  function ISODateString(d, monthDate){
-    function pad(n){return n<10 ? '0'+n : n}
-    return d.getUTCFullYear()+'-'
-        + pad(d.getUTCMonth()+1)+'-'
-        + monthDate + 'T'
-        + pad(d.getUTCHours())+':'
-        + pad(d.getUTCMinutes())+':'
-        + pad(d.getUTCSeconds())+'Z'}
-
-    var d = new Date();
-    var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
-    var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
-    var firstDayString = firstDay.split(" ");
-    var lastDayString = lastDay.split(" ");
-    var firstDayOfMonth = firstDayString[2];
-    var lastDayOfMonth = lastDayString[2];
-    var timeMin = ISODateString(d, firstDayOfMonth);
-    var timeMax = ISODateString(d, lastDayOfMonth);
-
+exports.getEventList = function(eventCount, timeMin, timeMax) {
   return new Promise(function(resolve, reject) {
     // Load client secrets from a local file.
     fs.readFile('./client_secret.json', function processClientSecrets(err, content) {

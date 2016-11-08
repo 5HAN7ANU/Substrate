@@ -7,11 +7,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.adSlides = [];
 
 
-        CalendarService.getEvents(10)
-            .then(function (events) {
-                $scope.events = events;
-                console.log($scope.events);
-            });
+        // CalendarService.getEvents(10)
+        //     .then(function (events) {
+        //         $scope.events = events;
+        //         console.log($scope.events);
+        //     });
 
         //Getting Ads ====================================
         $http({
@@ -86,9 +86,31 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
+        
+        function ISODateString(d, monthDate){
+            function pad(n){return n<10 ? '0'+n : n}
+            return d.getUTCFullYear()+'-'
+                + pad(d.getUTCMonth()+1)+'-'
+                + monthDate + 'T'
+                + pad(d.getUTCHours())+':'
+                + pad(d.getUTCMinutes())+':'
+                + pad(d.getUTCSeconds())+'Z'
+            }
+        var d = new Date();
+        var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
+        var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
+        var firstDayString = firstDay.split(" ");
+        var lastDayString = lastDay.split(" ");
+        var firstDayOfMonth = firstDayString[2];
+        var lastDayOfMonth = lastDayString[2];
+        var timeMin = ISODateString(d, firstDayOfMonth);
+        var timeMax = ISODateString(d, lastDayOfMonth);
 
-        CalendarService.getEvents(1000)
-            .then(function (events) {
+        console.log(timeMin);
+        console.log(timeMax);
+        
+        CalendarService.getEvents(1000, timeMin, timeMax)
+            .then(function(events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -463,6 +485,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
         console.log('Admin Controller');
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
 
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
@@ -712,6 +737,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         })
     }])
     .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+        
         $scope.create = function () {
             var data = {
                 firstname: $scope.firstname,
@@ -745,6 +774,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
+
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+
         UserService.me();
         var userId = $routeParams.id;
 
