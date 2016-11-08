@@ -5,6 +5,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.adInterval = 9000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
+        $scope.adSlides2 = [];
         
         //getting next 7 days of events 
 
@@ -42,13 +43,35 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         //Getting Ads ====================================
         $http({
             method: 'GET',
-            url: '/api/ads'
+            url: '/api/ads/even'   // this might need to be before /ads
+        }).then(function (success) {
+            console.log(success.data);
+            $scope.adArray2 = success.data;
+            console.log('this is adArray2: ');
+            console.log($scope.adArray2);
+            //setting up ad carousel 2==================
+            for (i = 0; i < $scope.adArray2.length; i++) {
+                var featuredAd2 = $scope.adArray2[i];
+                console.log('check it:')
+                console.log($scope.adArray2[i]);
+                var adSlide2 = {
+                    image: featuredAd2.imageurl
+                };
+                $scope.adSlides2.push(adSlide2);
+            }
+        }, function (err) {
+            console.log(err);
+        });
+        
+        $http({
+            method: 'GET',
+            url: '/api/ads'   //gets ads with ids that are odd
         }).then(function (success) {
             console.log(success.data);
             $scope.adArray = success.data;
             console.log('this is adArray: ');
             console.log($scope.adArray);
-            //setting up carousel ==================
+            //setting up ad carousel 1 ==================
             for (i = 0; i < $scope.adArray.length; i++) {
                 var featuredAd = $scope.adArray[i];
                 console.log('check it:')
@@ -57,11 +80,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     image: featuredAd.imageurl
                 };
                 $scope.adSlides.push(adSlide);
-
             }
         }, function (err) {
             console.log(err);
         });
+
+     
+
 
         //----------------------------------------------
 
