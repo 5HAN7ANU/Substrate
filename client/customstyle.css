@@ -440,18 +440,4 @@ button {
 }
 /*end admin.html*/
 
-/*@font-face {
-  font-family: 'LuloCleanOne';
-  src: url(../luloFont/LuloCleanFour.otf), url(../luloFont/LuloCleanFourBold.otf), url(../luloFont/LuloCleanOne.otf) format("opentype"), url(../luloFont/LuloCleanOneBold.otf), url(../luloFont/LuloCleanOutline.otf), url(../luloFont/LuloCleanOutlineBold.otf), url(../luloFont/LuloCleanThree.otf), url(../luloFont/LuloCleanThreeBold.otf), url(../luloFont/LuloCleanTwo.otf), url(../luloFont/LuloCleanTwoBold.otf);
-}*/
-
-@font-face{ 
-	font-family: 'MyWebFont';
-	src: url('WebFont.eot');
-	src: url('WebFont.eot?#iefix') format('embedded-opentype'),
-	     url('WebFont.woff') format('woff'),
-	     url('WebFont.ttf') format('truetype'),
-	     url('WebFont.svg#webfont') format('svg');
-}
-
-p { font-family: 'MyWebFont', Arial, sans-serif; }
+body { font-family: LuloCleanOne; }
