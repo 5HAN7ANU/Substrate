@@ -138,8 +138,14 @@
   position: relative;
   padding: 15px;
   margin-top: -27em;
+  background-color: lightgray;
 }
-
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background-color: gray;
+}
 #contactemail {
   width: 80%;
   text-align: center;
