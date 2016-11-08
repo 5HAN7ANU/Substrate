@@ -15,30 +15,30 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
-        <carousel interval="eventInterval">
-            <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >
-                <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground" >
-                    <div class="carousel-caption">
-                    <!--<h3>if needed display info here</h3>-->
+        <div class="col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
+            <carousel interval="eventInterval">
+                <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >
+                    <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground" >
+                        <div class="carousel-caption">
+                        <!--<h3>if needed display info here</h3>-->
+                        </div>
                     </div>
-                </div>
-                <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
-            </slide>
-        </carousel>
-    </div>
+                    <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
+                </slide>
+            </carousel>
+        </div>
 
-    <div class="col-lg-2 col-md-2 col-sm-12" id="adContainer">
-        <carousel interval="adInterval">
-            <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
-                <img class="adImg" ng-src="{{adSlide.image}}">
-                <div class="carousel-caption">
-                    <!--// if needed - display details  here:-->
-                </div>
-            </slide>
-        </carousel>
+        <div class="col-lg-2 col-md-2 col-sm-12" id="adContainer">
+            <carousel interval="adInterval">
+                <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
+                    <img class="adImg" ng-src="{{adSlide.image}}">
+                    <div class="carousel-caption">
+                        <!--// if needed - display details  here:-->
+                    </div>
+                </slide>
+            </carousel>
+        </div>
     </div>
 </div>
 <!--//---------------------------------------------//-->
@@ -83,7 +83,7 @@
     <h1>Latest Podcasts</h1>
     <div  ng-repeat="podcast in podcasts">
         <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
-            <a href="{{podcast.url}}">
+            <a target="_blank" href="{{podcast.url}}">
                 <div id="overlay">
                     <span id="podcasttext">
                         <p>{{podcast.name}}</p>
