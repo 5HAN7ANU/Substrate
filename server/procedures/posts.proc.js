@@ -25,3 +25,7 @@ exports.procDestroy = function(id) {
 exports.procGetPostsByUser = function(id) {
     return db.fnRows('procGetPostsByUser', [id]);
 }
+
+exports.procGetEvenAds = function(id) {
+    return db.fnRows('procGetEvenAds', [id] )
+}
