@@ -48,7 +48,7 @@
 
 .small-logo {
   color: white;
-  font-size: 2.5em;
+  font-size: 2em;
   padding-bottom: 2px;
 }
 
@@ -101,11 +101,12 @@
 @media (min-width: 768px){
 .navbar-right {
     float: right!important;
-    margin-right: 6em;
+    margin-right: -2em;
     /* font-weight: bold; */
-    font-size: 2em;
+    font-size: 1em;
 }
 }
+
 
 
 /*//-----------contact page in home html--------//*/
