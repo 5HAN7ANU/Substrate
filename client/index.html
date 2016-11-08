@@ -1,105 +1,112 @@
 <!DOCTYPE html>
 <html ng-app="Substrate">
-    <head>
-        <title>Substrate Radio</title>
-        <base href="/">
-        <meta charset="utf-8">
-        <meta name="fragment" content="!">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <title>{{ seo.title }}</title>
-        <meta property="og:title" content="{{ seo.title }}">
-        <meta property="twitter:title" content="{{seo.title}}">
-        <meta property="og:image" content="{{ seo.image }}">
-        <meta property="twitter:image" content="{{seo.image}}">
-        <meta property="og:url" content="{{ seo.url }}">
-        <meta property="twitter:url" content="{{ seo.url }}">
-        <meta property="description" content="{{ seo.description }}">
-        <meta property="og:description" content="{{ seo.description }}">
-        <meta property="twitter:description" content="{{ seo.description }}">
-        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!--<link rel="stylesheet" href="style.css">-->
-        <link rel="stylesheet" href="customstyle.css">
-        <link rel="stylesheet" href="magstyle.css">
-        <link rel="stylesheet" href="calendar.css">
-        <link rel="stylesheet" href="aboutus.css">
-        <link rel="stylesheet" href="navbar.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
-    	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-        <script src="marked.js"></script>
-        <script src="factories.js"></script>
-        <script src="services.js"></script>
-        <script src="controllers.js"></script>
-        <script src="directives.js"></script>
-        <script src="app.js"></script>
-    </head>
-    <body>
-        <!--<custom-drawer></custom-drawer>-->
-        <!--<div class="app {{ showingDrawer ? 'showing-drawer' : '' }}">-->
-            <!--<custom-navbar></custom-navbar>-->
+
+<head>
+  <title>Substrate Radio</title>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="fragment" content="!">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <title>{{ seo.title }}</title>
+  <meta property="og:title" content="{{ seo.title }}">
+  <meta property="twitter:title" content="{{seo.title}}">
+  <meta property="og:image" content="{{ seo.image }}">
+  <meta property="twitter:image" content="{{seo.image}}">
+  <meta property="og:url" content="{{ seo.url }}">
+  <meta property="twitter:url" content="{{ seo.url }}">
+  <meta property="description" content="{{ seo.description }}">
+  <meta property="og:description" content="{{ seo.description }}">
+  <meta property="twitter:description" content="{{ seo.description }}">
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <!--<link rel="stylesheet" href="style.css">-->
+  <link rel="stylesheet" href="customstyle.css">
+  <link rel="stylesheet" href="magstyle.css">
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="aboutus.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+  <script src="marked.js"></script>
+  <script src="factories.js"></script>
+  <script src="services.js"></script>
+  <script src="controllers.js"></script>
+  <script src="directives.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <!--<custom-drawer></custom-drawer>-->
+  <!--<div class="app {{ showingDrawer ? 'showing-drawer' : '' }}">-->
+  <!--<custom-navbar></custom-navbar>-->
 
 
 
 
 
 
-   <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="small-logo-container">
-            <a class="small-logo" href="/">Substrate Radio</a>
-          </div>
-        </div>
-        <div class="navbar-collapse collapse">
-          
-          <ul class="nav navbar-nav navbar-right">
-                <li><a href="/events">Calendar</a></li>
-                <li><a href="/magazine">Magazine</a></li>
-                <li><a target="_blank"href="https://www.mixcloud.com/substrateradio/uploads/">Podcast</a></li>
-                <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
-                <li><a href="/contact">Contact</a></li>
-
-          </ul>
+        <div class="small-logo-container">
+          <a class="small-logo" href="/">Substrate Radio</a>
         </div>
       </div>
-    </div>
+      <div class="navbar-collapse collapse">
 
-    <div class="container-fluid big-logo-row">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 big-logo-container">
-            <a href="/" >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/events">Calendar</a></li>
+          <li><a href="/magazine">Magazine</a></li>
+          <li><a target="_blank" href="https://www.mixcloud.com/substrateradio/uploads/">Podcast</a></li>
+          <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
+          <li><a href="/contact">Contact</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid big-logo-row">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 big-logo-container">
+          <a href="/">
             <img class="topnavbarlogo big-logo" src="./assets/logo.png" alt=""></a>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 
-   
 
-            <div  ng-view></div>
-<br>
-            <iframe src="http://tunein.com/embed/player/s190804/" style="width:100%;height:100px; position:fixed; bottom:0px; color:lightgray;" scrolling="no" frameborder="no"></iframe>
-        
-    
-    
 
-<script>
+  <div ng-view></div>
+  <br>
+  <iframe src="http://tunein.com/embed/player/s190804/" style="width:100%;height:100px; position:fixed; bottom:0px; color:lightgray;"
+    scrolling="no" frameborder="no"></iframe>
+
+
+
+
+  <script>
         var navbarHeight = $('.navbar').height(); 
 
         $(window).scroll(function() {
@@ -138,7 +145,8 @@
         });
 </script>
 
-    
-    
-    </body>
+
+
+</body>
+
 </html>
