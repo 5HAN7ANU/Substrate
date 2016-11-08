@@ -6,7 +6,7 @@ var calendar = require('./controllers/calendar.ctrl');
 var events = require('./controllers/events.ctrl');
 var ads = require('./controllers/ads.ctrl');
 var podcasts = require('./controllers/podcasts.ctrl');
-
+var pods = require('./controllers/pod.ctrl');
 var router = express.Router();
 
 router
@@ -16,7 +16,8 @@ router
     .use('/calendar', calendar)
     .use('/featuredevents', events)
     .use('/ads', ads)
-    .use('/podcasts', podcasts);
-
+    .use('/podcasts', podcasts)
+    .use('/pods', pods);
+    
 
 module.exports = router;

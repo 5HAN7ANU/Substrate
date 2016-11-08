@@ -1,0 +1,14 @@
+<div  id="djbox">
+    <h1>All Podcasts</h1>
+    <div  ng-repeat="pod in pod">
+        <div id="box" ng-style="{'background-image':'url(' + pod.pictures.large + ')'}">
+            <a target="_blank" href="{{pod.url}}">
+                <div id="overlay">
+                    <span id="podcasttext">
+                        <p>{{pod.name}}</p>
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

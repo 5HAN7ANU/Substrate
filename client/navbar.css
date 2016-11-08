@@ -40,15 +40,15 @@
            Toolbar Logo
   ********************************** */
 .small-logo-container {
-  padding-top: 50px;
-  height: 50px;
-  overflow: hidden;
-  position: absolute;
+    padding-top: 50px;
+    height: 29px;
+    overflow: hidden;
+    position: absolute;
 }
 
 .small-logo {
   color: white;
-  font-size: 2em;
+  font-size: 22px;
   padding-bottom: 2px;
 }
 
