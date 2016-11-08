@@ -120,6 +120,7 @@ body {
         margin-left: 5px;
         border-radius: 10px;
         height: 500px;
+        padding: 0px;
         /*width: 250px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -156,6 +157,7 @@ body {
              .featuredAdBackground{
               /*position: absolute;*/
               background-size: cover;
+              background-position: center;
               background-repeat: no-repeat;
               height: 200px;
               max-width: 100%;
