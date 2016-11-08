@@ -406,7 +406,7 @@ textarea.form-control {
 #usersList {
   float: left;
   padding: 20px;
-  color: red;
+  color: white;
 }
 
 
@@ -416,7 +416,7 @@ textarea.form-control {
 /*updateuser.html*/
 
 #updateUser {
-  color: red;
+  color: white;
 }
 
 
@@ -426,7 +426,7 @@ textarea.form-control {
 /*admin.html*/
 
 .adminPosts {
-  color: red;
+  color:white;
 }
 
 button {
