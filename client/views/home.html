@@ -101,11 +101,11 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox podbackground">
+<div id="djbox" class="podbackground">
     <div style="font-size: 2em; font-weight: bolder;"> Latest Podcasts
 </div>
-    <div ng-repeat="podcast in podcasts">
-        <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+    <div  ng-repeat="podcast in podcasts">
+        <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
                 <div id="overlay">
                     <span id="podcasttext">

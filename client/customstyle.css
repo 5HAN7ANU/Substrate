@@ -177,12 +177,11 @@
 
 /*/========================podcast/follow us  section======================/*/
 
-#podbackground {
-  background-image: url('/assets/background2.jpg');
+.podbackground {
+  background-image: url('./assets/aboutus.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  z-index: -99;
 }
 
 .podcasts {
