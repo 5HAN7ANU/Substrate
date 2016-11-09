@@ -830,7 +830,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 email: $scope.email,
                 password: $scope.password,
                 role: $scope.role,
-                dj: $scope.dj
+                dj: $scope.dj,
+                imageurl: $scope.imageurl,
+                bio: $scope.bio
             }
 
             var u = new Users(data);
