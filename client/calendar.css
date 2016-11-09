@@ -34,8 +34,8 @@
 }
 
 #map {
-    width: 50%;
-    height: 350px;
+    width: 40%;
+    height: 375px;
     background-color: grey;
     border: black solid 1px;
     margin: auto;
@@ -59,7 +59,7 @@
     text-align: center;
     color: white;
     font-family: sans-serif;
-    margin-top: 0px;
+    margin-top: 100px;
     font-size: 30px;
 }
 
