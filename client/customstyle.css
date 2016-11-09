@@ -184,7 +184,7 @@
 
 
 /*/========================podcast/follow us  section======================/*/
-<<<<<<< HEAD
+
 
 .podcasts {
   position: relative;
@@ -211,7 +211,6 @@
   text-align: center;
 }
 
-=======
     .podcasts{
       position: relative;
       color:white;
@@ -243,7 +242,6 @@
 .eventSummary{
   color: white;
 }
->>>>>>> 89fa2d5212b0916da38541aac2dde3b7e81688a7
 
 /*/========================contact.html======================/*/
 
@@ -273,7 +271,6 @@
   border-radius: 0;
 }
 
-<<<<<<< HEAD
 .not-visible-message {
   height: 0px;
   opacity: 0;
@@ -390,9 +387,7 @@ input {
 
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
-=======
 
->>>>>>> 89fa2d5212b0916da38541aac2dde3b7e81688a7
 
 
 /*userlist.html*/
