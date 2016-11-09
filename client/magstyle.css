@@ -3,7 +3,9 @@
 /*/========================   MAGAZINE WIDE    ======================/*/
 /*************************************************************/
 .magPageTitleHeader1{
+    margin-top: 25px;
     margin-left: 25px;
+    z-index: 0;
 }
 .magPageSubtitle{
     margin-left: 25px;
@@ -14,6 +16,7 @@
     background-size: cover;
     min-height: 1200px;
     background-repeat: repeat-y;
+    margin-top: 40px;
     padding: 0px;
 
 }
