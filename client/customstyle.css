@@ -477,3 +477,11 @@ body { font-family: LuloCleanOne; }
   border: 1px solid whitesmoke;
   /*padding: 5px;*/
 }
+
+input {
+  color: black;
+}
+
+select {
+  color: black;
+}
