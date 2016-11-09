@@ -48,7 +48,7 @@
   width: 100%;
   height: 101px;
   background-color: black;
-  text-align: center;
+  text-align: right;
   z-index: 1;
 }
 body{
@@ -102,6 +102,7 @@ background-image: url('./asssets/')
   height: 100px;
   width: 116px;
   padding: 5px;
+  z-index: 9991;
 }
 
 @media screen and (max-width: 1000px) {
@@ -131,7 +132,6 @@ body{
   background-image: url('./assets/greenlogo.jpg');
   background-repeat: no-repeat;
 background-repeat: cover;
-color: white;
 background-position-x: center;
 
 
