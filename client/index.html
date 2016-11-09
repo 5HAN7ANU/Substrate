@@ -19,21 +19,18 @@
   <meta property="og:description" content="{{ seo.description }}">
   <meta property="twitter:description" content="{{ seo.description }}">
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
     crossorigin="anonymous">
-  <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-  <!--<link rel="stylesheet" href="style.css">-->
   <link rel="stylesheet" href="customstyle.css">
   <link rel="stylesheet" href="magstyle.css">
   <link rel="stylesheet" href="calendar.css">
   <link rel="stylesheet" href="aboutus.css">
   <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
@@ -48,99 +45,11 @@
 </head>
 
 <body>
-  <!--<custom-drawer></custom-drawer>-->
-  <!--<div class="app {{ showingDrawer ? 'showing-drawer' : '' }}">-->
-  <!--<custom-navbar></custom-navbar>-->
-
-
-
-
-
-
-  <!-- Fixed navbar -->
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <div class="small-logo-container" style="padding-top: 50px;">
-          <a class="small-logo" href="/">Substrate Radio</a>
-        </div>
-      </div>
-      <div class="navbar-collapse collapse">
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>          
-          <li><a href="/events">Calendar</a></li>
-          <li><a href="/magazine">Magazine</a></li>
-          <li><a  href="/podcasts">Podcast</a></li>
-          <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
-          <!--<li><a href="/contact">Contact</a></li>-->
-
-        </ul>
-      </div>
-    </div>
+  <custom-drawer></custom-drawer>
+  <div class="app {{ showingDrawer ? 'showing-drawer' : '' }}">
+    <custom-navbar></custom-navbar>
+    <div ng-view class="site-content"></div>
   </div>
-
-  <div class="container-fluid big-logo-row">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 big-logo-container">
-          <a href="/">
-            <img class="topnavbarlogo big-logo" src="./assets/logo.png" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div ng-view></div>
-  <script>
-        var navbarHeight = $('.navbar').height(); 
-
-        $(window).scroll(function() {
-        var navbarColor = "37, 37, 37";//color attr for rgba
-        var smallLogoHeight = $('.small-logo').height();
-        var bigLogoHeight = $('.big-logo').height();
-        
-        
-        var smallLogoEndPos = 0;
-        var smallSpeed = (smallLogoHeight / bigLogoHeight);
-        
-        var ySmall = ($(window).scrollTop() * smallSpeed); 
-        
-        var smallPadding = navbarHeight - ySmall;
-        if (smallPadding > navbarHeight) { smallPadding = navbarHeight; }
-        if (smallPadding < smallLogoEndPos) { smallPadding = smallLogoEndPos; }
-        if (smallPadding < 0) { smallPadding = 0; }
-        
-        $('.small-logo-container ').css({ "padding-top": smallPadding});
-        
-        var navOpacity = ySmall / smallLogoHeight; 
-        if  (navOpacity > 1) { navOpacity = 1; }
-        if (navOpacity < 0 ) { navOpacity = 0; }
-        var navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
-        $('.navbar').css({"background-color": navBackColor});
-        
-        var shadowOpacity = navOpacity * 0.4;
-        if ( ySmall > 1) {
-            $('.navbar').css({"box-shadow": "0 2px 3px rgba(0,0,0," + shadowOpacity + ")"});
-        } else {
-            $('.navbar').css({"box-shadow": "none"});
-        }
-        
-        
-        
-        });
-</script>
-
-
-
 </body>
 
 </html>
