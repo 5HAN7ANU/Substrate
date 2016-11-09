@@ -92,6 +92,7 @@ background-image: url('./asssets/')
 
 .app .site-content {
   padding-bottom: 50px;
+  padding-top: 4em;
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
