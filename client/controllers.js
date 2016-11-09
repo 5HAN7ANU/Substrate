@@ -26,11 +26,31 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     var eventMonth = new Date(events[i].start.dateTime).getMonth();
                     if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
                         var eventArray = [];
+                        var location = String(events[i].location);
+                        var locationSplit = location.split(' ');
+                        if (locationSplit[0] == "Iron") {
+                            events[i].location = 'Iron City';
+                        } 
+                        else if (locationSplit[0] == "The") {
+                            events[i].location = 'The Nick';
+                        } else {
+                            events[i].location = 'Saturn';
+                        }
                         eventArray.push(events[i]);
                         calendarArray.push(eventArray);
                         calendarDay = eventDate;
                         calendarMonth = eventMonth;
                     } else { // not a new day
+                        var location = String(events[i].location);
+                        var locationSplit = location.split(' ');
+                        if (String(locationSplit[0]) == "Iron") {
+                            events[i].location = 'Iron City';
+                        } 
+                        else if (String(locationSplit[0]) == "The") {
+                            events[i].location = 'The Nick';
+                        } else {
+                            events[i].location = 'Saturn';
+                        }
                         var eventArray = calendarArray[calendarArray.length - 1];
                         eventArray.push(events[i]);
                     }
@@ -63,9 +83,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             console.log(err);
         });
         
+        
         $http({
             method: 'GET',
-            url: '/api/ads'   //gets ads with ids that are odd
+            url: '/api/ads/odd'   //gets ads with ids that are odd
         }).then(function (success) {
             console.log(success.data);
             $scope.adArray = success.data;
@@ -138,25 +159,6 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
         
-        // function ISODateString(d, monthDate){
-        //     function pad(n){return n<10 ? '0'+n : n}
-        //     return d.getUTCFullYear()+'-'
-        //         + pad(d.getUTCMonth()+1)+'-'
-        //         + monthDate + 'T'
-        //         + pad(d.getUTCHours())+':'
-        //         + pad(d.getUTCMinutes())+':'
-        //         + pad(d.getUTCSeconds())+'Z'
-        //     }
-        var d = new Date();
-        // var firstDay = String(new Date(d.getFullYear(), d.getMonth(), 1));
-        // var lastDay = String(new Date(d.getFullYear(), d.getMonth() + 1, 0));
-        // var firstDayString = firstDay.split(" ");
-        // var lastDayString = lastDay.split(" ");
-        // var firstDayOfMonth = firstDayString[2];
-        // var lastDayOfMonth = lastDayString[2];
-        // var timeMin = ISODateString(d, firstDayOfMonth);
-        // var timeMax = ISODateString(d, lastDayOfMonth);
-
         var d = new Date();
         var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
         var lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
@@ -177,11 +179,33 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     var eventMonth = new Date(events[i].start.dateTime).getMonth();
                     if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
                         var eventArray = [];
+                        var location = String(events[i].location);
+                        var locationSplit = location.split(' ');
+                        if (locationSplit[0] == "Iron") {
+                            events[i].location = 'Iron City';
+                        } 
+                        else if (locationSplit[0] == "The") {
+                            events[i].location = 'The Nick';
+                        } else {
+                            events[i].location = 'Saturn';
+                        }
+                        console.log(events[i].location);
                         eventArray.push(events[i]);
                         calendarArray.push(eventArray);
                         calendarDay = eventDate;
                         calendarMonth = eventMonth;
                     } else { // not a new day
+                        var location = String(events[i].location);
+                        var locationSplit = location.split(' ');
+                        if (String(locationSplit[0]) == "Iron") {
+                            events[i].location = 'Iron City';
+                        } 
+                        else if (String(locationSplit[0]) == "The") {
+                            events[i].location = 'The Nick';
+                        } else {
+                            events[i].location = 'Saturn';
+                        }
+                        console.log(events[i].location);
                         var eventArray = calendarArray[calendarArray.length - 1];
                         eventArray.push(events[i]);
                     }

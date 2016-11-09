@@ -1,435 +1,396 @@
-/*/========================INDEX.html======================/*/
-/*********************************************************/
-
-body {
-  background: url('../assets/background1.jpg');
-  background-repeat: no-repeat;
-  /*-moz-background-size: contain;
-  -o-background-size: contain;
-  -webkit-background-size: contain;
-  -moz-background-size: cover;
-  -o-background-size: cover;*/
-  /*-webkit-background-size: cover;*/
-  /*background-size: cover;
-  background-position: center center;*/
-  background-size: cover;
-  color: white
-}
-/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
-
-
-
-
 /*/========================home.html======================/*/
+
+
 /*********************************************************/
 
-      #phone {
-        margin-top: 20px;
-      }
-      #navigation ul
-      {
-          margin: 0;
-          padding: 0;
-      }
-
-      #navigation ul li
-      {
-          list-style-type: none;
-          display: inline;
-      }
-
-      #navigation li:not(:first-child):before {
-          content: " | ";
-      }
-      #menumiddle{
-        text-align: center;
-        font-size: 20px;
-      }
-
-      .middlesection {
-        width: 96%;
-      }
-
-      /*//===============event calender Container ==============//*/
-      #eventCalendarContainer {
-        margin-top:50px;
-        margin-right: 5px;
-       
-        border-radius: 10px;
-        height: 500px;
-        /*width: 550px;*/
-        background-color: rgba(128, 128, 128, 0.7);
-        /*float: left;*/
-        /*margin-left: 25px;*/
-        padding: 0px;
-        overflow: scroll;
-      }
-
-      .iframe-side-calendar{
-        margin: 0px;
-        padding: 0px;
-        height: 600px;
-        border-radius: 10px;
-      }
-      /*//=============================================//*/
+.middlesection {
+  width: 100%;
+  background-image: url(../assets/background1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
 
 
-      /*//========== home page featured event Container=====================//*/
-      #featuredEventContainer {
-        height: 600px;
-        border-radius: 10px;
-        margin-top: 10px;
-        padding: 0px;
-        /*width: 600px;*/
-        background-color: rgba(128, 128, 128, 0.5);
-        /*float: left;*/
-        /*margin: 25px;*/
-      }
+/*//===============event calender Container ==============//*/
 
-        /*//-------carousel-------//*/
+#eventCalendarContainer {
+  margin-top: 50px;
+  margin-right: 5px;
+  border-radius: 10px;
+  height: 500px;
+  /*width: 550px;*/
+  background-color: rgba(128, 128, 128, 0.7);
+  /*float: left;*/
+  /*margin-left: 25px;*/
+  padding: 0px;
+  overflow: scroll;
+}
 
-            #eventSlides_control > div{
-              height: 200px;
-            }
-            .eventImg{
-              margin: 0px;
-              width: auto;
-              height: 100%;
-            }
-            #eventSlides_control {
-              position:absolute;
-              width: 400px;
-              left:50%;
-              top:20px;
-              margin-left:-200px;
-            }
-            .featuredEventBackground{
-              /*position: absolute;*/
-              background-size: cover;
-              background-repeat: no-repeat;
-              height: 600px;
-              max-width: 100%;
-              max-height: 100%;
-              border-radius: 10px;
-            }
-            
+.iframe-side-calendar {
+  margin: 0px;
+  padding: 0px;
+  height: 600px;
+  border-radius: 10px;
+}
 
-      /*//=======   home page ads Container  ========//*/
-      #adContainer {
-        margin-top:50px;
-        margin-left: 5px;
-        border-radius: 10px;
-        height: 500px;
-        padding: 0px;
-        /*width: 250px;*/
-        background-color: rgba(128, 128, 128, 0.7);
-        /*float: left;*/
-        /*margin-left: 25px;*/
-      }
 
-       /*//-------carousel-------//*/
+/*//=============================================//*/
 
-            /*#adSlides_control > div{
-              height: 200px;
-            }*/
-            .adImg{
-              margin: 0px;
-              width: 100%;
-              height: auto;
-            }
-            #ad1{
-              margin-top: 10px;
-            }
-            #ad2{
-              margin-top: 10px;
-            }
-            .adSlides{
-              margin-top: 10px;
-              margin-bottom: 10px;
-            }
-            /*#adSlides_control {
-              position:absolute;
-              width: 400px;
-              left:50%;
-              top:20px;
-            margin-left:-200px;
-            }*/
-             .featuredAdBackground{
-              /*position: absolute;*/
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
-              height: 200px;
-              max-width: 100%;
-              border-radius: 10px;
-            }
-           
-      /*//-----------------------------------------------------//*/
 
-      /*//================ about section ====================//*/
-      .aboutBackground {
-        background-image: url('./assets/Logoabout.png');
-        background-color: white;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        width: 100%;
-        color: black;
-        padding: 10px;
-      }
-      #abouttext{
-        width: 68%;
-        font-size: 18px;
-        text-align: center;
-        padding: 10px;
-      }
-      #wearesubstrate{
-        font-weight: bolder;
-        margin-left: 9em;
-      }
+/*//========== home page featured event Container=====================//*/
 
-      .djsection{
-        background-color: white;
-        padding-bottom: 12px;
-      }
+#featuredEventContainer {
+  height: 600px;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 0px;
+  /*width: 600px;*/
+  background-color: rgba(128, 128, 128, 0.5);
+  /*float: left;*/
+  /*margin: 25px;*/
+}
 
-      /*//-----------------------------------------------------//*/
+
+/*//-------carousel-------//*/
+
+#eventSlides_control>div {
+  height: 200px;
+}
+
+.eventImg {
+  margin: 0px;
+  width: auto;
+  height: 100%;
+}
+
+#eventSlides_control {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 20px;
+  margin-left: -200px;
+}
+
+.featuredEventBackground {
+  /*position: absolute;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+
+/*//=======   home page ads Container  ========//*/
+
+#adContainer {
+  margin-top: 50px;
+  margin-left: 5px;
+  border-radius: 10px;
+  height: 500px;
+  padding: 0px;
+  /*width: 250px;*/
+  background-color: rgba(128, 128, 128, 0.7);
+  /*float: left;*/
+  /*margin-left: 25px;*/
+}
+
+
+/*//-------carousel-------//*/
+
+.adImg {
+  margin: 0px;
+  width: 100%;
+  height: auto;
+}
+
+#ad1 {
+  margin-top: 10px;
+}
+
+#ad2 {
+  margin-top: 10px;
+}
+
+.adSlides {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.featuredAdBackground {
+  /*position: absolute;*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+/*//-----------------------------------------------------//*/
+
+
+/*//================ about section ====================//*/
+
+.aboutBackground {
+  background-image: url('./assets/Logoabout.png');
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  color: black;
+  padding: 10px;
+}
+
+#abouttext {
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+  padding: 5px;
+}
+
+#wearesubstrate {
+  font-weight: bolder;
+  margin-left: 9em;
+}
+
+.djsection {
+  background-image: url('./assets/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding-bottom: 12px;
+  z-index: 0;
+}
+
+
+/*//-----------------------------------------------------//*/
 
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+
+
 /*/========================podcast/follow us  section======================/*/
-    .podcasts{
-      position: relative;
-      color:white;
-      float: left;
-      }
-      #podcasttext{
-        color: white;
-      }
 
-      .followus{
-        background-image: url('/assets/background7.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position-x: center;
-        height: 200px;
-        background-color: whitesmoke;
-        color: black;
-        text-align: center;
-      }
-      #djbox{
-        text-align: center;
-      }
+#podbackground {
+  background-image: url('/assets/background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  z-index: -99;
+}
 
+.podcasts {
+  position: relative;
+  color: white;
+  float: left;
+}
 
-/*/========================calendar.html======================/*/
-/*************************************************************/
-
-
-.eventSummary{
+#podcasttext {
   color: white;
 }
 
-/*/========================contact.html======================/*/
+.followus {
+  background-image: url('/assets/background7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  height: 200px;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+}
+
+#djbox {
+  text-align: center;
+    z-index: 0;
+
+}
+
+.podcasts {
+  position: relative;
+  color: white;
+  float: left;
+}
+
+#podcasttext {
+  color: white;
+}
+
+.followus {
+  background-image: url('/assets/background7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  height: 200px;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+}
+
+#djbox {
+  text-align: center;
+}
+
+
+/*/========================calendar.html======================/*/
+
+
 /*************************************************************/
 
-        #contact {
-          padding: 10px 0 10px;
-        }
-
-        .contact-text {
-          margin: 45px auto;
-        }
-
-        .mail-message-area {
-          width: 100%;
-          padding: 0 15px;
-        }
-
-        .mail-message {
-          width: 100%;
-          background: rgba(255, 255, 255, 0.8) !important;
-          -webkit-transition: all 0.7s;
-          -moz-transition: all 0.7s;
-          transition: all 0.7s;
-          margin: 0 auto;
-          border-radius: 0;
-        }
-
-        .not-visible-message {
-          height: 0px;
-          opacity: 0;
-        }
-
-        .visible-message {
-          height: auto;
-          opacity: 1;
-          margin: 25px auto 0;
-        }
+.eventSummary {
+  color: white;
+}
 
 
-        /* Input Styles */
-
-        .form {
-          width: 100%;
-          padding: 15px;
-          background: #f8f8f8;
-          border: 1px solid rgba(0, 0, 0, 0.075);
-          margin-bottom: 25px;
-          color: #727272 !important;
-          font-size: 13px;
-          -webkit-transition: all 0.4s;
-          -moz-transition: all 0.4s;
-          transition: all 0.4s;
-        }
-
-        .form:hover {
-          border: 1px solid #8BC3A3;
-        }
-
-        .form:focus {
-          color: white;
-          outline: none;
-          border: 1px solid #8BC3A3;
-        }
-
-        .textarea {
-          height: 200px;
-          max-height: 200px;
-          max-width: 100%;
-        }
-
-        #message {
-          border: 2px solid red;
-          height: 126px;
-        }
+/*/========================contact.html======================/*/
 
 
-        /* Generic Button Styles */
+/*************************************************************/
 
-        .button {
-          padding: 8px 12px;
-          background: #0A5175;
-          display: block;
-          width: 120px;
-          margin: 10px 0 0px 0;
-          border-radius: 3px;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          transition: all 0.3s;
-          text-align: center;
-          font-size: 0.8em;
-          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-          -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-          -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-        }
+#contact {
+  padding: 10px 0 10px;
+}
 
-        .button:hover {
-          background: #8BC3A3;
-          color: white;
-        }
+.contact-text {
+  margin: 45px auto;
+}
+
+.mail-message-area {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.mail-message {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8) !important;
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  transition: all 0.7s;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.not-visible-message {
+  height: 0px;
+  opacity: 0;
+}
+
+.visible-message {
+  height: auto;
+  opacity: 1;
+  margin: 25px auto 0;
+}
 
 
-        /* Send Button Styles */
+/* Input Styles */
 
-        .form-btn {
-          width: 180px;
-          display: block;
-          height: auto;
-          padding: 15px;
-          color: #fff;
-          background: #8BC3A3;
-          border: none;
-          border-radius: 3px;
-          outline: none;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          transition: all 0.3s;
-          margin: auto;
-          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-          -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-          -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
-        }
+.form {
+  width: 100%;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  margin-bottom: 25px;
+  color: #727272 !important;
+  font-size: 13px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
 
-        .form-btn:hover {
-          background: #111;
-          color: white;
-          border: none;
-        }
+.form:hover {
+  border: 1px solid #8BC3A3;
+}
 
-        .form-btn:active {
-          opacity: 0.9;
-        }
+.form:focus {
+  color: white;
+  outline: none;
+  border: 1px solid #8BC3A3;
+}
 
-        center {
-          margin-top: 330px;
-        }
+.textarea {
+  height: 200px;
+  max-height: 200px;
+  max-width: 100%;
+}
 
-        input {
-          position: relative;
-          z-index: 9999;
-        }
+#message {
+  border: 2px solid red;
+  height: 126px;
+}
+
+
+/* Generic Button Styles */
+
+.button {
+  padding: 8px 12px;
+  background: #0A5175;
+  display: block;
+  width: 120px;
+  margin: 10px 0 0px 0;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  font-size: 0.8em;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.button:hover {
+  background: #8BC3A3;
+  color: white;
+}
+
+
+/* Send Button Styles */
+
+.form-btn {
+  width: 180px;
+  display: block;
+  height: auto;
+  padding: 15px;
+  color: #fff;
+  background: #8BC3A3;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: auto;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.form-btn:hover {
+  background: #111;
+  color: white;
+  border: none;
+}
+
+.form-btn:active {
+  opacity: 0.9;
+}
+
+center {
+  margin-top: 330px;
+}
+
+input {
+  position: relative;
+  z-index: 9999;
+}
+
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
-
-
-
-/*compose css*/
-
-/*#file-input {
-  display: none;
-}
-
-input.btn.btn-success {
-  float: right;
-  border-radius: 0;
-  outline: none!important;
-}
-
-label.btn-info {
-  border-radius: 0;
-  outline: none!important;
-}
-
-form {
-  margin: 0.5%;
-}
-
-textarea.form-control {
-  box-shadow: 0 0 0 0!important;
-  // this is a bootstrap class. you can't add properties to it without messing bootsrap up
-  border-radius: 0;
-  margin-bottom: 1%;
-  max-width: 100%;
-  height: 80px;
-  min-height: 80px;
-  max-height: 80px;
-}
-
-.thumbnail {
-  border-radius: 0!important;
-}*/
-
-
-/*end compose css*/
-/*
-.picdiv {
-  border: 2px solid red;
-  height: 200px;
-  width: 100px;
-}*/
-
-
-/*#box {
-     border: 3px solid yellow;
-     color: grey;
-     width: 270px;
-     height: 405px;
-     float: left;
-     margin: 20px;
-     border-radius: 8px;
-     position: relative;
- }*/
 
 
 /*userlist.html*/
@@ -457,7 +418,7 @@ textarea.form-control {
 /*admin.html*/
 
 .adminPosts {
-  color:white;
+  color: white;
 }
 
 button {
@@ -469,9 +430,13 @@ button {
   background-color: black;
   color: white;
 }
+
+
 /*end admin.html*/
 
-body { font-family: LuloCleanOne; }
+body {
+  font-family: LuloCleanOne;
+}
 
 #usersList {
   border: 1px solid whitesmoke;
@@ -485,3 +450,4 @@ input {
 select {
   color: black;
 }
+
