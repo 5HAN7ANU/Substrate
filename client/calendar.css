@@ -35,16 +35,10 @@
 
 #map {
     width: 50%;
-    height: 400px;
+    height: 350px;
     background-color: grey;
     border: black solid 1px;
     margin: auto;
-}
-
-.map-container {
-    text-align: center;
-    margin: 20px auto;
-    clear: both;
 }
 
 #cal {
@@ -71,4 +65,35 @@
 
 .content {
     color: black;
+}
+
+.week-date-time {
+    color: black;
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.week-date-title {
+    color: white;
+    font-size: 18px;
+}
+
+.week-date-text {
+    color: black;
+    font-size: 12px;
+}
+
+.map-list {
+    float: left;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.map-container {
+    text-align: center;
+}
+
+.map {
+    margin-top: 10px;
+    border-top: 1px white solid;
 }
