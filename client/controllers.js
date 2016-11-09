@@ -807,12 +807,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 password: $scope.password,
                 role: $scope.role,
                 dj: $scope.dj
-
             }
 
             var u = new Users(data);
             u.$save(function () {
-                $location.path('/users');
+                $location.path('/admin');
             });
         };
 
@@ -824,11 +823,12 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         ];
 
         $scope.djValues = [
-            { name: 'Yes', value: 1 },
-            { name: 'No', value: 0 }
+            { name: 'No', value: 0 },
+            { name: 'Yes', value: 1 }
         ];
 
-        $scope.role_default = 'user';
+        $scope.role = $scope.roles[0].value;
+        $scope.dj = $scope.djValues[0].value;
     }])
     .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
