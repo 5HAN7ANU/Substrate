@@ -10,7 +10,7 @@
                 <div ng-repeat="event in day">
                     <div class="week-date-information">
                         <a class="week-date-title" ng-href="{{ event.htmlLink }}" <p>{{ event.summary }}</p></a>
-                        <p class="week-date-text">{{ event.location }}</p>
+                        <p class="week-date-text">{{ event.location | limitTo : 9 : 0 }}</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox">
+<div id="djbox podbackground">
     <div style="font-size: 2em; font-weight: bolder;"> Latest Podcasts
 </div>
     <div ng-repeat="podcast in podcasts">
