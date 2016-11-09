@@ -462,3 +462,8 @@ button {
 /*end admin.html*/
 
 body { font-family: LuloCleanOne; }
+
+#usersList {
+  border: 1px solid whitesmoke;
+  /*padding: 5px;*/
+}
