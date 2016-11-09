@@ -23,5 +23,18 @@
 
 
   
-@font-face {font-family: 'LuloCleanOutline-Bold';src: url('webfonts/327056_0_0.eot');src: url('webfonts/327056_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/327056_0_0.woff2') format('woff2'),url('webfonts/327056_0_0.woff') format('woff'),url('webfonts/327056_0_0.ttf') format('truetype');}
+@font-face {
+    font-family: 'LuloCleanOutline-Bold';
+    src: url('webfonts/LuloCleanOutlineBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LuloCleanOne';
+    src: url('webfonts/LuloCleanOne.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LuloCleanOneBold';
+    src: url('webfonts/LuloCleanOneBold.otf') format('opentype');
+}
  
