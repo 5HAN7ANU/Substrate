@@ -1,8 +1,12 @@
 
 var db = require('../config/db');
 
-exports.procGetAds = function() {
+exports.procGetAds= function(){
     return db.fnRows('procGetAds');
+}
+
+exports.procGetOddAds = function() {
+    return db.fnRows('procGetOddAds');
 }
 exports.procGetEvenAds = function() {
     return db.fnRows('procGetEvenAds');
