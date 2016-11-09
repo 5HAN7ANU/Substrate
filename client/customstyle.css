@@ -461,7 +461,6 @@ button {
 }
 /*end admin.html*/
 
-
 .player-container {
   position:fixed;
   bottom:0;
@@ -471,4 +470,9 @@ button {
 }
 
 body { font-family: LuloCleanOne; }
+
+#usersList {
+  border: 1px solid whitesmoke;
+  /*padding: 5px;*/
+}
 
