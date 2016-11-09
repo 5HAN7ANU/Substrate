@@ -20,10 +20,8 @@
                 <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
                     <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground">
                         <div class="carousel-caption">
-                            <!--<h3>if needed display info here</h3>-->
                         </div>
                     </div>
-                    <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
                 </slide>
             </carousel>
         </div>
@@ -32,7 +30,6 @@
                 <slide class="adSlides" ng-repeat="adSlide in adSlides" active="adSlide.active">
                     <div id="ad1" ng-style="{ 'background-image': 'url(' + adSlide.image + ')' }" class="featuredAdBackground">
                         <div class="carousel-caption">
-                            <!--// if needed - display details  here:-->
                         </div>
                     </div>
                 </slide>
@@ -41,7 +38,6 @@
                 <slide class="adSlides" ng-repeat="adSlide2 in adSlides2" active="adSlide2.active">
                     <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground col-lg-12 col-md-12 col-sm-12">
                         <div class="carousel-caption">
-                            <!--// if needed - display details  here:-->
                         </div>
                     </div>
                 </slide>
@@ -105,8 +101,9 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div @podcasts id="djbox">
-    <h1>Latest Podcasts</h1>
+<div id="djbox">
+    <div style="font-size: 2em; font-weight: bolder;"> Latest Podcasts
+</div>
     <div ng-repeat="podcast in podcasts">
         <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
@@ -154,7 +151,6 @@
 </div>
 <!--//---------------------------------------------//-->
 <script>
-    // .modal-backdrop classes
 
 $(".modal-transparent").on('show.bs.modal', function () {
   setTimeout( function() {
