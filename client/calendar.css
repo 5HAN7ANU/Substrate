@@ -91,9 +91,12 @@
 
 .map-container {
     text-align: center;
+    margin-top: 80px;
 }
 
 .map {
     margin-top: 10px;
     border-top: 1px white solid;
 }
+
+@media screen and (max-height)
