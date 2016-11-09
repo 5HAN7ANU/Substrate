@@ -61,7 +61,7 @@ router.post('/', auth.isAdmin, function (req, res) {//you can only post/create a
     var u = req.body;
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
         .then(function (hash) {
-            return procedures.procInsertUser(u.firstname, u.lastname, u.email, hash, u.role, u.dj);// calls users.proc.js specifically the create function
+            return procedures.procInsertUser(u.firstname, u.lastname, u.email, hash, u.role, u.dj, u.imageurl, u.bio);// calls users.proc.js specifically the create function
         }).then(function (id) {
             console.log(id);
             res.status(201).send(id);
@@ -97,7 +97,7 @@ router.put('/:id', auth.isAdmin, function (req, res) {
 
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
         .then(function (hash) {
-            return procedures.procUpdateUser(req.params.id, u.firstname, u.lastname, u.email, hash, u.role, u.dj);
+            return procedures.procUpdateUser(req.params.id, u.firstname, u.lastname, u.email, hash, u.role, u.dj, u.imageurl, u.bio);
         }).then(function () {
             console.log('users.ctrl.js/router.put/:id - user updated!');
             res.sendStatus(204);

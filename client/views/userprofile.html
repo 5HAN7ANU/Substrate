@@ -1,24 +1,26 @@
-<div class="container" id="navLinkContainer">
-     <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
-     <p class="navbar-text navbar-right"> <a href="/admin" class="navbar-link" ng-show="amAdmin">Admin</a></p>
-</div>
-
-<div class="page-header">
-    <h3 class="magPageSubtitle"> User Profile Page: {{ME.firstname}} {{ME.lastname}} </h3>
-</div>
-
-<div> <a href="/compose"><button type="button"  id="composeButton"class="btn btn-primary btn-xs">COMPOSE</button></a></div>
-
-
-<div id=userPosts " class="container ">
-            <h3 class="pageSubtitle "> Your Posts</h3>
-            <p class ="underline ">____________________________________________________________________________</p>
-            <div class="container " id="post-container ">
-                  <div class="list-group " id="list-content " ng-repeat="post in myPosts ">
-                    <div class="list-group-item ">
-                        <p class="titlebyline "><a class='link' ng-href="/magazine/{{ post.id }} " >{{ post.title }} </a><br>by {{ post.firstname }} {{ post.lastname }}</p> 
-                        <p class="pubDate"> {{ post.createdAt | date: 'short' }}</p>  
-                    </div> 
-                </div>
-            </div>
+<div class="magBackground">
+    <div class="container" id="navLinkContainer">
+        <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
+        <p class="navbar-text navbar-right"> <a href="/admin" class="navbar-link" ng-show="amAdmin">Admin</a></p>
     </div>
+
+    <div class="page-header">
+        <h3 class="magPageSubtitle"> User Profile Page: {{ME.firstname}} {{ME.lastname}} </h3>
+    </div>
+
+    <div> <a href="/compose"><button type="button"  id="composeButton"class="btn btn-primary btn-xs">COMPOSE</button></a></div>
+
+
+    <div id=userPosts " class="container ">
+                <h3 class="pageSubtitle "> Your Posts</h3>
+                <p class ="underline ">____________________________________________________________________________</p>
+                <div class="container " id="post-container ">
+                    <div class="list-group " id="list-content " ng-repeat="post in myPosts ">
+                        <div class="list-group-item ">
+                            <p class="titlebyline "><a class='link' ng-href="/magazine/{{ post.id }} " >{{ post.title }} </a><br>by {{ post.firstname }} {{ post.lastname }}</p> 
+                            <p class="pubDate"> {{ post.createdAt | date: 'short' }}</p>  
+                        </div> 
+                    </div>
+                </div>
+        </div>
+</div>
