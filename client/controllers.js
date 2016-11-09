@@ -63,9 +63,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             console.log(err);
         });
         
+        
         $http({
             method: 'GET',
-            url: '/api/ads'   //gets ads with ids that are odd
+            url: '/api/ads/odd'   //gets ads with ids that are odd
         }).then(function (success) {
             console.log(success.data);
             $scope.adArray = success.data;

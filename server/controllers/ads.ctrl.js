@@ -49,6 +49,17 @@ router.route('/even')
             res.sendStatus(500);
         });
     });
+router.route('/odd')
+    .get(function(req, res){
+        procedures.procGetOddAds().then(function(ads){
+            res.send(ads);
+        }, function(err){
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
+
 
 
 

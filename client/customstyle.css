@@ -374,62 +374,7 @@ body {
 
 
 
-/*compose css*/
 
-/*#file-input {
-  display: none;
-}
-
-input.btn.btn-success {
-  float: right;
-  border-radius: 0;
-  outline: none!important;
-}
-
-label.btn-info {
-  border-radius: 0;
-  outline: none!important;
-}
-
-form {
-  margin: 0.5%;
-}
-
-textarea.form-control {
-  box-shadow: 0 0 0 0!important;
-  // this is a bootstrap class. you can't add properties to it without messing bootsrap up
-  border-radius: 0;
-  margin-bottom: 1%;
-  max-width: 100%;
-  height: 80px;
-  min-height: 80px;
-  max-height: 80px;
-}
-
-.thumbnail {
-  border-radius: 0!important;
-}*/
-
-
-/*end compose css*/
-/*
-.picdiv {
-  border: 2px solid red;
-  height: 200px;
-  width: 100px;
-}*/
-
-
-/*#box {
-     border: 3px solid yellow;
-     color: grey;
-     width: 270px;
-     height: 405px;
-     float: left;
-     margin: 20px;
-     border-radius: 8px;
-     position: relative;
- }*/
 
 
 /*userlist.html*/
