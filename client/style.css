@@ -128,9 +128,11 @@ background-image: url('./asssets/')
   }
 }
 body{
-  background-image: url('./assets/background1.jpg');
+  background-image: url('./assets/greenlogo.jpg');
   background-repeat: no-repeat;
 background-repeat: cover;
-color: white
+color: white;
+background-position-x: center;
+
 
 }
