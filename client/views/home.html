@@ -9,32 +9,40 @@
                 </div>
                 <div ng-repeat="event in day">
                     <div class="week-date-information">
-                        <a class="week-date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>
+                        <a class="week-date-title" ng-href="{{ event.htmlLink }}" <p>{{ event.summary }}</p></a>
                         <p class="week-date-text">{{ event.location }}</p>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
             <carousel interval="eventInterval">
-                <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active" >
-                    <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground" >
+                <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
+                    <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground">
                         <div class="carousel-caption">
-                        <!--<h3>if needed display info here</h3>-->
+                            <!--<h3>if needed display info here</h3>-->
                         </div>
                     </div>
                     <!--<img class="eventImg featuredEventBackground" ng-src="{{eventSlide.image}}">-->
                 </slide>
             </carousel>
         </div>
-
         <div class="col-lg-2 col-md-2 col-sm-12" id="adContainer">
-            <carousel interval="adInterval">
-                <slide ng-repeat="adSlide in adSlides" active="adSlide.active">
-                    <img class="adImg" ng-src="{{adSlide.image}}">
-                    <div class="carousel-caption">
-                        <!--// if needed - display details  here:-->
+            <carousel interval="adInterval" class="col-lg-12 col-md-12 col-sm-12">
+                <slide class="adSlides" ng-repeat="adSlide in adSlides" active="adSlide.active">
+                    <div id="ad1" ng-style="{ 'background-image': 'url(' + adSlide.image + ')' }" class="featuredAdBackground">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
+                    </div>
+                </slide>
+            </carousel>
+            <carousel interval="adInterval" class="col-lg-12 col-md-12 col-sm-12">
+                <slide class="adSlides" ng-repeat="adSlide2 in adSlides2" active="adSlide2.active">
+                    <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground col-lg-12 col-md-12 col-sm-12">
+                        <div class="carousel-caption">
+                            <!--// if needed - display details  here:-->
+                        </div>
                     </div>
                 </slide>
             </carousel>
@@ -81,7 +89,7 @@
 <!--//===============  podcast SECTION =================//-->
 <div @podcasts id="djbox">
     <h1>Latest Podcasts</h1>
-    <div  ng-repeat="podcast in podcasts">
+    <div ng-repeat="podcast in podcasts">
         <div id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
                 <div id="overlay">
@@ -97,44 +105,36 @@
 <!--//===============  follow us SECTION =================//-->
 <div class="row followus">
     <h1>FOLLOW US ON</h1>
-
-<!-- Button modal transparent -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-transparent">
+    <!-- Button modal transparent -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-transparent">
   Contact us
 </button>
-
-<!-- Modal transparent -->
-
-<div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      </div>
-      <div class="modal-body">
-        <center>        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
-
-                <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email"  ng-model="fromEmail"/><br>
-                <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"/><br>
-                <textarea name="message" id="contactmessage" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
-
-        </center>
-        
-      </div>
-      <div class="modal-footer">
-                <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
-      </div>
+    <!-- Modal transparent -->
+    <div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
+                        <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email" ng-model="fromEmail"
+                        /><br>
+                        <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"
+                        /><br>
+                        <textarea name="message" id="contactmessage" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-    
-</div>
-
-
 <!--//---------------------------------------------//-->
-
-
-
 <script>
     // .modal-backdrop classes
 

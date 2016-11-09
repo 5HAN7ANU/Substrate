@@ -38,8 +38,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+<<<<<<< HEAD
   <link rel="stylesheet" href="./My_Fontspring_Fonts/Webfonts/novecentosanswide_normal_macroman/stylesheet.css" type="text/css"
     charset="utf-8" />
+=======
+  <!--<link rel="stylesheet" href="./My_Fontspring_Fonts/Webfonts/novecentosanswide_normal_macroman/stylesheet.css" type="text/css" charset="utf-8" />-->
+  <link rel="stylesheet" type="text/css" href="MyFontsWebfontsKit.css">
+>>>>>>> c9a0f8175348662fa0c0450147fabe814b51b406
   <script src="marked.js"></script>
   <script src="factories.js"></script>
   <script src="services.js"></script>
@@ -68,18 +73,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <div class="small-logo-container">
+        <div class="small-logo-container" style="padding-top: 50px;">
           <a class="small-logo" href="/">Substrate Radio</a>
         </div>
       </div>
       <div class="navbar-collapse collapse">
 
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>          
           <li><a href="/events">Calendar</a></li>
           <li><a href="/magazine">Magazine</a></li>
-          <li><a target="_blank" href="https://www.mixcloud.com/substrateradio/uploads/">Podcast</a></li>
+          <li><a  href="/podcasts">Podcast</a></li>
           <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <!--<li><a href="/contact">Contact</a></li>-->
 
         </ul>
       </div>
@@ -100,11 +106,11 @@
 
 
   <div ng-view></div>
-  <br>
-  <div class="player-container">
-    <iframe src="http://tunein.com/embed/player/s190804/" style="width:100%;height:100%; position:absolute; bottom:0px; color:lightgray;"
-      scrolling="no" frameborder="no"></iframe>
-  </div>
+  <div class="iframeplayer">
+  <iframe src="http://tunein.com/embed/player/s190804/" style="width:100%;height:100px; position:fixed; bottom:0; color:lightgray;left:0;clear:both; "
+    scrolling="no" frameborder="no"></iframe>
+
+</div>
 
   <script>
         var navbarHeight = $('.navbar').height(); 

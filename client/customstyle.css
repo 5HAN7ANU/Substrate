@@ -56,7 +56,7 @@ body {
         margin-right: 5px;
        
         border-radius: 10px;
-        height: 600px;
+        height: 500px;
         /*width: 550px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -76,7 +76,7 @@ body {
 
       /*//========== home page featured event Container=====================//*/
       #featuredEventContainer {
-        height: 700px;
+        height: 600px;
         border-radius: 10px;
         margin-top: 10px;
         padding: 0px;
@@ -101,13 +101,13 @@ body {
               width: 400px;
               left:50%;
               top:20px;
-            margin-left:-200px;
+              margin-left:-200px;
             }
             .featuredEventBackground{
               /*position: absolute;*/
               background-size: cover;
               background-repeat: no-repeat;
-              height: 700px;
+              height: 600px;
               max-width: 100%;
               max-height: 100%;
               border-radius: 10px;
@@ -119,7 +119,8 @@ body {
         margin-top:50px;
         margin-left: 5px;
         border-radius: 10px;
-        height: 600px;
+        height: 500px;
+        padding: 0px;
         /*width: 250px;*/
         background-color: rgba(128, 128, 128, 0.7);
         /*float: left;*/
@@ -128,21 +129,41 @@ body {
 
        /*//-------carousel-------//*/
 
-            #adSlides_control > div{
+            /*#adSlides_control > div{
               height: 200px;
-            }
+            }*/
             .adImg{
               margin: 0px;
               width: 100%;
               height: auto;
             }
-            #adSlides_control {
+            #ad1{
+              margin-top: 10px;
+            }
+            #ad2{
+              margin-top: 10px;
+            }
+            .adSlides{
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+            /*#adSlides_control {
               position:absolute;
               width: 400px;
               left:50%;
               top:20px;
             margin-left:-200px;
+            }*/
+             .featuredAdBackground{
+              /*position: absolute;*/
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              height: 200px;
+              max-width: 100%;
+              border-radius: 10px;
             }
+           
       /*//-----------------------------------------------------//*/
 
       /*//================ about section ====================//*/
@@ -406,7 +427,7 @@ textarea.form-control {
 #usersList {
   float: left;
   padding: 20px;
-  color: red;
+  color: white;
 }
 
 
@@ -416,7 +437,7 @@ textarea.form-control {
 /*updateuser.html*/
 
 #updateUser {
-  color: red;
+  color: white;
 }
 
 
@@ -426,7 +447,7 @@ textarea.form-control {
 /*admin.html*/
 
 .adminPosts {
-  color: red;
+  color:white;
 }
 
 button {
@@ -440,21 +461,6 @@ button {
 }
 /*end admin.html*/
 
-/*@font-face {
-  font-family: 'LuloCleanOne';
-  src: url(../luloFont/LuloCleanFour.otf), url(../luloFont/LuloCleanFourBold.otf), url(../luloFont/LuloCleanOne.otf) format("opentype"), url(../luloFont/LuloCleanOneBold.otf), url(../luloFont/LuloCleanOutline.otf), url(../luloFont/LuloCleanOutlineBold.otf), url(../luloFont/LuloCleanThree.otf), url(../luloFont/LuloCleanThreeBold.otf), url(../luloFont/LuloCleanTwo.otf), url(../luloFont/LuloCleanTwoBold.otf);
-}*/
-
-@font-face{ 
-	font-family: 'MyWebFont';
-	src: url('WebFont.eot');
-	src: url('WebFont.eot?#iefix') format('embedded-opentype'),
-	     url('WebFont.woff') format('woff'),
-	     url('WebFont.ttf') format('truetype'),
-	     url('WebFont.svg#webfont') format('svg');
-}
-
-p { font-family: 'MyWebFont', Arial, sans-serif; }
 
 .player-container {
   position:fixed;
@@ -463,3 +469,6 @@ p { font-family: 'MyWebFont', Arial, sans-serif; }
   width:100%;
   height: 100px;
 }
+
+body { font-family: LuloCleanOne; }
+

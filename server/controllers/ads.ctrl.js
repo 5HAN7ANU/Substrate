@@ -40,6 +40,17 @@ router.route('/unpublished')
 
 //=====================================================//
 
+router.route('/even')
+    .get(function(req, res){
+        procedures.procGetEvenAds().then(function(ads){
+            res.send(ads);
+        }, function(err){
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
+
 
 router.route('/:id')
     .get(function (req, res) {
