@@ -3,13 +3,15 @@
 </div>
 <div class="container" id="cal">
   <div class="date" ng-repeat="day in calendar">
-    <div class="date-header">
-      <h4 class="date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
-    </div>
-    <div ng-repeat="event in day">
-      <div class="date-information">
-        <a class="date-title" ng-href="{{ event.htmlLink }}" <p>{{ event.summary }}</p></a>
-        <p class="date-text">{{ event.location }}</p>
+      <div class="date-header">
+        <h4 class="date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
+      </div>
+      <div ng-repeat="event in day">
+        <div class="date-information">
+          <!--<a class="date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>-->
+          <p class="eventSummary">{{ event.summary }}</p>
+          <p class="date-text">{{ event.location }}</p>
+        </div>
       </div>
     </div>
   </div>
