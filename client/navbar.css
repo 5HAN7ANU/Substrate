@@ -135,11 +135,18 @@
 /*//-----------contact page in home html--------//*/
 
 .modal-body {
-  position: relative;
-  padding: 15px;
-  margin-top: -27em;
+margin-top: -30em;
+    background-color: lightgray;
 }
-
+.modal-dialog {
+    margin: 30px;
+}
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background-color: gray;
+}
 #contactemail {
   width: 80%;
   text-align: center;
@@ -159,6 +166,9 @@
 
 .modal-transparent {
   background: transparent;
+}
+#modal-transparent{
+  top: 13em;
 }
 
 .modal-transparent .modal-content {
