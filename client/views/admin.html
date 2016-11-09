@@ -1,144 +1,146 @@
-<div class="admin-container">
-    <div class="container subNavBar" id="top-container">
-        <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
-        <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
-        <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
-        <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
-            <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
-    </div>
+<div class="magBackground">
+    <div class="admin-container">
+        <div class="container subNavBar" id="top-container">
+            <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
+            <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
+            <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
+            <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
+                <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
+        </div>
 
-    <!--<button ng-click="showUserDetails = ! showUserDetails">MANAGE USERS</button>-->
+        <!--<button ng-click="showUserDetails = ! showUserDetails">MANAGE USERS</button>-->
 
-    <button ng-click="showUserDetails()">Users</button>
-   
+        <button ng-click="showUserDetails()">Users</button>
+    
 
-    <!--<button ng-click="showPostDetails = ! showPostDetails">MANAGE MAGAZINE</button>-->
+        <!--<button ng-click="showPostDetails = ! showPostDetails">MANAGE MAGAZINE</button>-->
 
-    <button ng-click="showPostDetails()">Magazine</button>
-  
+        <button ng-click="showPostDetails()">Magazine</button>
+    
 
-    <button ng-click="showFeaturedEventDetails()">Featured Events</button>
- 
+        <button ng-click="showFeaturedEventDetails()">Featured Events</button>
+    
 
-    <button ng-click="showAdDetails()">Ads</button>
- 
+        <button ng-click="showAdDetails()">Ads</button>
+    
 
-    <div id="magazineDiv">
-        <br><br>
-        <button ng-click="showPublishedPosts()">Published</button>
-        <button ng-click="showUnpublishedPosts()">Unpublished</button>
-        <div id="unpublishedPostsDiv">
-            <h1 class="adminPosts">Unpublished Articles</h1>
-            <div ng-repeat="unpublishedPost in unpublishedPosts">
-                <div class="list-group-item">
-                    {{ unpublishedPost.title }}
-                    <p></p> by {{ unpublishedPost.authorfirstname }} {{ unpublishedPost.authorlastname }}
-                    <p></p>
-                    created: {{ unpublishedPost.createdat | date: 'short' }}
-                    <a href="/magazine/{{ unpublishedPost.id }}/update">
-                        <button>EDIT</button>
-                    </a>
+        <div id="magazineDiv">
+            <br><br>
+            <button ng-click="showPublishedPosts()">Published</button>
+            <button ng-click="showUnpublishedPosts()">Unpublished</button>
+            <div id="unpublishedPostsDiv">
+                <h1 class="adminPosts">Unpublished Articles</h1>
+                <div ng-repeat="unpublishedPost in unpublishedPosts">
+                    <div class="list-group-item">
+                        {{ unpublishedPost.title }}
+                        <p></p> by {{ unpublishedPost.authorfirstname }} {{ unpublishedPost.authorlastname }}
+                        <p></p>
+                        created: {{ unpublishedPost.createdat | date: 'short' }}
+                        <a href="/magazine/{{ unpublishedPost.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
                 </div>
-                <br>
+            </div>
+
+            <div id="publishedPostsDiv">
+                <h1 class="adminPosts">Published Articles</h1>
+                <div ng-repeat="publishedPost in publishedPosts">
+                    <div class="list-group-item">
+                        {{ publishedPost.title }}
+                        <p></p> by {{ publishedPost.authorfirstname }} {{ publishedPost.authorlastname }}
+                        <p></p>
+                        created: {{ publishedPost.createdat | date: 'short' }}
+                        <a href="/magazine/{{ publishedPost.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
 
-        <div id="publishedPostsDiv">
-            <h1 class="adminPosts">Published Articles</h1>
-            <div ng-repeat="publishedPost in publishedPosts">
-                <div class="list-group-item">
-                    {{ publishedPost.title }}
-                    <p></p> by {{ publishedPost.authorfirstname }} {{ publishedPost.authorlastname }}
-                    <p></p>
-                    created: {{ publishedPost.createdat | date: 'short' }}
-                    <a href="/magazine/{{ publishedPost.id }}/update">
-                        <button>EDIT</button>
+        <div id="usersDiv">
+            <br><br><br>
+            <a href="/users/create">
+                <button id="button">Create User</button>
+            </a>
+            <br>
+            <div id="userListContainer">
+                <div id="usersList" ng-repeat="u in users">
+                    <h3>{{ u.firstname }} {{ u.lastname }}</h3>
+                    <h4>{{ u.email }}</h4>
+                    <h4>{{ u.role }}</h4>
+                    <a href="/users/{{ u.id }}/update">
+                        <button id="button">EDIT</button>
                     </a>
+                    <button id="button" ng-click="deleteUser(u)">DELETE</button>
                 </div>
-                <br>
-            </div>
-        </div>
-    </div>
-
-    <div id="usersDiv">
-        <br><br><br>
-        <a href="/users/create">
-            <button id="button">Create User</button>
-        </a>
-        <br>
-        <div id="userListContainer">
-            <div id="usersList" ng-repeat="u in users">
-                <h3>{{ u.firstname }} {{ u.lastname }}</h3>
-                <h4>{{ u.email }}</h4>
-                <h4>{{ u.role }}</h4>
-                <a href="/users/{{ u.id }}/update">
-                    <button id="button">EDIT</button>
-                </a>
-                <button id="button" ng-click="deleteUser(u)">DELETE</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="featuredEventsDiv">
-        <br><br>
-        <button ng-click="composeFeaturedEventPage()">Create Featured Event</button>
-        <button ng-click="showPublishedEvents()">Published Featured Events</button>
-        <button ng-click="showUnpublishedEvents()">Unpublished Featured Events</button>
-        <div id="unpublishedEventsDiv">
-            <h1 class="adminEvents">Unpublished Featured Events</h1>
-            <div ng-repeat="unpublishedEvent in unpublishedEvents">
-                <div class="list-group-item">
-                    {{ unpublishedEvent.eventName }}
-                    <a href="/featuredevents/{{ unpublishedEvent.id }}/update">
-                        <button>EDIT</button>
-                    </a>
-                </div>
-                <br>
             </div>
         </div>
 
-        <div id="publishedEventsDiv">
-            <h1 class="adminEvents">Published Events</h1>
-            <div ng-repeat="publishedEvent in publishedEvents">
-                <div class="list-group-item">
-                    {{ publishedEvent.eventName }}
-                    <a href="/featuredevents/{{ publishedEvent.id }}/update">
-                        <button>EDIT</button>
-                    </a>
+        <div id="featuredEventsDiv">
+            <br><br>
+            <button ng-click="composeFeaturedEventPage()">Create Featured Event</button>
+            <button ng-click="showPublishedEvents()">Published Featured Events</button>
+            <button ng-click="showUnpublishedEvents()">Unpublished Featured Events</button>
+            <div id="unpublishedEventsDiv">
+                <h1 class="adminEvents">Unpublished Featured Events</h1>
+                <div ng-repeat="unpublishedEvent in unpublishedEvents">
+                    <div class="list-group-item">
+                        {{ unpublishedEvent.eventName }}
+                        <a href="/featuredevents/{{ unpublishedEvent.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
                 </div>
-                <br>
+            </div>
+
+            <div id="publishedEventsDiv">
+                <h1 class="adminEvents">Published Events</h1>
+                <div ng-repeat="publishedEvent in publishedEvents">
+                    <div class="list-group-item">
+                        {{ publishedEvent.eventName }}
+                        <a href="/featuredevents/{{ publishedEvent.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="adsDiv">
-        <br><br>
-        <button ng-click="composeAdPage()">Create Ad</button>
-        <button ng-click="showPublishedAds()">Published Ads</button>
-        <button ng-click="showUnpublishedAds()">Unpublished Ads</button>
-        <div id="unpublishedAdsDiv">
-            <h1 class="adminAds">Unpublished Ads</h1>
-            <div ng-repeat="unpublishedAd in unpublishedAds">
-                <div class="list-group-item">
-                    {{ unpublishedAd.adName }}
-                    <a href="/ads/{{ unpublishedAd.id }}/update">
-                        <button>EDIT</button>
-                    </a>
+        <div id="adsDiv">
+            <br><br>
+            <button ng-click="composeAdPage()">Create Ad</button>
+            <button ng-click="showPublishedAds()">Published Ads</button>
+            <button ng-click="showUnpublishedAds()">Unpublished Ads</button>
+            <div id="unpublishedAdsDiv">
+                <h1 class="adminAds">Unpublished Ads</h1>
+                <div ng-repeat="unpublishedAd in unpublishedAds">
+                    <div class="list-group-item">
+                        {{ unpublishedAd.adName }}
+                        <a href="/ads/{{ unpublishedAd.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
                 </div>
-                <br>
             </div>
-        </div>
 
-        <div id="publishedAdsDiv">
-            <h1 class="adminAds">Published Ads</h1>
-            <div ng-repeat="publishedAd in publishedAds">
-                <div class="list-group-item">
-                    {{ publishedAd.adName }}
-                    <a href="/ads/{{ publishedAd.id }}/update">
-                        <button>EDIT</button>
-                    </a>
+            <div id="publishedAdsDiv">
+                <h1 class="adminAds">Published Ads</h1>
+                <div ng-repeat="publishedAd in publishedAds">
+                    <div class="list-group-item">
+                        {{ publishedAd.adName }}
+                        <a href="/ads/{{ publishedAd.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
                 </div>
-                <br>
             </div>
         </div>
     </div>
