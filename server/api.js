@@ -7,6 +7,7 @@ var events = require('./controllers/events.ctrl');
 var ads = require('./controllers/ads.ctrl');
 var podcasts = require('./controllers/podcasts.ctrl');
 var pods = require('./controllers/pod.ctrl');
+var mission = require('./controllers/mission.ctrl');
 var router = express.Router();
 
 router
@@ -17,6 +18,7 @@ router
     .use('/featuredevents', events)
     .use('/ads', ads)
     .use('/podcasts', podcasts)
+    .use('/mission', mission)
     .use('/pods', pods);
     
 

@@ -1,23 +1,23 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http','Podcasts', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts) {
         console.log('Home Controller');
         $scope.eventInterval = 4000;
         $scope.adInterval = 9000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
         $scope.adSlides2 = [];
-        
+
         //getting next 7 days of events 
 
         var today = new Date();
         var timeMin = today.toISOString();
-        var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
+        var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
         var timeMax = nextWeek.toISOString();
         console.log(timeMin);
         console.log(timeMax);
 
         CalendarService.getEvents(1000, timeMin, timeMax)
-            .then(function(events) {
+            .then(function (events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -30,7 +30,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
                             events[i].location = 'Iron City';
-                        } 
+                        }
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
                         } else {
@@ -45,7 +45,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (String(locationSplit[0]) == "Iron") {
                             events[i].location = 'Iron City';
-                        } 
+                        }
                         else if (String(locationSplit[0]) == "The") {
                             events[i].location = 'The Nick';
                         } else {
@@ -82,8 +82,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }, function (err) {
             console.log(err);
         });
-        
-        
+
+
         $http({
             method: 'GET',
             url: '/api/ads/odd'   //gets ads with ids that are odd
@@ -106,7 +106,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             console.log(err);
         });
 
-     
+
 
 
         //----------------------------------------------
@@ -143,7 +143,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.podcasts = Podcasts.query();
         console.log($scope.podcasts);
-        
+
         $scope.ads = Ads.query();
         console.log($scope.ads);
 
@@ -158,7 +158,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
-        
+
         var d = new Date();
         var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
         var lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
@@ -168,9 +168,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         console.log(timeMin);
         console.log(timeMax);
-        
+
         CalendarService.getEvents(1000, timeMin, timeMax)
-            .then(function(events) {
+            .then(function (events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -183,7 +183,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
                             events[i].location = 'Iron City';
-                        } 
+                        }
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
                         } else {
@@ -199,7 +199,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (String(locationSplit[0]) == "Iron") {
                             events[i].location = 'Iron City';
-                        } 
+                        }
                         else if (String(locationSplit[0]) == "The") {
                             events[i].location = 'The Nick';
                         } else {
@@ -565,12 +565,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http) {
+    .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', 'MissionStatements', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http, MissionStatements) {
         console.log('Admin Controller');
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
+        $('#missionStatementsDiv').hide();
         $('#magazineDiv').hide();
         $('#usersDiv').hide();
         $('#featuredEventsDiv').hide();
@@ -596,7 +597,32 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/composead');
         };
 
+        $scope.composeMissionStatementPage = function () {
+            $location.path('/composeMissionStatement');
+        };
+
+        $scope.showMissionStatementDetails = function () {
+            $('#missionStatementsDiv').show();
+            $('#magazineDiv').hide();
+            $('#featuredEventsDiv').hide();
+            $('#adsDiv').hide();
+            $('#usersDiv').hide();
+            $('#publishedMissionStatementsDiv').hide();
+            $('#unpublishedMissionStatementsDiv').hide();
+        }
+
+        $scope.showPublishedMissionStatements = function () {
+            $('#publishedMissionStatementsDiv').show();
+            $('#unpublishedMissionStatementsDiv').hide();
+        }
+
+        $scope.showUnpublishedMissionStatements = function () {
+            $('#publishedMissionStatementsDiv').hide();
+            $('#unpublishedMissionStatementsDiv').show();
+        }
+
         $scope.showUserDetails = function () {
+            $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
@@ -605,6 +631,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.showPostDetails = function () {
             $('#magazineDiv').show();
+            $('#missionStatementsDiv').hide();
             $('#usersDiv').hide();
             $('#unpublishedPostsDiv').hide();
             $('#publishedPostsDiv').hide();
@@ -623,6 +650,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }
 
         $scope.showFeaturedEventDetails = function () {
+            $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
             $('#unpublishedPostsDiv').hide();
@@ -644,6 +672,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }
 
         $scope.showAdDetails = function () {
+            $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
             $('#featuredEventsDiv').hide();
@@ -661,6 +690,18 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').show();
         }
+
+        //----------*******Mission Statements List********-----------------
+        $scope.missionStatements = MissionStatements.query();
+        $http({
+            method: 'GET',
+            url: '/api/mission/unpublished'
+        }).then(function (success) {
+            $scope.unpublishedMissionStatements = success.data;
+            console.log($scope.unpublishedMissionStatements);
+        }, function (err) {
+            console.log(err);
+        });
 
         //----------*******Post List********-----------------
         $scope.publishedPosts = Posts.query();
@@ -822,7 +863,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
-        
+
         $scope.create = function () {
             var data = {
                 firstname: $scope.firstname,
@@ -931,11 +972,88 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             alert('You have been logged out!');
         };
     }])
-    .controller('PodController',['$scope','Pods', function($scope, Pods){
+    .controller('PodController', ['$scope', 'Pods', function ($scope, Pods) {
         console.log('PodController');
 
         $scope.pod = Pods.query();
         console.log($scope.allpod);
-   
 
+
+    }])
+    //ComposeMissionStatementController
+    .controller('ComposeMissionStatementController', ['$scope', '$location', 'MissionStatements', 'UserService', 'SEOService', function ($scope, $location, MissionStatements, UserService, SEOService) {
+        UserService.requireLogin();
+        UserService.isLoggedIn();
+        UserService.isAdmin();
+
+        $scope.logout = function () {
+            UserService.logout()
+            $location.path('/');
+        }
+
+        $scope.submitMissionStatement = function () {
+            var data = {
+                statement: $scope.missionStatement,
+                publish: 0
+            }
+
+            var featuredMissionStatementToPost = new MissionStatements(data);
+            featuredMissionStatementToPost.$save(function (success) {
+                console.log('Mission statement submitted successfully');
+                $location.path('/admin');
+            });
+        }
+
+        $scope.goBack = function () {
+            $location.path('/admin');
+        }
+
+        SEOService.setSEO({
+            title: 'Substrate Radio | Compose Mission Statement',
+            description: 'Compose a Mission Statement',
+            image: 'http://' + $location.host() + '/images/blog.png',
+            url: $location.absUrl()
+        });
+    }])
+    //EditMissionStatementController
+    .controller('EditMissionStatementController', ['$scope', 'UserService', 'MissionStatements', '$routeParams', '$location', '$http', function ($scope, UserService, MissionStatements, $routeParams, $location, $http) {
+        UserService.requireLogin();
+        UserService.requiresAdmin();
+        UserService.isLoggedIn();
+
+        $scope.logout = function () {
+            UserService.logout().then(function () {
+                $route.reload();
+            });
+        }
+
+        var id = $routeParams.id;
+        $scope.featuredMissionStatement = MissionStatements.get({ id: id }, function () {
+            $scope.featuredMissionStatement.publish = String($scope.featuredMissionStatement.publish);
+            $scope.publish = $scope.featuredMissionStatement.publish;
+        });
+
+        $scope.publishValues = [
+            { name: 'No', value: '0' },
+            { name: 'Yes', value: '1' }
+        ];
+
+        $scope.update = function () {
+            $scope.featuredMissionStatement.$update(function (success) {
+                $location.path('/admin');
+            });
+        }
+
+        $scope.promptDelete = function () {
+            var shouldDelete = confirm('Are you sure you want to delete this mission statement?');
+            if (shouldDelete) {
+                $scope.featuredMissionStatement.$delete(function (success) {
+                    $location.path('/admin');
+                });
+            }
+        }
+
+        $scope.cancelupdate = function () {
+            $location.path('/admin');
+        }
     }])
