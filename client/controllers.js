@@ -1,8 +1,8 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http','Podcasts', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts) {
         console.log('Home Controller');
-        $scope.eventInterval = 4000;
-        $scope.adInterval = 9000;
+        $scope.eventInterval = 8000;
+        $scope.adInterval = 14000;
         $scope.eventSlides = [];
         $scope.adSlides = [];
         $scope.adSlides2 = [];
@@ -396,7 +396,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     title: $scope.post.title,
                     userid: me.id,
                     categoryid: $scope.post.categoryid,
-                    content: $scope.post.content
+                    content: $scope.post.content,
+                    imageurl: $scope.post.imageurl
                 }
 
                 var articleToPost = new Posts(data);
@@ -537,6 +538,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.post.publish = String($scope.post.publish);
             console.log('1 = publish / 0 = not publish');
             $scope.publish = $scope.post.publish;
+            $scope.imageurl = $scope.post.imageurl;
             $scope.previewPost = $scope.post;
         });
 
