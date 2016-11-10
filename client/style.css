@@ -151,7 +151,7 @@ a {
   font-size: 12px;
   position: fixed;
   z-index: 9909;
-  background-color: black;
+  /*background-color: black;*/
   width: 100%;
 }
 
