@@ -47,7 +47,7 @@
 }
 
 .date-information {
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
 }
 
@@ -93,7 +93,7 @@
 .map-container {
     text-align: center;
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 10em;
 }
 
 .map {

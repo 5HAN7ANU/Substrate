@@ -24,11 +24,7 @@
     background-size: cover;
     min-height: 47.2em;
     background-repeat: repeat-y;
-    margin-top: 8px;
-
-    /*margin-top: 10px;*/
-    /*margin-top: 8px;*/
-
+ margin-bottom: 6em;
     overflow-x: hidden;
     overflow-y: hidden;
     text-align: center;
@@ -40,9 +36,9 @@
 }
 
 
-.subNavBar{
+/*.subNavBar{
     margin-top: 80px;
-}
+}*/
 input{
     z-index: 0;
 }
