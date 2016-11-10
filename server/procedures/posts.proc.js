@@ -10,12 +10,12 @@ exports.procRead = function(id) {
     return db.fnRow('procGetPost', [id]);
 }
 
-exports.procCreate = function(title, userid, content) {
-    return db.fnRow('procInsertPost', [title, userid, content]);
+exports.procCreate = function(title, userid, content, imageurl) {
+    return db.fnRow('procInsertPost', [title, userid, content, imageurl]);
 }
 
-exports.procUpdate = function(id, title, content, publish) {
-    return db.fnEmpty('procUpdatePost', [id, title, content, publish]);
+exports.procUpdate = function(id, title, content, publish, imageurl) {
+    return db.fnEmpty('procUpdatePost', [id, title, content, publish, imageurl]);
 }
 
 exports.procDestroy = function(id) {

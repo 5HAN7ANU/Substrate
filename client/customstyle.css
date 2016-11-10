@@ -5,22 +5,24 @@
 
 .middlesection {
   margin-top: 100px;
-  /*width: 100%;
-  background-image: url(../assets/background1.jpg);
+  width: 100%;
+  /*background-image: url(../assets/background1.jpg);
   background-repeat: no-repeat;
   background-size: cover;*/
   z-index: 0;
+  /*border: 1px white solid;*/
 }
 
 
 /*//===============event calender Container ==============//*/
 
 #eventCalendarContainer {
-  margin-top: 50px;
+  margin-top: 10px;
   margin-right: 5px;
+  margin-left: 40px;
   border-radius: 10px;
-  height: 500px;
-  /*width: 550px;*/
+  height: 600px;
+  width: 280px;
   background-color: rgba(128, 128, 128, 0.7);
   /*float: left;*/
   /*margin-left: 25px;*/
@@ -87,12 +89,12 @@
 /*//=======   home page ads Container  ========//*/
 
 #adContainer {
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 5px;
   border-radius: 10px;
-  height: 500px;
+  height: 600px;
   padding: 0px;
-  /*width: 250px;*/
+  width: 280px;
   background-color: rgba(128, 128, 128, 0.7);
   /*float: left;*/
   /*margin-left: 25px;*/
@@ -167,6 +169,24 @@
   padding-bottom: 12px;
   z-index: 0;
 }
+.block {
+  background: white;
+  height: 130px;
+  width: 140px;
+  display: block;
+  border: 3px solid black;
+  float: left;
+}
+
+.block1 {
+  background: WHITE;
+  height: 130px;
+  width: 432px;
+  display: block;
+  border: 3px solid black;
+  float: left;
+}
+
 
 
 /*//-----------------------------------------------------//*/
@@ -207,8 +227,7 @@
 
 #djbox {
   text-align: center;
-    z-index: 0;
-
+  z-index: 0;
 }
 
 .podcasts {
@@ -450,4 +469,3 @@ input {
 select {
   color: black;
 }
-

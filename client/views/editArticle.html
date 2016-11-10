@@ -6,9 +6,11 @@
                   <option ng-repeat="publishValue in publishValues" value="{{ publishValue.value }}">{{ publishValue.name }}</option>
             </select>
             <br>
-            <input type="text" id='editTitleBox' class="form-control" ng-model="post.title">
+            <input type="text" id='editTitleBox' class="form-control" ng-model="post.title" placeholder="article title goes here...">
             <br>
-            <textarea class="form-control" rows="15" id="editContentBox" ng-model="post.content"></textarea>
+            <textarea class="form-control" rows="15" id="editContentBox" ng-model="post.content" placeholder="article content goes here..."></textarea>
+             <br>
+            <input type="text" id='editArticleImageUrlBox' class="form-control" ng-model="post.imageurl" placeholder="image url goes here...">
       </div>
       <button id='cancelUpdateButton' class="btn btn-default" type="button" ng-click="cancelupdate()">Go Back</button>
       <button id='updateButton' class="btn btn-default" type="button" ng-click="update()">Update!</button>
@@ -16,6 +18,8 @@
 </div>
 <br>
 <h3>PREVIEW</h3>
+<div id="previewArticleImage" ng-style="{'background-image':'url(' + post.imageurl + ')'}"></div>
+<br><br><br>
 <div class="container" id="preview-container">
       <div class="list-group" id="list-content">
             <div class="list-group-item">

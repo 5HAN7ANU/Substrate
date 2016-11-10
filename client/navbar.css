@@ -1,17 +1,21 @@
 /*this is modal css for contact*/
+
 .modal-body {
-margin-top: -30em;
-    background-color: lightgray;
+  margin-top: -30em;
+  background-color: lightgray;
 }
+
 .modal-dialog {
-    margin: 30px;
+  margin: 30px;
 }
+
 .modal-footer {
-    padding: 15px;
-    text-align: right;
-    border-top: 1px solid #e5e5e5;
-    background-color: gray;
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+  background-color: gray;
 }
+
 #contactemail {
   width: 80%;
   text-align: center;
@@ -32,7 +36,8 @@ margin-top: -30em;
 .modal-transparent {
   background: transparent;
 }
-#modal-transparent{
+
+#modal-transparent {
   top: 13em;
 }
 
@@ -51,6 +56,21 @@ margin-top: -30em;
 
 
 
+@media screen and (min-width: 768px) {
+  .carousel-indicators {
+    bottom: 20px;
+    z-index: 1;
+  }
+}
 
 
+#container {
+  /*background: #eee;*/
+  text-align: center;
+  float: left;
+}
+
+strong {
+  font-size: 2em;
+}
 

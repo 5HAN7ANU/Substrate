@@ -1,5 +1,14 @@
 <!--//---------------------------------------------//-->
 <!--//===============  side calendar/events/ads =================//-->
+<!--<div class="container mininavbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/events">Calendar</a></li>
+        <li><a href="/magazine">Magazine</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
+    </ul>
+</div>-->
 <div class="container middlesection">
     <div class="row">
         <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offeset-1 col-sm-12" id="eventCalendarContainer">
@@ -9,7 +18,7 @@
                 </div>
                 <div ng-repeat="event in day">
                     <div class="week-date-information">
-                        <a class="week-date-title" ng-href="{{ event.htmlLink }}" <p>{{ event.summary }}</p></a>
+                        <p class="week-date-title">{{ event.summary }}</p>
                         <p class="week-date-text">{{ event.location | limitTo : 9 : 0 }}</p>
                     </div>
                 </div>
@@ -57,17 +66,11 @@
                 eget eleifend augue lorem nec mauris. Fusce efficitur elit ultricies ex accumsan elementum. Cras ac aliquet
                 arcu, nec laoreet lacus. Morbi dapibus diam nisi, non lacinia lectus interdum molestie. Donec tincidunt viverra
                 tellus, et posuere tortor. Aenean nulla arcu, gravida nec pulvinar quis, volutpat a lorem. Ut molestie tellus
-                vitae volutpat ullamcorper. Fusce a velit vitae ipsum tincidunt iaculis. Sed tempus fermentum laoreet. Mauris
-                pretium nulla non odio cursus condimentum. Donec tincidunt, leo vel iaculis malesuada, augue lectus lacinia
-                elit, sit amet varius felis felis non arcu. Suspendisse pharetra justo vitae arcu bibendum, at dapibus erat
-                consequat. Phasellus posuere at eros facilisis. Phasellus sodales elit odio. Nullam tincidunt felis massa,
-                a imperdiet ex maximus sit amet. Proin egestas metus neque, eget dapibus mauris molestie vel. Maecenas sed
-                nulla nunc. Nulla interdum, ligula vitae malesuada finibus, risus urna gravida augue, in condimentum mauris
-                arcu bibendum augue.
+                vitae volutpat ullamcorper. 
             </p>
         </div>
         <div class="col-md-6" id="container">
-            <h1 style="text-align: center; justify-content: center; margin-right: 3em;">SCHEDULE</h1>
+            <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
             <div class="block"><strong>S</strong>unday</div>
             <div class="block"><strong>M</strong>onday</div>
             <div class="block"><strong>T</strong>uesday</div>
@@ -76,7 +79,6 @@
             <div class="block"><strong>F</strong>riday</div>
             <div class="block"><strong>S</strong>aturday</div>
             <div class="block"><strong>S</strong>unday</div>
-
         </div>
     </div>
 </div>
@@ -102,9 +104,9 @@
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
 <div id="djbox" class="podbackground">
-    <div style="font-size: 2em; font-weight: bolder;"> Latest Podcasts
-</div>
-    <div  ng-repeat="podcast in podcasts">
+    <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
+    </div>
+    <div ng-repeat="podcast in podcasts">
         <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
                 <div id="overlay">

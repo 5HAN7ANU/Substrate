@@ -16,7 +16,7 @@ router.route('/')
     })
     .post(function (req, res) {
         var p = req.body;
-        procedures.procCreate(p.title, p.userid, p.content)
+        procedures.procCreate(p.title, p.userid, p.content, p.imageurl)
             .then(function (id) {
                 res.status(201).send(id);
             }, function (err) {
@@ -60,7 +60,7 @@ router.route('/:id')
     })
     .put(function (req, res) {
         var p = req.body;
-        procedures.procUpdate(req.params.id, p.title, p.content, p.publish)
+        procedures.procUpdate(req.params.id, p.title, p.content, p.publish, p.imageurl)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
