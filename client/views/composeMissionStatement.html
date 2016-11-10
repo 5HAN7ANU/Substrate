@@ -1,11 +1,13 @@
-<div class="container" id="top-container">
-    <p class="navbar-text navbar-right"><a class="navbar-link" ng-click="logout()">logout</a></p>
-    <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link">My Profile</a></p>
+<div class="magBackground">
+    <div class="container" id="top-container">
+        <p class="navbar-text navbar-right"><a class="navbar-link" ng-click="logout()">logout</a></p>
+        <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link">My Profile</a></p>
+    </div>
+
+    <h1 id="titleHeader1">Substrate Mission Statement Compose Page</h1>
+
+    <button ng-click="submitMissionStatement()">Save Mission Statement</button>
+    <br>
+
+    <textarea rows="15" ng-model="missionStatement" placeholder="Mission Statement"></textarea>
 </div>
-
-<h1 id="titleHeader1">Substrate Mission Statement Compose Page</h1>
-
-<button ng-click="submitMissionStatement()">Save Mission Statement</button>
-<br>
-
-<textarea rows="15" ng-model="missionStatement" placeholder="Mission Statement"></textarea>
