@@ -608,6 +608,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $('#usersDiv').hide();
         $('#featuredEventsDiv').hide();
         $('#adsDiv').hide();
+        $('.mininavbar').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -634,6 +635,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
             $('#usersDiv').show();
+            $('.mininavbaradmin').show();
         };
 
         $scope.showPostDetails = function () {
@@ -643,16 +645,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedPostsDiv').hide();
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showPublishedPosts = function () {
             $('#publishedPostsDiv').show();
             $('#unpublishedPostsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showUnpublishedPosts = function () {
             $('#publishedPostsDiv').hide();
             $('#unpublishedPostsDiv').show();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showFeaturedEventDetails = function () {
@@ -664,16 +672,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').hide();
             $('#adsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showPublishedEvents = function () {
             $('#publishedEventsDiv').show();
             $('#unpublishedEventsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showUnpublishedEvents = function () {
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').show();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showAdDetails = function () {
@@ -683,16 +697,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#adsDiv').show();
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showPublishedAds = function () {
             $('#publishedAdsDiv').show();
             $('#unpublishedAdsDiv').hide();
+            $('.mininavbaradmin').show();
+
         }
 
         $scope.showUnpublishedAds = function () {
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').show();
+            $('.mininavbaradmin').show();
+
         }
 
         //----------*******Post List********-----------------

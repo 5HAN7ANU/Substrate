@@ -1,31 +1,36 @@
 <div class="magBackground">
     <div class="admin-container">
-        <div class="container subNavBar" id="top-container">
+        <!--<div class="container subNavBar" id="top-container">
             <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
             <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
             <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
             <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
                 <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
-        </div>
-
+        </div>-->
         <!--<button ng-click="showUserDetails = ! showUserDetails">MANAGE USERS</button>-->
-
-        <button ng-click="showUserDetails()">Users</button>
-    
-
+        <!--<button ng-click="showUserDetails()">Users</button>-->
         <!--<button ng-click="showPostDetails = ! showPostDetails">MANAGE MAGAZINE</button>-->
-
-        <button ng-click="showPostDetails()">Magazine</button>
+        <!--<button ng-click="showPostDetails()">Magazine</button>
     
 
         <button ng-click="showFeaturedEventDetails()">Featured Events</button>
-    
-
-        <button ng-click="showAdDetails()">Ads</button>
-    
-
+    -->
+        <!--<button ng-click="showAdDetails()">Ads</button>-->
+        <div class="container mininavbaradmin">
+            <ul>
+                <li><button ng-click="showUserDetails()">Users</button></li>
+                <li><button ng-click="showPostDetails()">Magazine</button></li>
+                <li><button ng-click="showFeaturedEventDetails()">Featured Events</button></li>
+                <li><button ng-click="showAdDetails()">Ads</button></li>
+                <li><a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></li>
+                <li><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></li>
+                <li><a class="navbar-link" ng-click="logout()">logout</a></li>
+                <li style="color: white;">
+                    <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</li>
+            </ul>
+        </div>
         <div id="magazineDiv">
-            <br><br>
+            <br><br><br><br><br>
             <button ng-click="showPublishedPosts()">Published</button>
             <button ng-click="showUnpublishedPosts()">Unpublished</button>
             <div id="unpublishedPostsDiv">
@@ -43,7 +48,7 @@
                     <br>
                 </div>
             </div>
-
+            <br><br><br>
             <div id="publishedPostsDiv">
                 <h1 class="adminPosts">Published Articles</h1>
                 <div ng-repeat="publishedPost in publishedPosts">
@@ -60,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         <div id="usersDiv">
             <br><br><br>
             <a href="/users/create">
@@ -79,9 +83,8 @@
                 </div>
             </div>
         </div>
-
         <div id="featuredEventsDiv">
-            <br><br>
+            <br><br><br><br>
             <button ng-click="composeFeaturedEventPage()">Create Featured Event</button>
             <button ng-click="showPublishedEvents()">Published Featured Events</button>
             <button ng-click="showUnpublishedEvents()">Unpublished Featured Events</button>
@@ -97,7 +100,6 @@
                     <br>
                 </div>
             </div>
-
             <div id="publishedEventsDiv">
                 <h1 class="adminEvents">Published Events</h1>
                 <div ng-repeat="publishedEvent in publishedEvents">
@@ -111,9 +113,8 @@
                 </div>
             </div>
         </div>
-
         <div id="adsDiv">
-            <br><br>
+            <br><br><br><br>
             <button ng-click="composeAdPage()">Create Ad</button>
             <button ng-click="showPublishedAds()">Published Ads</button>
             <button ng-click="showUnpublishedAds()">Unpublished Ads</button>
@@ -129,7 +130,6 @@
                     <br>
                 </div>
             </div>
-
             <div id="publishedAdsDiv">
                 <h1 class="adminAds">Published Ads</h1>
                 <div ng-repeat="publishedAd in publishedAds">

@@ -48,7 +48,7 @@
   height: 101px;
   background-color: black;
   text-align: right;
-  z-index: 999;
+  z-index: 99999;
 }
 
 body {
@@ -92,8 +92,9 @@ body {
 }
 
 .app .site-content {
-  padding-top: 3em;
-  /*height: 100%;*/
+  margin-top:136px;
+  /*padding-top: 3em;*/
+  height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -154,9 +155,20 @@ background-repeat: no-repeat;
   text-align: center;
   font-size: 12px;
   position: fixed;
-  z-index: 9;
+  z-index: 99999;
   /*background-color: black;*/
   width: 100%;
+}
+.mininavbaradmin{
+
+ 
+  text-align: center;
+  font-size: 12px;
+  position: fixed;
+  z-index: 99999;
+  background-color: black;
+  width: 100%;
+
 }
 
 a:focus,
