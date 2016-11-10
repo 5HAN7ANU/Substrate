@@ -159,7 +159,16 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         console.log($scope.featuredEvents);
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++
-        $scope.missionStatement = MissionStatements.query();
+        // $scope.missionStatement = MissionStatements.query();
+
+        $http({
+            method: 'GET',
+            url: '/api/mission'
+        }).then(function(success){
+            $scope.missionStatement = success.data[0].statement;
+        }, function(err){
+            console.log(err);
+        })
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
