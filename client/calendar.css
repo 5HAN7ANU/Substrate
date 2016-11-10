@@ -75,7 +75,8 @@
 
 .week-date-title {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
 .week-date-text {
@@ -97,6 +98,10 @@
 .map {
     margin-top: 10px;
     border-top: 1px white solid;
+}
+
+.weekDate {
+    margin-bottom: 40px;
 }
 
 @media screen and (max-height)

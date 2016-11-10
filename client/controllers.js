@@ -33,8 +33,12 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         } 
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
-                        } else {
+                        }
+                        else if (locationSplit[0] == "Saturn") {
                             events[i].location = 'Saturn';
+                        }
+                        else {
+                            events[i].location = '';
                         }
                         eventArray.push(events[i]);
                         calendarArray.push(eventArray);
