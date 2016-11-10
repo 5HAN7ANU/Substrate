@@ -475,3 +475,12 @@ select {
 #editMissionStatementContainer {
   margin-top: 80px;
 }
+#missionStatementsDiv{
+  margin-top: 40px;
+}
+#usersDiv{
+  margin-top: 20px;
+}
+#userListContainer{
+  margin-top: 20px;
+}
