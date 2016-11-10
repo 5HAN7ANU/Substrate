@@ -62,3 +62,15 @@
     z-index: 1;
   }
 }
+
+
+#container {
+  /*background: #eee;*/
+  text-align: center;
+  float: left;
+}
+
+strong {
+  font-size: 2em;
+}
+
