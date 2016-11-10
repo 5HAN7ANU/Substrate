@@ -12,7 +12,7 @@
 
 .magPageSubtitle {
     margin-left: 25px;
-        color: white;
+    color: white;
 }
 .magByLineHeader{
     color: white;
@@ -24,8 +24,11 @@
     background-size: cover;
     min-height: 47.2em;
     background-repeat: repeat-y;
-    margin-top: 58px;
     margin-top: 8px;
+
+    /*margin-top: 10px;*/
+    /*margin-top: 8px;*/
+
     overflow-x: hidden;
     overflow-y: hidden;
     text-align: center;
