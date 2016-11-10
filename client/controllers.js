@@ -38,7 +38,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                             events[i].location = 'Saturn';
                         }
                         else {
-                            events[i].location = '';
+                            events[i].location = 'Substrate Radio';
                         }
                         eventArray.push(events[i]);
                         calendarArray.push(eventArray);
@@ -57,7 +57,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                             events[i].location = 'Saturn';
                         }
                         else {
-                            events[i].location = '';
+                            events[i].location = 'Substrate Radio';
                         }
                         var eventArray = calendarArray[calendarArray.length - 1];
                         eventArray.push(events[i]);
@@ -199,7 +199,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                             events[i].location = 'Saturn';
                         }
                         else {
-                            events[i].location = '';
+                            events[i].location = 'Substrate Radio';
                         }
                         console.log(events[i].location);
                         eventArray.push(events[i]);
@@ -219,7 +219,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                             events[i].location = 'Saturn';
                         }
                         else {
-                            events[i].location = '';
+                            events[i].location = 'Substrate Radio';
                         }
                         console.log(events[i].location);
                         var eventArray = calendarArray[calendarArray.length - 1];
