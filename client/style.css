@@ -156,7 +156,6 @@ a {
 }
 
 .mininavbaradmin {
-<<<<<<< HEAD
     top: 100px;
     text-align: center;
     font-size: 12px;
@@ -164,15 +163,6 @@ a {
     z-index: 99999;
     background-color: black;
     width: 100%;
-=======
-  bottom: 559px;
-  text-align: center;
-  font-size: 12px;
-  position: fixed;
-  z-index: 99999;
-  background-color: black;
-  width: 100%;
->>>>>>> 19b9916a3a7b0c1b7d83126703a4df8e57c14238
 }
 
 a:focus,
