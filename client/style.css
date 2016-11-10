@@ -92,7 +92,7 @@ body {
 }
 
 .app .site-content {
-  margin-top:136px;
+  margin-top: 136px;
   /*padding-top: 3em;*/
   height: 100%;
   overflow-x: hidden;
@@ -149,8 +149,8 @@ a {
 .mininavbar {
   background-image: url('./assets/background3.jpg');
   background-position-x: center;
-background-size: cover;
-background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-top: 101px;
   text-align: center;
   font-size: 12px;
@@ -159,16 +159,15 @@ background-repeat: no-repeat;
   /*background-color: black;*/
   width: 100%;
 }
-.mininavbaradmin{
 
- 
+.mininavbaradmin {
+  bottom: 23em;
   text-align: center;
   font-size: 12px;
   position: fixed;
   z-index: 99999;
   background-color: black;
   width: 100%;
-
 }
 
 a:focus,
