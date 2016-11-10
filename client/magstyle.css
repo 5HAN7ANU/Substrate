@@ -10,6 +10,7 @@
 }
 .magPageSubtitle{
     margin-left: 25px;
+    color: white;
 }
 .magByLineHeader{
     color: white;
@@ -32,6 +33,9 @@
 
 .subNavBar{
     margin-top: 80px;
+}
+input{
+    z-index: 0;
 }
 
 
