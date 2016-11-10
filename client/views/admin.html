@@ -29,13 +29,14 @@
             <br><br>
             <button ng-click="composeMissionStatementPage()">Create Mission Statement</button>
             <br><br>
-            <button ng-click="showPublishedMissionStatments()">Published</button>
+            <button ng-click="showPublishedMissionStatements()">Published</button>
             <button ng-click="showUnpublishedMissionStatements()">Unpublished</button>
             <div id="unpublishedMissionStatementsDiv">
                 <h1 class="adminPosts">Unpublished Mission Statements</h1>
                 <div ng-repeat="unpublishedMissionStatement in unpublishedMissionStatements">
                     <div class="list-group-item">
-                        {{ unpublishedmissionStatement.statement }}
+                        {{ unpublishedMissionStatement.statement }}
+                        <br><br>
                         <a href="/mission/{{ unpublishedMissionStatement.id }}/update">
                             <button>EDIT</button>
                         </a>
@@ -49,7 +50,7 @@
                 <div ng-repeat="publishedMissionStatement in publishedMissionStatements">
                     <div class="list-group-item">
                         {{ publishedMissionStatement.statement }}
-                        <a href="/mission/{{ publishedMissionStatement.id }}/update">
+                        <a href="/mission/{{ publishedMissionStatement.id }}/update"><br><br>
                             <button>EDIT</button>
                         </a>
                     </div>

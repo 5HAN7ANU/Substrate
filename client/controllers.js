@@ -727,11 +727,12 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }
 
         //----------*******Mission Statements List********-----------------
-        $scope.missionStatements = MissionStatements.query();
+        $scope.publishedMissionStatements = MissionStatements.query();
         $http({
             method: 'GET',
             url: '/api/mission/unpublished'
         }).then(function (success) {
+            console.log('getting unpublished mission statements');
             $scope.unpublishedMissionStatements = success.data;
             console.log($scope.unpublishedMissionStatements);
         }, function (err) {
@@ -1056,6 +1057,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         UserService.requiresAdmin();
         UserService.isLoggedIn();
 
+        console.log('controller.js/EditMissionStatementController: Inside Edit Mission Statement Controller');
+
         $scope.logout = function () {
             UserService.logout().then(function () {
                 $route.reload();
@@ -1065,7 +1068,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         var id = $routeParams.id;
         $scope.featuredMissionStatement = MissionStatements.get({ id: id }, function () {
             $scope.featuredMissionStatement.publish = String($scope.featuredMissionStatement.publish);
-            $scope.publish = $scope.featuredMissionStatement.publish;
+            // $scope.publish = $scope.featuredMissionStatement.publish;
         });
 
         $scope.publishValues = [
