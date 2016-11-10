@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements) {
         console.log('Home Controller');
         $scope.eventInterval = 8000;
         $scope.adInterval = 14000;
@@ -157,6 +157,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.featuredEvents = FeaturedEvents.query();
         console.log($scope.featuredEvents);
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++
+        $scope.missionStatement = MissionStatements.query();
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
