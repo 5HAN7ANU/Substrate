@@ -146,6 +146,10 @@ a {
 }
 
 .mininavbar {
+  background-image: url('./assets/background3.jpg');
+  background-position-x: center;
+background-size: cover;
+background-repeat: no-repeat;
   margin-top: 101px;
   text-align: center;
   font-size: 12px;
@@ -157,7 +161,7 @@ a {
 
 a:focus,
 a:hover {
-  color: gainsboro;
+  color: gold;
   text-decoration: none;
 }
 
