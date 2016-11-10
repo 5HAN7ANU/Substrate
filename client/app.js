@@ -20,9 +20,17 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             templateUrl: 'views/composead.html',
             controller: 'ComposeAdController'
         })
+        .when('/composeMissionStatement', {
+            templateUrl: 'views/composeMissionStatement.html',
+            controller: 'ComposeMissionStatementController'
+        })
         .when('/featuredevents/:id/update', {
             templateUrl: 'views/editfeaturedevent.html',
             controller: 'EditFeaturedEventController'
+        })
+        .when('/mission/:id/update', {
+            templateUrl: 'views/editMissionStatement.html',
+            controller: 'EditMissionStatementController'
         })
         .when('/ads/:id/update', {
             templateUrl: 'views/editad.html',

@@ -22,6 +22,7 @@
                 <li><button ng-click="showPostDetails()">Magazine</button></li>
                 <li><button ng-click="showFeaturedEventDetails()">Featured Events</button></li>
                 <li><button ng-click="showAdDetails()">Ads</button></li>
+                <li><button ng-click="showMissionStatementDetails()">Mission Statements</button></li>
                 <li><a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></li>
                 <li><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></li>
                 <li><a class="navbar-link" ng-click="logout()">logout</a></li>
@@ -29,6 +30,46 @@
                     <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</li>
             </ul>
         </div>
+    
+
+        <!--<button ng-click="showAdDetails()">Ads</button>
+
+        <button ng-click="showMissionStatementDetails()">Mission Statements</button>-->
+    
+        <div id="missionStatementsDiv">
+            <br><br>
+            <button ng-click="composeMissionStatementPage()">Create Mission Statement</button>
+            <br><br>
+            <button ng-click="showPublishedMissionStatements()">Published</button>
+            <button ng-click="showUnpublishedMissionStatements()">Unpublished</button>
+            <div id="unpublishedMissionStatementsDiv">
+                <h1 class="adminPosts">Unpublished Mission Statements</h1>
+                <div ng-repeat="unpublishedMissionStatement in unpublishedMissionStatements">
+                    <div class="list-group-item">
+                        {{ unpublishedMissionStatement.statement }}
+                        <br><br>
+                        <a href="/mission/{{ unpublishedMissionStatement.id }}/update">
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div id="publishedMissionStatementsDiv">
+                <h1 class="adminPosts">Published Mission Statements</h1>
+                <div ng-repeat="publishedMissionStatement in publishedMissionStatements">
+                    <div class="list-group-item">
+                        {{ publishedMissionStatement.statement }}
+                        <a href="/mission/{{ publishedMissionStatement.id }}/update"><br><br>
+                            <button>EDIT</button>
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
         <div id="magazineDiv">
             <br><br><br><br><br>
             <button ng-click="showPublishedPosts()">Published</button>

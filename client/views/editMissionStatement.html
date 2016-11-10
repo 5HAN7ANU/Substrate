@@ -1,0 +1,16 @@
+<div class="magBackground">
+<div class="container" id="editMissionStatementContainer">
+      <div class="form-group">
+            <br>
+            <label for="missionStatementPublish">Publish? </label>
+            <select name="missionStatementPublish" ng-model="featuredMissionStatement.publish">
+                  <option ng-repeat="publishValue in publishValues" value="{{ publishValue.value }}">{{ publishValue.name }}</option>
+            </select>
+            <br>
+            <textarea class="form-control" rows="15" id="editMissionStatementBox" ng-model="featuredMissionStatement.statement"></textarea>
+      </div>
+      <button id='cancelUpdateButton' class="btn btn-default" type="button" ng-click="cancelupdate()">Go Back</button>
+      <button id='updateButton' class="btn btn-default" type="button" ng-click="update()">Update!</button>
+      <button id='deleteButton' class="btn btn-default" type="button" ng-click="promptDelete()">Delete</button>
+</div>
+</div>
