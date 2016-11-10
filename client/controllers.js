@@ -29,16 +29,16 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
+                            events[i].location = '@ Iron City';
                         }
                         else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
+                            events[i].location = '@ The Nick';
                         }
-                        else if (locationSplit[0] == "Saturn") {
-                            events[i].location = 'Saturn';
+                        else if (locationSplit[0] == "Saturn,") {
+                            events[i].location = '@ Saturn';
                         }
                         else {
-                            events[i].location = 'Substrate Radio';
+                            events[i].location = '';
                         }
                         eventArray.push(events[i]);
                         calendarArray.push(eventArray);
@@ -48,16 +48,16 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
+                            events[i].location = '@ Iron City';
                         } 
                         else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
+                            events[i].location = '@ The Nick';
                         }
-                        else if (locationSplit[0] == "Saturn") {
-                            events[i].location = 'Saturn';
+                        else if (locationSplit[0] == "Saturn,") {
+                            events[i].location = '@ Saturn';
                         }
                         else {
-                            events[i].location = 'Substrate Radio';
+                            events[i].location = '';
                         }
                         var eventArray = calendarArray[calendarArray.length - 1];
                         eventArray.push(events[i]);
@@ -202,13 +202,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
+                            events[i].location = '@ Iron City';
                         }
                         else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
+                            events[i].location = '@ The Nick';
                         }
-                        else if (locationSplit[0] == "Saturn") {
-                            events[i].location = 'Saturn';
+                        else if (locationSplit[0] == "Saturn,") {
+                            events[i].location = '@ Saturn';
                         }
                         else {
                             events[i].location = 'Substrate Radio';
@@ -227,7 +227,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
                         }
-                        else if (locationSplit[0] == "Saturn") {
+                        else if (locationSplit[0] == "Saturn,") {
                             events[i].location = 'Saturn';
                         }
                         else {
