@@ -26,10 +26,10 @@ router.post('/', auth.isAdmin, function (req, res) {//you can only create a stat
         });
 });
 
-router.route('/unpublished')   //getting unpublished Posts
+router.route('/unpublished')   //getting unpublished statements
     .get(function (req, res) {
         procedures.procGetUnpublishedMissionStatements().then(function (statements) {
-            res.send(posts);
+            res.send(statements);
         }, function (err) {
             console.log(err);
             res.sendStatus(500);
@@ -37,8 +37,8 @@ router.route('/unpublished')   //getting unpublished Posts
     })
 
 router.get('/:id', auth.isAdmin, function (req, res) {
-    procedures.procGetMissionStatement(req.params.id).then(function (user) {
-        res.send(user);
+    procedures.procGetMissionStatement(req.params.id).then(function (statement) {
+        res.send(statement);
     }, function (err) {
         res.status(500).send(err);
     });
