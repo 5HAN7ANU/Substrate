@@ -17,17 +17,24 @@
     -->
         <!--<button ng-click="showAdDetails()">Ads</button>-->
         <div class="container mininavbaradmin">
+            <ul class="myprofile">
+                 <li><a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></li>
+                <li><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></li>
+                <li><a class="navbar-link" ng-click="logout()">logout</a></li>
+                <li style="color: white;">
+                    <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</li>
+            </ul>
             <ul>
                 <li><button ng-click="showUserDetails()">Users</button></li>
                 <li><button ng-click="showPostDetails()">Magazine</button></li>
                 <li><button ng-click="showFeaturedEventDetails()">Featured Events</button></li>
                 <li><button ng-click="showAdDetails()">Ads</button></li>
                 <li><button ng-click="showMissionStatementDetails()">Mission Statements</button></li>
-                <li><a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></li>
+                <!--<li><a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></li>
                 <li><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></li>
                 <li><a class="navbar-link" ng-click="logout()">logout</a></li>
                 <li style="color: white;">
-                    <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</li>
+                    <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</li>-->
             </ul>
         </div>
     
