@@ -1,6 +1,8 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements) {
         console.log('Home Controller');
+        $('.mininavbar').show();
+
         $scope.eventInterval = 8000;
         $scope.adInterval = 14000;
         $scope.eventSlides = [];
@@ -624,6 +626,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $('#featuredEventsDiv').hide();
         $('#adsDiv').hide();
         $('.mininavbar').hide();
+        $('.mininavbaradmin').show();
+
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -675,7 +679,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
             $('#usersDiv').show();
-            $('.mininavbaradmin').show();
+            
         };
 
         $scope.showPostDetails = function () {
@@ -686,21 +690,18 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedPostsDiv').hide();
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showPublishedPosts = function () {
             $('#publishedPostsDiv').show();
             $('#unpublishedPostsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showUnpublishedPosts = function () {
             $('#publishedPostsDiv').hide();
             $('#unpublishedPostsDiv').show();
-            $('.mininavbaradmin').show();
 
         }
 
@@ -714,21 +715,18 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').hide();
             $('#adsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showPublishedEvents = function () {
             $('#publishedEventsDiv').show();
             $('#unpublishedEventsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showUnpublishedEvents = function () {
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').show();
-            $('.mininavbaradmin').show();
 
         }
 
@@ -740,21 +738,18 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#adsDiv').show();
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showPublishedAds = function () {
             $('#publishedAdsDiv').show();
             $('#unpublishedAdsDiv').hide();
-            $('.mininavbaradmin').show();
 
         }
 
         $scope.showUnpublishedAds = function () {
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').show();
-            $('.mininavbaradmin').show();
 
         }
 
