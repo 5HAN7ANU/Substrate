@@ -50,6 +50,12 @@
     background-repeat: no-repeat;
 }
 
+#previewArticleImage {
+    width: auto;
+    height: 400px;
+    background-repeat: no-repeat;
+    margin-left: 50px;
+}
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 
 
