@@ -50,6 +50,7 @@
   text-align: right;
   /*z-index: 99999;*/
 }
+
 .app .custom-navbar ul {
   list-style-type: none;
   padding: 0;
@@ -87,7 +88,7 @@
 }
 
 .app .site-content {
-  margin-top: 136px;
+  margin-top: 93px;
   /*padding-top: 3em;*/
   height: 100%;
   overflow-x: hidden;
@@ -142,27 +143,28 @@ a {
 }
 
 .mininavbar {
-  background-image: url('./assets/background3.jpg');
+  background-image: url(./assets/background3.jpg);
   background-position-x: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 101px;
+  margin-top: 58px;
+  /* text-align: center; */
+  font-size: 12px;
+  position: fixed;
+  z-index: 99999;
+  /* background-color: black; */
+  width: 100%;
+  right: 306px;
+}
+
+.mininavbaradmin {
+  top: 100px;
   text-align: center;
   font-size: 12px;
   position: fixed;
   z-index: 99999;
-  /*background-color: black;*/
+  background-color: black;
   width: 100%;
-}
-
-.mininavbaradmin {
-    top: 100px;
-    text-align: center;
-    font-size: 12px;
-    position: fixed;
-    z-index: 99999;
-    background-color: black;
-    width: 100%;
 }
 
 a:focus,
@@ -175,10 +177,13 @@ ul li {
   display: inline-block;
 }
 
-ul li:not(:last-child):after {
+
+/*ul li:not(:last-child):after {
   content: "|";
-  color: lightgray;
-}
+  color: lightgray;*/
+
+
+/*}*/
 
 ol,
 ul {
