@@ -1,7 +1,6 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements) {
         console.log('Home Controller');
-        $('.mininavbar').show();
 
         $scope.eventInterval = 8000;
         $scope.adInterval = 14000;
@@ -625,8 +624,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $('#usersDiv').hide();
         $('#featuredEventsDiv').hide();
         $('#adsDiv').hide();
-        $('.mininavbar').hide();
-        $('.mininavbaradmin').show();
+       
 
 
         UserService.isLoggedIn();
