@@ -47,13 +47,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     } else { // not a new day
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
-                        if (String(locationSplit[0]) == "Iron") {
+                        if (locationSplit[0] == "Iron") {
                             events[i].location = 'Iron City';
                         } 
-                        else if (String(locationSplit[0]) == "The") {
+                        else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
-                        } else {
+                        }
+                        else if (locationSplit[0] == "Saturn") {
                             events[i].location = 'Saturn';
+                        }
+                        else {
+                            events[i].location = '';
                         }
                         var eventArray = calendarArray[calendarArray.length - 1];
                         eventArray.push(events[i]);
@@ -190,8 +194,12 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         } 
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
-                        } else {
+                        }
+                        else if (locationSplit[0] == "Saturn") {
                             events[i].location = 'Saturn';
+                        }
+                        else {
+                            events[i].location = '';
                         }
                         console.log(events[i].location);
                         eventArray.push(events[i]);
@@ -201,13 +209,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     } else { // not a new day
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
-                        if (String(locationSplit[0]) == "Iron") {
+                        if (locationSplit[0] == "Iron") {
                             events[i].location = 'Iron City';
                         } 
-                        else if (String(locationSplit[0]) == "The") {
+                        else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
-                        } else {
+                        }
+                        else if (locationSplit[0] == "Saturn") {
                             events[i].location = 'Saturn';
+                        }
+                        else {
+                            events[i].location = '';
                         }
                         console.log(events[i].location);
                         var eventArray = calendarArray[calendarArray.length - 1];
