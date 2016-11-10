@@ -41,7 +41,6 @@
 }
 
 .app .custom-navbar {
-  /*border: 2px solid white;*/
   position: fixed;
   top: 0;
   left: 0;
@@ -49,11 +48,13 @@
   height: 101px;
   background-color: black;
   text-align: right;
-  z-index: 1;
+  z-index: 999;
 }
-body{
-background-image: url('./asssets/')
+
+body {
+  background-image: url('./asssets/')
 }
+
 .app .custom-navbar ul {
   list-style-type: none;
   padding: 0;
@@ -91,8 +92,8 @@ background-image: url('./asssets/')
 }
 
 .app .site-content {
-  padding-top: 4em;
-  height: 100%;
+  padding-top: 3em;
+  /*height: 100%;*/
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -128,11 +129,49 @@ background-image: url('./asssets/')
     display: none;
   }
 }
-body{
+
+body {
   background-image: url('./assets/greenlogo.jpg');
   background-repeat: no-repeat;
-background-repeat: cover;
-background-position-x: center;
+  background-repeat: cover;
+  background-position-x: center;
+  color: black;
+}
 
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1em;
+}
 
+.mininavbar {
+  margin-top: 101px;
+  text-align: center;
+  font-size: 12px;
+  position: fixed;
+  z-index: 9909;
+  background-color: black;
+  width: 100%;
+}
+
+a:focus,
+a:hover {
+  color: gainsboro;
+  text-decoration: none;
+}
+
+ul li {
+  display: inline-block;
+}
+
+ul li:not(:last-child):after {
+  content: "|";
+  color: lightgray;
+}
+
+ol,
+ul {
+  margin-top: 8px;
+  margin-bottom: 10px;
 }

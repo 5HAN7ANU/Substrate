@@ -1,5 +1,14 @@
 <!--//---------------------------------------------//-->
 <!--//===============  side calendar/events/ads =================//-->
+<!--<div class="container mininavbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/events">Calendar</a></li>
+        <li><a href="/magazine">Magazine</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
+    </ul>
+</div>-->
 <div class="container middlesection">
     <div class="row">
         <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offeset-1 col-sm-12" id="eventCalendarContainer">
@@ -76,7 +85,6 @@
             <div class="block"><strong>F</strong>riday</div>
             <div class="block"><strong>S</strong>aturday</div>
             <div class="block"><strong>S</strong>unday</div>
-
         </div>
     </div>
 </div>
@@ -103,8 +111,8 @@
 <!--//===============  podcast SECTION =================//-->
 <div id="djbox" class="podbackground">
     <div style="font-size: 2em; font-weight: bolder;"> Latest Podcasts
-</div>
-    <div  ng-repeat="podcast in podcasts">
+    </div>
+    <div ng-repeat="podcast in podcasts">
         <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
                 <div id="overlay">
