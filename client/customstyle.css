@@ -209,8 +209,7 @@
 
 #djbox {
   text-align: center;
-    z-index: 0;
-
+  z-index: 0;
 }
 
 .podcasts {
@@ -452,4 +451,3 @@ input {
 select {
   color: black;
 }
-
