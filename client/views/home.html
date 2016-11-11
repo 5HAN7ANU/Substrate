@@ -99,24 +99,25 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox">
-    <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
-    </div>
-    <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
-        <div class="podbackground" id="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
-            <a target="_blank" href="{{podcast.url}}">
-                <div id="podcast-overlay">
-                    <span id="podcasttext">
+<div class="row">
+    <div id="djbox">
+        <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
+        </div>
+        <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
+            <div class="podbackground" id="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+                <a target="_blank" href="{{podcast.url}}">
+                    <div id="podcast-overlay">
+                        <span id="podcasttext">
                         <p>{{podcast.name}}</p>
                     </span>
-                </div>
-            </a>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
-
 <div class="followus">
     <ul>
         <h1 style="color:white;">FOLLOW US ON</h1>
@@ -133,7 +134,7 @@
                 <img src="./assets/twit.png" class="twit facebook" alt="twit"></a>
         </li>
         <li>
-            <a  target="_blank" href="https://www.mixcloud.com/substrateradio/">
+            <a target="_blank" href="https://www.mixcloud.com/substrateradio/">
                 <img src="./assets/mix.png" class="mixcloud facebook" alt="mixcloud"></a>
         </li>
         <li>

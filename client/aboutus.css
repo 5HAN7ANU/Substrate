@@ -105,7 +105,7 @@
 		float: left;
 	}
 	/************************************************************************************
-=======
+
 	border-radius: 100%;
 	height: 223px;
 	width: 202px;
@@ -133,11 +133,11 @@
 	margin: 2% auto 2% auto;
 	background-size: cover;
 	/* border-radius: 5px; */
-	overflow: hidden;
-	margin-left: 53px;
+	/*overflow: hidden;*/
+	/*margin-left: 53px;*/
 	/* border-radius: 20%; */
-	float: left;
-}
+	/*float: left;*/
+/*}*/
 
 
 #podcast-box {
@@ -228,7 +228,7 @@
 
 
 /************************************************************************************
->>>>>>> 9477db7a36882a9745003ad9f459aa076bb9b810
+
 MEDIA QUERIES
 *************************************************************************************/
 	/* for 980px or less */
