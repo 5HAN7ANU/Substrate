@@ -22,7 +22,8 @@
 .magBackground {
     background: url(../assets/background5.jpg);
     background-size: cover;
-    min-height: 47.2em;
+        /*min-height: 47.2em;*/
+    min-height: 100%;
     background-repeat: repeat-y;
  margin-bottom: 6em;
     overflow-x: hidden;
@@ -71,6 +72,10 @@ input{
 }
 .ByLine{
     padding: 20px;
+    margin:0px;
+}
+.magTitleImageFrame{
+    padding: 0px;
 }
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 
@@ -83,12 +88,23 @@ input{
 
 
 /*/======================== article.html ======================/*/
-
-/*/======================== compose.html ======================/*/
-/*************************************************************/
 #ArticleContentBox{
     margin-top: 10px;
 }
+#postDiv{
+    background: rgba(204,204,204,0.4);
+    font-family: futura;
+    /*font-size: 16px;*/
+    text-align: left;
+    color: black;
+    border: transparent;
+}
+#singleArticleTitleBox{
+    background: rgba(204,204,204,0.4);
+    border: transparent;
+}
+/*/======================== compose.html ======================/*/
+/*************************************************************/
 
 
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
