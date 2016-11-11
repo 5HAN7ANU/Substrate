@@ -495,12 +495,12 @@ select {
 #editMissionStatementContainer {
   margin-top: 80px;
 }
-<<<<<<< HEAD
+
 
 .facebook {
   height: 3em;
   margin-bottom: 2em;
-=======
+}
 #missionStatementsDiv{
   margin-top: 40px;
 }
@@ -509,5 +509,4 @@ select {
 }
 #userListContainer{
   margin-top: 20px;
->>>>>>> 0bc5a19d44d6f1bc1e06e6afa61839fcdeebc979
 }
