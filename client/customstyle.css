@@ -133,6 +133,17 @@
   max-width: 100%;
   border-radius: 10px;
 }
+a.right.carousel-control{
+  display: none;
+
+}
+a.left.carousel-control{
+  display: none;
+
+}
+li.ng-scope{
+  display: none;
+}
 
 
 /*//-----------------------------------------------------//*/

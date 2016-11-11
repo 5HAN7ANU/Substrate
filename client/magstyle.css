@@ -71,6 +71,10 @@ input{
 }
 .ByLine{
     padding: 20px;
+    margin:0px;
+}
+.magTitleImageFrame{
+    padding: 0px;
 }
 /*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
 
