@@ -171,6 +171,7 @@
   padding-bottom: 12px;
   z-index: 0;
 }
+
 .block {
   background: white;
   height: 130px;
@@ -188,7 +189,6 @@
   border: 3px solid black;
   /*float: left;*/
 }
-
 
 
 /*//-----------------------------------------------------//*/
@@ -247,10 +247,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  height: 200px;
+  height: 9em;
   background-color: whitesmoke;
   color: black;
   text-align: center;
+  margin-bottom: 7em;
 }
 
 #djbox {
@@ -305,6 +306,14 @@
   height: auto;
   opacity: 1;
   margin: 25px auto 0;
+}
+
+.homecontactus {
+  /*position: fixed;*/
+}
+
+.contacthtml {
+  background-color: rgba(128, 128, 128, 0.7);
 }
 
 
@@ -474,4 +483,9 @@ select {
 
 #editMissionStatementContainer {
   margin-top: 80px;
+}
+
+.facebook {
+  height: 3em;
+  margin-bottom: 2em;
 }
