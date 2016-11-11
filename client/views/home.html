@@ -99,9 +99,11 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox" class="podbackground">
-    <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
-    </div>
+<div  class="podbackground">
+     <div class="col-xs-12 djsection">
+    <h2 style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
+    </h2>
+
     <div ng-repeat="podcast in podcasts">
         <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
@@ -114,9 +116,11 @@
         </div>
     </div>
 </div>
+</div>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
-<div class="row followus">
+
+<div class="followus">
     <ul>
         <h1 style="color:white;">FOLLOW US ON</h1>
         <li>

@@ -131,15 +131,16 @@
   max-width: 100%;
   border-radius: 10px;
 }
-a.right.carousel-control{
-  display: none;
 
-}
-a.left.carousel-control{
+a.right.carousel-control {
   display: none;
-
 }
-li.ng-scope{
+
+a.left.carousel-control {
+  display: none;
+}
+
+li.ng-scope {
   display: none;
 }
 
@@ -226,7 +227,7 @@ li.ng-scope{
 }
 
 .followus {
-  background-image: url('/assets/background7.jpg');
+  background-image: url(/assets/background7.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
@@ -234,11 +235,15 @@ li.ng-scope{
   background-color: whitesmoke;
   color: black;
   text-align: center;
+  margin-top: 78em;
+  padding: 8px;
+  margin-bottom: 3em;
 }
 
 #djbox {
   text-align: center;
   z-index: 0;
+  color: white;
 }
 
 .podcasts {
@@ -247,25 +252,9 @@ li.ng-scope{
   float: left;
 }
 
-#podcasttext {
+/*#podcasttext {
   color: white;
-}
-
-.followus {
-  background-image: url('/assets/background7.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
-  height: 9em;
-  background-color: whitesmoke;
-  color: black;
-  text-align: center;
-  margin-bottom: 7em;
-}
-
-#djbox {
-  text-align: center;
-}
+}*/
 
 
 /*/========================calendar.html======================/*/
@@ -494,17 +483,19 @@ select {
   margin-top: 80px;
 }
 
-
 .facebook {
   height: 3em;
   margin-bottom: 2em;
 }
-#missionStatementsDiv{
+
+#missionStatementsDiv {
   margin-top: 40px;
 }
-#usersDiv{
+
+#usersDiv {
   margin-top: 20px;
 }
-#userListContainer{
+
+#userListContainer {
   margin-top: 20px;
 }
