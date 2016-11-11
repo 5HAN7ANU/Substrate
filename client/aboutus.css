@@ -1,4 +1,5 @@
 	#djimg {
+<<<<<<< HEAD
 		border-radius: 100%;
 		height: 223px;
 		width: 202px;
@@ -104,6 +105,130 @@
 		float: left;
 	}
 	/************************************************************************************
+=======
+	border-radius: 100%;
+	height: 223px;
+	width: 202px;
+}
+
+.headline {
+	background-image: url('/assets/aboutus.jpg');
+	height: 35vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-justify-content: center;
+	color: white;
+}
+
+#box {
+	width: 184px;
+	height: 179px;
+	box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
+	margin: 2% auto 2% auto;
+	background-size: cover;
+	/* border-radius: 5px; */
+	overflow: hidden;
+	margin-left: 53px;
+	/* border-radius: 20%; */
+	float: left;
+}
+
+
+#podcast-box {
+    width: 300px;
+	height: 200px;
+	box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
+	margin: 2% auto 2% auto;
+	background-size: cover;
+	/* border-radius: 5px; */
+	overflow: hidden;
+	/* border-radius: 20%; */
+	float: left;
+ }
+
+ #podcast-overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+}
+
+#podcast-box:hover #podcast-overlay {
+	opacity: 1;
+}
+
+#bio {
+	font-size: 12px;
+}
+
+#overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+}
+
+#box:hover #overlay {
+	opacity: 1;
+}
+
+#plus {
+	font-family: Helvetica;
+	font-weight: 900;
+	color: rgba(255, 255, 255, .85);
+	font-size: 96px;
+}
+
+#cform {
+	/*border: 2px solid blue;*/
+	clear: both;
+	position: relative;
+	top: 26px;
+	color: white;
+}
+
+
+/*logomain maain html*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* STRUCTURE */
+
+#pagewrap {
+	padding: 5px;
+	width: 960px;
+	margin: 20px auto;
+}
+
+#content {
+	width: 290px;
+	float: left;
+	padding: 5px 15px;
+}
+
+#middle {
+	width: 294px;
+	/* Account for margins + border values */
+	float: left;
+	padding: 5px 15px;
+	margin: 0px 5px 5px 5px;
+}
+
+#sidebar {
+	width: 270px;
+	padding: 5px 15px;
+	float: left;
+}
+
+
+/************************************************************************************
+>>>>>>> 9477db7a36882a9745003ad9f459aa076bb9b810
 MEDIA QUERIES
 *************************************************************************************/
 	/* for 980px or less */
