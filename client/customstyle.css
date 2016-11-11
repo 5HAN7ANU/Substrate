@@ -5,10 +5,11 @@
 
 .middlesection {
   /*margin-top: 100px;*/
-  width: 100%;
+  /*width: 100%;*/
   /*background-image: url(../assets/background1.jpg);
   background-repeat: no-repeat;
   background-size: cover;*/
+  margin-top: 10px;
   z-index: 0;
   /*border: 1px white solid;*/
 }
@@ -19,16 +20,13 @@
 #eventCalendarContainer {
   text-align: center;
   padding: 10px;
-  margin-top: 10px;
-  margin-right: 5px;
-  margin-left: 40px;
+  /*margin-top: 10px;*/
+  /*margin-right: 5px;
+  margin-left: 40px;*/
   border-radius: 10px;
   height: 600px;
-  width: 280px;
+  /*width: 280px;*/
   background-color: rgba(128, 128, 128, 0.7);
-  /*float: left;*/
-  /*margin-left: 25px;*/
-  padding: 0px;
   overflow: scroll;
 }
 
@@ -48,7 +46,7 @@
 #featuredEventContainer {
   height: 600px;
   border-radius: 10px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   padding: 0px;
   /*width: 600px;*/
   background-color: rgba(128, 128, 128, 0.5);
@@ -91,12 +89,12 @@
 /*//=======   home page ads Container  ========//*/
 
 #adContainer {
-  margin-top: 10px;
-  margin-left: 5px;
+  /*margin-top: 10px;*/
+  /*margin-left: 5px;*/
   border-radius: 10px;
   height: 600px;
   padding: 0px;
-  width: 280px;
+  /*width: 280px;*/
   background-color: rgba(128, 128, 128, 0.7);
   /*float: left;*/
   /*margin-left: 25px;*/

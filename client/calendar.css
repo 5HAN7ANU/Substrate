@@ -1,10 +1,7 @@
-.row {
-    /*border: slategrey 1px solid;*/
-    overflow: hidden;
-    width: 100%;
-}
+
 
 .date {
+    padding-top: 10px;
     width: 200px;
     min-height: 200px;
     max-height: 200px;
@@ -20,6 +17,7 @@
 .date-time {
     font-size: 25px;
     margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 .date-title {
@@ -43,7 +41,7 @@
 
 #cal {
     margin-left: 9%;
-    margin-top: 50px;
+    margin-top: 35px;
 }
 
 .date-information {
@@ -77,11 +75,13 @@
     color: white;
     font-size: 16px;
     margin-top: 20px;
+    margin-bottom: 2px;
 }
 
 .week-date-text {
     color: black;
     font-size: 12px;
+    font-weight: 800;
 }
 
 .map-list {

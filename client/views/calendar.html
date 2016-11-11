@@ -1,10 +1,11 @@
 <div class="calendar-header">
-  <p>{{ monthOfTheYear }} Events</p>
+  <p>{{ monthOfTheYear }}</p>
 </div>
 <div class="container" id="cal">
   <div class="date" ng-repeat="day in calendar">
       <div class="date-header">
-        <h4 class="date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
+        <span class="date-time">{{ day[0].start.dateTime | date: 'dd ' }}</span>
+        <!--<span class="date-time">{{ day[0].start.dateTime | date: 'MMM-dd ' }}</span>-->
       </div>
       <div ng-repeat="event in day">
         <div class="date-information">
