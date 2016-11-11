@@ -130,8 +130,7 @@
 body {
   background-image: url('./assets/lighterBackgroundFlipped.jpg');
   background-repeat: no-repeat;
-  background-repeat: cover;
-  background-position-x: center;
+  background-size: cover;
   color: black;
 }
 

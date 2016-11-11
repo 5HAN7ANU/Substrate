@@ -9,9 +9,9 @@
         <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
     </ul>
 </div>-->
-<div class="container middlesection">
+<div class="container-fluid middlesection">
     <div class="row">
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offeset-1 col-sm-12" id="eventCalendarContainer">
+        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-10 col-sm-offset-1" id="eventCalendarContainer">
             <div class="weekDate" ng-repeat="day in calendar">
                 <div class="week-date-header">
                     <h4 class="week-date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
@@ -60,20 +60,20 @@
 <div class="aboutBackground back">
     <!--<img src="./assets/aboutBackground.jpg" alt="">-->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4" id="mission-statement">
             <p id="abouttext">
                 {{missionStatement}}
             </p>
         </div>
-        <div class="col-md-6" id="container">
+        <div class="col-md-8" id="container">
             <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
-            <div class="block"><strong>S</strong>unday</div>
-            <div class="block"><strong>M</strong>onday</div>
-            <div class="block"><strong>T</strong>uesday</div>
-            <div class="block"><strong>W</strong>ednesday</div>
-            <div class="block"><strong>T</strong>hursday</div>
-            <div class="block"><strong>F</strong>riday</div>
-            <div class="block"><strong>S</strong>aturday</div>
+            <div class="block"><strong>S</strong>un</div>
+            <div class="block"><strong>M</strong>on</div>
+            <div class="block"><strong>T</strong>ue</div>
+            <div class="block"><strong>W</strong>ed</div>
+            <div class="block"><strong>T</strong>hu</div>
+            <div class="block"><strong>F</strong>ri</div>
+            <div class="block"><strong>S</strong>at</div>
             <!--<div class="block"><strong>S</strong>unday</div>-->
         </div>
     </div>
@@ -99,13 +99,13 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox" class="podbackground">
+<div id="djbox">
     <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
     </div>
-    <div ng-repeat="podcast in podcasts">
-        <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+    <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
+        <div class="podbackground" id="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
-                <div id="overlay">
+                <div id="podcast-overlay">
                     <span id="podcasttext">
                         <p>{{podcast.name}}</p>
                     </span>
