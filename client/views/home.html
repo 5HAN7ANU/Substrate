@@ -9,9 +9,9 @@
         <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
     </ul>
 </div>-->
-<div class="container middlesection">
+<div class="container-fluid middlesection">
     <div class="row">
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offeset-1 col-sm-12" id="eventCalendarContainer">
+        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-10 col-sm-offset-1" id="eventCalendarContainer">
             <div class="weekDate" ng-repeat="day in calendar">
                 <div class="week-date-header">
                     <h4 class="week-date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
@@ -60,20 +60,20 @@
 <div class="aboutBackground back">
     <!--<img src="./assets/aboutBackground.jpg" alt="">-->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4" id="mission-statement">
             <p id="abouttext">
                 {{missionStatement}}
             </p>
         </div>
-        <div class="col-md-6" id="container">
+        <div class="col-md-8" id="container">
             <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
-            <div class="block"><strong>S</strong>unday</div>
-            <div class="block"><strong>M</strong>onday</div>
-            <div class="block"><strong>T</strong>uesday</div>
-            <div class="block"><strong>W</strong>ednesday</div>
-            <div class="block"><strong>T</strong>hursday</div>
-            <div class="block"><strong>F</strong>riday</div>
-            <div class="block"><strong>S</strong>aturday</div>
+            <div class="block"><strong>S</strong>un</div>
+            <div class="block"><strong>M</strong>on</div>
+            <div class="block"><strong>T</strong>ue</div>
+            <div class="block"><strong>W</strong>ed</div>
+            <div class="block"><strong>T</strong>hu</div>
+            <div class="block"><strong>F</strong>ri</div>
+            <div class="block"><strong>S</strong>at</div>
             <!--<div class="block"><strong>S</strong>unday</div>-->
         </div>
     </div>
@@ -99,13 +99,13 @@
 </div>
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div id="djbox" class="podbackground">
+<div id="djbox">
     <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
     </div>
-    <div ng-repeat="podcast in podcasts">
-        <div class="podbackground" id="box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+    <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
+        <div class="podbackground" id="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
             <a target="_blank" href="{{podcast.url}}">
-                <div id="overlay">
+                <div id="podcast-overlay">
                     <span id="podcasttext">
                         <p>{{podcast.name}}</p>
                     </span>
@@ -117,37 +117,53 @@
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
 <div class="row followus">
-    <h1>FOLLOW US ON</h1>
-    <!-- Button modal transparent -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-transparent">
-  Contact us
-</button>
-    <!-- Modal transparent -->
-    <div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                </div>
-                <div class="modal-body">
-                    <center>
-                        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
-                        <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email" ng-model="fromEmail"
-                        /><br>
-                        <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"
-                        /><br>
-                        <textarea name="message" id="contactmessage" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
-                </div>
+    <ul>
+        <h1 style="color:white;">FOLLOW US ON</h1>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/SubstrateRadio/">
+                <img src="./assets/facebook.png" class="facebook" alt="facebook"></a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.instagram.com/substrateradio/">
+                <img src="./assets/insta.png" class="insta facebook" alt="insta"></a>
+        </li>
+        <li>
+            <a target="_blank" href="https://twitter.com/substrateradio?lang=en">
+                <img src="./assets/twit.png" class="twit facebook" alt="twit"></a>
+        </li>
+        <li>
+            <a  target="_blank" href="https://www.mixcloud.com/substrateradio/">
+                <img src="./assets/mix.png" class="mixcloud facebook" alt="mixcloud"></a>
+        </li>
+        <li>
+            <a data-toggle="modal" data-target="#modal-transparent">
+                <img src="./assets/contact.png" class="mixcloud facebook" alt="mixcloud"></a>
+        </li>
+    </ul>
+</div>
+<div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
+                    <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email" ng-model="fromEmail"
+                    /><br>
+                    <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"
+                    /><br>
+                    <textarea name="message" id="contactmessage" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
             </div>
         </div>
     </div>
 </div>
-<!--//---------------------------------------------//-->
 <script>
 
 $(".modal-transparent").on('show.bs.modal', function () {

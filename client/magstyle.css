@@ -22,7 +22,8 @@
 .magBackground {
     background: url(../assets/background5.jpg);
     background-size: cover;
-    min-height: 47.2em;
+        /*min-height: 47.2em;*/
+    min-height: 100%;
     background-repeat: repeat-y;
  margin-bottom: 6em;
     overflow-x: hidden;

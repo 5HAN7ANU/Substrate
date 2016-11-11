@@ -33,16 +33,28 @@
 }
 
 
-/*#box {
-     border: 3px solid yellow;
-     color: grey;
-     width: 270px;
-     height: 405px;
-     float: left;
-     margin: 20px;
-     border-radius: 8px;
-     position: relative;
- }*/
+#podcast-box {
+    width: 300px;
+	height: 200px;
+	box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
+	margin: 2% auto 2% auto;
+	background-size: cover;
+	/* border-radius: 5px; */
+	overflow: hidden;
+	/* border-radius: 20%; */
+	float: left;
+ }
+
+ #podcast-overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+}
+
+#podcast-box:hover #podcast-overlay {
+	opacity: 1;
+}
 
 #bio {
 	font-size: 12px;
