@@ -8,6 +8,7 @@ var ads = require('./controllers/ads.ctrl');
 var podcasts = require('./controllers/podcasts.ctrl');
 var pods = require('./controllers/pod.ctrl');
 var mission = require('./controllers/mission.ctrl');
+var weeklyschedule = require('./controllers/weeklyschedule.ctrl');
 var router = express.Router();
 
 router
@@ -19,6 +20,7 @@ router
     .use('/ads', ads)
     .use('/podcasts', podcasts)
     .use('/mission', mission)
+    .use('/weeklyschedule', weeklyschedule)
     .use('/pods', pods);
     
 

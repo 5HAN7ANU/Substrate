@@ -26,6 +26,11 @@ angular.module('Substrate.factories', [])
         update: { method: 'PUT'}
     });
 }])
+.factory('WeeklySchedule', ['$resource', function($resource){
+    return $resource('api/weeklyschedule', {
+        update: { method: 'PUT'}
+    });
+}])
 .factory('FeaturedEvents', ['$resource', function($resource){
     return $resource('api/featuredevents/:id', { id: '@id' }, {
         update: { method: 'PUT'}
