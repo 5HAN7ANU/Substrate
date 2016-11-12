@@ -72,7 +72,7 @@
   display: block;
   padding: 0 10px;
   text-decoration: none;
-  color: inherit;
+  color: gold;
   font-size: 10px;
 }
 
@@ -103,26 +103,17 @@
   z-index: 9991;
 }
 
-@media screen and (max-width: 1000px) {
-  .custom-drawer {
-    display: block;
-    margin-top: 5em;
-  }
-  .app.showing-drawer {
-    right: 190px;
-    -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.7);
-    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.7);
-  }
+@media screen and (max-width: 1220px) {
   .app .custom-navbar ul {
     display: none;
   }
-  .app .custom-navbar .hamburger {
-    display: block;
+  .topbar {
+    display: none;
   }
 }
 
-@media screen and (min-width: 1001px) {
-  .glyphicon-menu-hamburger:before {
+@media screen and (min-width: 1221px) {
+  .dropdown {
     display: none;
   }
 }
@@ -176,16 +167,19 @@ ul li {
   display: inline-block;
 }
 
-
-/*ul li:not(:last-child):after {
+ul li:not(:last-child):after {
   content: "|";
-  color: lightgray;*/
-
-
-/*}*/
+  color: lightgray;
+  position: relative;
+  top: -4em;
+}
 
 ol,
 ul {
   margin-top: 8px;
   margin-bottom: 3px;
+}
+
+.dlist {
+  float: left;
 }

@@ -1,5 +1,22 @@
 /*this is modal css for contact*/
-
+.dropdown, .dropup {
+    position: relative;
+    text-align: right;
+    cursor: pointer;
+}
+.dropdown-menu-right {
+    background-color: black;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #e8e8e8;
+    white-space: nowrap;
+    line-height: 2;
+}
 .modal-body {
   margin-top: -30em;
   background-color: lightgray;
