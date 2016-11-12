@@ -167,12 +167,12 @@ ul li {
   display: inline-block;
 }
 
-ul li:not(:last-child):after {
+/*ul li:not(:last-child):after {
   content: "|";
   color: lightgray;
   position: relative;
   top: -4em;
-}
+}*/
 
 ol,
 ul {
