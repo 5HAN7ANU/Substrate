@@ -122,11 +122,11 @@
             <div id="userListContainer">
                 <div id="usersList" ng-repeat="u in users">
                     <h3>{{ u.firstname }} {{ u.lastname }}</h3>
-                    <h4>{{ u.email }}</h4>
                     <h4>{{ u.role }}</h4>
                     <a href="/users/{{ u.id }}/update">
                         <button id="button">EDIT</button>
                     </a>
+                    <br><br>
                     <button id="button" ng-click="deleteUser(u)">DELETE</button>
                 </div>
             </div>
