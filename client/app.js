@@ -32,10 +32,6 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             templateUrl: 'views/editMissionStatement.html',
             controller: 'EditMissionStatementController'
         })
-        .when('/weeklyschedule/update', {
-            templateUrl: 'views/editWeeklySchedule.html',
-            controller: 'EditWeeklyScheduleController'
-        })
         .when('/ads/:id/update', {
             templateUrl: 'views/editad.html',
             controller: 'EditAdController'
@@ -83,6 +79,10 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         .when('/userprofile', {
             templateUrl: 'views/userprofile.html',
             controller: 'UserProfileController'
+        })
+        .when('/weeklyschedule/:weekday/update', {
+            templateUrl: 'views/weekdayupdate.html',
+            controller: 'AdminController'
         })
         .when('/users/:id/update', {
             templateUrl: 'views/updateuser.html',

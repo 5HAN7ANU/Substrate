@@ -19,14 +19,18 @@
 
 #eventCalendarContainer {
   text-align: center;
-  padding: 10px;
-  /*margin-top: 10px;*/
-  /*margin-right: 5px;
-  margin-left: 40px;*/
+
+  /*charley changed 11/12 */
+  padding: 0px;   
+  /*//-----------//    */
+  
+  margin-top: 10px;
+  margin-right: 20px;
+  /*margin-left: 40px;*/
   border-radius: 10px;
   height: 600px;
   /*width: 280px;*/
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(128, 128, 128, 0.3);
   overflow: scroll;
 }
 
@@ -35,6 +39,9 @@
   padding: 0px;
   height: 600px;
   border-radius: 10px;
+}
+.week-date-title{
+  margin: 8px;
 }
 
 
@@ -46,10 +53,11 @@
 #featuredEventContainer {
   height: 600px;
   border-radius: 10px;
-  /*margin-top: 10px;*/
+  margin-top: 10px;
+  margin-right: 20px;
   padding: 0px;
   /*width: 600px;*/
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(128, 128, 128, 0.3);
   /*float: left;*/
   /*margin: 25px;*/
 }
@@ -89,24 +97,29 @@
 /*//=======   home page ads Container  ========//*/
 
 #adContainer {
-  /*margin-top: 10px;*/
+  margin-top: 10px;
   /*margin-left: 5px;*/
   border-radius: 10px;
   height: 600px;
   padding: 0px;
   /*width: 280px;*/
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(128, 128, 128, 0.3);
   /*float: left;*/
   /*margin-left: 25px;*/
 }
 
 
 /*//-------carousel-------//*/
-
+#carousel1{
+  margin-top: 40px;
+}
+#carousel2{
+  margin-top: 40px;
+}
 .adImg {
   margin: 0px;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 #ad1 {
@@ -152,7 +165,7 @@ li.ng-scope {
 
 .aboutBackground {
   background-color: white;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: center;
   background-size: contain;
   width: 100%;
@@ -183,12 +196,13 @@ li.ng-scope {
 
 .block {
   background: white;
-  height: 130px;
+  height: 200px;
   width: 130px;
   display: block;
   /*border: 3px solid black;*/
   float: left;
   text-align: left;
+  font-size: 12px;
 }
 
 .block1 {
@@ -198,6 +212,12 @@ li.ng-scope {
   display: block;
   border: 3px solid black;
   /*float: left;*/
+}
+#scheduleBox{
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 
@@ -424,6 +444,8 @@ input {
   float: left;
   padding: 20px;
   color: white;
+  border: 1px solid whitesmoke;
+  margin: 15px 15px 15px 15px;
 }
 
 
@@ -434,6 +456,7 @@ input {
 
 #updateUser {
   color: white;
+  margin-left: 40%;
 }
 
 
@@ -463,11 +486,6 @@ body {
   font-family: LuloCleanOne;
 }
 
-#usersList {
-  border: 1px solid whitesmoke;
-  /*padding: 5px;*/
-}
-
 input {
   color: black;
 }
@@ -490,7 +508,8 @@ select {
 }
 
 #usersDiv {
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 5%;
 }
 
 #userListContainer {
@@ -508,6 +527,25 @@ select {
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+
+#weeklyScheduleDiv{
+  color: white;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  float: middle;
+  
+}
+
+.weekday{
+  width: 30%;
+  float: left;
+  padding: 5%;
+}
+
+>>>>>>> 6f53c8dda6279e0b98c51a8900ccf013421a208f
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;

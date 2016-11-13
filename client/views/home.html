@@ -11,7 +11,7 @@
 </div>-->
 <div class="container-fluid middlesection">
     <div class="row">
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-10 col-sm-offset-1" id="eventCalendarContainer">
+        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-10 col-xs-offset-1"  id="eventCalendarContainer">
             <div class="weekDate" ng-repeat="day in calendar">
                 <div class="week-date-header">
                     <h4 class="week-date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12" id="featuredEventContainer">
+        <div class="col-lg-6 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1" id="featuredEventContainer">
             <carousel interval="eventInterval">
                 <slide ng-repeat="eventSlide in eventSlides" active="eventSlide.active">
                     <div ng-style="{ 'background-image': 'url(' + eventSlide.image + ')' }" class="featuredEventBackground">
@@ -34,8 +34,9 @@
                 </slide>
             </carousel>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-12" id="adContainer">
-            <carousel interval="adInterval" class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-10 col-xs-offset-1" id="adContainer">
+            <div class="row">
+            <carousel id="carousel1" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                 <slide class="adSlides" ng-repeat="adSlide in adSlides" active="adSlide.active">
                     <div id="ad1" ng-style="{ 'background-image': 'url(' + adSlide.image + ')' }" class="featuredAdBackground">
                         <div class="carousel-caption">
@@ -43,14 +44,16 @@
                     </div>
                 </slide>
             </carousel>
-            <carousel interval="adInterval" class="col-lg-12 col-md-12 col-sm-12">
+            <br>
+            <carousel id="carousel2" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
                 <slide class="adSlides" ng-repeat="adSlide2 in adSlides2" active="adSlide2.active">
-                    <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground col-lg-12 col-md-12 col-sm-12">
+                    <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground ">
                         <div class="carousel-caption">
                         </div>
                     </div>
                 </slide>
             </carousel>
+            </div>
         </div>
     </div>
 </div>
@@ -65,16 +68,43 @@
                 {{missionStatement}}
             </p>
         </div>
-        <div class="col-md-8 " id="container">
+        <div class="container col-md-8 " id="scheduleBox">
             <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
-            <div class="block"><strong>S</strong>un</div>
-            <div class="block"><strong>M</strong>on</div>
-            <div class="block"><strong>T</strong>ue</div>
-            <div class="block"><strong>W</strong>ed</div>
-            <div class="block"><strong>T</strong>hu</div>
-            <div class="block"><strong>F</strong>ri</div>
-            <div class="block"><strong>S</strong>at</div>
-            <!--<div class="block"><strong>S</strong>unday</div>-->
+            <div class="block" ng-model="sunday"><strong>S</strong>unday
+                <br>{{sunday.showOne}} {{sunday.showOneDjs}} {{sunday.showOneTime}}
+                <br>{{sunday.showTwo}} {{sunday.showTwoDjs}} {{sunday.showTwoTime}}
+                <br>{{sunday.showThree}} {{sunday.showThreeDjs}} {{sunday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="monday"><strong>M</strong>onday
+                <br>{{monday.showOne}} {{monday.showOneDjs}} {{monday.showOneTime}}
+                {{monday.showTwo}} {{monday.showTwoDjs}} {{monday.showTwoTime}}
+                {{monday.showThree}} {{monday.showThreeDjs}} {{monday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="tuesday"><strong>T</strong>uesday
+                <br>{{tuesday.showOne}} {{tuesday.showOneDjs}} {{tuesday.showOneTime}}
+                {{tuesday.showTwo}} {{tuesday.showTwoDjs}} {{tuesday.showTwoTime}}
+                {{tuesday.showThree}} {{tuesday.showThreeDjs}} {{tuesday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="wednesday"><strong>W</strong>ednesday
+                <br>{{wednesday.showOne}} {{wednesday.showOneDjs}} {{wednesday.showOneTime}}
+                {{wednesday.showTwo}} {{wednesday.showTwoDjs}} {{wednesday.showTwoTime}}
+                {{wednesday.showThree}} {{wednesday.showThreeDjs}} {{wednesday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="thursday"><strong>T</strong>hursday
+                <br>{{thursday.showOne}} {{thursday.showOneDjs}} {{thursday.showOneTime}}
+                {{thursday.showTwo}} {{thursday.showTwoDjs}} {{thursday.showTwoTime}}
+                {{thursday.showThree}} {{thursday.showThreeDjs}} {{thursday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="friday"><strong>F</strong>riday
+                <br>{{friday.showOne}} {{friday.showOneDjs}} {{friday.showOneTime}}
+                {{friday.showTwo}} {{friday.showTwoDjs}} {{friday.showTwoTime}}
+                {{friday.showThree}} {{friday.showThreeDjs}} {{friday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="saturday"><strong>S</strong>aturday
+                <br>{{saturday.showOne}} {{saturday.showOneDjs}} {{saturday.showOneTime}}
+                {{saturday.showTwo}} {{saturday.showTwoDjs}} {{saturday.showTwoTime}}
+                {{saturday.showThree}} {{saturday.showThreeDjs}} {{saturday.showThreeTime}}
+            </div>
         </div>
     </div>
 </div>
@@ -88,7 +118,7 @@
                 <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
                     <div id="overlay">
                         <span id="plus">
-                            <h1>{{dj.firstname}}</h1>
+                            <h1>{{dj.firstname}} {{dj.lastname}}</h1>
                             <p id="bio">{{dj.bio}}</p>
                         </span>
                     </div>

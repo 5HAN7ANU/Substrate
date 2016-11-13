@@ -5,13 +5,6 @@ var utils = require('../utils');
 
 var router = express.Router();
 
-router.get('/logout', function (req, res) {//it could be a post request, but its a get request just so we could go to /api/users/logout to logout
-    req.session.destroy(function () {
-        req.logOut();
-        res.sendStatus(204);
-    });
-});
-
 //really /api/weeklyschedule
 router.get('/', function (req, res) {
     procedures.procGetWeeklySchedule().then(function (schedule) {
@@ -21,13 +14,27 @@ router.get('/', function (req, res) {
     });
 });
 
-router.put('/', auth.isAdmin, function (req, res) {
-    procedures.procInsertUser(u.weekday, u.showOne, u.showOneTime, u.showOneDjs, u.showTwo, u.showTwoTime, u.showTwoDjs, u.showThree, u.showThreeTime, u.showThreeDjs)
-        .then(function () {
-            res.sendStatus(201);
-        }, function (err) {
-            res.status(500).send(err);
-        });
+router.get('/:weekday', function (req, res) {
+    console.log('weeklyschedule.ctrl.js');
+    console.log(req.params.weekday);
+    procedures.procGetDailySchedule(req.params.weekday).then(function (weekdaySchedule) {
+        console.log('Daily Schedule acquired');
+        res.send(weekdaySchedule);
+    }, function (err) {
+        console.log(err);
+        res.status(500).send(err);
+    });
+});
+
+router.put('/:weekday', auth.isAdmin, function(req, res){
+    console.log('weeklyschedule.ctrl.js/update function');
+    console.log(req.params);
+    console.log(req.body);
+    procedures.procUpdateWeeklySchedule(req.params.weekday, req.body.showOne, req.body.showOneTime, req.body.showOneDjs, req.body.showTwo, req.body.showTwoTime, req.body.showTwoDjs, req.body.showThree, req.body.showThreeTime, req.body.showThreeDjs).then(function(){
+        res.sendStatus(204);
+    }, function(err){
+        res.status(500).send(err);
+    });
 });
 
 module.exports = router;
