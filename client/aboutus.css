@@ -19,6 +19,13 @@
 		-webkit-justify-content: center;
 		color: white;
 	}
+
+	#previewBox {
+		width: 500px;
+		height: 500px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
 	
 	#box {
 		width: 270px;

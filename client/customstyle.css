@@ -199,13 +199,15 @@ li.ng-scope {
   background-repeat: repeat-y;
   height: 200px;
   margin-bottom: 5px;
-  margin-right: 3px;
+  margin-right: 5px;
+  margin-left: 5px;
   width: 130px;
   display: block;
   /*border: 3px solid black;*/
   float: left;
   text-align: center;
   font-size: 12px;
+  
 }
 .dayHeader{
   margin-bottom: 3px;
@@ -572,6 +574,12 @@ select {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  /*margin-left: 3px;*/
 }
 
 .podcastRepeatDiv {
