@@ -93,3 +93,6 @@ strong {
 .myprofile{
   text-align: right;
 }
+.open>.dropdown-menu {
+    margin-top: 40px;
+}

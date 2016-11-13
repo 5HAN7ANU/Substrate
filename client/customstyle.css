@@ -251,13 +251,13 @@ li.ng-scope {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  height: 200px;
+  height: 161px;
   background-color: whitesmoke;
   color: black;
   text-align: center;
-  /*margin-top: 35em;*/
-  padding: 8px;
-  margin-bottom: 3em;
+  /* margin-top: 35em; */
+  padding: 2px;
+  margin-bottom: 7em;
 }
 
 #djbox {
@@ -271,6 +271,7 @@ li.ng-scope {
   color: white;
   float: left;
 }
+
 
 /*#podcasttext {
   color: white;
@@ -325,8 +326,6 @@ li.ng-scope {
   opacity: 1;
   margin: 25px auto 0;
 }
-
-
 
 .contacthtml {
   background-color: rgba(128, 128, 128, 0.7);
@@ -529,6 +528,7 @@ select {
 }
 
 
+
 #weeklyScheduleDiv{
   color: white;
   padding-top: 5%;
@@ -544,6 +544,7 @@ select {
   padding: 5%;
 }
 
+
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;
@@ -555,7 +556,14 @@ select {
   -webkit-transition-property: transform;
   transition-property: transform;
 }
-.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.mainpod{
+  margin-bottom: 20px;
 }
