@@ -509,7 +509,7 @@ select {
 .podcastRepeatDiv {
   text-align: center;
 }
-<<<<<<< HEAD
+
 
 #weeklyScheduleDiv{
   color: white;
@@ -524,7 +524,8 @@ select {
   width: 30%;
   float: left;
   padding: 5%;
-=======
+}
+
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;
@@ -539,5 +540,4 @@ select {
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
->>>>>>> dc9c76d90b80d524bd950b6f0bbadb285f754937
 }
