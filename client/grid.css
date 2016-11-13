@@ -20,7 +20,7 @@
 }
 
 #box {
-    width: 257px;
+    width: 270px;
     height: 200px;
     box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
     border-bottom: 2px solid #fff;
@@ -39,6 +39,8 @@
 #overlay {
     background: rgba(0, 0, 0, .75);
     text-align: center;
+    height: 200px;
+    width: 270px;
     padding: 45px 0 66px 0;
     opacity: 0;
 }

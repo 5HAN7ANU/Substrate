@@ -115,11 +115,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             console.log(err);
         });
 
-
-
-
         //----------------------------------------------
-
 
         //Getting Featured Events =========================
         $http({
@@ -144,7 +140,6 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }, function (err) {
             console.log(err);
         });
-
 
         //----------------------------------------------
         $scope.dj = Users.getDj();
