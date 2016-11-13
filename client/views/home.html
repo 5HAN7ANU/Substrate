@@ -141,7 +141,7 @@
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
 <div style="background-image:url('./assets/background2.jpg');background-size:cover; background-repeat: no-repeat;" class="row">
-    <div id="djbox">
+    <div id="podcast-container">
         <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
         </div>
         <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
@@ -150,7 +150,7 @@
                     <div id="podcast-overlay">
                         <span id="podcasttext">
                         <p>{{podcast.name}}</p>
-                    </span>
+                        </span>
                     </div>
                 </a>
             </div>
