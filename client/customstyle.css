@@ -486,6 +486,10 @@ body {
   font-family: LuloCleanOne;
 }
 
+label {
+  color: white;
+}
+
 input {
   color: black;
 }
@@ -527,7 +531,32 @@ select {
   text-align: center;
 }
 
+#createUser {
+  float: middle;
+  margin-left: 40%;
+  margin-top: 4%;
+}
 
+#composeFeaturedEvent {
+  float: left;
+  margin-left: 10%;
+}
+
+#composeFeaturedEventPreview {
+  float: left;
+  color: white;
+}
+
+#composeAd {
+  float: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#composeAdPreview {
+  float: left;
+  color: white;
+}
 
 #weeklyScheduleDiv{
   color: white;

@@ -1,11 +1,9 @@
-<div class="magBackground">
+<div>
     <div id="createUser">
-        <a href="/users">
-            <button id="button">VIEW USERS</button>
+        <a href="/admin">
+            <button id="button">GO BACK</button>
         </a>
-        <a href="/">
-            <button id="button">RETURN HOME</button>
-        </a>
+        <button id="button" ng-click="create()">CREATE USER</button>
         <br><br><br>
         <input type="text" ng-model="firstname" placeholder="First Name">
         <p></p>
@@ -29,6 +27,5 @@
         <p></p>
         <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
         <p></p>
-        <button id="button" ng-click="create()">CREATE USER</button>
     </div>
 </div>
