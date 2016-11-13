@@ -70,40 +70,51 @@
         </div>
         <div class="container col-md-8 " id="scheduleBox">
             <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
-            <div class="block" ng-model="sunday"><strong>S</strong>unday
-                <br>{{sunday.showOne}} {{sunday.showOneDjs}} {{sunday.showOneTime}}
-                <br>{{sunday.showTwo}} {{sunday.showTwoDjs}} {{sunday.showTwoTime}}
-                <br>{{sunday.showThree}} {{sunday.showThreeDjs}} {{sunday.showThreeTime}}
+            <div class="block" ng-model="sunday">
+                <div class="dayHeader"><strong>S</strong>unday</div>
+                <div id="show1Box">
+                {{sunday.showOne}}<br>{{sunday.showOneTime}}
+                <br><br>
+                <!--<div id="show1Overlay">{{sunday.showOneDjs}}</div>-->
+                </div>
+                <div id="show2Box">{{sunday.showTwo}} <br>{{sunday.showTwoTime}}
+                <br><br>
+                <!--<div id="show2Overlay">{{sunday.showTwoDjs}}</div>-->
+                </div>
+                <div id="show3Box">{{sunday.showThree}}<br>{{sunday.showThreeTime}}
+                <!--<div id="show3Overlay">{{sunday.showThreeDjs}}</div>-->
+                </div>
             </div>
-            <div class="block" ng-model="monday"><strong>M</strong>onday
-                <br>{{monday.showOne}} {{monday.showOneDjs}} {{monday.showOneTime}}
-                {{monday.showTwo}} {{monday.showTwoDjs}} {{monday.showTwoTime}}
-                {{monday.showThree}} {{monday.showThreeDjs}} {{monday.showThreeTime}}
+            
+            <div class="block" ng-model="monday"><p class="dayHeader"><strong>M</strong>onday</p>
+                <br>{{monday.showOne}}<br>{{monday.showOneTime}}
+                <br><br>{{monday.showTwo}} <br>{{monday.showTwoTime}}
+                <br><br>{{monday.showThree}}<br>{{monday.showThreeTime}}
             </div>
-            <div class="block" ng-model="tuesday"><strong>T</strong>uesday
-                <br>{{tuesday.showOne}} {{tuesday.showOneDjs}} {{tuesday.showOneTime}}
-                {{tuesday.showTwo}} {{tuesday.showTwoDjs}} {{tuesday.showTwoTime}}
-                {{tuesday.showThree}} {{tuesday.showThreeDjs}} {{tuesday.showThreeTime}}
+            <div class="block" ng-model="tuesday"><p class="dayHeader"><strong>T</strong>uesday</p>
+                <br>{{tuesday.showOne}}<br>{{tuesday.showOneTime}}
+                <br><br>{{tuesday.showTwo}} <br>{{tuesday.showTwoTime}}
+                <br><br>{{tuesday.showThree}}<br>{{tuesday.showThreeTime}}
             </div>
-            <div class="block" ng-model="wednesday"><strong>W</strong>ednesday
-                <br>{{wednesday.showOne}} {{wednesday.showOneDjs}} {{wednesday.showOneTime}}
-                {{wednesday.showTwo}} {{wednesday.showTwoDjs}} {{wednesday.showTwoTime}}
-                {{wednesday.showThree}} {{wednesday.showThreeDjs}} {{wednesday.showThreeTime}}
+             <div class="block" ng-model="wednesday"><p class="dayHeader"><strong>W</strong>ednesday</p>
+                <br>{{wednesday.showOne}}<br>{{wednesday.showOneTime}}
+                <br><br>{{wednesday.showTwo}} <br>{{wednesday.showTwoTime}}
+                <br><br>{{wednesday.showThree}}<br>{{wednesday.showThreeTime}}
             </div>
-            <div class="block" ng-model="thursday"><strong>T</strong>hursday
-                <br>{{thursday.showOne}} {{thursday.showOneDjs}} {{thursday.showOneTime}}
-                {{thursday.showTwo}} {{thursday.showTwoDjs}} {{thursday.showTwoTime}}
-                {{thursday.showThree}} {{thursday.showThreeDjs}} {{thursday.showThreeTime}}
+            <div class="block" ng-model="thursday"><p class="dayHeader"><strong>T</strong>hursday</p>
+                <br>{{thursday.showOne}}<br>{{thursday.showOneTime}}
+                <br><br>{{thursday.showTwo}} <br>{{thursday.showTwoTime}}
+                <br><br>{{thursday.showThree}}<br>{{thursday.showThreeTime}}
             </div>
-            <div class="block" ng-model="friday"><strong>F</strong>riday
-                <br>{{friday.showOne}} {{friday.showOneDjs}} {{friday.showOneTime}}
-                {{friday.showTwo}} {{friday.showTwoDjs}} {{friday.showTwoTime}}
-                {{friday.showThree}} {{friday.showThreeDjs}} {{friday.showThreeTime}}
+           <div class="block" ng-model="friday"><p class="dayHeader"><strong>F</strong>riday</p>
+                <br>{{friday.showOne}}<br>{{friday.showOneTime}}
+                <br><br>{{friday.showTwo}} <br>{{friday.showTwoTime}}
+                <br><br>{{friday.showThree}}<br>{{friday.showThreeTime}}
             </div>
-            <div class="block" ng-model="saturday"><strong>S</strong>aturday
-                <br>{{saturday.showOne}} {{saturday.showOneDjs}} {{saturday.showOneTime}}
-                {{saturday.showTwo}} {{saturday.showTwoDjs}} {{saturday.showTwoTime}}
-                {{saturday.showThree}} {{saturday.showThreeDjs}} {{saturday.showThreeTime}}
+            <div class="block" ng-model="saturday"><p class="dayHeader"><strong>S</strong>aturday</p>
+                <br>{{saturday.showOne}}<br>{{saturday.showOneTime}}
+                <br><br>{{saturday.showTwo}} <br>{{saturday.showTwoTime}}
+                <br><br>{{saturday.showThree}}<br>{{saturday.showThreeTime}}
             </div>
         </div>
     </div>

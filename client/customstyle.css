@@ -196,14 +196,60 @@ li.ng-scope {
 
 .block {
   background: white;
+  background-repeat: repeat-y;
   height: 200px;
+  margin-bottom: 5px;
+  margin-right: 3px;
   width: 130px;
   display: block;
   /*border: 3px solid black;*/
   float: left;
-  text-align: left;
+  text-align: center;
   font-size: 12px;
 }
+.dayHeader{
+  margin-bottom: 3px;
+}
+#show1Box{
+  height: 70px;
+  width: 140px;
+}
+
+#show2Box{
+  height: 70px;
+  width: 140px;
+}
+
+#show3Box{
+  height: 70px;
+  width: 140px;
+}
+#show1Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show1Box:hover #show1Overlay{
+  opacity: 1;
+}
+#show2Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show2Box:hover #show2Overlay{
+  opacity: 1;
+}
+
+#show3Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show3Box:hover #show3Overlay{
+  opacity: 1;
+}
+
 
 .block1 {
   background: WHITE;
@@ -211,6 +257,7 @@ li.ng-scope {
   width: 432px;
   display: block;
   border: 3px solid black;
+  
   /*float: left;*/
 }
 #scheduleBox{
