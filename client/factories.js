@@ -27,7 +27,7 @@ angular.module('Substrate.factories', [])
     });
 }])
 .factory('WeeklySchedule', ['$resource', function($resource){
-    return $resource('api/weeklyschedule', {
+    return $resource('api/weeklyschedule/:weekday', { weekday: '@weekday' }, {
         update: { method: 'PUT'}
     });
 }])

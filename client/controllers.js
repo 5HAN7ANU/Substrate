@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule) {
         console.log('Home Controller');
 
         $scope.eventInterval = 8000;
@@ -50,7 +50,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
                             events[i].location = '@ Iron City';
-                        } 
+                        }
                         else if (locationSplit[0] == "The") {
                             events[i].location = '@ The Nick';
                         }
@@ -160,16 +160,35 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         console.log($scope.featuredEvents);
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++
-        // $scope.missionStatement = MissionStatements.query();
+        //Getting Mission Statement
 
         $http({
             method: 'GET',
             url: '/api/mission'
-        }).then(function(success){
+        }).then(function (success) {
             $scope.missionStatement = success.data[0].statement;
-        }, function(err){
+        }, function (err) {
             console.log(err);
-        })
+        });
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++
+        //Getting Weekly Schedule
+
+        $http({
+            method: 'GET',
+            url: '/api/weeklyschedule'
+        }).then(function (success) {
+            $scope.week = success.data;
+            $scope.sunday = $scope.week[0];
+            $scope.monday = $scope.week[1];
+            $scope.tuesday = $scope.week[2];
+            $scope.wednesday = $scope.week[3];
+            $scope.thursday = $scope.week[4];
+            $scope.friday = $scope.week[5];
+            $scope.saturday = $scope.week[6];
+        }, function (err) {
+            console.log(err);
+        });
 
         SEOService.setSEO({
             title: 'Substrate Radio | Home',
@@ -224,7 +243,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
                             events[i].location = 'Iron City';
-                        } 
+                        }
                         else if (locationSplit[0] == "The") {
                             events[i].location = 'The Nick';
                         }
@@ -242,22 +261,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 $scope.calendar = calendarArray;
             });
 
-            var d = new Date();
-            var month = new Array();
-            month[0] = "January";
-            month[1] = "February";
-            month[2] = "March";
-            month[3] = "April";
-            month[4] = "May";
-            month[5] = "June";
-            month[6] = "July";
-            month[7] = "August";
-            month[8] = "September";
-            month[9] = "October";
-            month[10] = "November";
-            month[11] = "December";
-            var n = month[d.getMonth()];
-            $scope.monthOfTheYear = n;
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var n = month[d.getMonth()];
+        $scope.monthOfTheYear = n;
 
 
         SEOService.setSEO({
@@ -613,7 +632,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', 'MissionStatements', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http, MissionStatements) {
+    .controller('AdminController', ['$route','Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', 'MissionStatements', 'WeeklySchedule', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http, MissionStatements, WeeklySchedule) {
         console.log('Admin Controller');
         UserService.requireLogin();
         UserService.isLoggedIn();
@@ -624,8 +643,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $('#usersDiv').hide();
         $('#featuredEventsDiv').hide();
         $('#adsDiv').hide();
-       
-
+        $('#weeklyScheduleDiv').hide();
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
@@ -651,6 +669,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/composeMissionStatement');
         };
 
+        $scope.showWeeklyScheduleDetails = function () {
+            $('#weeklyScheduleDiv').show();
+            $('#missionStatementsDiv').hide();
+            $('#magazineDiv').hide();
+            $('#featuredEventsDiv').hide();
+            $('#adsDiv').hide();
+            $('#usersDiv').hide();
+            $('#publishedMissionStatementsDiv').hide();
+            $('#unpublishedMissionStatementsDiv').hide();
+        }
+
         $scope.showMissionStatementDetails = function () {
             $('#missionStatementsDiv').show();
             $('#magazineDiv').hide();
@@ -659,6 +688,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#usersDiv').hide();
             $('#publishedMissionStatementsDiv').hide();
             $('#unpublishedMissionStatementsDiv').hide();
+            $('#weeklyScheduleDiv').hide();
         }
 
         $scope.showPublishedMissionStatements = function () {
@@ -677,7 +707,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
             $('#usersDiv').show();
-            
+            $('#weeklyScheduleDiv').hide();
         };
 
         $scope.showPostDetails = function () {
@@ -688,7 +718,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedPostsDiv').hide();
             $('#featuredEventsDiv').hide();
             $('#adsDiv').hide();
-
+            $('#weeklyScheduleDiv').hide();
         }
 
         $scope.showPublishedPosts = function () {
@@ -713,7 +743,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').hide();
             $('#adsDiv').hide();
-
+            $('#weeklyScheduleDiv').hide();
         }
 
         $scope.showPublishedEvents = function () {
@@ -736,7 +766,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#adsDiv').show();
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').hide();
-
+            $('#weeklyScheduleDiv').hide();
         }
 
         $scope.showPublishedAds = function () {
@@ -822,6 +852,48 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 });
             }
         }
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++
+        //Getting Weekday Schedule
+    
+        $scope.sunday = WeeklySchedule.get({ weekday: 1});
+        $scope.monday = WeeklySchedule.get({ weekday: 2});
+        $scope.tuesday = WeeklySchedule.get({ weekday: 3});
+        $scope.wednesday = WeeklySchedule.get({ weekday: 4});
+        $scope.thursday = WeeklySchedule.get({ weekday: 5});
+        $scope.friday = WeeklySchedule.get({ weekday: 6});
+        $scope.saturday = WeeklySchedule.get({ weekday: 7});
+        
+        $scope.updateWeeklySchedule = function () {
+            $scope.sunday.$update(function (success) {
+                console.log('Sunday schedule updated!');
+            });
+
+            $scope.monday.$update(function (success) {
+                console.log('Monday schedule updated!');
+            });
+
+            $scope.tuesday.$update(function (success) {
+                console.log('Tuesday schedule updated!');
+            });
+
+            $scope.wednesday.$update(function (success) {
+                console.log('Wednesday schedule updated!');
+            });
+
+            $scope.thursday.$update(function (success) {
+                console.log('Thursday schedule updated!');
+            });
+
+            $scope.friday.$update(function (success) {
+                console.log('Friday schedule updated!');
+            });
+
+            $scope.saturday.$update(function (success) {
+                console.log('Saturday schedule updated!');
+                location.pathname = '/admin';
+            });
+        };
 
         SEOService.setSEO({
             title: 'Substrate Radio | Admin',

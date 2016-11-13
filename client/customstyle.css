@@ -182,12 +182,13 @@ li.ng-scope{
 
 .block {
   background: white;
-  height: 130px;
+  height: 200px;
   width: 130px;
   display: block;
   /*border: 3px solid black;*/
   float: left;
   text-align: left;
+  font-size: 12px;
 }
 
 .block1 {
@@ -518,4 +519,19 @@ select {
 
 .podcastRepeatDiv {
   text-align: center;
+}
+
+#weeklyScheduleDiv{
+  color: white;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  float: middle;
+  
+}
+
+.weekday{
+  width: 30%;
+  float: left;
+  padding: 5%;
 }

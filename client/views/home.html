@@ -67,14 +67,41 @@
         </div>
         <div class="col-md-8" id="container">
             <h1 style="text-align: center; justify-content: center;">SCHEDULE</h1>
-            <div class="block"><strong>S</strong>un</div>
-            <div class="block"><strong>M</strong>on</div>
-            <div class="block"><strong>T</strong>ue</div>
-            <div class="block"><strong>W</strong>ed</div>
-            <div class="block"><strong>T</strong>hu</div>
-            <div class="block"><strong>F</strong>ri</div>
-            <div class="block"><strong>S</strong>at</div>
-            <!--<div class="block"><strong>S</strong>unday</div>-->
+            <div class="block" ng-model="sunday"><strong>S</strong>unday
+                <br>{{sunday.showOne}} {{sunday.showOneDjs}} {{sunday.showOneTime}}
+                <br>{{sunday.showTwo}} {{sunday.showTwoDjs}} {{sunday.showTwoTime}}
+                <br>{{sunday.showThree}} {{sunday.showThreeDjs}} {{sunday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="monday"><strong>M</strong>onday
+                <br>{{monday.showOne}} {{monday.showOneDjs}} {{monday.showOneTime}}
+                {{monday.showTwo}} {{monday.showTwoDjs}} {{monday.showTwoTime}}
+                {{monday.showThree}} {{monday.showThreeDjs}} {{monday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="tuesday"><strong>T</strong>uesday
+                <br>{{tuesday.showOne}} {{tuesday.showOneDjs}} {{tuesday.showOneTime}}
+                {{tuesday.showTwo}} {{tuesday.showTwoDjs}} {{tuesday.showTwoTime}}
+                {{tuesday.showThree}} {{tuesday.showThreeDjs}} {{tuesday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="wednesday"><strong>W</strong>ednesday
+                <br>{{wednesday.showOne}} {{wednesday.showOneDjs}} {{wednesday.showOneTime}}
+                {{wednesday.showTwo}} {{wednesday.showTwoDjs}} {{wednesday.showTwoTime}}
+                {{wednesday.showThree}} {{wednesday.showThreeDjs}} {{wednesday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="thursday"><strong>T</strong>hursday
+                <br>{{thursday.showOne}} {{thursday.showOneDjs}} {{thursday.showOneTime}}
+                {{thursday.showTwo}} {{thursday.showTwoDjs}} {{thursday.showTwoTime}}
+                {{thursday.showThree}} {{thursday.showThreeDjs}} {{thursday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="friday"><strong>F</strong>riday
+                <br>{{friday.showOne}} {{friday.showOneDjs}} {{friday.showOneTime}}
+                {{friday.showTwo}} {{friday.showTwoDjs}} {{friday.showTwoTime}}
+                {{friday.showThree}} {{friday.showThreeDjs}} {{friday.showThreeTime}}
+            </div>
+            <div class="block" ng-model="saturday"><strong>S</strong>aturday
+                <br>{{saturday.showOne}} {{saturday.showOneDjs}} {{saturday.showOneTime}}
+                {{saturday.showTwo}} {{saturday.showTwoDjs}} {{saturday.showTwoTime}}
+                {{saturday.showThree}} {{saturday.showThreeDjs}} {{saturday.showThreeTime}}
+            </div>
         </div>
     </div>
 </div>
