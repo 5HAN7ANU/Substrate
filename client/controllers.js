@@ -669,6 +669,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $location.path('/composeMissionStatement');
         };
 
+        $scope.goBack = function(){
+            $route.reload();
+        }
+
         $scope.showWeeklyScheduleDetails = function () {
             $('#weeklyScheduleDiv').show();
             $('#missionStatementsDiv').hide();
@@ -1035,9 +1039,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         UserService.requireLogin();
         UserService.isLoggedIn();
+        $scope.loggedIn = false;
+        UserService.me().then(function (me) {
+            $scope.ME = me;
+            $scope.loggedIn = true;
+        });
         UserService.isAdmin();
-
-        UserService.me();
+        
         var userId = $routeParams.id;
 
         $scope.featuredUser = Users.get({ id: userId }, function () {
