@@ -103,6 +103,12 @@
   z-index: 9991;
 }
 
+#navbarLogo{
+  margin-top: 5px;
+  margin-right: 15px;
+  /*padding: 3px;*/
+}
+
 @media screen and (max-width: 1220px) {
   .app .custom-navbar ul {
     display: none;
