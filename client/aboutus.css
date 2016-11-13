@@ -1,4 +1,111 @@
 	#djimg {
+<<<<<<< HEAD
+		border-radius: 100%;
+		height: 223px;
+		width: 202px;
+	}
+	
+	.headline {
+		background-image: url('/assets/aboutus.jpg');
+		height: 35vh;
+		background-position: center;
+		background-size: cover;
+		display: flex;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		align-items: center;
+		-webkit-align-items: center;
+		justify-content: center;
+		-webkit-justify-content: center;
+		color: white;
+	}
+	
+	#box {
+		width: 267px;
+		height: 204px;
+		box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
+		margin: 3% 0px 5% 36px;
+		background-size: cover;
+		/* border-radius: 5px; */
+		/* overflow: hidden; */
+		/* border-radius: 20%; */
+		float: left;
+		margin-bottom: 11px;
+	}
+	/*#box {
+     border: 3px solid yellow;
+     color: grey;
+     width: 270px;
+     height: 405px;
+     float: left;
+     margin: 20px;
+     border-radius: 8px;
+     position: relative;
+	 
+ }*/
+	
+	#bio {
+		font-size: 12px;
+	
+	}
+	
+	#overlay {
+		background: rgba(0, 0, 0, .75);
+		text-align: center;
+		padding: 45px 0 84px 0;
+		opacity: 0;
+	}
+	
+	#box:hover #overlay {
+		opacity: 1;
+	}
+	
+	#plus {
+		font-family: Helvetica;
+		font-weight: 900;
+		color: rgba(255, 255, 255, .85);
+		font-size: 96px;
+	}
+	
+	#cform {
+		/*border: 2px solid blue;*/
+		clear: both;
+		position: relative;
+		top: 26px;
+		color: white;
+	}
+	/*logomain maain html*/
+	
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+	/* STRUCTURE */
+	
+	#pagewrap {
+		padding: 5px;
+		width: 960px;
+		margin: 20px auto;
+	}
+	
+	#content {
+		width: 290px;
+		float: left;
+		padding: 5px 15px;
+	}
+	
+	#middle {
+		width: 294px;
+		/* Account for margins + border values */
+		float: left;
+		padding: 5px 15px;
+		margin: 0px 5px 5px 5px;
+	}
+	
+	#sidebar {
+		width: 270px;
+		padding: 5px 15px;
+		float: left;
+	}
+	/************************************************************************************
+
 	border-radius: 100%;
 	height: 223px;
 	width: 202px;
@@ -26,11 +133,11 @@
 	margin: 2% auto 2% auto;
 	background-size: cover;
 	/* border-radius: 5px; */
-	overflow: hidden;
-	margin-left: 53px;
+	/*overflow: hidden;*/
+	/*margin-left: 53px;*/
 	/* border-radius: 20%; */
-	float: left;
-}
+	/*float: left;*/
+/*}*/
 
 
 #podcast-box {
@@ -121,14 +228,11 @@
 
 
 /************************************************************************************
+
 MEDIA QUERIES
 *************************************************************************************/
-
-
-/* for 980px or less */
-
-
-/*@media screen and (max-width: 980px) {
+	/* for 980px or less */
+	/*@media screen and (max-width: 980px) {
 	
 	#pagewrap {
 		width: 94%;
@@ -154,12 +258,8 @@ MEDIA QUERIES
 	header, footer {
 		padding: 1% 4%;
 	}*/
-
-
-/* for 700px or less */
-
-
-/*@media screen and (max-width: 600px) {
+	/* for 700px or less */
+	/*@media screen and (max-width: 600px) {
 
 	#content {
 		width: auto;
@@ -178,12 +278,8 @@ MEDIA QUERIES
 	}
 
 }*/
-
-
-/* for 480px or less */
-
-
-/*@media screen and (max-width: 480px) {
+	/* for 480px or less */
+	/*@media screen and (max-width: 480px) {
 
 	header {
 		height: auto;
@@ -196,9 +292,7 @@ MEDIA QUERIES
 	}
 
 }*/
-
-
-/*#content {
+	/*#content {
 	background: #f8f8f8;
 }
 #sidebar {
@@ -211,4 +305,3 @@ header, #content, #middle, #sidebar {
 #pagewrap, header, #content, #middle, #sidebar, footer {
 	border: solid 1px #ccc;
 }*/
-

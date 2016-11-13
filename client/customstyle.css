@@ -131,15 +131,16 @@
   max-width: 100%;
   border-radius: 10px;
 }
-a.right.carousel-control{
-  display: none;
 
-}
-a.left.carousel-control{
+a.right.carousel-control {
   display: none;
-
 }
-li.ng-scope{
+
+a.left.carousel-control {
+  display: none;
+}
+
+li.ng-scope {
   display: none;
 }
 
@@ -227,7 +228,7 @@ li.ng-scope{
 }
 
 .followus {
-  background-image: url('/assets/background7.jpg');
+  background-image: url(/assets/background7.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
@@ -235,11 +236,15 @@ li.ng-scope{
   background-color: whitesmoke;
   color: black;
   text-align: center;
+  /*margin-top: 35em;*/
+  padding: 8px;
+  margin-bottom: 3em;
 }
 
 #djbox {
   text-align: center;
   z-index: 0;
+  color: white;
 }
 
 .podcasts {
@@ -248,25 +253,9 @@ li.ng-scope{
   float: left;
 }
 
-#podcasttext {
+/*#podcasttext {
   color: white;
-}
-
-.followus {
-  background-image: url('/assets/background7.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
-  height: 9em;
-  background-color: whitesmoke;
-  color: black;
-  text-align: center;
-  margin-bottom: 7em;
-}
-
-#djbox {
-  text-align: center;
-}
+}*/
 
 
 /*/========================calendar.html======================/*/
@@ -318,9 +307,7 @@ li.ng-scope{
   margin: 25px auto 0;
 }
 
-.homecontactus {
-  /*position: fixed;*/
-}
+
 
 .contacthtml {
   background-color: rgba(128, 128, 128, 0.7);
@@ -495,18 +482,20 @@ select {
   margin-top: 80px;
 }
 
-
 .facebook {
   height: 3em;
   margin-bottom: 2em;
 }
-#missionStatementsDiv{
+
+#missionStatementsDiv {
   margin-top: 40px;
 }
-#usersDiv{
+
+#usersDiv {
   margin-top: 20px;
 }
-#userListContainer{
+
+#userListContainer {
   margin-top: 20px;
 }
 
@@ -520,6 +509,7 @@ select {
 .podcastRepeatDiv {
   text-align: center;
 }
+<<<<<<< HEAD
 
 #weeklyScheduleDiv{
   color: white;
@@ -534,4 +524,20 @@ select {
   width: 30%;
   float: left;
   padding: 5%;
+=======
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+>>>>>>> dc9c76d90b80d524bd950b6f0bbadb285f754937
 }
