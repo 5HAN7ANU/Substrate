@@ -152,7 +152,7 @@ li.ng-scope {
 
 .aboutBackground {
   background-color: white;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: center;
   background-size: contain;
   width: 100%;
@@ -199,6 +199,12 @@ li.ng-scope {
   display: block;
   border: 3px solid black;
   /*float: left;*/
+}
+#scheduleBox{
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 
