@@ -28,8 +28,8 @@
 	}
 	
 	#box {
-		width: 267px;
-		height: 204px;
+		width: 270px;
+		height: 205px;
 		box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
 		margin: 3% 0px 5% 36px;
 		background-size: cover;
@@ -37,7 +37,7 @@
 		/* overflow: hidden; */
 		/* border-radius: 20%; */
 		float: left;
-		margin-bottom: 11px;
+		margin-bottom: 10px;
 	}
 	/*#box {
      border: 3px solid yellow;
@@ -61,6 +61,8 @@
 		text-align: center;
 		padding: 45px 0 84px 0;
 		opacity: 0;
+		width: 270px;
+		height: 205px;
 	}
 	
 	#box:hover #overlay {
@@ -148,19 +150,21 @@
 
 
 #podcast-box {
-    width: 300px;
-	height: 200px;
+    width: 400px;
+	margin-left: 27px;
+	margin-bottom: 20px;
+	border-radius: 20%;
+	height: 300px;
 	box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
-	margin: 2% auto 2% auto;
 	background-size: cover;
-	/* border-radius: 5px; */
 	overflow: hidden;
-	/* border-radius: 20%; */
 	float: left;
  }
 
  #podcast-overlay {
 	background: rgba(0, 0, 0, .75);
+	width: 400px;
+	height: 300px;
 	text-align: center;
 	padding: 45px 0 84px 0;
 	opacity: 0;
@@ -172,6 +176,12 @@
 
 #bio {
 	font-size: 12px;
+}
+
+#podcast-container {
+	text-align: center;
+	z-index: 0;
+	color: white;
 }
 
 #overlay {
