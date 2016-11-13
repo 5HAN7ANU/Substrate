@@ -1,16 +1,19 @@
-<div class="magBackground">
+<div>
     <div class="container" id="top-container">
         <p class="navbar-text navbar-right"><a class="navbar-link" ng-click="logout()">logout</a></p>
         <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link">My Profile</a></p>
     </div>
-
-    <h1 id="titleHeader1">Substrate Ad Page</h1>
-
+    <br><br><br>
+    <a href="/admin">
+        <button id="button">Go Back</button>
+    </a>
     <button ng-click="submitFeaturedAd()">SAVE AD</button>
-    <br>
+    <br><br>
     <input type="text" ng-model="adName" placeholder="Ad Name">
-    <br>    
+    <br><br>
     <input type="text" ng-model="adLink" placeholder="Ad Link">
-    <br>
+    <br><br>
     <input type="text" ng-model="imageurl" placeholder="Image URL">
-</div>
+
+    <h3>PREVIEW</h3>
+    <div id="box" ng-style="{'background-image':'url(' + imageurl + ')'}"></div>

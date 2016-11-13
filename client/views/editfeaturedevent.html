@@ -6,13 +6,13 @@
                   <option ng-repeat="publishValue in publishValues" value="{{ publishValue.value }}">{{ publishValue.name }}</option>
             </select>
             <br>
-            <input type="text" class="form-control" ng-model="featuredEvent.imageurl">
+            <input type="text" class="form-control" ng-model="featuredEvent.imageurl" placeholder="Image URL">
             <br>
-            <input type="text" id='editTitleBox' class="form-control" ng-model="featuredEvent.eventName">
+            <input type="text" id='editTitleBox' class="form-control" ng-model="featuredEvent.eventName" placeholder="Event Title">
             <br>
-            <input type="text" id='editTitleBox' class="form-control" ng-model="featuredEvent.eventDate">
+            <input type="text" id='editTitleBox' class="form-control" ng-model="featuredEvent.eventDate" placeholder="Event Date">
             <br>
-            <textarea class="form-control" rows="15" id="editDescriptionBox" ng-model="featuredEvent.eventDescription"></textarea>
+            <textarea class="form-control" rows="15" id="editDescriptionBox" ng-model="featuredEvent.eventDescription" placeholder="Event Description"></textarea>
       </div>
       <button id='cancelUpdateButton' class="btn btn-default" type="button" ng-click="cancelupdate()">Go Back</button>
       <button id='updateButton' class="btn btn-default" type="button" ng-click="update()">Update!</button>
