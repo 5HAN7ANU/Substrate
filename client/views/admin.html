@@ -39,99 +39,8 @@
             </ul>
         </div>
 
-
-        <!--<button ng-click="showAdDetails()">Ads</button>
-
-        <button ng-click="showMissionStatementDetails()">Mission Statements</button>-->
-
         <div id="weeklyScheduleDiv">
             <div ng-include src="'views/weekdayupdate.html'"></div>
-            <!--<h1>Weekly Schedule</h1>
-            <br><button ng-click="updateWeeklySchedule()">Update</button><br>
-            <div class="weekday">
-                <h4>Sunday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="sundayshowThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-                <h4>Monday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="monday.showThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-                <h4>Tuesday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="tuesday.showThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-                <h4>Wednesday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="wednesday.showThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-                <h4>Thursday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="thursday.showThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-                <h4>Friday</h4>
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showOne" placeholder="Show One">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="firday.showOneDjs" placeholder="Show One DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showOneTime" placeholder="Show One Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showTwo" placeholder="Show Two">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showTwoDjs" placeholder="Show Two DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showTwoTime" placeholder="Show Two Time">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showThree" placeholder="Show Three">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showThreeDjs" placeholder="Show Three DJs">
-                <br><input type="text" class="form-control weeklySchedule" ng-model="friday.showThreeTime" placeholder="Show Three Time">
-            </div>
-            <div class="weekday">
-            <h4>Saturday</h4>
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showOne" placeholder="Show One">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showOneDjs" placeholder="Show One DJs">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showOneTime" placeholder="Show One Time">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showTwo" placeholder="Show Two">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showTwoDjs" placeholder="Show Two DJs">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showTwoTime" placeholder="Show Two Time">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showThree" placeholder="Show Three">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showThreeDjs" placeholder="Show Three DJs">
-            <br><input type="text" class="form-control weeklySchedule" ng-model="saturday.showThreeTime" placeholder="Show Three Time">
-            </div>-->
         </div>
 
         <div id="missionStatementsDiv">
@@ -213,11 +122,11 @@
             <div id="userListContainer">
                 <div id="usersList" ng-repeat="u in users">
                     <h3>{{ u.firstname }} {{ u.lastname }}</h3>
-                    <h4>{{ u.email }}</h4>
                     <h4>{{ u.role }}</h4>
                     <a href="/users/{{ u.id }}/update">
                         <button id="button">EDIT</button>
                     </a>
+                    <br><br>
                     <button id="button" ng-click="deleteUser(u)">DELETE</button>
                 </div>
             </div>

@@ -445,6 +445,8 @@ input {
   float: left;
   padding: 20px;
   color: white;
+  border: 1px solid whitesmoke;
+  margin: 15px 15px 15px 15px;
 }
 
 
@@ -484,11 +486,6 @@ body {
   font-family: LuloCleanOne;
 }
 
-#usersList {
-  border: 1px solid whitesmoke;
-  /*padding: 5px;*/
-}
-
 input {
   color: black;
 }
@@ -511,7 +508,8 @@ select {
 }
 
 #usersDiv {
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 5%;
 }
 
 #userListContainer {
