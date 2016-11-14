@@ -191,3 +191,16 @@ ul {
 .dlist {
   float: left;
 }
+
+@media screen and (max-width: 1220px) {
+ .followus {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    height: 161px;
+    color: black;
+    text-align: center;
+    padding: 2px;
+    margin-bottom: 11em;
+ }
+}
