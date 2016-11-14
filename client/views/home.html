@@ -1,14 +1,5 @@
 <!--//---------------------------------------------//-->
 <!--//===============  side calendar/events/ads =================//-->
-<!--<div class="container mininavbar">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/events">Calendar</a></li>
-        <li><a href="/magazine">Magazine</a></li>
-        <li><a href="/podcasts">Podcasts</a></li>
-        <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
-    </ul>
-</div>-->
 <div class="container-fluid middlesection">
     <div class="row">
         <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-10 col-xs-offset-1" id="eventCalendarContainer">
@@ -187,35 +178,25 @@
 
 <div class="dj-section">
     <div class="container-fluid">
-        <div class="dj-section-title">
-            <h3 class="dj-title">Meet the Substrate DJs</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" ng-repeat="dj in djList">
-                <div class="dj-box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
-                    <div class="dj-box-overlay">
-                        <h1>{{dj.firstname}} {{dj.lastname}}</h1>
-                        <p class="dj-bio">{{dj.bio}}</p>
+        <div class="dj-container">
+            <div class="dj-section-title">
+                <h3 class="dj-title">Meet the Substrate DJs</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-0.25 col-md-4 col-md-offset-0.25 col-sm-6 col-sm-offset-0.25 col-xs-10 col-xs-offset-0.25"
+                    ng-repeat="dj in djList">
+                    <div class="dj-box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
+                        <div class="dj-box-overlay">
+                            <h1>{{dj.firstname}} {{dj.lastname}}</h1>
+                            <p class="dj-bio">{{dj.bio}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--<div class="col-xs-12 djsection row">
-    <div id="djbox">
-        <div ng-repeat="dj in djList">
-            <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
-                <div id="overlay">
-                    <span id="plus">
-                        <h1>{{dj.firstname}} {{dj.lastname}}</h1>
-                        <p id="bio">{{dj.bio}}</p>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
+
 <br><br>
 
 <!--//---------------------------------------------//-->
@@ -224,7 +205,8 @@
     <div class="container-fluid">
         <div id="podcast-section-title"> Latest Podcasts</div>
         <div class="row">
-            <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" ng-repeat="podcast in podcasts">
+            <div cclass="col-lg-4 col-lg-offset-0.25 col-md-6 col-md-offset-0.25 col-sm-8 col-sm-offset-0.25 col-xs-10 col-xs-offset-0.25"
+                ng-repeat="podcast in podcasts">
                 <div class="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
                     <a target="_blank" href="{{podcast.url}}">
                         <div class="podcast-overlay">
@@ -236,6 +218,7 @@
         </div>
     </div>
 </div>
+
 <br><br>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
