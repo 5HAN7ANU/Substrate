@@ -84,7 +84,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 console.log('check it:')
                 console.log($scope.adArray2[i]);
                 var adSlide2 = {
-                    image: featuredAd2.imageurl
+                    image: featuredAd2.imageurl,
+                    link: featuredAd2.adLink
                 };
                 $scope.adSlides2.push(adSlide2);
             }
@@ -107,7 +108,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 console.log('check it:')
                 console.log($scope.adArray[i]);
                 var adSlide = {
-                    image: featuredAd.imageurl
+                    image: featuredAd.imageurl,
+                    link: featuredAd.adLink
                 };
                 $scope.adSlides.push(adSlide);
             }
