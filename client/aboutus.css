@@ -4,6 +4,7 @@
 	width: 202px;
 }
 
+<<<<<<< HEAD
 .headline {
 	background-image: url('/assets/aboutus.jpg');
 	height: 35vh;
@@ -18,6 +19,28 @@
 	-webkit-justify-content: center;
 	color: white;
 }
+=======
+		border-radius: 100%;
+		height: 223px;
+		width: 202px;
+	}
+/*	
+	
+	.headline {
+		background-image: url('/assets/aboutus.jpg');
+		height: 35vh;
+		background-position: center;
+		background-size: cover;
+		display: flex;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		align-items: center;
+		-webkit-align-items: center;
+		justify-content: center;
+		-webkit-justify-content: center;
+		color: white;
+	}*/
+>>>>>>> c544cf6f3569b923ee7763166b58756934ff9bf8
 
 #previewBox {
 	width: 500px;
@@ -219,7 +242,15 @@ background-repeat: no-repeat;
 	opacity: 1;
 }
 
+<<<<<<< HEAD
 /*#podcast-container {
+=======
+/*#bio {
+	font-size: 12px;
+}
+
+#podcast-container {
+>>>>>>> c544cf6f3569b923ee7763166b58756934ff9bf8
 	text-align: center;
 	z-index: 0;
 	color: white;
@@ -236,6 +267,16 @@ background-repeat: no-repeat;
 	opacity: 1;
 }
 
+<<<<<<< HEAD
+=======
+#plus {
+	font-family: Helvetica;
+	font-weight: 900;
+	color: rgba(255, 255, 255, .85);
+	font-size: 96px;
+}*/
+
+>>>>>>> c544cf6f3569b923ee7763166b58756934ff9bf8
 #cform {
 	/*border: 2px solid blue;*/
 	clear: both;
