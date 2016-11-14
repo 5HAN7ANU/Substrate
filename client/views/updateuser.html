@@ -2,8 +2,6 @@
     <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
     <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
     <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
-    <p id="signedInAs" class="navbar-text navbar-right" ng-show="loggedIn">Signed in as
-        <a class="navbar-link"></a>{{ ME.firstname }} {{ ME.lastname }}</p>
 </div>
 
 
@@ -11,7 +9,7 @@
     <a href="/admin">
         <button id="button">Go Back</button>
     </a>
-    <br><br><br>
+    <br><br>
     <input type="text" ng-model="firstname" placeholder="First Name">
     <p></p>
     <input type="text" ng-model="lastname" placeholder="Last Name">
@@ -35,4 +33,9 @@
     <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
     <p></p>
     <button id="button" ng-click="updateUser()">UPDATE USER</button>
+</div>
+
+<div id="udpate-user-preview-container">
+    <h3>PREVIEW</h3>
+    <div id="previewBox" ng-style="{'background-image':'url(' + imageurl + ')'}"></div>
 </div>

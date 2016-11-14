@@ -548,9 +548,15 @@ input {
 
 #updateUser {
   color: white;
-  margin-left: 40%;
+  margin-left: 20%;
+  float: left;
 }
 
+#udpate-user-preview-container{
+  float: right;
+  color: white;
+  margin-right: 20%;
+}
 
 /*end updateuser.html*/
 
@@ -637,6 +643,7 @@ select {
 
 #createUserPreview{
   float: left;
+  color: white;
 }
 
 #composeFeaturedEvent {
