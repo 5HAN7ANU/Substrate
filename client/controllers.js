@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', '$route', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact, $route) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact) {
         console.log('Home Controller');
 
         $scope.eventInterval = 8000;
@@ -203,8 +203,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         var contact = new Contact(contactInfo);
         contact.$save(function () {
             console.log('Email send ok');
-            // $location.path('/');
-            $route.reload();
+            location.reload();
         }, function (err) {
             console.log(err);
         });
