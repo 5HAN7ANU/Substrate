@@ -68,7 +68,17 @@ input{
     width: auto;
     height: 400px;
     background-repeat: no-repeat;
-    margin-left: 50px;
+    margin-left: 200px;
+    
+}
+
+#previewPostDiv{
+    background: rgba(204,204,204,0.4);
+    font-family: futura;
+    /*font-size: 16px;*/
+    text-align: left;
+    color: black;
+    border: transparent;
 }
 .ByLine{
     padding: 20px;

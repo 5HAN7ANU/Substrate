@@ -282,6 +282,9 @@ li.ng-scope {
   background-size: cover;
   background-position-x: center;
 }*/
+.podcast-container {
+  margin-left: 20px;
+}
 
 #podcast-section-title {
   font-size: 2em;
