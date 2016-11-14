@@ -61,6 +61,8 @@
 
 #modal-transparent {
   top: 13em;
+  float: middle;
+  margin-left: 25%;
 }
 
 .modal-transparent .modal-content {
