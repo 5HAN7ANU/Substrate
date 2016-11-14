@@ -312,12 +312,12 @@ li.ng-scope {
 }*/
 
 .followus {
-  background-image: url(/assets/background7.jpg);
+  /*background-image: url(/assets/background7.jpg);*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
   height: 161px;
-  background-color: whitesmoke;
+  /*background-color: whitesmoke;*/
   color: black;
   text-align: center;
   /* margin-top: 35em; */
@@ -604,9 +604,13 @@ select {
 }
 
 #createUser {
-  float: middle;
-  margin-left: 40%;
+  float: left;
+  margin-left: 15%;
   margin-top: 4%;
+}
+
+#createUserPreview{
+  float: left;
 }
 
 #composeFeaturedEvent {
