@@ -100,4 +100,5 @@ strong {
 .open>.dropdown-menu {
   margin-top: 40px;
   z-index: 999999;
+  text-align: center;
 }
