@@ -53,6 +53,10 @@
 	
 }*/
 
+.dj-container {
+	margin-left: 40px;
+}
+
 .dj-section {
 width: 100%;
 background-image: url('./assets/background4.jpg');
@@ -222,7 +226,7 @@ background-repeat: no-repeat;
 	opacity: 1;
 }
 
-<<<<<<< HEAD
+
 /*#podcast-container {
 =======
 /*#bio {
@@ -247,16 +251,14 @@ background-repeat: no-repeat;
 	opacity: 1;
 }
 
-<<<<<<< HEAD
-=======
+
 #plus {
 	font-family: Helvetica;
 	font-weight: 900;
 	color: rgba(255, 255, 255, .85);
 	font-size: 96px;
-}*/
+}
 
->>>>>>> c544cf6f3569b923ee7763166b58756934ff9bf8
 #cform {
 	/*border: 2px solid blue;*/
 	clear: both;
