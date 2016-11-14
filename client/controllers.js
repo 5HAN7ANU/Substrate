@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact) {
         console.log('Home Controller');
 
         $scope.eventInterval = 8000;
@@ -144,7 +144,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
 
         //----------------------------------------------
-        $scope.dj = Users.getDj();
+        $scope.djList = Users.getDj();
         console.log($scope.dj);
 
         $scope.podcasts = Podcasts.query();
@@ -193,7 +193,23 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
+        $scope.sendMessage = function () {
+        console.log('inside contact controller');
+        var contactInfo = {
+            fromEmail: $scope.fromEmail,
+            subject: $scope.subject,
+            content: $scope.content
+        }
+        var contact = new Contact(contactInfo);
+        contact.$save(function () {
+            console.log('Email send ok');
+            location.reload();
+        }, function (err) {
+            console.log(err);
+        });
+    }
     }])
+
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
         var d = new Date();
@@ -239,13 +255,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
+                            events[i].location = '@ Iron City';
                         }
                         else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
+                            events[i].location = '@ The Nick';
                         }
                         else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = 'Saturn';
+                            events[i].location = '@ Saturn';
                         }
                         else {
                             events[i].location = 'Substrate Radio';
@@ -903,24 +919,24 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
-        console.log("ContactController");
-        $scope.sendMessage = function () {
-            console.log('inside contact controller');
-            var contactInfo = {
-                fromEmail: $scope.fromEmail,
-                subject: $scope.subject,
-                content: $scope.content
-            }
-            var contact = new Contact(contactInfo);
-            contact.$save(function () {
-                console.log('Email send ok');
-                $location.path('/');
-            }, function (err) {
-                console.log(err);
-            });
-        }
-    }])
+    // .controller('ContactController', ['$scope', 'Contact', '$location', function ($scope, Contact, $location) {
+    //     console.log("ContactController");
+    //     $scope.sendMessage = function () {
+    //         console.log('inside contact controller');
+    //         var contactInfo = {
+    //             fromEmail: $scope.fromEmail,
+    //             subject: $scope.subject,
+    //             content: $scope.content
+    //         }
+    //         var contact = new Contact(contactInfo);
+    //         contact.$save(function () {
+    //             console.log('Email send ok');
+    //             $location.path('/');
+    //         }, function (err) {
+    //             console.log(err);
+    //         });
+    //     }
+    // }])
     .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
         console.log("Login Controller");
         UserService.me().then(function (me) {
@@ -1110,10 +1126,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             alert('You have been logged out!');
         };
     }])
-    .controller('PodController', ['$scope', 'Pods', function ($scope, Pods) {
+    .controller('PodcastController', ['$scope', 'Pods', function ($scope, Pods) {
         console.log('PodController');
 
-        $scope.pod = Pods.query();
+        $scope.podcastList = Pods.query();
         console.log($scope.allpod);
 
 

@@ -1,14 +1,18 @@
-<div  id="djbox">
-    <h1>All Podcasts</h1>
-    <div  ng-repeat="pod in pod">
-        <div id="box" ng-style="{'background-image':'url(' + pod.pictures.large + ')'}">
-            <a target="_blank" href="{{pod.url}}">
-                <div id="overlay">
-                    <span id="podcasttext">
-                        <p>{{pod.name}}</p>
+<div class="podcast-page">
+    <div class="container">
+        <div id="djbox">
+            <h1>All Podcasts</h1>
+            <div ng-repeat="podcast in podcastList">
+                <div class="podcast-page-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+                    <a target="_blank" href="{{podcast.url}}">
+                        <div class="podcast-page-overlay">
+                            <span id="podcasttext">
+                        <p>{{podcast.name}}</p>
                     </span>
+                        </div>
+                    </a>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 </div>

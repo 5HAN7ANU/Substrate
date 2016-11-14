@@ -50,17 +50,14 @@
 
 /*//========== home page featured event Container=====================//*/
 
-#featuredEventContainer {
+/*#featuredEventContainer {
   height: 600px;
   border-radius: 10px;
   margin-top: 10px;
   margin-right: 20px;
-  padding: 0px;
-  /*width: 600px;*/
+  padding: 0px; 
   background-color: rgba(128, 128, 128, 0.3);
-  /*float: left;*/
-  /*margin: 25px;*/
-}
+}*/
 
 
 /*//-------carousel-------//*/
@@ -85,12 +82,12 @@
 
 .featuredEventBackground {
   /*position: absolute;*/
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 600px;
   /*max-width: 100%;
   max-height: 70%;*/
-  border-radius: 10px;
+  /*border-radius: 10px;*/
 }
 
 
@@ -192,6 +189,7 @@ li.ng-scope {
   background-position-x: center;
   padding-bottom: 12px;
   z-index: 0;
+  min-width: 100%;
 }
 
 .block {
@@ -278,11 +276,26 @@ li.ng-scope {
 
 /*/========================podcast/follow us  section======================/*/
 
-.podbackground {
+/*.podbackground {
   background-image: url('./assets/aboutus.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
+}*/
+
+#podcast-section-title {
+  font-size: 2em;
+  font-weight: bolder;
+  color: white;
+}
+
+.podcast-section {
+  background-image: url('./assets/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+	z-index: 0;
+	color: white;
 }
 
 .podcasts {
@@ -291,9 +304,38 @@ li.ng-scope {
   float: left;
 }
 
-#podcasttext {
+.podcast-page {
+  margin-bottom: 120px;
+}
+
+.podcast-page-box {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.podcast-page-overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+	width: 200px;
+	height: 200px;
+  border-radius: 10px;
+}
+
+.podcast-page-box:hover .podcast-page-overlay {
+  opacity: 1;
   color: white;
 }
+
+/*#podcasttext {
+  color: white;
+}*/
 
 .followus {
   /*background-image: url(/assets/background7.jpg);*/
@@ -313,6 +355,7 @@ li.ng-scope {
   text-align: center;
   z-index: 0;
   color: white;
+  width: 100%;
 }
 
 .podcasts {

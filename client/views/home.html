@@ -1,17 +1,8 @@
 <!--//---------------------------------------------//-->
 <!--//===============  side calendar/events/ads =================//-->
-<!--<div class="container mininavbar">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/events">Calendar</a></li>
-        <li><a href="/magazine">Magazine</a></li>
-        <li><a href="/podcasts">Podcasts</a></li>
-        <li><a target="_blank" href="http://yellowhammer-creative.myshopify.com/">Store</a></li>
-    </ul>
-</div>-->
 <div class="container-fluid middlesection">
     <div class="row">
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-10 col-xs-offset-1"  id="eventCalendarContainer">
+        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-10 col-xs-offset-1" id="eventCalendarContainer">
             <div class="weekDate" ng-repeat="day in calendar">
                 <div class="week-date-header">
                     <h4 class="week-date-time">{{ day[0].start.dateTime | date: 'shortDate' }}</h4>
@@ -36,23 +27,27 @@
         </div>
         <div class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-10 col-xs-offset-1" id="adContainer">
             <div class="row">
-            <carousel id="carousel1" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-                <slide class="adSlides" ng-repeat="adSlide in adSlides" active="adSlide.active">
-                    <a ng-href="http://{{adSlide.link}}"> <div id="ad1" ng-style="{ 'background-image': 'url(' + adSlide.image + ')' }" class="featuredAdBackground">
-                        <div class="carousel-caption">
-                        </div>
-                    </div></a>
-                </slide>
-            </carousel>
-            <br>
-            <carousel id="carousel2" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <slide class="adSlides" ng-repeat="adSlide2 in adSlides2" active="adSlide2.active">
-                   <a ng-href="http://{{adSlide2.link}}"> <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground ">
-                        <div class="carousel-caption">
-                        </div>
-                    </div></a>
-                </slide>
-            </carousel>
+                <carousel id="carousel1" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <slide class="adSlides" ng-repeat="adSlide in adSlides" active="adSlide.active">
+                        <a target="_blank" ng-href="http://{{adSlide.link}}">
+                            <div id="ad1" ng-style="{ 'background-image': 'url(' + adSlide.image + ')' }" class="featuredAdBackground">
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                        </a>
+                    </slide>
+                </carousel>
+                <br>
+                <carousel id="carousel2" interval="adInterval" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                    <slide class="adSlides" ng-repeat="adSlide2 in adSlides2" active="adSlide2.active">
+                        <a target="_blank" ng-href="http://{{adSlide2.link}}">
+                            <div id="ad2" ng-style="{ 'background-image': 'url(' + adSlide2.image + ')' }" class="featuredAdBackground ">
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                        </a>
+                    </slide>
+                </carousel>
             </div>
         </div>
     </div>
@@ -73,152 +68,157 @@
             <div class="block" ng-model="sunday">
                 <div class="dayHeader"><strong>S</strong>unday</div>
                 <div id="show1Box">
-                {{sunday.showOne}}<br>{{sunday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{sunday.showOneDjs}}</div>-->
+                    {{sunday.showOne}}<br>{{sunday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{sunday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{sunday.showTwo}} <br>{{sunday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{sunday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{sunday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{sunday.showThree}}<br>{{sunday.showThreeTime}}
-                <!--<div id="show3Overlay">{{sunday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{sunday.showThreeDjs}}</div>-->
                 </div>
             </div>
-            
+
             <div class="block" ng-model="monday">
                 <div class="dayHeader"><strong>M</strong>onday</div>
                 <div id="show1Box">
-                {{monday.showOne}}<br>{{monday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{monday.showOneDjs}}</div>-->
+                    {{monday.showOne}}<br>{{monday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{monday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{monday.showTwo}} <br>{{monday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{monday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{monday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{monday.showThree}}<br>{{monday.showThreeTime}}
-                <!--<div id="show3Overlay">{{monday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{monday.showThreeDjs}}</div>-->
                 </div>
             </div>
             <div class="block" ng-model="tuesday">
                 <div class="dayHeader"><strong>T</strong>uesday</div>
                 <div id="show1Box">
-                {{tuesday.showOne}}<br>{{tuesday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{tuesday.showOneDjs}}</div>-->
+                    {{tuesday.showOne}}<br>{{tuesday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{tuesday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{tuesday.showTwo}} <br>{{tuesday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{tuesday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{tuesday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{tuesday.showThree}}<br>{{tuesday.showThreeTime}}
-                <!--<div id="show3Overlay">{{tuesday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{tuesday.showThreeDjs}}</div>-->
                 </div>
             </div>
-             <div class="block" ng-model="wednesday">
+            <div class="block" ng-model="wednesday">
                 <div class="dayHeader"><strong>W</strong>ednesday</div>
                 <div id="show1Box">
-                {{wednesday.showOne}}<br>{{wednesday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{wednesday.showOneDjs}}</div>-->
+                    {{wednesday.showOne}}<br>{{wednesday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{wednesday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{wednesday.showTwo}} <br>{{wednesday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{wednesday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{wednesday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{wednesday.showThree}}<br>{{wednesday.showThreeTime}}
-                <!--<div id="show3Overlay">{{wednesday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{wednesday.showThreeDjs}}</div>-->
                 </div>
             </div>
             <div class="block" ng-model="thursday">
                 <div class="dayHeader"><strong>T</strong>hursday</div>
                 <div id="show1Box">
-                {{thursday.showOne}}<br>{{thursday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{thursday.showOneDjs}}</div>-->
+                    {{thursday.showOne}}<br>{{thursday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{thursday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{thursday.showTwo}} <br>{{thursday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{thursday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{thursday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{thursday.showThree}}<br>{{thursday.showThreeTime}}
-                <!--<div id="show3Overlay">{{thursday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{thursday.showThreeDjs}}</div>-->
                 </div>
             </div>
-           <div class="block" ng-model="friday">
+            <div class="block" ng-model="friday">
                 <div class="dayHeader"><strong>F</strong>riday</div>
                 <div id="show1Box">
-                {{friday.showOne}}<br>{{friday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{friday.showOneDjs}}</div>-->
+                    {{friday.showOne}}<br>{{friday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{friday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{friday.showTwo}} <br>{{friday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{friday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{friday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{friday.showThree}}<br>{{friday.showThreeTime}}
-                <!--<div id="show3Overlay">{{friday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{friday.showThreeDjs}}</div>-->
                 </div>
             </div>
             <div class="block" ng-model="saturday">
                 <div class="dayHeader"><strong>S</strong>aturday</div>
                 <div id="show1Box">
-                {{saturday.showOne}}<br>{{saturday.showOneTime}}
-                <br><br>
-                <!--<div id="show1Overlay">{{saturday.showOneDjs}}</div>-->
+                    {{saturday.showOne}}<br>{{saturday.showOneTime}}
+                    <br><br>
+                    <!--<div id="show1Overlay">{{saturday.showOneDjs}}</div>-->
                 </div>
                 <div id="show2Box">{{saturday.showTwo}} <br>{{saturday.showTwoTime}}
-                <br><br>
-                <!--<div id="show2Overlay">{{saturday.showTwoDjs}}</div>-->
+                    <br><br>
+                    <!--<div id="show2Overlay">{{saturday.showTwoDjs}}</div>-->
                 </div>
                 <div id="show3Box">{{saturday.showThree}}<br>{{saturday.showThreeTime}}
-                <!--<div id="show3Overlay">{{saturday.showThreeDjs}}</div>-->
+                    <!--<div id="show3Overlay">{{saturday.showThreeDjs}}</div>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 <br><br>
-<!--<p id="wearesubstrate">WE ARE SUBSTRATE</p>-->
-<!--</div>-->
-<div class="djsection-row">
-    <div class="col-xs-12 djsection">
-        <!--<div class="djsection">-->
-        <div id="djbox">
-            <div ng-repeat="dj in dj">
-                <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
-                    <div id="overlay">
-                        <span id="plus">
+
+<div class="dj-section">
+    <div class="container-fluid">
+        <div class="dj-container">
+            <div class="dj-section-title">
+                <h3 class="dj-title">Meet the Substrate DJs</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-0.25 col-md-4 col-md-offset-0.25 col-sm-6 col-sm-offset-0.25 col-xs-10 col-xs-offset-0.25"
+                    ng-repeat="dj in djList">
+                    <div class="dj-box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
+                        <div class="dj-box-overlay">
                             <h1>{{dj.firstname}} {{dj.lastname}}</h1>
-                            <p id="bio">{{dj.bio}}</p>
-                        </span>
+                            <p class="dj-bio">{{dj.bio}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <br><br>
+
 <!--//---------------------------------------------//-->
 <!--//===============  podcast SECTION =================//-->
-<div style="background-image:url('./assets/background2.jpg');background-size:cover; background-repeat: no-repeat;" class="row">
-    <div id="podcast-container">
-        <div style="font-size: 2em; font-weight: bolder;color:white;"> Latest Podcasts
-        </div>
-        <div ng-repeat="podcast in podcasts" class="podcastRepeatDiv">
-            <div class="podbackground" id="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
-                <a target="_blank" href="{{podcast.url}}">
-                    <div id="podcast-overlay">
-                        <span id="podcasttext">
-                        <p>{{podcast.name}}</p>
-                        </span>
-                    </div>
-                </a>
+<div class="podcast-section">
+    <div class="container-fluid">
+        <div id="podcast-section-title"> Latest Podcasts</div>
+        <div class="row">
+            <div cclass="col-lg-4 col-lg-offset-0.25 col-md-6 col-md-offset-0.25 col-sm-8 col-sm-offset-0.25 col-xs-10 col-xs-offset-0.25"
+                ng-repeat="podcast in podcasts">
+                <div class="podcast-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
+                    <a target="_blank" href="{{podcast.url}}">
+                        <div class="podcast-overlay">
+                            <p>{{podcast.name}}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <br><br>
 <!--//---------------------------------------------//-->
 <!--//===============  follow us SECTION =================//-->
@@ -256,8 +256,8 @@
             </div>
             <div class="modal-body">
                 <center>
-                    <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
-                    <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Email" ng-model="fromEmail"
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                    <input type="email" name="mail" id="contactemail" required="required" class="form" placeholder="Your email" ng-model="fromEmail"
                     /><br>
                     <input type="text" name="subject" id="contactsubject" required="required" class="form" placeholder="Subject" ng-model="subject"
                     /><br>
@@ -265,7 +265,7 @@
                 </center>
             </div>
             <div class="modal-footer">
-                <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
+                <button type="submit" id="submit" name="submit" class="form-btn semibold" ng-click="sendMessage()">Send Message</button>
             </div>
         </div>
     </div>

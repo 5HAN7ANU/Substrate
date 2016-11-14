@@ -62,7 +62,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
         })
         .when('/podcasts',{
             templateUrl: 'views/podcasts.html',
-            controller: 'PodController'
+            controller: 'PodcastController'
         })
         .when('/admin', {
             templateUrl: 'views/admin.html',
