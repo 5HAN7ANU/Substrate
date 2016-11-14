@@ -39,8 +39,9 @@
     margin: auto;
 }
 
-#cal {
-    margin-left: 7%;
+.calendar {
+    text-align: center;
+    margin-left: 3%;
     margin-top: 35px;
 }
 
