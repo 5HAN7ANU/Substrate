@@ -1061,46 +1061,48 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         
         var userId = $routeParams.id;
 
-        $scope.featuredUser = Users.get({ id: userId }, function () {
-            console.log('The user is: ' + $scope.featuredUser.firstname);
-            $scope.featuredUser.role = String($scope.featuredUser.role);
-            $scope.featuredUser.dj = String($scope.featuredUser.dj);
-            $scope.id = $scope.featuredUser.id;
-            $scope.firstname = $scope.featuredUser.firstname;
-            $scope.lastname = $scope.featuredUser.lastname;
-            $scope.email = $scope.featuredUser.email;
-            $scope.password = $scope.featuredUser.password;
-            $scope.role = $scope.featuredUser.role;
-            $scope.dj = $scope.featuredUser.dj;
-            $scope.imageurl = $scope.featuredUser.imageurl;
-            $scope.bio = $scope.featuredUser.bio;
+        // $scope.featuredUser = Users.get({ id: userId }, function () {
+        //     console.log('The user is: ' + $scope.featuredUser.firstname);
+        //     $scope.featuredUser.role = String($scope.featuredUser.role);
+        //     $scope.featuredUser.dj = String($scope.featuredUser.dj);
+        //     $scope.id = $scope.featuredUser.id;
+        //     $scope.firstname = $scope.featuredUser.firstname;
+        //     $scope.lastname = $scope.featuredUser.lastname;
+        //     $scope.email = $scope.featuredUser.email;
+        //     $scope.password = $scope.featuredUser.password;
+        //     $scope.role = $scope.featuredUser.role;
+        //     $scope.dj = $scope.featuredUser.dj;
+        //     $scope.imageurl = $scope.featuredUser.imageurl;
+        //     $scope.bio = $scope.featuredUser.bio;
 
-            console.log('Controllers.js/UpdateUserController: The user is ');
-            console.log($scope.featuredUser);
+        //     console.log('Controllers.js/UpdateUserController: The user is ');
+        //     console.log($scope.featuredUser);
 
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.dj ' + $scope.featuredUser.dj);
+        //     console.log('Controllers.js/UpdateUserController: $scope.featuredUser.dj ' + $scope.featuredUser.dj);
 
-            console.log('Controllers.js/UpdateUserController: $scope.dj = ' + $scope.dj);
-        });
+        //     console.log('Controllers.js/UpdateUserController: $scope.dj = ' + $scope.dj);
+        // });
+
+        $scope.featuredUser = Users.get({ id: userId });
 
         $scope.updateUser = function () {
-            console.log('Controllers.js/UpdateUserController: entered the updateUser function');
+            // console.log('Controllers.js/UpdateUserController: entered the updateUser function');
 
-            $scope.featuredUser.id = $scope.id;
-            $scope.featuredUser.firstname = $scope.firstname;
-            $scope.featuredUser.lastname = $scope.lastname;
-            $scope.featuredUser.email = $scope.email;
-            $scope.featuredUser.password = $scope.password;
-            $scope.featuredUser.role = $scope.role;
-            $scope.featuredUser.dj = $scope.dj;
-            $scope.featuredUser.imageurl = $scope.imageurl;
-            $scope.featuredUser.bio = $scope.bio;
+            // $scope.featuredUser.id = $scope.id;
+            // $scope.featuredUser.firstname = $scope.firstname;
+            // $scope.featuredUser.lastname = $scope.lastname;
+            // $scope.featuredUser.email = $scope.email;
+            // $scope.featuredUser.password = $scope.password;
+            // $scope.featuredUser.role = $scope.role;
+            // $scope.featuredUser.dj = $scope.dj;
+            // $scope.featuredUser.imageurl = $scope.imageurl;
+            // $scope.featuredUser.bio = $scope.bio;
 
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
+            // console.log('Controllers.js/UpdateUserController: $scope.featuredUser.name' + $scope.featuredUser.firstname + ' ' + $scope.featuredUser.lastname);
 
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.email ' + $scope.featuredUser.email);
+            // console.log('Controllers.js/UpdateUserController: $scope.featuredUser.email ' + $scope.featuredUser.email);
 
-            console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
+            // console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
 
             $scope.featuredUser.$update(function (success) {
                 console.log('controllers.js/UpdateUserController: The user was updated!');

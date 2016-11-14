@@ -10,13 +10,13 @@
         <button id="button">Go Back</button>
     </a>
     <br><br>
-    <input type="text" ng-model="firstname" placeholder="First Name">
+    <input type="text" ng-model="featuredUser.firstname" placeholder="First Name">
     <p></p>
-    <input type="text" ng-model="lastname" placeholder="Last Name">
+    <input type="text" ng-model="featuredUser.lastname" placeholder="Last Name">
     <p></p>
-    <input type="email" ng-model="email" placeholder="Email">
+    <input type="email" ng-model="featuredUser.email" placeholder="Email">
     <p></p>
-    <input type="password" ng-model="password" placeholder="Enter New Password">
+    <input type="password" ng-model="featuredUser.password" placeholder="Enter New Password">
     <p></p>
     <label for="userRole">Role </label>
     <select name="userRole" ng-model="featuredUser.role">
@@ -24,13 +24,13 @@
         </select>
     <p></p>
     <label for="userDJ">DJ?</label>
-    <select id="userDJ" name="userDJ" ng-model="dj">
+    <select id="userDJ" name="userDJ" ng-model="featuredUser.dj">
             <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
         </select>
     <p></p>
-    <input id="userImageURL" type="text" ng-model="imageurl" placeholder="Image URL" ng-show="dj == 1">
+    <input id="userImageURL" type="text" ng-model="featuredUser.imageurl" placeholder="Image URL" ng-show="dj == 1">
     <p></p>
-    <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
+    <input id="userBio" type="text" ng-model="featuredUser.bio" placeholder="Bio" ng-show="dj == 1">
     <p></p>
     <button id="button" ng-click="updateUser()">UPDATE USER</button>
 </div>
