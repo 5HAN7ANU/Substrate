@@ -104,3 +104,6 @@ strong {
   z-index: 999999;
   text-align: center;
 }
+.contact-modal{
+  cursor: pointer;
+}
