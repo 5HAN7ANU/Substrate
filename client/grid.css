@@ -1,10 +1,10 @@
-#djimg {
+/*#djimg {
     border-radius: 100%;
     height: 223px;
     width: 202px;
-}
+}*/
 
-.headline {
+/*.headline {
     background-image: url('/assets/aboutus.jpg');
     height: 35vh;
     background-position: center;
@@ -17,9 +17,9 @@
     justify-content: center;
     -webkit-justify-content: center;
     color: white;
-}
+}*/
 
-#box {
+/*#box {
     width: 270px;
     height: 200px;
     box-shadow: inset 1px 1px 40px 0 rgba(0, 0, 0, .45);
@@ -54,7 +54,7 @@
     font-weight: 900;
     color: rgba(255, 255, 255, .85);
     font-size: 96px;
-}
+}*/
 
 #cform{
   

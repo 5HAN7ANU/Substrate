@@ -4,6 +4,7 @@
 		height: 223px;
 		width: 202px;
 	}
+/*	
 	
 	.headline {
 		background-image: url('/assets/aboutus.jpg');
@@ -18,7 +19,7 @@
 		justify-content: center;
 		-webkit-justify-content: center;
 		color: white;
-	}
+	}*/
 
 	#previewBox {
 		width: 500px;
@@ -174,7 +175,7 @@
 	opacity: 1;
 }
 
-#bio {
+/*#bio {
 	font-size: 12px;
 }
 
@@ -200,7 +201,7 @@
 	font-weight: 900;
 	color: rgba(255, 255, 255, .85);
 	font-size: 96px;
-}
+}*/
 
 #cform {
 	/*border: 2px solid blue;*/
