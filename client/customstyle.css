@@ -307,6 +307,35 @@ li.ng-scope {
   float: left;
 }
 
+.podcast-page {
+  margin-bottom: 120px;
+}
+
+.podcast-page-box {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.podcast-page-overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+	width: 200px;
+	height: 200px;
+  border-radius: 10px;
+}
+
+.podcast-page-box:hover .podcast-page-overlay {
+  opacity: 1;
+  color: white;
+}
+
 /*#podcasttext {
   color: white;
 }*/

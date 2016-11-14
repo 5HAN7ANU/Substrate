@@ -1126,10 +1126,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             alert('You have been logged out!');
         };
     }])
-    .controller('PodController', ['$scope', 'Pods', function ($scope, Pods) {
+    .controller('PodcastController', ['$scope', 'Pods', function ($scope, Pods) {
         console.log('PodController');
 
-        $scope.pod = Pods.query();
+        $scope.podcastList = Pods.query();
         console.log($scope.allpod);
 
 
