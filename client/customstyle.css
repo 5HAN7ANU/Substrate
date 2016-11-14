@@ -192,6 +192,7 @@ li.ng-scope {
   background-position-x: center;
   padding-bottom: 12px;
   z-index: 0;
+  min-width: 100%;
 }
 
 .block {
@@ -278,11 +279,26 @@ li.ng-scope {
 
 /*/========================podcast/follow us  section======================/*/
 
-.podbackground {
+/*.podbackground {
   background-image: url('./assets/aboutus.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
+}*/
+
+#podcast-section-title {
+  font-size: 2em;
+  font-weight: bolder;
+  color: white;
+}
+
+.podcast-section {
+  background-image: url('./assets/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+	z-index: 0;
+	color: white;
 }
 
 .podcasts {
@@ -291,9 +307,9 @@ li.ng-scope {
   float: left;
 }
 
-#podcasttext {
+/*#podcasttext {
   color: white;
-}
+}*/
 
 .followus {
   background-image: url(/assets/background7.jpg);
@@ -313,6 +329,7 @@ li.ng-scope {
   text-align: center;
   z-index: 0;
   color: white;
+  width: 100%;
 }
 
 .podcasts {

@@ -142,7 +142,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
 
         //----------------------------------------------
-        $scope.dj = Users.getDj();
+        $scope.djList = Users.getDj();
         console.log($scope.dj);
 
         $scope.podcasts = Podcasts.query();
@@ -237,13 +237,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                         var location = String(events[i].location);
                         var locationSplit = location.split(' ');
                         if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
+                            events[i].location = '@ Iron City';
                         }
                         else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
+                            events[i].location = '@ The Nick';
                         }
                         else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = 'Saturn';
+                            events[i].location = '@ Saturn';
                         }
                         else {
                             events[i].location = 'Substrate Radio';
