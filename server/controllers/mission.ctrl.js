@@ -55,12 +55,7 @@ router.put('/:id', auth.isAdmin, function (req, res) {
 });
 
 
-router.delete('/:id', auth.isAdmin, function (req, res, next) {
-    var sure = alert('Are you sure you want to delete this mission statement?');
-    if (sure) {
-        next();
-    }
-}, function (req, res) {
+router.delete('/:id', auth.isAdmin, function (req, res) {
     procedures.procDeleteMissionStatement(req.params.id)
         .then(function () {
             res.sendStatus(204);
