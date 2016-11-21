@@ -1,0 +1,115 @@
+
+
+.date {
+    padding-top: 10px;
+    width: 150px;
+    min-height: 150px;
+    max-height: 150px;
+    border: black solid 2px;
+    color: black;
+    float: left;
+    margin: 0.5px;
+    clear: right;
+    background-color: rgba(95, 111, 119, 0.8);
+    overflow: scroll;
+}
+
+.date-time {
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.date-title {
+    font-size: 12px;
+    margin-top: 20px;
+    color: white;
+}
+
+.date-text {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+#map {
+    width: 40%;
+    height: 375px;
+    background-color: grey;
+    border: black solid 1px;
+    margin: auto;
+}
+
+.calendar {
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 35px;
+}
+
+.date-information {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.date-scroll {
+    overflow: scroll;
+}
+
+.calendar-header {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.content {
+    color: black;
+}
+
+.week-date-time {
+    color: black;
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.week-date-title {
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.week-date-text {
+    color: black;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.map-list {
+    float: left;
+    margin-left: 200px;
+    margin-top: 100px;
+    color: white;
+}
+
+.map-container {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 10em;
+}
+
+.map {
+    margin-top: 10px;
+    border-top: 1px white solid;
+}
+
+.weekDate {
+    margin-bottom: 40px;
+}
+
+.eventSummary {
+    font-size: 14px;
+    margin-top: 20px;
+    color: white;
+}
+
+@media screen and (max-height)

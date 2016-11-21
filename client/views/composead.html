@@ -1,0 +1,25 @@
+<div>
+    <div class="container" id="top-container">
+        <p class="navbar-text navbar-right"><a class="navbar-link" ng-click="logout()">logout</a></p>
+        <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link">My Profile</a></p>
+    </div>
+    <br><br><br>
+    <div id="composeAd">
+        <a href="/admin">
+            <button id="button">Go Back</button>
+        </a>
+        <button ng-click="submitFeaturedAd()">SAVE AD</button>
+        <br><br>
+        <input type="text" ng-model="adName" placeholder="Ad Name">
+        <br><br>
+        <input type="text" ng-model="adLink" placeholder="Ad Link">
+        <br><br>
+        <input type="text" ng-model="imageurl" placeholder="Image URL">
+    </div>
+
+    <div id="composeAdPreview">
+        <h3>PREVIEW</h3>
+        <a target="_blank" ng-href="http://{{adLink}}">
+            <div id="previewBox" ng-style="{'background-image':'url(' + imageurl + ')'}"></div>
+        </a>
+    </div>

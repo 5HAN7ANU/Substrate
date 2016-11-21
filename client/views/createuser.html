@@ -1,0 +1,36 @@
+<div>
+    <div id="createUser">
+        <a href="/admin">
+            <button id="button">GO BACK</button>
+        </a>
+        <button id="button" ng-click="create()">CREATE USER</button>
+        <br><br><br>
+        <input type="text" ng-model="firstname" placeholder="First Name">
+        <p></p>
+        <input type="text" ng-model="lastname" placeholder="Last Name">
+        <p></p>
+        <input type="email" ng-model="email" placeholder="Email">
+        <p></p>
+        <input type="password" ng-model="password" placeholder="Password">
+        <p></p>
+        <label for="userRole">Role </label>
+        <select name="userRole" ng-model="role">
+                <option ng-repeat="role in roles" value="{{role.value}}">{{role.name}}</option>
+            </select>
+        <p></p>
+        <label for="userDJ">DJ?</label>
+        <select name="userDJ" ng-model="dj">
+                <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
+            </select>
+        <p></p>
+        <input id="userImageURL" type="text" ng-model="imageurl" placeholder="Image URL" ng-show="dj == 1">
+        <p></p>
+        <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
+        <p></p>
+    </div>
+
+    <div id="createUserPreview">
+        <h3>PREVIEW</h3>
+        <div id="previewBox" ng-style="{'background-image':'url(' + imageurl + ')'}"></div>
+    </div>
+</div>

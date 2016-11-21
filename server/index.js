@@ -8,12 +8,11 @@ var api = require('./api');
 var fs = require('fs');  // do we need?  INSTALL!!
 var prerender = require('prerender-node');
 
-
 var app = express();
 var clientPath = path.join(__dirname, '../client');
 
-// prerender.set('prerenderToken', process.env.PRERENDER_TOKEN);
-// app.use(prerender);
+prerender.set('prerenderToken', process.env.PRERENDER_TOKEN);
+app.use(prerender);
 
 app.use(express.static(clientPath));
 app.use(cookieParser());
@@ -33,6 +32,3 @@ app.get('*', function(req, res, next) {
 
 app.listen(process.env.PORT || 3000);
 console.log("server listening on port 3000");
-
-
-//================== moved 'isAsset' to utils.js

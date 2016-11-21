@@ -1,177 +1,710 @@
-/*index.html*/
-#indexBackground {
-  background: url('../assets/substrateBackground.jpeg');
+/*/========================home.html======================/*/
+
+
+/*********************************************************/
+
+.middlesection {
+  /*margin-top: 100px;*/
+  /*width: 100%;*/
+  /*background-image: url(../assets/background1.jpg);
   background-repeat: no-repeat;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  -webkit-background-size: contain;
-  background-size: contain;
-  background-position: center center;
-
+  background-size: cover;*/
+  margin-top: 10px;
+  z-index: 0;
+  /*border: 1px white solid;*/
 }
 
-/*contactpage*/
- #contact{
-    padding:10px 0 10px;
-  }
 
-  .contact-text{
-    margin:45px auto;
-  }
+/*//===============event calender Container ==============//*/
 
-  .mail-message-area{
-    width:100%;
-    padding:0 15px;
-  }
+#eventCalendarContainer {
+  text-align: center;
 
-  .mail-message{
-    width: 100%;
-    background:rgba(255,255,255, 0.8) !important;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    transition: all 0.7s;
-    margin:0 auto;
-    border-radius: 0;
-  }
-
-  .not-visible-message{
-    height:0px;
-    opacity: 0;
-  }
-
-  .visible-message{
-    height:auto;
-    opacity: 1;
-    margin:25px auto 0;
-  }
-
-/* Input Styles */
-
-  .form{
-    width: 100%;
-    padding: 15px;
-    background:#f8f8f8;
-    border:1px solid rgba(0, 0, 0, 0.075);
-    margin-bottom:25px;
-    color:#727272 !important;
-    font-size:13px;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-  }
-
-  .form:hover{
-    border:1px solid #8BC3A3;
-  }
-
-  .form:focus{
-    color: white;
-    outline: none;
-    border:1px solid #8BC3A3;
-  }
-
-  .textarea{
-    height: 200px;
-    max-height: 200px;
-    max-width: 100%;
-  }
+  /*charley changed 11/12 */
+  padding: 0px;   
+  /*//-----------//    */
   
-/* Generic Button Styles */
-
-  .button{
-    padding:8px 12px;
-    background:#0A5175;
-    display: block;
-    width:120px;
-    margin:10px 0 0px 0;
-    border-radius:3px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    text-align:center;
-    font-size:0.8em;
-    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-  }
-
-  .button:hover{
-    background:#8BC3A3;
-    color:white;
-  }
-
-/* Send Button Styles */
-
-  .form-btn{
-    width:180px;
-    display: block;
-    height: auto;
-    padding:15px;
-    color:#fff;
-    background:#8BC3A3;
-    border:none;
-    border-radius:3px;
-    outline: none;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    margin:auto;
-    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-  }
-
-  .form-btn:hover{
-    background:#111;
-    color: white;
-    border:none;
-  }
-
-  .form-btn:active{
-    opacity: 0.9;
-  }
-center{
-  margin-top:330px;
+  margin-top: 10px;
+  margin-right: 20px;
+  /*margin-left: 40px;*/
+  border-radius: 10px;
+  height: 600px;
+  /*width: 280px;*/
+  background-color: rgba(128, 128, 128, 0.3);
+  overflow: scroll;
 }
-input {
-    position: relative;
-    z-index: 9999;
-}
-/*end contact form*/
 
-/*compose css*/
-#file-input {
+.iframe-side-calendar {
+  margin: 0px;
+  padding: 0px;
+  height: 600px;
+  border-radius: 10px;
+}
+.week-date-title{
+  margin: 8px;
+}
+
+
+/*//=============================================//*/
+
+
+/*//========== home page featured event Container=====================//*/
+
+/*#featuredEventContainer {
+  height: 600px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  padding: 0px; 
+  background-color: rgba(128, 128, 128, 0.3);
+}*/
+
+
+/*//-------carousel-------//*/
+
+#eventSlides_control>div {
+  height: 200px;
+}
+
+.eventImg {
+  margin: 0px;
+  width: auto;
+  height: 100%;
+}
+
+#eventSlides_control {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 20px;
+  margin-left: -200px;
+}
+
+.featuredEventBackground {
+  /*position: absolute;*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 600px;
+  /*max-width: 100%;
+  max-height: 70%;*/
+  /*border-radius: 10px;*/
+}
+
+
+/*//=======   home page ads Container  ========//*/
+
+#adContainer {
+  margin-top: 10px;
+  /*margin-left: 5px;*/
+  border-radius: 10px;
+  height: 600px;
+  padding: 0px;
+  /*width: 280px;*/
+  background-color: rgba(128, 128, 128, 0.3);
+  /*float: left;*/
+  /*margin-left: 25px;*/
+}
+
+
+/*//-------carousel-------//*/
+#carousel1{
+  margin-top: 40px;
+}
+#carousel2{
+  margin-top: 40px;
+}
+.adImg {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#ad1 {
+  margin-top: 10px;
+}
+
+#ad2 {
+  margin-top: 10px;
+}
+
+.adSlides {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.featuredAdBackground {
+  /*position: absolute;*/
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  max-width: 100%;
+  /*border-radius: 10px;*/
+}
+
+a.right.carousel-control {
   display: none;
 }
 
-input.btn.btn-success {
+a.left.carousel-control {
+  display: none;
+}
+
+li.ng-scope {
+  display: none;
+}
+
+
+/*//-----------------------------------------------------//*/
+
+
+/*//================ about section ====================//*/
+
+.aboutBackground {
+  background-color: white;
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  color: black;
+  padding: 10px;
+}
+
+#abouttext {
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+  padding: 5px;
+}
+
+#wearesubstrate {
+  font-weight: bolder;
+  margin-left: 9em;
+}
+
+.djsection {
+  background-image: url('./assets/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding-bottom: 12px;
+  z-index: 0;
+  min-width: 100%;
+}
+
+.block {
+  background: white;
+  background-repeat: repeat-y;
+  height: 200px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 130px;
+  display: block;
+  /*border: 3px solid black;*/
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  
+}
+.dayHeader{
+  margin-bottom: 3px;
+}
+#show1Box{
+  height: 70px;
+  width: 140px;
+}
+
+#show2Box{
+  height: 70px;
+  width: 140px;
+}
+
+#show3Box{
+  height: 70px;
+  width: 140px;
+}
+#show1Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show1Box:hover #show1Overlay{
+  opacity: 1;
+}
+#show2Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show2Box:hover #show2Overlay{
+  opacity: 1;
+}
+
+#show3Overlay{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  opacity: 0;
+}
+#show3Box:hover #show3Overlay{
+  opacity: 1;
+}
+
+
+.block1 {
+  background: WHITE;
+  height: 130px;
+  width: 432px;
+  display: block;
+  border: 3px solid black;
+  
+  /*float: left;*/
+}
+#scheduleBox{
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+
+/*//-----------------------------------------------------//*/
+
+
+/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+
+
+/*/========================podcast/follow us  section======================/*/
+
+/*.podbackground {
+  background-image: url('./assets/aboutus.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+}*/
+.podcast-container {
+  margin-left: 20px;
+}
+
+#podcast-section-title {
+  font-size: 2em;
+  font-weight: bolder;
+  color: white;
+}
+
+.podcast-section {
+  background-image: url('./assets/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+	z-index: 0;
+	color: white;
+}
+
+.podcasts {
+  position: relative;
+  color: white;
+  float: left;
+}
+
+.podcast-page {
+  margin-bottom: 120px;
+}
+
+.podcast-page-box {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.podcast-page-overlay {
+	background: rgba(0, 0, 0, .75);
+	text-align: center;
+	padding: 45px 0 84px 0;
+	opacity: 0;
+	width: 200px;
+	height: 200px;
+  border-radius: 10px;
+}
+
+.podcast-page-box:hover .podcast-page-overlay {
+  opacity: 1;
+  color: white;
+}
+
+/*#podcasttext {
+  color: white;
+}*/
+
+.followus {
+  /*background-image: url(/assets/background7.jpg);*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  height: 161px;
+  /*background-color: whitesmoke;*/
+  color: black;
+  text-align: center;
+  /* margin-top: 35em; */
+  padding: 2px;
+  margin-bottom: 7em;
+}
+
+#djbox {
+  text-align: center;
+  z-index: 0;
+  color: white;
+  width: 100%;
+}
+
+.podcasts {
+  position: relative;
+  color: white;
+  float: left;
+}
+
+
+/*#podcasttext {
+  color: white;
+}*/
+
+
+/*/========================calendar.html======================/*/
+
+
+/*************************************************************/
+
+.eventSummary {
+  color: white;
+}
+
+
+/*/========================contact.html======================/*/
+
+
+/*************************************************************/
+
+#contact {
+  padding: 10px 0 10px;
+}
+
+.contact-text {
+  margin: 45px auto;
+}
+
+.mail-message-area {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.mail-message {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8) !important;
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  transition: all 0.7s;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.not-visible-message {
+  height: 0px;
+  opacity: 0;
+}
+
+.visible-message {
+  height: auto;
+  opacity: 1;
+  margin: 25px auto 0;
+}
+
+.contacthtml {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+
+/* Input Styles */
+
+.form {
+  width: 100%;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  margin-bottom: 25px;
+  color: #727272 !important;
+  font-size: 13px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.form:hover {
+  border: 1px solid #8BC3A3;
+}
+
+.form:focus {
+  color: white;
+  outline: none;
+  border: 1px solid #8BC3A3;
+}
+
+.textarea {
+  height: 200px;
+  max-height: 200px;
+  max-width: 100%;
+}
+
+#message {
+  border: 2px solid red;
+  height: 126px;
+}
+
+
+/* Generic Button Styles */
+
+.button {
+  padding: 8px 12px;
+  background: #0A5175;
+  display: block;
+  width: 120px;
+  margin: 10px 0 0px 0;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  font-size: 0.8em;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.button:hover {
+  background: #8BC3A3;
+  color: white;
+}
+
+
+/* Send Button Styles */
+
+.form-btn {
+  width: 180px;
+  display: block;
+  height: auto;
+  padding: 15px;
+  color: #fff;
+  background: #8BC3A3;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: auto;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.form-btn:hover {
+  background: #111;
+  color: white;
+  border: none;
+}
+
+.form-btn:active {
+  opacity: 0.9;
+}
+
+center {
+  margin-top: 330px;
+}
+
+input {
+  position: relative;
+  z-index: 9999;
+}
+
+
+/*//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//*/
+
+
+/*userlist.html*/
+
+#usersList {
+  float: left;
+  padding: 20px;
+  color: white;
+  border: 1px solid whitesmoke;
+  margin: 15px 15px 15px 15px;
+}
+
+
+/*end userlist.html*/
+
+
+/*updateuser.html*/
+
+#updateUser {
+  color: white;
+  margin-left: 20%;
+  float: left;
+}
+
+#udpate-user-preview-container{
   float: right;
-  border-radius: 0;
-  outline: none!important;
+  color: white;
+  margin-right: 20%;
 }
 
-label.btn-info {
-  border-radius: 0;
-  outline: none!important;
+/*end updateuser.html*/
+
+
+/*admin.html*/
+
+.adminPosts {
+  color: white;
 }
 
-form {
-    margin: 0.5%;
+button {
+  background-color: black;
+  color: white;
 }
 
-textarea.form-control {
-    box-shadow: 0 0 0 0!important;
-    border-radius: 0;
-    margin-bottom: 1%;
-    max-width: 100%;
-    height: 80px;
-    min-height: 80px;
-    max-height: 80px;
-}
-
-.thumbnail {
-  border-radius: 0!important;
+.list-group-item {
+  background-color: black;
+  color: white;
 }
 
 
-/*end compose css*/
+/*end admin.html*/
+
+body {
+  font-family: LuloCleanOne;
+}
+
+label {
+  color: white;
+}
+
+input {
+  color: black;
+}
+
+select {
+  color: black;
+}
+
+#editMissionStatementContainer {
+  margin-top: 80px;
+}
+
+.facebook {
+  height: 3em;
+  margin-bottom: 2em;
+}
+
+#missionStatementsDiv {
+  margin-top: 40px;
+}
+
+#usersDiv {
+  text-align: center;
+  margin-top: 5%;
+}
+
+#userListContainer {
+  margin-top: 20px;
+}
+
+#mission-statement {
+  background-image: url('./assets/Logoabout.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  /*margin-left: 3px;*/
+}
+
+.podcastRepeatDiv {
+  text-align: center;
+}
+
+#createUser {
+  float: left;
+  margin-left: 15%;
+  margin-top: 4%;
+}
+
+#createUserPreview{
+  float: left;
+  color: white;
+}
+
+#composeFeaturedEvent {
+  float: left;
+  margin-left: 10%;
+}
+
+#composeFeaturedEventPreview {
+  float: left;
+  color: white;
+}
+
+#composeAd {
+  float: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#composeAdPreview {
+  float: left;
+  color: white;
+}
+
+#weeklyScheduleDiv{
+  color: white;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  float: middle;
+  
+}
+
+.weekday{
+  width: 30%;
+  float: left;
+  padding: 5%;
+}
+
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.mainpod{
+  margin-bottom: 20px;
+}

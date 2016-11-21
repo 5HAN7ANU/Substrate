@@ -1,10 +1,9 @@
 {
-  "name": "final-projct",
+  "name": "substrateradiowebsite",
   "version": "1.0.0",
-  "description": "",
   "main": "server/index.js",
   "scripts": {
-    "test": "nodemon -e js,less --exec \"lessc client/styles/main.less client/style.css && node server/index.js\""
+    "test": "source .variables && nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +14,24 @@
     "express": "^4.14.0",
     "express-mysql-session": "^1.2.0",
     "express-session": "^1.14.2",
-    "mysql": "^2.11.1",
+    "google-auth-library": "^0.9.9",
+    "googleapis": "^14.2.0",
+    "hover.css": "^2.0.2",
+    "mixcloud": "^1.0.1",
+    "mysql": "^2.12.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "prerender-node": "^2.5.0",
     "sendgrid": "^4.7.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5HAN7ANU/Substrate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/5HAN7ANU/Substrate/issues"
+  },
+  "homepage": "https://github.com/5HAN7ANU/Substrate#readme",
+  "description": ""
 }

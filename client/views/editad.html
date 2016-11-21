@@ -1,0 +1,21 @@
+<div class="container" id="bottom-container">
+    <div class="form-group">
+        <br>
+        <label for="adPublish">Publish? </label>
+        <select name="adPublish" ng-model="featuredAd.publish">
+                  <option ng-repeat="publishValue in publishValues" value="{{ publishValue.value }}">{{ publishValue.name }}</option>
+            </select>
+        <br>
+        <input type="text" class="form-control" ng-model="featuredAd.adName" placeholder="Ad Name">
+        <br>
+        <input type="text" class="form-control" ng-model="featuredAd.imageurl" placeholder="Image URL">
+        <br>
+        <input type="text" class="form-control" ng-model="featuredAd.adLink" placeholder="Ad Link">
+    </div>
+    <button id='cancelUpdateButton' class="btn btn-default" type="button" ng-click="cancelupdate()">Go Back</button>
+    <button id='updateButton' class="btn btn-default" type="button" ng-click="update()">Update!</button>
+    <button id='deleteButton' class="btn btn-default" type="button" ng-click="promptDelete()">Delete</button>
+</div>
+<br>
+<h3>PREVIEW</h3>
+<div id="previewBox" ng-style="{'background-image':'url(' + featuredAd.imageurl + ')'}"></div>

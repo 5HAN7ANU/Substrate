@@ -1,19 +1,38 @@
-<br>
-
-<div class="container">
-  <div class="row">
-    <div class="thumbnail">
-      <form>
-      <textarea class="form-control" placeholder="Write something" name="post"></textarea>
-        <label for="file-input" class="btn btn-info"><i class="glyphicon glyphicon-camera"></i>    
-        </label>
-
-      <input class="btn btn-success" type="submit" value="Publish">
-
-         <input id="file-input" name="file" type="file" name="pic" accept="image/*" hidden />
-      </form>
-      </div>
-  </div>
+<div class="magBackground">
+  <div class="container subNavBar" id="top-container">
+  <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
+  <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-hide="loggedIn">My Profile</a></p>
 </div>
 
 
+<div class="page-header">
+  <h1 class="magPageTitleHeader1">Substrate Article Composer </h1>
+  <h4 class="magByLineHeader"> author: {{ ME.firstname }} {{ ME.lastname }}</h4>
+</div>
+
+
+<div class="container" id="top-container">
+  <form name="ArticleForm">
+    <input type="text" id='ArticleTitleBox' class="form-control" ng-model="post.title" placeholder="Title goes here..." required>
+</div>
+
+<div class="container" id="bottom-container">
+
+  <div class="form-group">
+    <textarea class="form-control" rows="15" id="ArticleContentBox" ng-model="post.content" placeholder="Compose blog post here..."
+      required></textarea>
+  </div>
+
+   <div class="form-group">
+     <input type="text" id='ArticleImageUrlBox' class="form-control" ng-model="post.imageurl" placeholder="Image URL goes here..." required>
+  </div>
+
+  
+  
+  <span class="input-group-btn">
+          <button id = 'postButton' class="btn btn-default" type="button" ng-disabled="ArticleForm.$invalid" ng-click="submitArticle()">Submit Article</button>
+          <a href="/userprofile"><button class="btn btn-default" type="button" >Cancel</button></a>
+        </span>
+  </form>
+</div>
+</div>

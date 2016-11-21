@@ -1,24 +1,48 @@
-<br />
-<div class="inner contact">
-    <div class="contact-form">
-        <form id="contact-us" method="post" action="#">
-            <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
-                <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" ng-model="name"/>
-                <input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email"  ng-model="fromEmail"/>
-                <input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" ng-model="subject"/>
-            </div>
-            <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
-                <textarea name="message" id="message" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
-            </div>
-            <div class="relative fullwidth col-xs-12">
-                <button type="submit" id="submit" name="submit" class="form-btn semibold" ng-click="sendMessage">Send Message</button>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="mail-message-area">
-            <div class="alert gray-bg mail-message not-visible-message">
-                <strong>Thank You !</strong> Your email has been delivered.
-            </div>
+<div class="headline">
+        <h1>About us</h1>
+</div>
+<!--<div class="container">-->
+<div id="djbox">
+        <div ng-repeat="dj in dj">
+                <div id="box" ng-style="{'background-image':'url(' + dj.imageurl + ')'}">
+                        <div id="overlay">
+                                <span id="plus">
+                                        <h1>{{dj.firstname}}</h1>
+                                        <p id="bio">{{dj.bio}}</p>
+                                </span>
+                        </div>
+                </div>
         </div>
-    </div>
+</div>
+<!--</div>-->
+<br>
+<br />
+<br>
+
+<div class="container">
+        <div id="cform" class="inner contact">
+                <div class="contact-form">
+                        <center> <h1 >Contact us</h1></center>
+                       
+                        <form id="contact-us" ng-submit="sendMessage()">
+                                <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+                                        <!--<input type="text" name="name" id="name" required="required" class="form" placeholder="Name" ng-model="name"/>-->
+                                        <input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email" ng-model="fromEmail" />
+                                        <input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" ng-model="subject"/>
+                                </div>
+                                <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
+                                        <textarea name="message" id="message" class="form textarea" required="required" placeholder="Message" ng-model="content"></textarea>
+                                </div>
+                                <div class="relative fullwidth col-xs-12">
+                                        <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
+                                </div>
+                                <div class="clear"></div>
+                        </form>
+                        <div class="mail-message-area">
+                                <div class="alert gray-bg mail-message not-visible-message">
+                                        <strong>Thank You !</strong> Your email has been delivered.
+                                </div>
+                        </div>
+                </div>
+        </div>
 </div>

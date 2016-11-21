@@ -12,7 +12,16 @@ exports.sendEmail = function (fromAddress, subject, content) {
                             email: 'karki011@gmail.com',
                         },
                         {
-                            email: 'adlettow@gmail.com'
+                            email: 'adlettow@gmail.com',
+                        },
+                        {
+                            email: 'pinckc7@gmail.com',
+                        },
+                        {
+                            email:'5han7anu@gmail.com'
+                        },
+                        {
+                            email: 'substrateradio@gmail.com'
                         }
                     ],
                     subject: subject

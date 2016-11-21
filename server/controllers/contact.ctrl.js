@@ -3,7 +3,7 @@ var emailSvc = require('../services/email.svc');
 
 var router = express.Router();
 router.post('/', function (req, res) {
-    emailSvc.sendEmail(req.body.name,req.body.fromEmail, req.body.subject, req.body.content)
+    emailSvc.sendEmail(req.body.fromEmail, req.body.subject, req.body.content)
         .then(function (success) {
             console.log(success);
             res.send('Email Send');
