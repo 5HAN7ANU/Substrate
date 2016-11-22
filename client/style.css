@@ -127,8 +127,15 @@
 
 #navbarLogo{
   margin-top: 5px;
-  margin-right: 15px;
+  margin-left: 15px;
+  float: left;
   /*padding: 3px;*/
+}
+#radioPlayer{
+  width: 320px;
+  height: 95px;
+  position: fixed;
+  right: 0;
 }
 
 @media screen and (max-width: 451px) {
