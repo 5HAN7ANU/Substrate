@@ -23,6 +23,7 @@
     background: url(../assets/background5.jpg);
     background-size: cover;
         /*min-height: 47.2em;*/
+        height: auto;
     min-height: 100%;
     background-repeat: repeat-y;
  margin-bottom: 6em;
@@ -112,6 +113,10 @@ input{
 #singleArticleTitleBox{
     background: rgba(204,204,204,0.4);
     border: transparent;
+}
+#postContainer{
+    height: auto;
+    min-height: 100%;
 }
 /*/======================== compose.html ======================/*/
 /*************************************************************/
