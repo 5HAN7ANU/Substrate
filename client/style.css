@@ -1,4 +1,4 @@
-.custom-drawer {
+/*.custom-drawer {
   display: none;
   position: absolute;
   top: 0;
@@ -27,7 +27,7 @@
 .custom-drawer ul li a {
   text-decoration: none;
   color: inherit;
-}
+}*/
 
 .app {
   position: absolute;
@@ -45,27 +45,49 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 97px;
+  height: 130px;
   background-color: #202020;
   text-align: right;
   /*z-index: 99999;*/
 }
 
+#navbarTopDiv{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 97px;
+}
+.mininavbar {
+  position: absolute;
+  top: 97px;
+  left: 0;
+  width: 100%;
+  height: 33px;
+ 
+}
+
+#linkList{
+ height: 33px;
+}
+
 .app .custom-navbar ul {
-  list-style-type: none;
+  /*list-style-type: none;*/
   padding: 0;
   margin: 0;
   position: absolute;
   top: 0;
   right: 0;
+  text-align: center;
 }
 
 .app .custom-navbar ul li {
   display: inline-block;
-  height: 50px;
-  line-height: 50px;
+  height: 33px;
+  line-height: 33px;
   vertical-align: middle;
   color: white;
+  text-align: center;
 }
 
 .app .custom-navbar ul li a {
@@ -88,7 +110,7 @@
 }
 
 .app .site-content {
-  margin-top: 97px;
+  margin-top: 130px;
   /*padding-top: 3em;*/
   height: 100%;
   /*overflow-x: hidden;*/
@@ -109,12 +131,39 @@
   /*padding: 3px;*/
 }
 
-@media screen and (max-width: 1220px) {
-  .app .custom-navbar ul {
+@media screen and (max-width: 451px) {
+  /*.app .custom-navbar ul {
+    display: none;
+  }*/
+  #navbarLogo{
     display: none;
   }
-  .topbar {
+  #radioPlayer{
+    width: 100%;
+  }
+  #featuredEventContainer{
     display: none;
+  }
+  #eventCalendarContainer{
+    display: none;
+  }
+  #adContainer{
+    display: none;
+  }
+  .dj-section{
+    display: none;
+  }
+  .podcast-section{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .app .custom-navbar{
+    height: 175px;
+  }
+  .app .site-content{
+    margin-top: 175px;
   }
 }
 
@@ -140,20 +189,7 @@ a {
   font-size: 1em;
 }
 
-.mininavbar {
-  background-image: url(./assets/background3.jpg);
-  background-position-x: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-top: 58px;
-  /* text-align: center; */
-  font-size: 12px;
-  position: fixed;
-  z-index: 99999;
-  /* background-color: black; */
-  width: 100%;
-  right: 373px;
-}
+
 
 .mininavbaradmin {
   top: 97px;
@@ -182,11 +218,11 @@ ul li {
   top: -4em;
 }*/
 
-ol,
+/*ol,
 ul {
   margin-top: 8px;
   margin-bottom: 3px;
-}
+}*/
 
 .dlist {
   float: left;
