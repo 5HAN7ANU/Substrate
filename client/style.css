@@ -126,7 +126,7 @@
 }
 
 #navbarLogo{
-  margin-top: 5px;
+  margin-top: 15px;
   margin-left: 15px;
   float: left;
   /*padding: 3px;*/
@@ -136,6 +136,9 @@
   height: 95px;
   position: fixed;
   right: 0;
+  margin-top: 4px;
+  margin-right: 4px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 451px) {
@@ -147,6 +150,8 @@
   }
   #radioPlayer{
     width: 100%;
+    margin: 0px;
+    border-radius: 0px;
   }
   #featuredEventContainer{
     display: none;
