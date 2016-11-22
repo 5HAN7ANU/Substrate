@@ -163,6 +163,12 @@
   .podcast-section{
     display: none;
   }
+  .aboutBackground{
+    margin-top: -50px;
+  }
+  .podcast-page-overlay{
+    opacity:1;
+  }
 }
 
 @media screen and (max-width: 485px) {
