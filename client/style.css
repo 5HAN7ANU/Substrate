@@ -131,6 +131,7 @@
   float: left;
   /*padding: 3px;*/
 }
+
 #radioPlayer{
   width: 320px;
   height: 95px;
@@ -138,7 +139,20 @@
   right: 0;
   margin-top: 4px;
   margin-right: 4px;
-  /*border-radius: 10px;*/
+  /*border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;*/
+  border-top: 1px solid rgba(240,240,240,0.8);
+  border-right: 1px solid rgba(240,240,240,0.8);
+  border-bottom: 1px solid rgba(240,240,240,0.8);
+  border-left: 1px solid rgba(240,240,240,0.8);
+ 
+  /*border-radius: 10px;
+  
+}
+#tuner .bottom{
+  display: none;
 }
 #homeLink{
   display: none;
@@ -165,10 +179,16 @@
   #adContainer{
     display: none;
   }
+  #dj-podcast-backdrop{
+    display: none;
+  }
   .dj-section{
     display: none;
   }
   .podcast-section{
+    display: none;
+  }
+  .breakerDiv{
     display: none;
   }
   .aboutBackground{
@@ -179,6 +199,9 @@
   }
   #homeLink{
   display: inline;
+  }
+  .articleTitleImage{
+    background: contain;
   }
 }
 

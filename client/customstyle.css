@@ -279,6 +279,18 @@ li.ng-scope {
 
 
 /*/========================podcast/follow us  section======================/*/
+.breakerDiv{
+  background-color: white;
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  color: black;
+  padding: 10px;
+  height: 100px;
+  text-align: center;
+  /*margin-top: 25px;*/
+}
 
 /*.podbackground {
   background-image: url('./assets/aboutus.jpg');
@@ -288,12 +300,14 @@ li.ng-scope {
 }*/
 .podcast-container {
   margin-left: 20px;
+  padding: 25px;
 }
 
 #podcast-section-title {
   font-size: 2em;
   font-weight: bolder;
   color: white;
+  
 }
 
 .podcast-section {
