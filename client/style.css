@@ -162,13 +162,29 @@
     display: none;
   }*/
   #navbarLogo{
-    display: none;
+    display: block;
+    margin: auto;
+    align-items: center;
+    float: none;
+  }
+  .topbar{
+    align-items: center;
   }
   #radioPlayer{
     width: 100%;
     margin: 0px;
     border-radius: 0px;
+    /*display: none;*/
+    position: absolute;
+    top: 160px;
   }
+  .app .custom-navbar ul li a {
+  display: block;
+  padding: 0 6px;
+  text-decoration: none;
+  color: gold;
+  font-size: 6px;
+}
   #featuredEventContainer{
     display: none;
   }
@@ -197,7 +213,8 @@
     opacity:1;
   }
   #homeLink{
-  display: inline;
+  /*display: inline;*/
+  display: none;
   }
   .articleTitleImage{
     background: contain;
@@ -206,7 +223,7 @@
 
 @media screen and (max-width: 485px) {
   .app .custom-navbar{
-    height: 200px;
+    height: 255px;
   }
   .app .site-content{
     margin-top: 200px;
