@@ -156,6 +156,9 @@
 #homeLink{
   display: none;
 }
+#mobileBreaksBottom{
+  display: none;
+}
 
 @media screen and (max-width: 451px) {
   /*.app .custom-navbar ul {
@@ -219,6 +222,9 @@
   .articleTitleImage{
     background: contain;
   }
+  #mobileBreaksBottom{
+  display: block;
+}
 }
 
 @media screen and (max-width: 485px) {
