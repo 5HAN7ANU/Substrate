@@ -1,4 +1,4 @@
-<div class="calendar-header">
+<!--<div class="calendar-header">
   <p>{{ monthOfTheYear }}</p>
 </div>
 <div class="container">
@@ -6,20 +6,21 @@
     <div class="date" ng-repeat="day in calendar">
       <div class="date-header">
         <span class="date-time">{{ day[0].start.dateTime | date: 'dd ' }}</span>
-        <!--<span class="date-time">{{ day[0].start.dateTime | date: 'MMM-dd ' }}</span>-->
+        <span class="date-time">{{ day[0].start.dateTime | date: 'MMM-dd ' }}</span>
       </div>
       <div ng-repeat="event in day">
         <div class="date-information">
-          <!--<a class="date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>-->
+          <a class="date-title" ng-href="{{ event.htmlLink }}"<p>{{ event.summary }}</p></a>
           <p class="eventSummary">{{ event.summary }}</p>
           <p class="date-text">{{ event.location }}</p>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</container>
+</div>-->
+
+<div id="calendar" class="calendar"></div>
+<br><br>
 <div class="map">
   <div class="map-list">
     <h3>Venue Locations</h3>

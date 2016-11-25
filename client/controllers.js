@@ -1,5 +1,5 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
-    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact) {
+    .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', function($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact) {
         console.log('Home Controller');
 
         $scope.eventInterval = 8000;
@@ -18,7 +18,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         console.log(timeMax);
 
         CalendarService.getEvents(1000, timeMin, timeMax)
-            .then(function (events) {
+            .then(function(events) {
                 var calendarArray = [];
                 var calendarDay;
                 var calendarMonth;
@@ -73,7 +73,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/ads/even'   // this might need to be before /ads
-        }).then(function (success) {
+        }).then(function(success) {
             console.log(success.data);
             $scope.adArray2 = success.data;
             console.log('this is adArray2: ');
@@ -89,7 +89,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 };
                 $scope.adSlides2.push(adSlide2);
             }
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -97,7 +97,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/ads/odd'   //gets ads with ids that are odd
-        }).then(function (success) {
+        }).then(function(success) {
             console.log(success.data);
             $scope.adArray = success.data;
             console.log('this is adArray: ');
@@ -113,7 +113,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 };
                 $scope.adSlides.push(adSlide);
             }
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -123,7 +123,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/featuredevents'
-        }).then(function (success) {
+        }).then(function(success) {
             console.log(success.data);
             $scope.featuredEventArray = success.data;
             console.log('this is featuredEventArray: ');
@@ -139,7 +139,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 $scope.eventSlides.push(eventSlide);
 
             }
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -162,9 +162,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/mission'
-        }).then(function (success) {
+        }).then(function(success) {
             $scope.missionStatement = success.data[0].statement;
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -174,7 +174,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/weeklyschedule'
-        }).then(function (success) {
+        }).then(function(success) {
             $scope.week = success.data;
             $scope.sunday = $scope.week[0];
             $scope.monday = $scope.week[1];
@@ -183,7 +183,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.thursday = $scope.week[4];
             $scope.friday = $scope.week[5];
             $scope.saturday = $scope.week[6];
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -193,103 +193,116 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
-        $scope.sendMessage = function () {
-        console.log('inside contact controller');
-        var contactInfo = {
-            fromEmail: $scope.fromEmail,
-            subject: $scope.subject,
-            content: $scope.content
+        $scope.sendMessage = function() {
+            console.log('inside contact controller');
+            var contactInfo = {
+                fromEmail: $scope.fromEmail,
+                subject: $scope.subject,
+                content: $scope.content
+            }
+            var contact = new Contact(contactInfo);
+            contact.$save(function() {
+                console.log('Email send ok');
+                location.reload();
+            }, function(err) {
+                console.log(err);
+            });
         }
-        var contact = new Contact(contactInfo);
-        contact.$save(function () {
-            console.log('Email send ok');
-            location.reload();
-        }, function (err) {
-            console.log(err);
-        });
-    }
     }])
 
-    .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
+    .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function($scope, $location, SEOService, CalendarService) {
 
-        var d = new Date();
-        var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
-        var lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+        $(document).ready(function() {
 
-        var timeMin = firstDay.toISOString();
-        var timeMax = lastDay.toISOString();
+            // page is now ready, initialize the calendar...
 
-        console.log(timeMin);
-        console.log(timeMax);
-
-        CalendarService.getEvents(1000, timeMin, timeMax)
-            .then(function (events) {
-                var calendarArray = [];
-                var calendarDay;
-                var calendarMonth;
-                for (i = 0; i < events.length; i++) {
-                    var eventDate = new Date(events[i].start.dateTime).getDate();
-                    var eventMonth = new Date(events[i].start.dateTime).getMonth();
-                    if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
-                        var eventArray = [];
-                        var location = String(events[i].location);
-                        var locationSplit = location.split(' ');
-                        if (locationSplit[0] == "Iron") {
-                            events[i].location = '@ Iron City';
-                        }
-                        else if (locationSplit[0] == "The") {
-                            events[i].location = '@ The Nick';
-                        }
-                        else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = '@ Saturn';
-                        }
-                        else {
-                            events[i].location = 'Substrate Radio';
-                        }
-                        console.log(events[i].location);
-                        eventArray.push(events[i]);
-                        calendarArray.push(eventArray);
-                        calendarDay = eventDate;
-                        calendarMonth = eventMonth;
-                    } else { // not a new day
-                        var location = String(events[i].location);
-                        var locationSplit = location.split(' ');
-                        if (locationSplit[0] == "Iron") {
-                            events[i].location = '@ Iron City';
-                        }
-                        else if (locationSplit[0] == "The") {
-                            events[i].location = '@ The Nick';
-                        }
-                        else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = '@ Saturn';
-                        }
-                        else {
-                            events[i].location = 'Substrate Radio';
-                        }
-                        console.log(events[i].location);
-                        var eventArray = calendarArray[calendarArray.length - 1];
-                        eventArray.push(events[i]);
-                    }
+            $('#calendar').fullCalendar({
+                googleCalendarApiKey: 'AIzaSyBrPUrmwURMRhIomOTXShkeBOSmoLP80Gw',
+                events: {
+                    googleCalendarId: 'substrateradio@gmail.com'
                 }
-                $scope.calendar = calendarArray;
-            });
+            })
 
-        var d = new Date();
-        var month = new Array();
-        month[0] = "January";
-        month[1] = "February";
-        month[2] = "March";
-        month[3] = "April";
-        month[4] = "May";
-        month[5] = "June";
-        month[6] = "July";
-        month[7] = "August";
-        month[8] = "September";
-        month[9] = "October";
-        month[10] = "November";
-        month[11] = "December";
-        var n = month[d.getMonth()];
-        $scope.monthOfTheYear = n;
+        });
+
+        // var d = new Date();
+        // var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
+        // var lastDay = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+
+        // var timeMin = firstDay.toISOString();
+        // var timeMax = lastDay.toISOString();
+
+        // console.log(timeMin);
+        // console.log(timeMax);
+
+        // CalendarService.getEvents(1000, timeMin, timeMax)
+        //     .then(function(events) {
+        //         var calendarArray = [];
+        //         var calendarDay;
+        //         var calendarMonth;
+        //         for (i = 0; i < events.length; i++) {
+        //             var eventDate = new Date(events[i].start.dateTime).getDate();
+        //             var eventMonth = new Date(events[i].start.dateTime).getMonth();
+        //             if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
+        //                 var eventArray = [];
+        //                 var location = String(events[i].location);
+        //                 var locationSplit = location.split(' ');
+        //                 if (locationSplit[0] == "Iron") {
+        //                     events[i].location = '@ Iron City';
+        //                 }
+        //                 else if (locationSplit[0] == "The") {
+        //                     events[i].location = '@ The Nick';
+        //                 }
+        //                 else if (locationSplit[0] == "Saturn,") {
+        //                     events[i].location = '@ Saturn';
+        //                 }
+        //                 else {
+        //                     events[i].location = 'Substrate Radio';
+        //                 }
+        //                 console.log(events[i].location);
+        //                 eventArray.push(events[i]);
+        //                 calendarArray.push(eventArray);
+        //                 calendarDay = eventDate;
+        //                 calendarMonth = eventMonth;
+        //             } else { // not a new day
+        //                 var location = String(events[i].location);
+        //                 var locationSplit = location.split(' ');
+        //                 if (locationSplit[0] == "Iron") {
+        //                     events[i].location = '@ Iron City';
+        //                 }
+        //                 else if (locationSplit[0] == "The") {
+        //                     events[i].location = '@ The Nick';
+        //                 }
+        //                 else if (locationSplit[0] == "Saturn,") {
+        //                     events[i].location = '@ Saturn';
+        //                 }
+        //                 else {
+        //                     events[i].location = 'Substrate Radio';
+        //                 }
+        //                 console.log(events[i].location);
+        //                 var eventArray = calendarArray[calendarArray.length - 1];
+        //                 eventArray.push(events[i]);
+        //             }
+        //         }
+        //         $scope.calendar = calendarArray;
+        //     });
+
+        // var d = new Date();
+        // var month = new Array();
+        // month[0] = "January";
+        // month[1] = "February";
+        // month[2] = "March";
+        // month[3] = "April";
+        // month[4] = "May";
+        // month[5] = "June";
+        // month[6] = "July";
+        // month[7] = "August";
+        // month[8] = "September";
+        // month[9] = "October";
+        // month[10] = "November";
+        // month[11] = "December";
+        // var n = month[d.getMonth()];
+        // $scope.monthOfTheYear = n;
 
 
         SEOService.setSEO({
@@ -299,17 +312,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function ($scope, $location, SEOService, Posts, Users, UserService, $route) {
+    .controller('MagazineController', ['$scope', '$location', 'SEOService', 'Posts', 'Users', 'UserService', '$route', function($scope, $location, SEOService, Posts, Users, UserService, $route) {
         console.log('Magazine Controller');
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
             $scope.loggedIn = true;
         });
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
@@ -327,7 +340,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function ($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
+    .controller('ArticleController', ['$scope', '$routeParams', 'Posts', 'Users', 'UserService', '$location', 'SEOService', function($scope, $routeParams, Posts, Users, UserService, $location, SEOService) {
         console.log('Article Controller');
 
         // UserService.isLoggedIn();
@@ -348,7 +361,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         // console.log($scope.post);
 
-        $scope.goToUpdate = function () {
+        $scope.goToUpdate = function() {
             $location.path('magazine/' + singleId + '/update');
         }
 
@@ -366,7 +379,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function ($scope, $location, SEOService, Users) {
+    .controller('AboutController', ['$scope', '$location', 'SEOService', 'Users', function($scope, $location, SEOService, Users) {
         console.log('About Controller');
 
         $scope.dj = Users.getDj();
@@ -380,17 +393,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeAdController', ['$scope', '$location', 'Ads', 'UserService', 'SEOService', function ($scope, $location, Ads, UserService, SEOService) {
+    .controller('ComposeAdController', ['$scope', '$location', 'Ads', 'UserService', 'SEOService', function($scope, $location, Ads, UserService, SEOService) {
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             UserService.logout()
             $location.path('/');
         }
 
-        $scope.submitFeaturedAd = function () {
+        $scope.submitFeaturedAd = function() {
             var data = {
                 adName: $scope.adName,
                 adLink: $scope.adLink,
@@ -399,13 +412,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             }
 
             var featuredAdToPost = new Ads(data);
-            featuredAdToPost.$save(function (success) {
+            featuredAdToPost.$save(function(success) {
                 console.log('Ad submitted successfully');
                 $location.path('/admin');
             });
         }
 
-        $scope.goBack = function () {
+        $scope.goBack = function() {
             $location.path('/admin');
         }
 
@@ -416,17 +429,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeFeaturedEventController', ['$scope', '$location', 'FeaturedEvents', 'UserService', 'SEOService', function ($scope, $location, FeaturedEvents, UserService, SEOService) {
+    .controller('ComposeFeaturedEventController', ['$scope', '$location', 'FeaturedEvents', 'UserService', 'SEOService', function($scope, $location, FeaturedEvents, UserService, SEOService) {
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             UserService.logout()
             $location.path('/');
         }
 
-        $scope.submitFeaturedEvent = function () {
+        $scope.submitFeaturedEvent = function() {
             var data = {
                 eventName: $scope.eventName,
                 eventDate: $scope.eventDate,
@@ -436,13 +449,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             }
 
             var featuredEventToPost = new FeaturedEvents(data);
-            featuredEventToPost.$save(function (success) {
+            featuredEventToPost.$save(function(success) {
                 console.log('Featured event submitted successfully');
                 $location.path('/admin');
             });
         }
 
-        $scope.goBack = function () {
+        $scope.goBack = function() {
             $location.path('/admin');
         }
 
@@ -453,22 +466,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', 'Posts', function ($scope, $location, UserService, SEOService, Posts) {
+    .controller('ComposeController', ['$scope', '$location', 'UserService', 'SEOService', 'Posts', function($scope, $location, UserService, SEOService, Posts) {
         console.log('Compose Controller');
 
         UserService.requireLogin();
         UserService.isLoggedIn();
 
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
         })
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             UserService.logout()
             $location.path('/posts');
         }
-        $scope.submitArticle = function () {
-            UserService.me().then(function (me) {
+        $scope.submitArticle = function() {
+            UserService.me().then(function(me) {
 
                 var data = {
                     title: $scope.post.title,
@@ -479,7 +492,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 }
 
                 var articleToPost = new Posts(data);
-                articleToPost.$save(function (success) {
+                articleToPost.$save(function(success) {
                     console.log('Article submitted successfully')
                     $location.path('/userprofile');
                 });
@@ -487,7 +500,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             });
 
         }
-        $scope.goBack = function () {
+        $scope.goBack = function() {
             $location.path('/userprofile');
         }
         SEOService.setSEO({
@@ -497,19 +510,19 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             url: $location.absUrl()
         });
     }])
-    .controller('EditAdController', ['$scope', 'UserService', 'Ads', '$routeParams', '$location', '$http', function ($scope, UserService, Ads, $routeParams, $location, $http) {
+    .controller('EditAdController', ['$scope', 'UserService', 'Ads', '$routeParams', '$location', '$http', function($scope, UserService, Ads, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
 
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
 
         var id = $routeParams.id;
-        $scope.featuredAd = Ads.get({ id: id }, function () {
+        $scope.featuredAd = Ads.get({ id: id }, function() {
             console.log("this ad's publish value = " + $scope.featuredAd.publish);
             $scope.featuredAd.publish = String($scope.featuredAd.publish);
             console.log('1 = publish / 0 = not publish');
@@ -525,38 +538,38 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         ];
 
 
-        $scope.update = function () {
-            $scope.featuredAd.$update(function (success) {
+        $scope.update = function() {
+            $scope.featuredAd.$update(function(success) {
                 $location.path('/admin');
             });
         }
 
-        $scope.promptDelete = function () {
+        $scope.promptDelete = function() {
             var shouldDelete = confirm('Are you sure you want to delete this Ad?');
             if (shouldDelete) {
-                $scope.featuredAd.$delete(function (success) {
+                $scope.featuredAd.$delete(function(success) {
                     $location.path('/admin');
                 });
             }
         }
 
-        $scope.cancelupdate = function () {
+        $scope.cancelupdate = function() {
             $location.path('/admin');
         }
     }])
-    .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function ($scope, UserService, FeaturedEvents, $routeParams, $location, $http) {
+    .controller('EditFeaturedEventController', ['$scope', 'UserService', 'FeaturedEvents', '$routeParams', '$location', '$http', function($scope, UserService, FeaturedEvents, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
 
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
 
         var id = $routeParams.id;
-        $scope.featuredEvent = FeaturedEvents.get({ id: id }, function () {
+        $scope.featuredEvent = FeaturedEvents.get({ id: id }, function() {
             console.log("this event's publish value = " + $scope.featuredEvent.publish);
             $scope.featuredEvent.publish = String($scope.featuredEvent.publish);
             console.log('1 = publish / 0 = not publish');
@@ -571,47 +584,47 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         ];
 
 
-        $scope.update = function () {
-            $scope.featuredEvent.$update(function (success) {
+        $scope.update = function() {
+            $scope.featuredEvent.$update(function(success) {
                 $location.path('/admin');
             });
         }
 
-        $scope.promptDelete = function () {
+        $scope.promptDelete = function() {
             var shouldDelete = confirm('Are you sure you want to delete this featured event?');
             if (shouldDelete) {
-                $scope.featuredEvent.$delete(function (success) {
+                $scope.featuredEvent.$delete(function(success) {
                     $location.path('/admin');
                 });
             }
         }
 
-        $scope.cancelupdate = function () {
+        $scope.cancelupdate = function() {
             $location.path('/admin');
         }
     }])
-    .controller('EditArticleController', ['$scope', 'UserService', 'Posts', '$routeParams', '$location', '$http', function ($scope, UserService, Posts, $routeParams, $location, $http) {
+    .controller('EditArticleController', ['$scope', 'UserService', 'Posts', '$routeParams', '$location', '$http', function($scope, UserService, Posts, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
 
         $scope.loggedIn = false;
         $scope.ifAdmin = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
             $scope.loggedIn = true;
             if (me.role === 'admin') {
                 $scope.ifAdmin = true;
             }
         });
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
 
         var id = $routeParams.id;
-        $scope.post = Posts.get({ id: id }, function () {
+        $scope.post = Posts.get({ id: id }, function() {
             console.log("this article's publish value = " + $scope.post.publish);
             $scope.post.publish = String($scope.post.publish);
             console.log('1 = publish / 0 = not publish');
@@ -626,26 +639,26 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         ];
 
 
-        $scope.update = function () {
-            $scope.post.$update(function (success) {
+        $scope.update = function() {
+            $scope.post.$update(function(success) {
                 $location.path('/admin');
             });
         }
 
-        $scope.promptDelete = function () {
+        $scope.promptDelete = function() {
             var shouldDelete = confirm('Are you sure you want to delete this entry?');
             if (shouldDelete) {
-                $scope.post.$delete(function (success) {
+                $scope.post.$delete(function(success) {
                     $location.path('/admin');
                 });
             }
         }
 
-        $scope.cancelupdate = function () {
+        $scope.cancelupdate = function() {
             $location.path('/admin');
         }
     }])
-    .controller('AdminController', ['$route','Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', 'MissionStatements', 'WeeklySchedule', function ($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http, MissionStatements, WeeklySchedule) {
+    .controller('AdminController', ['$route', 'Ads', 'FeaturedEvents', '$scope', '$location', 'UserService', 'SEOService', 'Users', 'Posts', '$http', 'MissionStatements', 'WeeklySchedule', function($route, Ads, FeaturedEvents, $scope, $location, UserService, SEOService, Users, Posts, $http, MissionStatements, WeeklySchedule) {
         console.log('Admin Controller');
         UserService.requireLogin();
         UserService.isLoggedIn();
@@ -660,33 +673,33 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         UserService.isLoggedIn();
         $scope.loggedIn = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
             $scope.loggedIn = true;
         });
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
 
-        $scope.composeFeaturedEventPage = function () {
+        $scope.composeFeaturedEventPage = function() {
             $location.path('/composefeaturedevent');
         };
 
-        $scope.composeAdPage = function () {
+        $scope.composeAdPage = function() {
             $location.path('/composead');
         };
 
-        $scope.composeMissionStatementPage = function () {
+        $scope.composeMissionStatementPage = function() {
             $location.path('/composeMissionStatement');
         };
 
-        $scope.goBack = function(){
+        $scope.goBack = function() {
             $route.reload();
         }
 
-        $scope.showWeeklyScheduleDetails = function () {
+        $scope.showWeeklyScheduleDetails = function() {
             $('#weeklyScheduleDiv').show();
             $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
@@ -697,7 +710,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#unpublishedMissionStatementsDiv').hide();
         }
 
-        $scope.showMissionStatementDetails = function () {
+        $scope.showMissionStatementDetails = function() {
             $('#missionStatementsDiv').show();
             $('#magazineDiv').hide();
             $('#featuredEventsDiv').hide();
@@ -708,17 +721,17 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#weeklyScheduleDiv').hide();
         }
 
-        $scope.showPublishedMissionStatements = function () {
+        $scope.showPublishedMissionStatements = function() {
             $('#publishedMissionStatementsDiv').show();
             $('#unpublishedMissionStatementsDiv').hide();
         }
 
-        $scope.showUnpublishedMissionStatements = function () {
+        $scope.showUnpublishedMissionStatements = function() {
             $('#publishedMissionStatementsDiv').hide();
             $('#unpublishedMissionStatementsDiv').show();
         }
 
-        $scope.showUserDetails = function () {
+        $scope.showUserDetails = function() {
             $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#featuredEventsDiv').hide();
@@ -727,7 +740,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#weeklyScheduleDiv').hide();
         };
 
-        $scope.showPostDetails = function () {
+        $scope.showPostDetails = function() {
             $('#magazineDiv').show();
             $('#missionStatementsDiv').hide();
             $('#usersDiv').hide();
@@ -738,19 +751,19 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#weeklyScheduleDiv').hide();
         }
 
-        $scope.showPublishedPosts = function () {
+        $scope.showPublishedPosts = function() {
             $('#publishedPostsDiv').show();
             $('#unpublishedPostsDiv').hide();
 
         }
 
-        $scope.showUnpublishedPosts = function () {
+        $scope.showUnpublishedPosts = function() {
             $('#publishedPostsDiv').hide();
             $('#unpublishedPostsDiv').show();
 
         }
 
-        $scope.showFeaturedEventDetails = function () {
+        $scope.showFeaturedEventDetails = function() {
             $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
@@ -763,19 +776,19 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#weeklyScheduleDiv').hide();
         }
 
-        $scope.showPublishedEvents = function () {
+        $scope.showPublishedEvents = function() {
             $('#publishedEventsDiv').show();
             $('#unpublishedEventsDiv').hide();
 
         }
 
-        $scope.showUnpublishedEvents = function () {
+        $scope.showUnpublishedEvents = function() {
             $('#publishedEventsDiv').hide();
             $('#unpublishedEventsDiv').show();
 
         }
 
-        $scope.showAdDetails = function () {
+        $scope.showAdDetails = function() {
             $('#missionStatementsDiv').hide();
             $('#magazineDiv').hide();
             $('#usersDiv').hide();
@@ -786,13 +799,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $('#weeklyScheduleDiv').hide();
         }
 
-        $scope.showPublishedAds = function () {
+        $scope.showPublishedAds = function() {
             $('#publishedAdsDiv').show();
             $('#unpublishedAdsDiv').hide();
 
         }
 
-        $scope.showUnpublishedAds = function () {
+        $scope.showUnpublishedAds = function() {
             $('#publishedAdsDiv').hide();
             $('#unpublishedAdsDiv').show();
 
@@ -803,11 +816,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/mission/unpublished'
-        }).then(function (success) {
+        }).then(function(success) {
             console.log('getting unpublished mission statements');
             $scope.unpublishedMissionStatements = success.data;
             console.log($scope.unpublishedMissionStatements);
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -816,10 +829,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/posts/unpublished'
-        }).then(function (success) {
+        }).then(function(success) {
             $scope.unpublishedPosts = success.data;
             console.log($scope.unpublishedPosts);
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -829,10 +842,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/ads/unpublished'
-        }).then(function (success) {
+        }).then(function(success) {
             $scope.unpublishedAds = success.data;
             console.log($scope.unpublishedAds);
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -843,10 +856,10 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $http({
             method: 'GET',
             url: '/api/featuredevents/unpublished'
-        }).then(function (success) {
+        }).then(function(success) {
             $scope.unpublishedEvents = success.data;
             console.log($scope.unpublishedEvents);
-        }, function (err) {
+        }, function(err) {
             console.log(err);
         });
 
@@ -855,14 +868,14 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         console.log('controllers.js/UserListController: users acquired')
         console.log($scope.users);
 
-        $scope.deleteUser = function (user) {
+        $scope.deleteUser = function(user) {
             console.log('controllers.js/UserListController: The user to be deleted is: ');
             console.log(user);
             var shouldDelete = confirm('Are you sure you want to delete this user?');
             console.log(shouldDelete);
             if (shouldDelete) {
                 console.log('user clicked OK');
-                user.$delete(function () {
+                user.$delete(function() {
                     console.log('User Deleted!');
                     console.log(user);
                     $scope.users = Users.query();
@@ -872,41 +885,41 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++
         //Getting Weekday Schedule
-    
-        $scope.sunday = WeeklySchedule.get({ weekday: 1});
-        $scope.monday = WeeklySchedule.get({ weekday: 2});
-        $scope.tuesday = WeeklySchedule.get({ weekday: 3});
-        $scope.wednesday = WeeklySchedule.get({ weekday: 4});
-        $scope.thursday = WeeklySchedule.get({ weekday: 5});
-        $scope.friday = WeeklySchedule.get({ weekday: 6});
-        $scope.saturday = WeeklySchedule.get({ weekday: 7});
-        
-        $scope.updateWeeklySchedule = function () {
-            $scope.sunday.$update(function (success) {
+
+        $scope.sunday = WeeklySchedule.get({ weekday: 1 });
+        $scope.monday = WeeklySchedule.get({ weekday: 2 });
+        $scope.tuesday = WeeklySchedule.get({ weekday: 3 });
+        $scope.wednesday = WeeklySchedule.get({ weekday: 4 });
+        $scope.thursday = WeeklySchedule.get({ weekday: 5 });
+        $scope.friday = WeeklySchedule.get({ weekday: 6 });
+        $scope.saturday = WeeklySchedule.get({ weekday: 7 });
+
+        $scope.updateWeeklySchedule = function() {
+            $scope.sunday.$update(function(success) {
                 console.log('Sunday schedule updated!');
             });
 
-            $scope.monday.$update(function (success) {
+            $scope.monday.$update(function(success) {
                 console.log('Monday schedule updated!');
             });
 
-            $scope.tuesday.$update(function (success) {
+            $scope.tuesday.$update(function(success) {
                 console.log('Tuesday schedule updated!');
             });
 
-            $scope.wednesday.$update(function (success) {
+            $scope.wednesday.$update(function(success) {
                 console.log('Wednesday schedule updated!');
             });
 
-            $scope.thursday.$update(function (success) {
+            $scope.thursday.$update(function(success) {
                 console.log('Thursday schedule updated!');
             });
 
-            $scope.friday.$update(function (success) {
+            $scope.friday.$update(function(success) {
                 console.log('Friday schedule updated!');
             });
 
-            $scope.saturday.$update(function (success) {
+            $scope.saturday.$update(function(success) {
                 console.log('Saturday schedule updated!');
                 location.pathname = '/admin';
             });
@@ -937,20 +950,20 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
     //         });
     //     }
     // }])
-    .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function ($scope, $location, UserService, SEOService) {
+    .controller('LoginController', ['$scope', '$location', 'UserService', 'SEOService', function($scope, $location, UserService, SEOService) {
         console.log("Login Controller");
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             redirect();
         });
         // SEOService.setSEO({
         //     title: 'Login',
         //     description: 'Login'
         // });
-        $scope.login = function (user) {
+        $scope.login = function(user) {
             UserService.login($scope.email, $scope.password)
-                .then(function () {
+                .then(function() {
                     redirect();
-                }, function (err) {
+                }, function(err) {
                     console.log(err);
                     $scope.error = err.data.message;
                 });
@@ -965,13 +978,13 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }
 
     }])
-    .controller('UserProfileController', ['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function ($scope, Posts, UserService, Users, $location, $http) {
+    .controller('UserProfileController', ['$scope', 'Posts', 'UserService', 'Users', '$location', '$http', function($scope, Posts, UserService, Users, $location, $http) {
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
         $scope.loggedIn = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
             $scope.loggedIn = true;
 
@@ -982,8 +995,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             $scope.amAdmin = true;
         }
 
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $location.path('/magazine');
             });
         }
@@ -994,27 +1007,27 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         }
         getUsers();
 
-        UserService.me().then(function (me) {  // TO GET POSTS BY LOGGED IN USER
+        UserService.me().then(function(me) {  // TO GET POSTS BY LOGGED IN USER
             var ME = me;
             var myUserId = ME.id;
             console.log("this is my user id: " + myUserId);
             $http({
                 method: 'GET',
                 url: '/api/posts/user/' + myUserId
-            }).then(function (success) {
+            }).then(function(success) {
                 $scope.myPosts = success.data;
                 console.log($scope.myPosts);
-            }, function (err) {
+            }, function(err) {
                 console.log(err);
             });
         })
     }])
-    .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function ($scope, Users, UserService, $location) {
+    .controller('CreateUserController', ['$scope', 'Users', 'UserService', '$location', function($scope, Users, UserService, $location) {
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
-        $scope.create = function () {
+        $scope.create = function() {
             var data = {
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
@@ -1027,7 +1040,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             }
 
             var u = new Users(data);
-            u.$save(function () {
+            u.$save(function() {
                 $location.path('/admin');
             });
         };
@@ -1047,18 +1060,18 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         $scope.role = $scope.roles[0].value;
         $scope.dj = $scope.djValues[0].value;
     }])
-    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function ($scope, $routeParams, Users, UserService) {
+    .controller('UpdateUserController', ['$scope', '$routeParams', 'Users', 'UserService', function($scope, $routeParams, Users, UserService) {
         console.log('controllers.js/UpdateUserController: Entered the UpdateUserController');
 
         UserService.requireLogin();
         UserService.isLoggedIn();
         $scope.loggedIn = false;
-        UserService.me().then(function (me) {
+        UserService.me().then(function(me) {
             $scope.ME = me;
             $scope.loggedIn = true;
         });
         UserService.isAdmin();
-        
+
         var userId = $routeParams.id;
 
         // $scope.featuredUser = Users.get({ id: userId }, function () {
@@ -1085,7 +1098,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.featuredUser = Users.get({ id: userId });
 
-        $scope.updateUser = function () {
+        $scope.updateUser = function() {
             // console.log('Controllers.js/UpdateUserController: entered the updateUser function');
 
             // $scope.featuredUser.id = $scope.id;
@@ -1104,7 +1117,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
             // console.log('Controllers.js/UpdateUserController: $scope.featuredUser.role ' + $scope.featuredUser.role);
 
-            $scope.featuredUser.$update(function (success) {
+            $scope.featuredUser.$update(function(success) {
                 console.log('controllers.js/UpdateUserController: The user was updated!');
                 location.pathname = '/admin';
             });
@@ -1120,15 +1133,15 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             { name: 'Yes', value: 1 }
         ];
 
-        $scope.logoutPage = function () {
-            UserService.logout().then(function () {
+        $scope.logoutPage = function() {
+            UserService.logout().then(function() {
                 console.log('logged out!');
                 $location.path('/login');
             });
             alert('You have been logged out!');
         };
     }])
-    .controller('PodcastController', ['$scope', 'Pods', function ($scope, Pods) {
+    .controller('PodcastController', ['$scope', 'Pods', function($scope, Pods) {
         console.log('PodController');
 
         $scope.podcastList = Pods.query();
@@ -1137,30 +1150,30 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
     }])
     //ComposeMissionStatementController
-    .controller('ComposeMissionStatementController', ['$scope', '$location', 'MissionStatements', 'UserService', 'SEOService', function ($scope, $location, MissionStatements, UserService, SEOService) {
+    .controller('ComposeMissionStatementController', ['$scope', '$location', 'MissionStatements', 'UserService', 'SEOService', function($scope, $location, MissionStatements, UserService, SEOService) {
         UserService.requireLogin();
         UserService.isLoggedIn();
         UserService.isAdmin();
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             UserService.logout()
             $location.path('/');
         }
 
-        $scope.submitMissionStatement = function () {
+        $scope.submitMissionStatement = function() {
             var data = {
                 statement: $scope.missionStatement,
                 publish: 0
             }
 
             var featuredMissionStatementToPost = new MissionStatements(data);
-            featuredMissionStatementToPost.$save(function (success) {
+            featuredMissionStatementToPost.$save(function(success) {
                 console.log('Mission statement submitted successfully');
                 $location.path('/admin');
             });
         }
 
-        $scope.goBack = function () {
+        $scope.goBack = function() {
             $location.path('/admin');
         }
 
@@ -1172,21 +1185,21 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         });
     }])
     //EditMissionStatementController
-    .controller('EditMissionStatementController', ['$scope', 'UserService', 'MissionStatements', '$routeParams', '$location', '$http', function ($scope, UserService, MissionStatements, $routeParams, $location, $http) {
+    .controller('EditMissionStatementController', ['$scope', 'UserService', 'MissionStatements', '$routeParams', '$location', '$http', function($scope, UserService, MissionStatements, $routeParams, $location, $http) {
         UserService.requireLogin();
         UserService.requiresAdmin();
         UserService.isLoggedIn();
 
         console.log('controller.js/EditMissionStatementController: Inside Edit Mission Statement Controller');
 
-        $scope.logout = function () {
-            UserService.logout().then(function () {
+        $scope.logout = function() {
+            UserService.logout().then(function() {
                 $route.reload();
             });
         }
 
         var id = $routeParams.id;
-        $scope.featuredMissionStatement = MissionStatements.get({ id: id }, function () {
+        $scope.featuredMissionStatement = MissionStatements.get({ id: id }, function() {
             $scope.featuredMissionStatement.publish = String($scope.featuredMissionStatement.publish);
             // $scope.publish = $scope.featuredMissionStatement.publish;
         });
@@ -1196,22 +1209,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             { name: 'Yes', value: '1' }
         ];
 
-        $scope.update = function () {
-            $scope.featuredMissionStatement.$update(function (success) {
+        $scope.update = function() {
+            $scope.featuredMissionStatement.$update(function(success) {
                 $location.path('/admin');
             });
         }
 
-        $scope.promptDelete = function () {
+        $scope.promptDelete = function() {
             var shouldDelete = confirm('Are you sure you want to delete this mission statement?');
             if (shouldDelete) {
-                $scope.featuredMissionStatement.$delete(function (success) {
+                $scope.featuredMissionStatement.$delete(function(success) {
                     $location.path('/admin');
                 });
             }
         }
 
-        $scope.cancelupdate = function () {
+        $scope.cancelupdate = function() {
             $location.path('/admin');
         }
     }])
