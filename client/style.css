@@ -22,7 +22,9 @@
   transform: translateZ(-1px) scale(2);
           
           /*background-image: url('./assets/greenbackgroundnologo.jpg');*/
-          background-image: url('http://wallpaperlayer.com/img/2015/7/cool-textured-backgrounds-6926-7206-hd-wallpapers.jpg');
+          /*background-image: url('http://wallpaperlayer.com/img/2015/7/cool-textured-backgrounds-6926-7206-hd-wallpapers.jpg');*/
+          background-image: url('https://cdn.pixabay.com/photo/2014/09/25/01/08/sonic-wave-459858_960_720.jpg');
+          /*background-image: url('');*/
           
           background-repeat: repeat-y;
           background-size: cover;
@@ -51,7 +53,8 @@
   left: 0;
   width: 100%;
   height: 130px;
-  background-color: #222222;
+  /*background-color: #222222;*/
+  background-color: black;
   text-align: right;
   /*z-index: 99999;*/
   z-index: 2;
