@@ -9,7 +9,7 @@
 }
 .parallax__layer {
   position: absolute;
-  top: 200;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -27,12 +27,6 @@
           background-repeat: repeat-y;
           background-size: cover;
           background-repeat: no-repeat;
-  position: absolute;
-  top: 200;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
   height: 1680px;
   width: 100%;
   margin-top: 200px
@@ -60,7 +54,7 @@
   background-color: #222222;
   text-align: right;
   /*z-index: 99999;*/
-  z-index: 3;
+  z-index: 2;
 }
 
 #navbarTopDiv{
@@ -244,25 +238,25 @@ ul {
 
 @media screen and (max-width: 1340px) {
   .parallax__layer--back{
-    height: 1800px;
+    height: 1700px;
   }
 }
 @media screen and (max-width: 1199px) {
   .parallax__layer--back{
-    height: 1950px;
+    height: 1850px;
   }
 }
 @media screen and (max-width: 991px) {
   .parallax__layer--back{
-    height: 2100px;
+    height: 2000px;
   }
 }
-@media screen and (max-width: 854px) {
+@media screen and (max-width: 855px) {
   /*.dropdown {
     display: none;
   }*/
   .parallax__layer--back{
-    height: 2100px;
+    height: 2000px;
   }
 }
 @media screen and (max-width: 780px) {
@@ -272,7 +266,7 @@ ul {
 }
 @media screen and (max-width: 767px) {
   .parallax__layer--back{
-    height: 900px;
+    height: 750px;
   }
   #featuredEventContainer{
     display: none;
@@ -385,6 +379,6 @@ ul {
     background: contain;
   }
   .parallax__layer--back{
-    height: 1200px;
+    height: 900px;
   }
 }
