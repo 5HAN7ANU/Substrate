@@ -9,10 +9,11 @@
 }
 .parallax__layer {
   position: absolute;
-  top: 0;
+  top: 200;
   right: 0;
   bottom: 0;
   left: 0;
+  margin-top: 200px;
 }
 .parallax__layer--base {
   transform: translateZ(0);
@@ -26,8 +27,15 @@
           background-repeat: repeat-y;
           background-size: cover;
           background-repeat: no-repeat;
+  position: absolute;
+  top: 200;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
   height: 1680px;
   width: 100%;
+  margin-top: 200px
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 -----------------------------------------------------------*/
@@ -52,6 +60,7 @@
   background-color: #222222;
   text-align: right;
   /*z-index: 99999;*/
+  z-index: 3;
 }
 
 #navbarTopDiv{
