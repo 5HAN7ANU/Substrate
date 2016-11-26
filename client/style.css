@@ -1,33 +1,36 @@
-/*.custom-drawer {
-  display: none;
+
+/*===================== parallax ====================*/
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
   position: absolute;
   top: 0;
   right: 0;
-  width: 190px;
-  background-color: grey;
+  bottom: 0;
+  left: 0;
 }
-
-.custom-drawer ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.parallax__layer--base {
+  transform: translateZ(0);
 }
-
-.custom-drawer ul li {
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+          
+          /*background-image: url('./assets/greenbackgroundnologo.jpg');*/
+          background-image: url('http://wallpaperlayer.com/img/2015/7/cool-textured-backgrounds-6926-7206-hd-wallpapers.jpg');
+          
+          background-repeat: repeat-y;
+          background-size: cover;
+          background-repeat: no-repeat;
+  height: 1680px;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  vertical-align: middle;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  text-align: center;
 }
-
-.custom-drawer ul li a {
-  text-decoration: none;
-  color: inherit;
-}*/
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------------*/
 
 .app {
   position: absolute;
@@ -157,6 +160,159 @@
   display: none;
 }
 
+
+
+body {
+  /*background-image: url('./assets/greenbackgroundnologo.jpg');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  background-position: center ;
+  background-attachment: fixed;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1em;
+}
+
+
+
+.mininavbaradmin {
+  top: 97px;
+  text-align: center;
+  font-size: 12px;
+  position: fixed;
+  z-index: 99999;
+  background-color: black;
+  width: 100%;
+}
+
+a:focus,
+a:hover {
+  color: gold;
+  text-decoration: none;
+}
+
+ul li {
+  display: inline-block;
+}
+
+/*ul li:not(:last-child):after {
+  content: "|";
+  color: lightgray;
+  position: relative;
+  top: -4em;
+}*/
+
+/*ol,
+ul {
+  margin-top: 8px;
+  margin-bottom: 3px;
+}*/
+
+.dlist {
+  float: left;
+}
+
+
+
+===================== RESPONSIVE ===============
+@media screen and (max-width: 1220px) {
+ .followus {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    height: 161px;
+    color: black;
+    text-align: center;
+    padding: 2px;
+    margin-bottom: 11em;
+ }
+}
+
+@media screen and (max-width: 1340px) {
+  .parallax__layer--back{
+    height: 1800px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .parallax__layer--back{
+    height: 1950px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .parallax__layer--back{
+    height: 2100px;
+  }
+}
+@media screen and (max-width: 854px) {
+  /*.dropdown {
+    display: none;
+  }*/
+  .parallax__layer--back{
+    height: 2100px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .parallax__layer--back{
+    height: 2200px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .parallax__layer--back{
+    height: 900px;
+  }
+  #featuredEventContainer{
+    display: none;
+  }
+  #eventCalendarContainer{
+    display: none;
+  }
+  #adContainer{
+    display: none;
+  }
+  #dj-podcast-backdrop{
+    display: none;
+  }
+  .dj-section{
+    display: none;
+  }
+  .podcast-section{
+    display: none;
+  }
+  .breakerDiv{
+    display: none;
+  }
+}
+@media screen and (max-width: 583px) {
+  .parallax__layer--back{
+    height: 1000px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .app .custom-navbar{
+    height: 255px;
+  }
+  .app .site-content{
+    margin-top: 255px;
+  }
+   .parallax__layer--back{
+    height: 1050px;
+  }
+
+}
+
+/*@media screen and (min-width: 1221px) {
+  .dropdown {
+    display: none;
+  }
+}*/
+
+
 @media screen and (max-width: 451px) {
   /*.app .custom-navbar ul {
     display: none;
@@ -219,112 +375,7 @@
   .articleTitleImage{
     background: contain;
   }
-}
-
-@media screen and (max-width: 485px) {
-  .app .custom-navbar{
-    height: 255px;
+  .parallax__layer--back{
+    height: 1200px;
   }
-  .app .site-content{
-    margin-top: 255px;
-  }
-}
-
-@media screen and (min-width: 1221px) {
-  .dropdown {
-    display: none;
-  }
-}
-
-body {
-  background-image: url('./assets/greenbackgroundnologo.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: black;
-  background-position: center ;
-  background-attachment: fixed;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  font-weight: bolder;
-  font-size: 1em;
-}
-
-
-
-.mininavbaradmin {
-  top: 97px;
-  text-align: center;
-  font-size: 12px;
-  position: fixed;
-  z-index: 99999;
-  background-color: black;
-  width: 100%;
-}
-
-a:focus,
-a:hover {
-  color: gold;
-  text-decoration: none;
-}
-
-ul li {
-  display: inline-block;
-}
-
-/*ul li:not(:last-child):after {
-  content: "|";
-  color: lightgray;
-  position: relative;
-  top: -4em;
-}*/
-
-/*ol,
-ul {
-  margin-top: 8px;
-  margin-bottom: 3px;
-}*/
-
-.dlist {
-  float: left;
-}
-
-@media screen and (max-width: 1220px) {
- .followus {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    height: 161px;
-    color: black;
-    text-align: center;
-    padding: 2px;
-    margin-bottom: 11em;
- }
-}
-
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-.parallax__layer--back {
-  transform: translateZ(-1px) scale(2);
-  background-image: url('./assets/pawn.jpg');
-  /*background-size: cover;*/
-  /*background-repeat: no-repeat;*/
-  height: 100%;
-  width: 100%;
 }
