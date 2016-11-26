@@ -221,8 +221,9 @@ ul {
 }
 
 
+/*
+===================== RESPONSIVE ===============*/
 
-===================== RESPONSIVE ===============
 @media screen and (max-width: 1220px) {
  .followus {
     background-repeat: no-repeat;
@@ -233,7 +234,7 @@ ul {
     text-align: center;
     padding: 2px;
     margin-bottom: 11em;
- }
+ 
 }
 
 @media screen and (max-width: 1340px) {
