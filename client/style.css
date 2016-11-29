@@ -386,3 +386,12 @@ ul {
     height: 900px;
   }
 }
+}
+
+.fc-time{
+  display: none;
+}
+.fc-title{
+  padding: 0 1px;
+  white-space: pre-wrap;
+}
