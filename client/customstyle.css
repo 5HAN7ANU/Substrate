@@ -184,7 +184,7 @@ li.ng-scope {
 }
 
 #dj-podcast-backdrop{
-  background-image: url('./assets/background4.jpg');
+  /*background-image: url('./assets/background4.jpg');*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -365,13 +365,14 @@ li.ng-scope {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  height: 161px;
-  /*background-color: whitesmoke;*/
+  height: 120px;
+  background-color: white;
   color: black;
   text-align: center;
   /* margin-top: 35em; */
   padding: 2px;
   margin-bottom: 7em;
+  /*border: 3px solid black;*/
 }
 
 #djbox {
