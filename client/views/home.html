@@ -220,7 +220,7 @@
 
         <!--//---------------------------------------------//-->
         <!--//===============  podcast SECTION =================//-->
-        <div class="breakerDiv  parallax__layer--base" ">
+        <div class="breakerDiv  parallax__layer--base">
             <h2 class="podcast-section-title ">Latest Podcasts</h2>
         </div>
         <div class="podcast-section parallax__layer--base ">
@@ -235,7 +235,7 @@
                             ng-repeat="podcast in podcasts ">
                             <div class="podcast-box " ng-style="{ 'background-image': 'url(' + podcast.pictures.large +
             ')'} ">
-                                <a target="_blank " href="{{podcast.url}} ">
+                                <a target="_blank " href="{{podcast.url}}">
                                     <div class="podcast-overlay ">
                                         <p>{{podcast.name}}</p>
                                     </div>
@@ -252,45 +252,46 @@
 
     <!--//---------------------------------------------//-->
     <!--//===============  follow us SECTION =================//-->
-    <div class="followus parallax__layer--base "">
-            <br><br>
-            <ul>
-                <h1 style="color: black;">FOLLOW US ON</h1>
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/SubstrateRadio/">
-                        <img src="./assets/facebook.png" class="facebook hvr-grow" alt="facebook"></a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://www.instagram.com/substrateradio/">
-                        <img src="./assets/insta.png" class="insta facebook hvr-grow" alt="insta"></a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://twitter.com/substrateradio?lang=en">
-                        <img src="./assets/twit.png" class="twit facebook hvr-grow" alt="twit"></a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://www.mixcloud.com/substrateradio/">
-                        <img src="./assets/mix.png" class="mixcloud facebook hvr-grow" alt="mixcloud"></a>
-                </li>
-                <li>
-                    <a data-toggle="modal" data-target="#modal-transparent">
-                        <img src="./assets/contact.png" class="contact-modal facebook hvr-grow" alt="contact"></a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <br>
-            <br>
-            <br><br>
-        </div>
-        <div class="modal modal-transparent fade  parallax__layer--base" " id="modal-transparent " tabindex="-1 " role="dialog
-            " aria-labelledby="myModalLabel "
-        aria-hidden="true ">
-        <div class="modal-dialog ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <button type="button " class="close " data-dismiss="modal "><span aria-hidden="true
-            ">&times;</span><span class="sr-only ">Close</span></button>
+
+    <div class="followus  parallax__layer--base">
+        <!--<br><br>-->
+        <ul>
+            <h1 style="color: black;">FOLLOW US ON</h1>
+            <li>
+                <a target="_blank" href="https://www.facebook.com/SubstrateRadio/">
+                    <img src="./assets/facebook.png" class="facebook hvr-grow" alt="facebook"></a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.instagram.com/substrateradio/">
+                    <img src="./assets/insta.png" class="insta facebook hvr-grow" alt="insta"></a>
+            </li>
+            <li>
+                <a target="_blank" href="https://twitter.com/substrateradio?lang=en">
+                    <img src="./assets/twit.png" class="twit facebook hvr-grow" alt="twit"></a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.mixcloud.com/substrateradio/">
+                    <img src="./assets/mix.png" class="mixcloud facebook hvr-grow" alt="mixcloud"></a>
+            </li>
+            <li>
+                <a data-toggle="modal" data-target="#modal-transparent">
+                    <img src="./assets/contact.png" class="contact-modal facebook hvr-grow" alt="contact"></a>
+            </li>
+        </ul>
+    </div>
+    <!--<div>
+        <br>
+        <br>
+        <br><br>
+        <br><br>
+    </div>-->
+    <div class="modal modal-transparent fade  parallax__layer--base"" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+>>>>>>> 1d095f38d2006a1d79b04faa147373180c9f36ef
                 </div>
                 <div class="modal-body ">
                     <center>
