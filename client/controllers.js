@@ -231,7 +231,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     } else {
                         event.location = '';
                     }
-                    element.find('.fc-title').append("<br/>" + event.location);
+                    element.find('.fc-title').append("<br/><div id='eventLocationLine'>" + event.location + "</div>");
                 },
                 eventClick: function (event) {
                     if (event.url) {

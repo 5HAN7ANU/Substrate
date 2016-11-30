@@ -41,8 +41,11 @@
 
 .calendar {
     text-align: center;
-    margin-left: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
     margin-top: 35px;
+    border: 1px solid white;
+    
 }
 
 .date-information {
@@ -112,4 +115,66 @@
     color: white;
 }
 
-@media screen and (max-height)
+
+/*@media screen and (max-height)*/
+
+.fc-content{
+    background-color:gray;
+    color:white;
+}
+
+.fc-day{
+    background-color:gray;
+    color: white;
+}
+
+.fc-day-number{
+    color: white;
+}
+.fc-day-header{
+    background-color: #424242;
+    color: white;
+}
+.fc-toolbar{
+    background-color: #424242;
+    color: white;
+    padding-top: 3px;
+    padding-left: 6px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.fc-unthemed{
+    background-color:gray;
+}
+fc-today{
+    background-color:gray;
+}
+
+.fc-state-highlight{
+    background-color: gray;
+}
+.fc-event-container{
+    background-color: gray;
+    border: 2px solid black;
+   
+}
+.fc-event {
+	
+	/*default BORDER color */
+		/*border: 1px solid #3a87ad;  */
+		/*border: 1px solid black;*/
+	    font-weight: normal; /* undo jqui's ui-widget-header bold */
+        /*padding: 3px;*/
+      
+}
+
+.fc-event,
+.fc-event-dot {
+	background-color: gray; 
+
+}
+
+#eventLocationLine{
+    color: black;
+    margin-right: 3px;
+}
