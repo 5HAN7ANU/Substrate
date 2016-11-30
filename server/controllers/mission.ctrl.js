@@ -46,7 +46,7 @@ router.get('/:id', auth.isAdmin, function (req, res) {
 
 router.put('/:id', auth.isAdmin, function (req, res) {
     var m = req.body;
-    return procedures.procUpdateMissionStatement(req.params.id, m.statement, m.publish)
+    return procedures.procUpdateMissionStatement(m.statement, m.publish, req.params.id)
         .then(function () {
             res.sendStatus(204);
         }, function (err) {

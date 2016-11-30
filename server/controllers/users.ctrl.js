@@ -85,19 +85,19 @@ router.get('/:id', auth.isAdmin, function (req, res) {
 
 router.put('/:id', auth.isAdmin, function (req, res) {
     var u = req.body;
-    console.log('users.ctrl.js/router.put/:id - req.body is');
-    console.log(u);
-    console.log('users.ctrl.js/router.put/:id - the request body is: ' + u);
+    // console.log('users.ctrl.js/router.put/:id - req.body is');
+    // console.log(u);
+    // console.log('users.ctrl.js/router.put/:id - the request body is: ' + u);
 
-    console.log('users.ctrl.js/router.put/:id - the user password is: ' + u.password);
+    // console.log('users.ctrl.js/router.put/:id - the user password is: ' + u.password);
 
-    console.log('users.ctrl.js/router.put/:id - the user name : ' + u.firstname + ' ' + u.lastname);
-    console.log('users.ctrl.js/router.put/:id - the email : ' + u.email);
-    console.log('users.ctrl.js/router.put/:id - the role : ' + u.role);
+    // console.log('users.ctrl.js/router.put/:id - the user name : ' + u.firstname + ' ' + u.lastname);
+    // console.log('users.ctrl.js/router.put/:id - the email : ' + u.email);
+    // console.log('users.ctrl.js/router.put/:id - the role : ' + u.role);
 
     utils.encryptPassword(u.password)//u.password is the plaintext password that user is trying to log in with
         .then(function (hash) {
-            return procedures.procUpdateUser(req.params.id, u.firstname, u.lastname, u.email, hash, u.role, u.dj, u.imageurl, u.bio);
+            return procedures.procUpdateUser(u.firstname, u.lastname, u.email, hash, u.role, u.dj, u.imageurl, u.bio, req.params.id);
         }).then(function () {
             console.log('users.ctrl.js/router.put/:id - user updated!');
             res.sendStatus(204);
