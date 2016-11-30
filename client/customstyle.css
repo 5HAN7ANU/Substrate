@@ -599,7 +599,13 @@ button {
 .list-group-item {
   background-color: black;
   color: white;
+  margin-left: 3%;
+  margin-right: 3%;
 }
+/*.publishedArticleLinks{
+  margin-left: 3%;
+  margin-right: 3%;
+}*/
 
 
 /*end admin.html*/

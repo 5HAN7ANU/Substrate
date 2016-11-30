@@ -100,7 +100,7 @@
             <div id="publishedPostsDiv">
                 <h1 class="adminPosts">Published Articles</h1>
                 <div ng-repeat="publishedPost in publishedPosts">
-                    <div class="list-group-item">
+                    <div class="list-group-item publishedArticleLinks">
                         {{ publishedPost.title }}
                         <p></p> by {{ publishedPost.authorfirstname }} {{ publishedPost.authorlastname }}
                         <p></p>
@@ -111,6 +111,7 @@
                     </div>
                     <br>
                 </div>
+                <br><br><br>
             </div>
         </div>
         <div id="usersDiv">
