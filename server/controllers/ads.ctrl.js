@@ -75,7 +75,7 @@ router.route('/:id')
     })
     .put(function (req, res) {
         var a = req.body;
-        procedures.procUpdateAd(req.params.id, a.adName, a.imageurl, a.adLink, a.publish)
+        procedures.procUpdateAd(a.adName, a.imageurl, a.adLink, a.publish, req.params.id)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {

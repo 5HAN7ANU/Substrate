@@ -74,21 +74,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             method: 'GET',
             url: '/api/ads/even'   // this might need to be before /ads
         }).then(function (success) {
-            console.log(success.data);
+            // console.log(success.data);
             $scope.adArray2 = success.data;
-            console.log('this is adArray2: ');
-            console.log($scope.adArray2);
+            // console.log('this is adArray2: ');
+            // console.log($scope.adArray2);
             //setting up ad carousel 2==================
             for (i = 0; i < $scope.adArray2.length; i++) {
                 var featuredAd2 = $scope.adArray2[i];
-                console.log('check it:')
-                console.log($scope.adArray2[i]);
+                // console.log('check it:')
+                // console.log($scope.adArray2[i]);
                 var adSlide2 = {
                     image: featuredAd2.imageurl,
                     link: featuredAd2.adLink
                 };
                 $scope.adSlides2.push(adSlide2);
             }
+            console.log($scope.adSlides2);
         }, function (err) {
             console.log(err);
         });
@@ -98,21 +99,22 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             method: 'GET',
             url: '/api/ads/odd'   //gets ads with ids that are odd
         }).then(function (success) {
-            console.log(success.data);
+            // console.log(success.data);
             $scope.adArray = success.data;
-            console.log('this is adArray: ');
-            console.log($scope.adArray);
+            // console.log('this is adArray: ');
+            // console.log($scope.adArray);
             //setting up ad carousel 1 ==================
             for (i = 0; i < $scope.adArray.length; i++) {
                 var featuredAd = $scope.adArray[i];
-                console.log('check it:')
-                console.log($scope.adArray[i]);
+                // console.log('check it:')
+                // console.log($scope.adArray[i]);
                 var adSlide = {
                     image: featuredAd.imageurl,
                     link: featuredAd.adLink
                 };
                 $scope.adSlides.push(adSlide);
             }
+            console.log($scope.adSlides);
         }, function (err) {
             console.log(err);
         });
@@ -145,16 +147,16 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         //----------------------------------------------
         $scope.djList = Users.getDj();
-        console.log($scope.dj);
+        // console.log($scope.dj);
 
         $scope.podcasts = Podcasts.query();
-        console.log($scope.podcasts);
+        // console.log($scope.podcasts);
 
         $scope.ads = Ads.query();
         console.log($scope.ads);
 
         $scope.featuredEvents = FeaturedEvents.query();
-        console.log($scope.featuredEvents);
+        // console.log($scope.featuredEvents);
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++
         //Getting Mission Statement
