@@ -23,13 +23,23 @@
     background: url(../assets/background5.jpg);
     background-size: cover;
         /*min-height: 47.2em;*/
-        height: auto;
+        /*height: auto;*/
     min-height: 100%;
     background-repeat: repeat-y;
- margin-bottom: 6em;
+    margin-bottom: 6em;
     overflow-x: hidden;
     overflow-y: hidden;
     text-align: center;
+}
+.adminMagBackground{
+    background: url(../assets/background5.jpg);
+    background-size: cover;
+    text-align: center;
+    /*min-height: 100%;*/
+    background-repeat: repeat-y;
+    height: 3000px;
+    
+
 }
 
 #loginForm {
