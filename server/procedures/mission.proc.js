@@ -9,7 +9,7 @@ exports.procGetMissionStatement = function(id){
 }
 
 exports.procInsertMissionStatement = function(statement, publish){
-    return db.fnRow('INSERT INTO MissionStatements (statement, publish) VALUES (?, ?); Select last_insert_id() as id;', [statement, publish])
+    return db.fnRow('INSERT INTO MissionStatements (statement, publish) VALUES (?, ?);', [statement, publish])
 }
 
 exports.procUpdateMissionStatement = function(statement, publish, id){
