@@ -352,6 +352,8 @@ li.ng-scope {
 
 .podcast-page {
   margin-bottom: 120px;
+  background: cover;
+  
 }
 
 .podcast-page-box {
