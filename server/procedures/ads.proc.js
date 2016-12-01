@@ -17,7 +17,7 @@ exports.procGetAd = function(id){
 }
 
 exports.procInsertAd = function(adName, imageurl, adLink, publish){
-    return db.fnRow('INSERT INTO Ads (adName, imageurl, adLink, publish) VALUES (?,?,?,?); SELECT last_insert_id() as id;', [adName, imageurl, adLink, publish]);
+    return db.fnRow('INSERT INTO Ads (adName, imageurl, adLink, publish) VALUES (?,?,?,?);', [adName, imageurl, adLink, publish]);
 }
 
 exports.procUpdateAd = function(adName, imageurl, adLink, publish, id){

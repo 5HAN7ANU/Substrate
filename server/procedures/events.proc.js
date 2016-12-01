@@ -4,7 +4,7 @@ exports.procGetFeaturedEvents = function() {
     return db.fnRows('SELECT * FROM FeaturedEvents WHERE publish = 1;', []);
 }
 exports.procInsertFeaturedEvent = function(eventName, eventDate, eventDescription, imageurl, publish){
-    return db.fnRow('INSERT INTO FeaturedEvents (eventName, eventDate, eventDescription, imageurl, publish) VALUES (?,?,?,?,?); SELECT last_insert_id() as id;', [eventName, eventDate, eventDescription, imageurl, publish])
+    return db.fnRow('INSERT INTO FeaturedEvents (eventName, eventDate, eventDescription, imageurl, publish) VALUES (?,?,?,?,?);', [eventName, eventDate, eventDescription, imageurl, publish])
 }
 
 exports.procUpdateFeaturedEvent = function(eventName, eventDate, eventDescription, imageurl, publish, id){

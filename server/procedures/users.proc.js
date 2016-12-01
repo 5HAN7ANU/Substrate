@@ -13,7 +13,7 @@ exports.procGetUser = function(id){
 }
 
 exports.procInsertUser = function(firstname, lastname, email, password, role, dj, imageurl, bio){
-    return db.fnRow('INSERT INTO Users(firstName, lastName, email, password, role, dj, imageurl, bio) VALUES(?, ?, ?, ?, ?, ?, ?, ?); SELECT LAST_INSERT_ID() AS id;', [firstname, lastname, email, password, role, dj, imageurl, bio])
+    return db.fnRow('INSERT INTO Users(firstName, lastName, email, password, role, dj, imageurl, bio) VALUES(?, ?, ?, ?, ?, ?, ?, ?);', [firstname, lastname, email, password, role, dj, imageurl, bio])
 }
 
 exports.procUpdateUser = function(firstname, lastname, email, password, role, dj, imageurl, bio, id){
