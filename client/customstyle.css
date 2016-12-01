@@ -618,12 +618,19 @@ button {
   background-color: black;
   color: white;
 }
-
+#list-content{
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .list-group-item {
-  background-color: black;
+  background-color: transparent;
   color: white;
   margin-left: 3%;
   margin-right: 3%;
+  /*border: none;*/
+  border: 1px solid transparent;
+  /*border-radius: 20px;*/
 }
 /*.publishedArticleLinks{
   margin-left: 3%;
