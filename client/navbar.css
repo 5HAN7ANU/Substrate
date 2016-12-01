@@ -25,6 +25,7 @@
 .modal-body {
   margin-top: -30em;
   background-color: lightgray;
+  z-index: 2;
 }
 
 .modal-dialog {
@@ -63,6 +64,9 @@
   top: 13em;
   float: middle;
   margin-left: 25%;
+}
+.modal-backdrop{
+  z-index: -1;
 }
 
 .modal-transparent .modal-content {
