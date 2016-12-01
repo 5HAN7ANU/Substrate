@@ -233,6 +233,15 @@ ul {
 /*
 ===================== RESPONSIVE ===============*/
 
+@media screen and (max-width: 1340px) {
+  .parallax__layer--back{
+    height: 1700px;
+  }
+  .aboutBackground{
+    height: 600px;
+  }
+}
+
 @media screen and (max-width: 1220px) {
  .followus {
     background-repeat: no-repeat;
@@ -245,12 +254,11 @@ ul {
     margin-bottom: 11em;
  
 }
-
-@media screen and (max-width: 1340px) {
-  .parallax__layer--back{
-    height: 1700px;
+ .aboutBackground{
+    height: 600px;
   }
-}
+
+
 @media screen and (max-width: 1199px) {
   .parallax__layer--back{
     height: 1850px;
@@ -273,10 +281,13 @@ ul {
   .parallax__layer--back{
     height: 2200px;
   }
+   .aboutBackground{
+    height: 950px;
+  }
 }
 @media screen and (max-width: 767px) {
   .parallax__layer--back{
-    height: 750px;
+    height: 1150px;
   }
   #featuredEventContainer{
     display: none;
@@ -302,6 +313,9 @@ ul {
   .followus {
     margin-top: 20px;
   }
+   .aboutBackground{
+    height: 950px;
+  }
   /*#linkList{
     margin-top: 30px;
   }*/
@@ -309,6 +323,9 @@ ul {
 @media screen and (max-width: 583px) {
   .parallax__layer--back{
     height: 700px;
+  }
+   .aboutBackground{
+    height: 1170px;
   }
 }
 @media screen and (max-width: 578px) {
@@ -340,6 +357,10 @@ ul {
   transform: rotate(0deg);
 
 }
+ .aboutBackground{
+    height: 1170px;
+  }
+}
 
 @media screen and (max-width: 485px) {
   .app .custom-navbar{
@@ -350,6 +371,9 @@ ul {
   }
    .parallax__layer--back{
     height: 1050px;
+  }
+  .aboutBackground{
+    height: 1170px;
   }
 
 }
@@ -412,6 +436,7 @@ ul {
   }
   .aboutBackground{
     margin-top: -50px;
+    height: 1170px;
   }
   .podcast-page-overlay{
     opacity:1;
@@ -433,3 +458,10 @@ ul {
    .parallax__layer--back{
     height: 983px;
   }
+  /*#scheduleBox{
+    height: 00px;
+  }*/
+  .aboutBackground{
+    height: 1420px;
+  }
+}
