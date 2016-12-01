@@ -180,7 +180,7 @@ li.ng-scope {
 
 #abouttext {
   width: 100%;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
   padding-top: 20%;
   padding-bottom: 20%;
@@ -701,7 +701,7 @@ select {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
   
   /*font-size: 60px;  NOT WORKING*/
   
