@@ -9,5 +9,5 @@ exports.procGetDailySchedule = function(weekday){
 }
 
 exports.procUpdateWeeklySchedule = function(showOne, showOneTime, showOneDjs, showTwo, showTwoTime, showTwoDjs, showThree, showThreeTime, showThreeDjs, weekday){
-    return db.fnRows('UPDATE RadioShows SET showOne = ?, showOneTime = ?, showOneDjs = ?, showTwo = ?, showTwoTime = ?, showTwoDjs = ?, showThree = ?, showThreeTime = ?, showThreeDjs = ? WHERE weekday = ?;', [weekday, showOne, showOneTime, showOneDjs, showTwo, showTwoTime, showTwoDjs, showThree, showThreeTime, showThreeDjs]);
+    return db.fnRows('UPDATE RadioShows SET showOne = ?, showOneTime = ?, showOneDjs = ?, showTwo = ?, showTwoTime = ?, showTwoDjs = ?, showThree = ?, showThreeTime = ?, showThreeDjs = ? WHERE weekday = ?;', [showOne, showOneTime, showOneDjs, showTwo, showTwoTime, showTwoDjs, showThree, showThreeTime, showThreeDjs, weekday]);
 }
