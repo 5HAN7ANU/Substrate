@@ -32,6 +32,12 @@
   /*width: 280px;*/
   background-color: rgba(128, 128, 128, 0.3);
   overflow: scroll;
+  font-size: 12px;
+}
+
+.week-date-text{
+  font-size: 12px;
+  padding-left: 4.5%;
 }
 
 .iframe-side-calendar {
@@ -50,14 +56,14 @@
 
 /*//========== home page featured event Container=====================//*/
 
-/*#featuredEventContainer {
+#featuredEventContainer {
   height: 600px;
   border-radius: 10px;
   margin-top: 10px;
   margin-right: 20px;
   padding: 0px; 
   background-color: rgba(128, 128, 128, 0.3);
-}*/
+}
 
 
 /*//-------carousel-------//*/
@@ -173,9 +179,11 @@ li.ng-scope {
 
 #abouttext {
   width: 100%;
-  font-size: 11px;
+  font-size: 16px;
   text-align: center;
-  padding: 5px;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  
 }
 
 #wearesubstrate {
@@ -210,10 +218,22 @@ li.ng-scope {
   float: left;
   text-align: center;
   font-size: 12px;
+  border: 1px solid black;
   
 }
 .dayHeader{
+  margin-left: 2px;
   margin-bottom: 3px;
+  text-align: left;
+}
+.showBoxes{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: left;
+  padding: 4px;
+  word-wrap: normal;
+  margin: 2px;
+  
+
 }
 #show1Box{
   height: 70px;
@@ -281,16 +301,16 @@ li.ng-scope {
 
 /*/========================podcast/follow us  section======================/*/
 .breakerDiv{
-  background-color: white;
+  /*background-color: white;*/
   background-repeat: repeat-y;
   background-position: center;
   background-size: contain;
   width: 100%;
-  color: black;
+  color: white;
   padding: 10px;
   height: 100px;
   text-align: center;
-  border: 3px solid black;
+  /*border: 3px solid black;*/
   /*margin-top: 25px;*/
 }
 
@@ -653,12 +673,18 @@ select {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  /*font-size: 60px;  NOT WORKING*/
+  
 
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  text-align: left;
   flex-direction: column;
   height: 300px;
   /*margin-left: 3px;*/
+
 }
 
 .podcastRepeatDiv {

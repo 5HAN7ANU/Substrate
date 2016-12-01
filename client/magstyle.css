@@ -75,7 +75,7 @@ input{
 
 #previewPostDiv{
     background: rgba(204,204,204,0.4);
-    font-family: futura;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /*font-size: 16px;*/
     text-align: left;
     color: black;
@@ -104,7 +104,7 @@ input{
 }
 #postDiv{
     background: rgba(204,204,204,0.4);
-    font-family: futura;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /*font-size: 16px;*/
     text-align: left;
     color: black;
