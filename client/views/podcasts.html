@@ -1,7 +1,6 @@
 <div class="podcast-page">
     <div class="container">
         <div id="djbox">
-            <h1>All Podcasts</h1>
             <div ng-repeat="podcast in podcastList">
                 <div class="podcast-page-box" ng-style="{'background-image':'url(' + podcast.pictures.large + ')'}">
                     <a target="_blank" href="{{podcast.url}}">

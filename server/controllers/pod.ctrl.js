@@ -5,7 +5,7 @@ var mixcloud = require('mixcloud');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    mixcloud.cloudcasts('substrateradio',{ limit: 100 })
+    mixcloud.cloudcasts('substrateradio',{ limit: 30 })
     .then(function(casts) {
         res.send(casts.results);
     }, function(err) {
