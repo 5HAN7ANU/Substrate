@@ -37,7 +37,9 @@
     padding: 25px;
 }
 
-
+.page-header {
+    border: none;
+}
 /*.subNavBar{
     margin-top: 80px;
 }*/
@@ -58,13 +60,28 @@ input{
 /*/======================== magazine.html ======================/*/
 
 /*************************************************************/
+
+#post-container{
+    align-content: center;
+}
 .articleTitleImage{
     width: auto;
     height: 400px;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: transparent;
+    border-radius: 10px;
+    /*border:1px solid white;*/
 }
-
+a.link{
+    background: transparent;
+    align-content: center;
+}
+.list-group{
+    align-content: center;
+}
 #previewArticleImage {
     width: auto;
     height: 400px;
