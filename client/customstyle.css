@@ -175,6 +175,7 @@ li.ng-scope {
   color: black;
   padding: 10px;
   border: 2px solid black;
+  height: 400px;
 }
 
 #abouttext {
@@ -208,7 +209,7 @@ li.ng-scope {
 .block {
   background: white;
   background-repeat: repeat-y;
-  height: 200px;
+  height: 250px;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-left: 5px;
