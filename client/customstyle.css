@@ -30,7 +30,7 @@
   border-radius: 10px;
   height: 600px;
   /*width: 280px;*/
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.4);
   overflow: scroll;
   font-size: 12px;
 }
@@ -62,7 +62,7 @@
   margin-top: 10px;
   margin-right: 20px;
   padding: 0px; 
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.4);
 }
 
 
@@ -106,7 +106,7 @@
   height: 600px;
   padding: 0px;
   /*width: 280px;*/
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.4);
   /*float: left;*/
   /*margin-left: 25px;*/
 }
@@ -176,6 +176,7 @@ li.ng-scope {
   padding: 10px;
   border: 2px solid black;
   height: 400px;
+  
 }
 
 #abouttext {
@@ -704,17 +705,12 @@ select {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
-  
-  /*font-size: 60px;  NOT WORKING*/
-  
-
   display: flex;
   justify-content: left;
   text-align: left;
   flex-direction: column;
   height: 300px;
-  /*margin-left: 3px;*/
+  margin-top: 15px;
 
 }
 
