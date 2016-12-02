@@ -29,7 +29,7 @@
           background-repeat: repeat-y;
           background-size: cover;
           /*background-repeat: no-repeat;*/
-  height: 1680px;
+  height: 1760px;
   width: 100%;
   margin-top: 200px
 }
@@ -284,6 +284,10 @@ ul {
    .aboutBackground{
     height: 950px;
   }
+ #calendar{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 12px;
+ }
 }
 @media screen and (max-width: 767px) {
   .parallax__layer--back{
@@ -327,6 +331,10 @@ ul {
    .aboutBackground{
     height: 1170px;
   }
+   #calendar{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 10px;
+ }
 }
 @media screen and (max-width: 578px) {
    #radioPlayer{
@@ -375,6 +383,7 @@ ul {
   .aboutBackground{
     height: 1170px;
   }
+
 
 }
 

@@ -406,14 +406,17 @@ li.ng-scope {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  height: 120px;
-  background-color: white;
-  color: black;
+  height: 210px;
+  background-color: transparent;
+  color: white;
   text-align: center;
   /* margin-top: 35em; */
   padding: 2px;
-  margin-bottom: 7em;
+  /*margin-bottom: 7em;*/
   /*border: 3px solid black;*/
+}
+.followLinks{
+  color: white;
 }
 
 #djbox {
