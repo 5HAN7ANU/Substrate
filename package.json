@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "test": "source .variables && nodemon"
+    "test": "source .variables && nodemon",
+    "start": "node server/index.js"
   },
   "author": "",
   "license": "ISC",
