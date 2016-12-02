@@ -789,3 +789,30 @@ select {
 .mainpod{
   margin-bottom: 20px;
 }
+
+#madeBy{
+  color: white;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-decoration: underline;
+  margin-top: 75px;
+  margin-bottom: 100px;
+}
+.ourNameContainer{
+  margin-left: 20%;
+  margin-right: 20%;
+  
+}
+.ourNames{
+  color: white;
+  /*text-align: center;*/
+  margin-top: 25px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.ourEmail{
+  color: gray;
+  margin-left: 10px;
+}

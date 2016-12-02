@@ -92,6 +92,10 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             templateUrl: 'views/createuser.html',
             controller: 'CreateUserController'
         })
+        .when('/createdBy', {
+            templateUrl: 'views/madeBy.html',
+            controller: ''
+        })
         .otherwise({
             redirectTo: '/'
         });
