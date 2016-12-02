@@ -92,7 +92,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             templateUrl: 'views/createuser.html',
             controller: 'CreateUserController'
         })
-        .when('/createdBy', {
+        .when('/credits', {
             templateUrl: 'views/madeBy.html',
             controller: ''
         })
