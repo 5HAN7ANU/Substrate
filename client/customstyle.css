@@ -623,12 +623,13 @@ input {
   color: white;
   margin-left: 20%;
   float: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #udpate-user-preview-container{
-  float: right;
+  float: left;
   color: white;
-  margin-right: 20%;
+  margin-left: 10%;
 }
 
 /*end updateuser.html*/

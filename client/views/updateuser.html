@@ -29,9 +29,9 @@
             <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
         </select>
         <p></p>
-        <input id="userImageURL" type="text" ng-model="featuredUser.imageurl" placeholder="Image URL" ng-show="dj == 1">
+        <input id="userImageURL" type="text" ng-model="featuredUser.imageurl" placeholder="Image URL" ng-show="featuredUser.dj == 1">
         <p></p>
-        <input id="userBio" type="text" ng-model="featuredUser.bio" placeholder="Bio" ng-show="dj == 1">
+        <input id="userBio" type="text" ng-model="featuredUser.bio" placeholder="Bio" ng-show="featuredUser.dj == 1">
         <p></p>
     </form>
     <button class="btn btn-default" id="button" ng-click="updateUser()" ng-disabled="updateUserForm.$invalid">UPDATE USER</button>
@@ -39,5 +39,6 @@
 
 <div id="udpate-user-preview-container">
     <h3>PREVIEW</h3>
-    <div id="previewBox" ng-style="{'background-image':'url(' + imageurl + ')'}"></div>
+    <div id="previewBox" ng-style="{'background-image':'url(' + featuredUser.imageurl + ')'}"></div>
+    <br><br><br>
 </div>
