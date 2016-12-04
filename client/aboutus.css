@@ -214,7 +214,7 @@ background-repeat: no-repeat;
 
  .podcast-overlay {
 	background: rgba(0, 0, 0, .75);
-	width: 350px;
+	width: 250px;
 	border-radius: 5%;
 	height: 250px;
 	text-align: center;
