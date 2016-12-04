@@ -29,7 +29,14 @@
                         <h3 id="byline"> by {{ previewPost.firstName }} {{ previewPost.lastName }} </h3>
                         <h5 id="pubDate"> created: {{ previewPost.createdat | date: 'short' }}</h5>
                   </div>
+                  <div id="markdownContainer">
                   <markdown-renderer text="previewPost.content" id="previewPostDiv" class="list-group-item"></markdown-renderer>
+                  <br>
+                  <br>
+                  </div>
+                   
             </div>
+            <br>
+            <br>
       </div>
 </div>
