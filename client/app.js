@@ -37,7 +37,7 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             controller: 'EditAdController'
         })
         .when('/magazine/:id/update', {
-            templateUrl: 'views/editarticle.html',
+            templateUrl: 'views/editArticle.html',
             controller: 'EditArticleController'
         })
         .when('/magazine/:id', {
