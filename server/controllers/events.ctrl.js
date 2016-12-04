@@ -52,7 +52,7 @@ router.route('/:id')
     })
     .put(function (req, res) {
         var e = req.body;
-        procedures.procUpdateFeaturedEvent(e.eventName, e.eventDate, e.eventDescription, e.imageurl, e.publish, req.params.id)
+        procedures.procUpdateFeaturedEvent(req.params.id, e.eventName, e.eventDate, e.eventDescription, e.imageurl, e.publish)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {

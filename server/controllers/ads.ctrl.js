@@ -4,7 +4,7 @@ var auth = require('../middleware/auth.mw');
 
 var router = express.Router();
 
- 
+
 router.route('/')
     .get(function (req, res) {
         procedures.procGetAds().then(function (ads) {
@@ -28,10 +28,10 @@ router.route('/')
 // =========== get unpublished ads here  ======== //
 
 router.route('/unpublished')
-    .get(function(req, res){
-        procedures.procGetUnpublishedAds().then(function(ads){
+    .get(function (req, res) {
+        procedures.procGetUnpublishedAds().then(function (ads) {
             res.send(ads);
-        }, function(err){
+        }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
@@ -41,19 +41,19 @@ router.route('/unpublished')
 //=====================================================//
 
 router.route('/even')
-    .get(function(req, res){
-        procedures.procGetEvenAds().then(function(ads){
+    .get(function (req, res) {
+        procedures.procGetEvenAds().then(function (ads) {
             res.send(ads);
-        }, function(err){
+        }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
     });
 router.route('/odd')
-    .get(function(req, res){
-        procedures.procGetOddAds().then(function(ads){
+    .get(function (req, res) {
+        procedures.procGetOddAds().then(function (ads) {
             res.send(ads);
-        }, function(err){
+        }, function (err) {
             console.log(err);
             res.sendStatus(500);
         });
@@ -75,7 +75,7 @@ router.route('/:id')
     })
     .put(function (req, res) {
         var a = req.body;
-        procedures.procUpdateAd(a.adName, a.imageurl, a.adLink, a.publish, req.params.id)
+        procedures.procUpdateAd(req.params.id, a.adName, a.imageurl, a.adLink, a.publish)
             .then(function () {
                 res.sendStatus(204);
             }, function (err) {
@@ -93,4 +93,4 @@ router.route('/:id')
             });
     });
 
-    module.exports = router;
+module.exports = router;

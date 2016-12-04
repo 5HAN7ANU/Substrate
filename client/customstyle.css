@@ -603,10 +603,11 @@ input {
 
 #usersList {
   float: left;
-  padding: 20px;
+  padding: 10px;
   color: white;
   border: 1px solid whitesmoke;
   margin: 15px 15px 15px 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -815,4 +816,20 @@ select {
 .ourEmail{
   color: gray;
   margin-left: 10px;
+}
+
+/*+++++++++++++Compose.html++++++++++++++++++*/
+#top-container{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#bottom-container{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*+++++++++++++aditArticle.html++++++++++++++++++*/
+#editArticleContainer{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#preview-container{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

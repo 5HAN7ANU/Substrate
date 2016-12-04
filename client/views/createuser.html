@@ -3,23 +3,24 @@
         <a href="/admin">
             <button id="button">GO BACK</button>
         </a>
-        <button id="button" ng-click="create()">CREATE USER</button>
+        <button class="btn btn-default" id="button" ng-click="create()" ng-disabled="createUserForm.$invalid">CREATE USER</button>
         <br><br><br>
-        <input type="text" ng-model="firstname" placeholder="First Name">
+        <form name="createUserForm">
+        <input type="text" ng-model="firstname" placeholder="First Name" required>
         <p></p>
-        <input type="text" ng-model="lastname" placeholder="Last Name">
+        <input type="text" ng-model="lastname" placeholder="Last Name" required>
         <p></p>
-        <input type="email" ng-model="email" placeholder="Email">
+        <input type="email" ng-model="email" placeholder="Email" required>
         <p></p>
-        <input type="password" ng-model="password" placeholder="Password">
+        <input type="password" ng-model="password" placeholder="Password" required>
         <p></p>
         <label for="userRole">Role </label>
-        <select name="userRole" ng-model="role">
+        <select name="userRole" ng-model="role" required>
                 <option ng-repeat="role in roles" value="{{role.value}}">{{role.name}}</option>
             </select>
         <p></p>
         <label for="userDJ">DJ?</label>
-        <select name="userDJ" ng-model="dj">
+        <select name="userDJ" ng-model="dj" required>
                 <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
             </select>
         <p></p>
@@ -27,6 +28,7 @@
         <p></p>
         <input id="userBio" type="text" ng-model="bio" placeholder="Bio" ng-show="dj == 1">
         <p></p>
+        </form>
     </div>
 
     <div id="createUserPreview">

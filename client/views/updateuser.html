@@ -1,4 +1,4 @@
-<div class="container subNavBar" id="top-container">
+<div class="container subNavBar">
     <p class="navbar-text navbar-right"> <a href="/userprofile" class="navbar-link" ng-show="loggedIn">My Profile</a></p>
     <p class="navbar-text navbar-right"><a class="navbar-link" href="/login" ng-hide="loggedIn">login</a></p>
     <p class="navbar-text navbar-right" ng-show="loggedIn"><a class="navbar-link" ng-click="logout()">logout</a></p>
@@ -10,29 +10,31 @@
         <button id="button">Go Back</button>
     </a>
     <br><br>
-    <input type="text" ng-model="featuredUser.firstname" placeholder="First Name">
-    <p></p>
-    <input type="text" ng-model="featuredUser.lastname" placeholder="Last Name">
-    <p></p>
-    <input type="email" ng-model="featuredUser.email" placeholder="Email">
-    <p></p>
-    <input type="password" ng-model="featuredUser.password" placeholder="Enter New Password">
-    <p></p>
-    <label for="userRole">Role </label>
-    <select name="userRole" ng-model="featuredUser.role">
+    <form name="updateUserForm">
+        <input type="text" ng-model="featuredUser.firstname" placeholder="First Name" required>
+        <p></p>
+        <input type="text" ng-model="featuredUser.lastname" placeholder="Last Name" required>
+        <p></p>
+        <input type="email" ng-model="featuredUser.email" placeholder="Email" required>
+        <p></p>
+        <input type="password" ng-model="featuredUser.password" placeholder="Enter New Password" required>
+        <p></p>
+        <label for="userRole">Role </label>
+        <select name="userRole" ng-model="featuredUser.role"  required>
             <option ng-repeat="role in roles" value="{{role.value}}">{{role.name}}</option>
         </select>
-    <p></p>
-    <label for="userDJ">DJ?</label>
-    <select id="userDJ" name="userDJ" ng-model="featuredUser.dj">
+        <p></p>
+        <label for="userDJ">DJ?</label>
+        <select id="userDJ" name="userDJ" ng-model="featuredUser.dj"  required>
             <option ng-repeat="djValue in djValues" value="{{ djValue.value }}">{{ djValue.name }}</option>
         </select>
-    <p></p>
-    <input id="userImageURL" type="text" ng-model="featuredUser.imageurl" placeholder="Image URL" ng-show="dj == 1">
-    <p></p>
-    <input id="userBio" type="text" ng-model="featuredUser.bio" placeholder="Bio" ng-show="dj == 1">
-    <p></p>
-    <button id="button" ng-click="updateUser()">UPDATE USER</button>
+        <p></p>
+        <input id="userImageURL" type="text" ng-model="featuredUser.imageurl" placeholder="Image URL" ng-show="dj == 1">
+        <p></p>
+        <input id="userBio" type="text" ng-model="featuredUser.bio" placeholder="Bio" ng-show="dj == 1">
+        <p></p>
+    </form>
+    <button class="btn btn-default" id="button" ng-click="updateUser()" ng-disabled="updateUserForm.$invalid">UPDATE USER</button>
 </div>
 
 <div id="udpate-user-preview-container">

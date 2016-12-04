@@ -13,52 +13,24 @@ exports.pool = pool;
 
 // Use this function to call a procedure that doesn't return anything
 exports.fnEmpty = function(procName, args) {
-    // return callProcedure(procName, args)
-    return fnExecute(procName, args)
+    return callProcedure(procName, args)
         .then( function() {} ); // throwing away the resultset
 }
 
 // Use this function to call a procedure when expecting a single item back
 exports.fnRow = function(procName, args) {
-    // return callProcedure(procName, args)
-    return fnExecute(procName, args)
+    return callProcedure(procName, args)
             .then(function(resultsets) {
-                console.log(resultsets);
-                return resultsets[0];
+                return resultsets[0][0];
             });
 }
 
 // Use this function to call a procedure when expecting multiple rows back
 exports.fnRows = function (procName, args) {
-    // return callProcedure(procName, args)
-    return fnExecute(procName, args)
+    return callProcedure(procName, args)
             .then(function(resultsets) {
-                // return resultsets[0];
-                return resultsets;
+                return resultsets[0];
             });
-}
-
-function fnExecute(sql, args) {
-    if (!args) {
-        args = [];
-    }
-    
-    return new Promise(function(resolve, reject) {
-        pool.getConnection(function(err, connection) {
-            if (err) {
-                reject(err);
-            } else {
-                connection.query(sql, args, function(err, resultsets) {
-                    connection.release();
-                    if (err) {
-                        reject(err);
-                    } else {
-                        resolve(resultsets);
-                    }
-                });
-            }
-        });
-    });
 }
 
 

@@ -1,24 +1,24 @@
 var db = require('../config/db');
 
 exports.procGetFeaturedEvents = function() {
-    return db.fnRows('SELECT * FROM FeaturedEvents WHERE publish = 1;', []);
+    return db.fnRows('procGetFeaturedEvents');
 }
 exports.procInsertFeaturedEvent = function(eventName, eventDate, eventDescription, imageurl, publish){
-    return db.fnRow('INSERT INTO FeaturedEvents (eventName, eventDate, eventDescription, imageurl, publish) VALUES (?,?,?,?,?);', [eventName, eventDate, eventDescription, imageurl, publish])
+    return db.fnRow('procInsertFeaturedEvent', [eventName, eventDate, eventDescription, imageurl, publish])
 }
 
-exports.procUpdateFeaturedEvent = function(eventName, eventDate, eventDescription, imageurl, publish, id){
-    return db.fnEmpty('UPDATE FeaturedEvents SET eventName = ?, eventDate = ?, eventDescription = ?, imageurl = ?, publish = ? WHERE id = ?;', [eventName, eventDate, eventDescription, imageurl, publish, id]);
+exports.procUpdateFeaturedEvent = function(id, eventName, eventDate, eventDescription, imageurl, publish){
+    return db.fnEmpty('procUpdateFeaturedEvent', [id, eventName, eventDate, eventDescription, imageurl, publish]);
 }
 
 exports.procGetFeaturedEvent = function(id){
-    return db.fnRow('SELECT * FROM FeaturedEvents WHERE id = ?;', [id]);
+    return db.fnRow('procGetFeaturedEvent', [id]);
 }
 
 exports.procDeleteFeaturedEvent = function(id){
-   return db.fnEmpty('DELETE FROM FeaturedEvents WHERE id = ?;', [id]);
+   return db.fnEmpty('procDeleteFeaturedEvent', [id]);
 }
 
 exports.procGetUnpublishedFeaturedEvents = function(){
-    return db.fnRows('SELECT * FROM FeaturedEvents WHERE publish = 0;', []);
+    return db.fnRows('procGetUnpublishedFeaturedEvents');
 }

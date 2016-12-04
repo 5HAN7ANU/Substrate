@@ -1,25 +1,25 @@
 var db = require('../config/db');
 
 exports.procGetMissionStatements = function() {
-    return db.fnRows('SELECT * FROM MissionStatements WHERE publish = 1;', []);
+    return db.fnRows('procGetMissionStatements');
 }
 
 exports.procGetMissionStatement = function(id){
-    return db.fnRow('SELECT * FROM MissionStatements WHERE id = ?;', [id]);
+    return db.fnRow('procGetMissionStatement', [id]);
 }
 
 exports.procInsertMissionStatement = function(statement, publish){
-    return db.fnRow('INSERT INTO MissionStatements (statement, publish) VALUES (?, ?);', [statement, publish])
+    return db.fnRow('procInsertMissionStatement', [statement, publish])
 }
 
-exports.procUpdateMissionStatement = function(statement, publish, id){
-    return db.fnEmpty('UPDATE MissionStatements SET statement = ?, publish = ? WHERE id = ?;', [statement, publish, id]);
+exports.procUpdateMissionStatement = function(id, statement, publish){
+    return db.fnEmpty('procUpdateMissionStatement', [id, statement, publish]);
 }
 
 exports.procDeleteMissionStatement = function(id){
-   return db.fnEmpty('DELETE FROM MissionStatements WHERE id = ?;', [id]);
+   return db.fnEmpty('procDeleteMissionStatement', [id]);
 }
 
 exports.procGetUnpublishedMissionStatements = function(){
-    return db.fnRows('SELECT * FROM MissionStatements WHERE publish = 0;', []);
+    return db.fnRows('procGetUnpublishedMissionStatements');
 }
