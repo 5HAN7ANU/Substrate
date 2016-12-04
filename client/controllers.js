@@ -235,58 +235,58 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
                     var time = String(event.start);
                     var timeArray = [];
-                    for(var i = 0; i < time.length; i++){
+                    for (var i = 0; i < time.length; i++) {
                         timeArray.push(time[i]);
                     }
                     // console.log(timeArray); 
                     var x = timeArray[16] + timeArray[17];
-                    if(x == 00){
+                    if (x == 00) {
                         time = '12AM ';
-                    }else if(x == 01){
+                    } else if (x == 01) {
                         time = '1AM ';
-                    }else if(x == 02){
+                    } else if (x == 02) {
                         time = '2AM ';
-                    }else if(x == 03){
+                    } else if (x == 03) {
                         time = '3AM ';
-                    }else if(x == 04){
+                    } else if (x == 04) {
                         time = '4AM ';
-                    }else if(x == 05){
+                    } else if (x == 05) {
                         time = '5AM ';
-                    }else if(x == 06){
+                    } else if (x == 06) {
                         time = '6AM ';
-                    }else if(x == 07){
+                    } else if (x == 07) {
                         time = '7AM ';
-                    }else if(x == 08){
+                    } else if (x == 08) {
                         time = '8AM ';
-                    }else if(x == 09){
+                    } else if (x == 09) {
                         time = '9AM ';
-                    }else if(x == 10){
+                    } else if (x == 10) {
                         time = '10AM ';
-                    }else if(x == 11){
+                    } else if (x == 11) {
                         time = '11AM ';
-                    }else if(x == 12){
+                    } else if (x == 12) {
                         time = '12PM ';
-                    }else if(x == 13){
+                    } else if (x == 13) {
                         time = '1PM ';
-                    }else if(x == 14){
+                    } else if (x == 14) {
                         time = '2PM ';
-                    }else if(x == 15){
+                    } else if (x == 15) {
                         time = '3PM ';
-                    }else if(x == 16){
+                    } else if (x == 16) {
                         time = '4PM ';
-                    }else if(x == 17){
+                    } else if (x == 17) {
                         time = '5PM ';
-                    }else if(x == 18){
+                    } else if (x == 18) {
                         time = '6PM ';
-                    }else if(x == 19){
+                    } else if (x == 19) {
                         time = '7PM ';
-                    }else if(x == 20){
+                    } else if (x == 20) {
                         time = '8PM ';
-                    }else if(x == 21){
+                    } else if (x == 21) {
                         time = '9PM ';
-                    }else if(x == 22){
+                    } else if (x == 22) {
                         time = '10PM ';
-                    }else if(x == 23){
+                    } else if (x == 23) {
                         time = '11PM ';
                     }
                     element.find('.fc-title').append("<br/><div id='eventLocationLine'>" + time + event.location + "</div>");
@@ -1171,7 +1171,9 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         //     console.log('Controllers.js/UpdateUserController: $scope.dj = ' + $scope.dj);
         // });
 
-        $scope.featuredUser = Users.get({ id: userId });
+        $scope.featuredUser = Users.get({ id: userId }, function(){
+            $scope.featuredUser.dj = String($scope.featuredUser.dj);
+        });
 
         $scope.updateUser = function () {
             // console.log('Controllers.js/UpdateUserController: entered the updateUser function');
