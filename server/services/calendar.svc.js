@@ -41,8 +41,9 @@ exports.getEventList = function(eventCount, timeMin, timeMax) {
  * @param {Object} credentials The authorization client credentials.
  */
 function authorize(credentials) {
-  var clientSecret = credentials.installed.client_secret;
+  var clientSecret = process.env.GCAL_client_secret;
   var clientId = credentials.installed.client_id;
+  
   var redirectUrl = credentials.installed.redirect_uris[0];
   var auth = new googleAuth();
   var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
