@@ -21,14 +21,14 @@
 .parallax__layer--back {
   transform: translateZ(-1px) scale(2);
           
-          /*background-image: url('./assets/greenbackgroundnologo.jpg');*/
-          
-          background-image: url('/assets/sonic-wave-459858_960_720.jpg');
-          /*background-image: url('');*/
-          
-          background-repeat: repeat-y;
-          background-size: cover;
-          /*background-repeat: no-repeat;*/
+  /*background-image: url('./assets/greenbackgroundnologo.jpg');*/
+  
+  background-image: url('/assets/sonic-wave-459858_960_720.jpg');
+  /*background-image: url('');*/
+  
+  background-repeat: repeat-y;
+  background-size: cover;
+  /*background-repeat: no-repeat;*/
   height: 1760px;
   width: 100%;
   margin-top: 200px
