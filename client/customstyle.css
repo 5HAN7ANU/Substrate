@@ -841,7 +841,7 @@ select {
 
 
 #contactUsDiv{
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -849,7 +849,7 @@ select {
 #emailContact {
   width: 100%;
   text-align: left;
-  margin-top: 25px;;
+  margin-top: 15px;;
   /*margin-left: 25%;
   margin-right: 25%;*/
 }
@@ -870,4 +870,7 @@ select {
   /*margin-left: 25%;
   margin-right: 25%;*/
   
+}
+#emailSubmitButton{
+  margin-bottom: 40px;
 }
