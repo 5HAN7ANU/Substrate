@@ -458,7 +458,7 @@ li.ng-scope {
 
 /*************************************************************/
 
-#contact {
+/*#contact {
   padding: 10px 0 10px;
 }
 
@@ -494,11 +494,11 @@ li.ng-scope {
 
 .contacthtml {
   background-color: rgba(128, 128, 128, 0.7);
-}
+}*/
 
 
 /* Input Styles */
-
+/*
 .form {
   width: 100%;
   padding: 15px;
@@ -531,7 +531,7 @@ li.ng-scope {
 #message {
   border: 2px solid red;
   height: 126px;
-}
+}*/
 
 
 /* Generic Button Styles */
@@ -837,4 +837,37 @@ select {
 }
 #preview-container{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#contactUsDiv{
+  margin-top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#emailContact {
+  width: 100%;
+  text-align: left;
+  margin-top: 25px;;
+  /*margin-left: 25%;
+  margin-right: 25%;*/
+}
+
+#emailSubject {
+  width: 100%;
+  text-align: left;
+  margin-top: 25px;;
+  /*margin-left: 25%;
+  margin-right: 25%;*/
+}
+
+#emailMessage {
+  width: 100%;
+  height: 400px;
+  text-align: left;
+  margin-top: 25px;;
+  /*margin-left: 25%;
+  margin-right: 25%;*/
+  
 }

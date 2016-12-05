@@ -1,0 +1,15 @@
+    <div id="contactUsDiv">
+       
+            <form name="emailForm">
+            <input type="email "  id="emailContact"  placeholder="Your email " ng-model="fromEmail" required/><br>
+            <input type="text "  id="emailSubject"  placeholder="Subject " ng-model="subject" required/><br>
+            <textarea id="emailMessage"  placeholder="Message " ng-model="content" required></textarea>
+            </form>
+        
+            <button class="btn btn-default" ng-click="sendMessage()" ng-disabled="emailForm.$invalid">Send Message</button>
+       
+    </div>
+   
+    
+       
+    

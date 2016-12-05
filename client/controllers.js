@@ -195,21 +195,21 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             image: 'http://' + $location.host() + '/images/blog.png',
             url: $location.absUrl()
         });
-        $scope.sendMessage = function () {
-            console.log('inside contact controller');
-            var contactInfo = {
-                fromEmail: $scope.fromEmail,
-                subject: $scope.subject,
-                content: $scope.content
-            }
-            var contact = new Contact(contactInfo);
-            contact.$save(function () {
-                console.log('Email send ok');
-                location.reload();
-            }, function (err) {
-                console.log(err);
-            });
-        }
+        // $scope.sendMessage = function () {
+        //     console.log('inside contact controller');
+        //     var contactInfo = {
+        //         fromEmail: $scope.fromEmail,
+        //         subject: $scope.subject,
+        //         content: $scope.content
+        //     }
+        //     var contact = new Contact(contactInfo);
+        //     contact.$save(function () {
+        //         console.log('Email send ok');
+        //         location.reload();
+        //     }, function (err) {
+        //         console.log(err);
+        //     });
+        // }
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
@@ -1300,5 +1300,31 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         $scope.cancelupdate = function () {
             $location.path('/admin');
+        }
+
+
+
+    }])
+
+
+
+.controller('EmailController', ['$scope', '$location', 'SEOService', '$http', 'Contact', function ($scope, $location, SEOService, $http, Contact) {
+        console.log('email Controller');
+
+
+      $scope.sendMessage = function () {
+            console.log('inside contact controller');
+            var contactInfo = {
+                fromEmail: $scope.fromEmail,
+                subject: $scope.subject,
+                content: $scope.content
+            }
+            var contact = new Contact(contactInfo);
+            contact.$save(function () {
+                console.log('Email send ok');
+                $location.path('/');
+            }, function (err) {
+                console.log(err);
+            });
         }
     }])
