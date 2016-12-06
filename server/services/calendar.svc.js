@@ -14,13 +14,16 @@ var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 exports.getEventList = function(eventCount, timeMin, timeMax) {
   return new Promise(function(resolve, reject) {
     // Load client secrets from a local file.
-    fs.readFile('./GCAL_client_secret.json', function processClientSecrets(err, content) {
+    var rfile = './GCAL_client_secret.json';
+    fs.readFile(rfile, function processClientSecrets(err, content) {
       if (err) {
+        console.log('the file to be read is: '+rfile);
         console.log('Error loading client secret file: ' + err);
         reject(err);
       } else {
         // Authorize a client with the loaded credentials, then call the
         // Google Calendar API.
+        console.log('the file to be read is: '+rfile);
         resolve(JSON.parse(content));
       }
     });
