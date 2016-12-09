@@ -64,16 +64,53 @@
 .fc-widget-header{
   font-family: LuloCleanOne;
   font-size: 12px;
+  background-color: transparent !important;
+  border: none !important;
+  text-align: left !important;
+  padding: 0px !important;
 }
 .fc-right{
   font-family: LuloCleanOne;
 }
+.fc-view{
+  border: none !important;
+}
 .homePageCalendar{
-  /*background-color: rgba(0, 0, 0, 0);*/
+   background-color: transparent !important;
 }
 .fc-list-item-title{
   color: white;
   font-size: 15px;
+  border: none !important;
+  background-color: transparent !important;
+  padding-left: 0px !important;
+  padding-bottom: 5px !important;
+  
+}
+.fc-toolbar{
+   background-color: transparent !important;
+   border: none !important;
+    align-content: center !important;
+    padding-left: 21px !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    border-bottom: 1px solid white !important;
+    margin-bottom: 10px !important;
+}
+.fc-list-heading-main{
+  display: none !important;
+}
+.fc-list-heading-alt{
+  float: left !important;
+  margin-top: 15px !important;
+ 
+}
+.fc-today-button{
+  display: none !important;
+}
+.fc-right{
+  margin-top: 10px;
+   margin-right: 40% !important;
 }
 
 /*//=============================================//*/
