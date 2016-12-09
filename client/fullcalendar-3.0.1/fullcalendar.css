@@ -1356,6 +1356,7 @@ be a descendant of the grid when it is being dragged.
 .fc-list-item-time {
 	white-space: nowrap;
 	width: 1px;
+	display: none;
 }
 
 /* make the dot closer to the event title */

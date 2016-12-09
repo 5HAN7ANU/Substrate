@@ -53,7 +53,26 @@
 .week-date-title{
   margin: 8px;
 }
-
+.fc-left > h2{
+  font-size: 20px;
+}
+#eventCalendarContainer{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.fc-widget-header{
+  font-family: LuloCleanOne;
+  font-size: 12px;
+}
+.fc-right{
+  font-family: LuloCleanOne;
+}
+.homePageCalendar{
+  background-color: rgba(240, 240, 240, 0);
+}
+.fc-list-item-title{
+  color: white;
+  font-size: 15px;
+}
 
 /*//=============================================//*/
 
@@ -878,3 +897,4 @@ select {
 .weekday{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+

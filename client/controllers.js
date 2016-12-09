@@ -1,6 +1,6 @@
 angular.module('Substrate.controllers', ['ui.bootstrap'])
     .controller('HomeController', ['$scope', '$location', 'SEOService', 'CalendarService', 'Ads', 'FeaturedEvents', 'Users', '$http', 'Podcasts', 'MissionStatements', 'WeeklySchedule', 'Contact', function ($scope, $location, SEOService, CalendarService, Ads, FeaturedEvents, Users, $http, Podcasts, MissionStatements, WeeklySchedule, Contact) {
-        console.log('Home Controller');
+        // console.log('Home Controller');
 
         $scope.eventInterval = 8000;
         $scope.adInterval = 14000;
@@ -14,8 +14,8 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         var timeMin = today.toISOString();
         var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
         var timeMax = nextWeek.toISOString();
-        console.log(timeMin);
-        console.log(timeMax);
+        // console.log(timeMin);
+        // console.log(timeMax);
 
         CalendarService.getEvents(1000, timeMin, timeMax)
             .then(function (events) {
@@ -65,7 +65,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                     }
                 }
                 $scope.calendar = calendarArray;
-                console.log(calendarArray);
+                // console.log(calendarArray);
             });
 
 
@@ -89,7 +89,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 };
                 $scope.adSlides2.push(adSlide2);
             }
-            console.log($scope.adSlides2);
+            // console.log($scope.adSlides2);
         }, function (err) {
             console.log(err);
         });
@@ -114,7 +114,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
                 };
                 $scope.adSlides.push(adSlide);
             }
-            console.log($scope.adSlides);
+            // console.log($scope.adSlides);
         }, function (err) {
             console.log(err);
         });
@@ -126,15 +126,15 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
             method: 'GET',
             url: '/api/featuredevents'
         }).then(function (success) {
-            console.log(success.data);
+            // console.log(success.data);
             $scope.featuredEventArray = success.data;
-            console.log('this is featuredEventArray: ');
-            console.log($scope.featuredEventArray);
+            // console.log('this is featuredEventArray: ');
+            // console.log($scope.featuredEventArray);
             //setting up carousel ==================
             for (i = 0; i < $scope.featuredEventArray.length; i++) {
                 var featuredEvent = $scope.featuredEventArray[i];
-                console.log('check it:');
-                console.log($scope.featuredEventArray[i]);
+                // console.log('check it:');
+                // console.log($scope.featuredEventArray[i]);
                 var eventSlide = {
                     image: featuredEvent.imageurl
                 };
@@ -153,7 +153,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         // console.log($scope.podcasts);
 
         $scope.ads = Ads.query();
-        console.log($scope.ads);
+        // console.log($scope.ads);
 
         $scope.featuredEvents = FeaturedEvents.query();
         // console.log($scope.featuredEvents);
@@ -210,6 +210,93 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         //         console.log(err);
         //     });
         // }
+
+        var calendar = $('#calendar').fullCalendar({
+            googleCalendarApiKey: 'AIzaSyBrPUrmwURMRhIomOTXShkeBOSmoLP80Gw',
+            events: {
+                googleCalendarId: 'substrateradio@gmail.com'
+            },
+                eventRender: function (event, element) {
+                    if (event.location == 'Iron City - Shows, 513 22nd Street S, Birmingham, AL, 35233') {
+                        event.location = '@ Iron City';
+                    } else if (event.location == 'Saturn, 200 41st Street S, Birmingham, AL, 35222') {
+                        event.location = '@ Saturn';
+                    } else if (event.location == 'The Nick, 2514 10th Ave S, Birmingham, AL, 35205') {
+                        event.location = '@ The Nick';
+                    } else {
+                        event.location = '';
+                    }
+
+                    var time = String(event.start);
+                    var timeArray = [];
+                    for (var i = 0; i < time.length; i++) {
+                        timeArray.push(time[i]);
+                    }
+                    // console.log(timeArray); 
+                    var x = timeArray[16] + timeArray[17];
+                    if (x == 00) {
+                        time = '12AM ';
+                    } else if (x == 01) {
+                        time = '1AM ';
+                    } else if (x == 02) {
+                        time = '2AM ';
+                    } else if (x == 03) {
+                        time = '3AM ';
+                    } else if (x == 04) {
+                        time = '4AM ';
+                    } else if (x == 05) {
+                        time = '5AM ';
+                    } else if (x == 06) {
+                        time = '6AM ';
+                    } else if (x == 07) {
+                        time = '7AM ';
+                    } else if (x == 08) {
+                        time = '8AM ';
+                    } else if (x == 09) {
+                        time = '9AM ';
+                    } else if (x == 10) {
+                        time = '10AM ';
+                    } else if (x == 11) {
+                        time = '11AM ';
+                    } else if (x == 12) {
+                        time = '12PM ';
+                    } else if (x == 13) {
+                        time = '1PM ';
+                    } else if (x == 14) {
+                        time = '2PM ';
+                    } else if (x == 15) {
+                        time = '3PM ';
+                    } else if (x == 16) {
+                        time = '4PM ';
+                    } else if (x == 17) {
+                        time = '5PM ';
+                    } else if (x == 18) {
+                        time = '6PM ';
+                    } else if (x == 19) {
+                        time = '7PM ';
+                    } else if (x == 20) {
+                        time = '8PM ';
+                    } else if (x == 21) {
+                        time = '9PM ';
+                    } else if (x == 22) {
+                        time = '10PM ';
+                    } else if (x == 23) {
+                        time = '11PM ';
+                    }
+                    element.find('.fc-list-item-title').append("<br/><div id='eventLocationLine'>" + time + event.location + "</div>");
+                },
+                eventClick: function (event) {
+                    if (event.url) {
+                        return false;
+                    }
+                },
+            defaultView: 'listWeek',
+            height: 575,
+            width: 300
+        });
+
+        var allEvents = $('#calendar').fullCalendar('clientEvents');
+        console.log(allEvents);
     }])
     .controller('CalendarController', ['$scope', '$location', 'SEOService', 'CalendarService', function ($scope, $location, SEOService, CalendarService) {
 
@@ -1171,7 +1258,7 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
         //     console.log('Controllers.js/UpdateUserController: $scope.dj = ' + $scope.dj);
         // });
 
-        $scope.featuredUser = Users.get({ id: userId }, function(){
+        $scope.featuredUser = Users.get({ id: userId }, function () {
             $scope.featuredUser.dj = String($scope.featuredUser.dj);
         });
 
@@ -1308,11 +1395,11 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
 
 
-.controller('EmailController', ['$scope', '$location', 'SEOService', '$http', 'Contact', function ($scope, $location, SEOService, $http, Contact) {
+    .controller('EmailController', ['$scope', '$location', 'SEOService', '$http', 'Contact', function ($scope, $location, SEOService, $http, Contact) {
         console.log('email Controller');
 
 
-      $scope.sendMessage = function () {
+        $scope.sendMessage = function () {
             console.log('inside contact controller');
             var contactInfo = {
                 fromEmail: $scope.fromEmail,

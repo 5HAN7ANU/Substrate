@@ -109,7 +109,7 @@ angular.module('Substrate.services', [])
             data: data,
             url: '/api/calendar/events/' + eventCount
         }).then(function(response) {
-            console.log(response.data);
+            // console.log(response.data);
             return response.data;
         })
     }
