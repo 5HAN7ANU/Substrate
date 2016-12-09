@@ -10,63 +10,63 @@ angular.module('Substrate.controllers', ['ui.bootstrap'])
 
         //getting next 7 days of events 
 
-        var today = new Date();
-        var timeMin = today.toISOString();
-        var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
-        var timeMax = nextWeek.toISOString();
+        // var today = new Date();
+        // var timeMin = today.toISOString();
+        // var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+        // var timeMax = nextWeek.toISOString();
         // console.log(timeMin);
         // console.log(timeMax);
 
-        CalendarService.getEvents(1000, timeMin, timeMax)
-            .then(function (events) {
-                var calendarArray = [];
-                var calendarDay;
-                var calendarMonth;
-                for (i = 0; i < events.length; i++) {
-                    var eventDate = new Date(events[i].start.dateTime).getDate();
-                    var eventMonth = new Date(events[i].start.dateTime).getMonth();
-                    if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
-                        var eventArray = [];
-                        var location = String(events[i].location);
-                        var locationSplit = location.split(' ');
-                        if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
-                        }
-                        else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
-                        }
-                        else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = 'Saturn';
-                        }
-                        else {
-                            events[i].location = '';
-                        }
-                        eventArray.push(events[i]);
-                        calendarArray.push(eventArray);
-                        calendarDay = eventDate;
-                        calendarMonth = eventMonth;
-                    } else { // not a new day
-                        var location = String(events[i].location);
-                        var locationSplit = location.split(' ');
-                        if (locationSplit[0] == "Iron") {
-                            events[i].location = 'Iron City';
-                        }
-                        else if (locationSplit[0] == "The") {
-                            events[i].location = 'The Nick';
-                        }
-                        else if (locationSplit[0] == "Saturn,") {
-                            events[i].location = 'Saturn';
-                        }
-                        else {
-                            events[i].location = '';
-                        }
-                        var eventArray = calendarArray[calendarArray.length - 1];
-                        eventArray.push(events[i]);
-                    }
-                }
-                $scope.calendar = calendarArray;
-                // console.log(calendarArray);
-            });
+        // CalendarService.getEvents(1000, timeMin, timeMax)
+        //     .then(function (events) {
+        //         var calendarArray = [];
+        //         var calendarDay;
+        //         var calendarMonth;
+        //         for (i = 0; i < events.length; i++) {
+        //             var eventDate = new Date(events[i].start.dateTime).getDate();
+        //             var eventMonth = new Date(events[i].start.dateTime).getMonth();
+        //             if (!calendarDay || !calendarMonth || eventDate != calendarDay || eventMonth != calendarMonth) { // new day
+        //                 var eventArray = [];
+        //                 var location = String(events[i].location);
+        //                 var locationSplit = location.split(' ');
+        //                 if (locationSplit[0] == "Iron") {
+        //                     events[i].location = 'Iron City';
+        //                 }
+        //                 else if (locationSplit[0] == "The") {
+        //                     events[i].location = 'The Nick';
+        //                 }
+        //                 else if (locationSplit[0] == "Saturn,") {
+        //                     events[i].location = 'Saturn';
+        //                 }
+        //                 else {
+        //                     events[i].location = '';
+        //                 }
+        //                 eventArray.push(events[i]);
+        //                 calendarArray.push(eventArray);
+        //                 calendarDay = eventDate;
+        //                 calendarMonth = eventMonth;
+        //             } else { // not a new day
+        //                 var location = String(events[i].location);
+        //                 var locationSplit = location.split(' ');
+        //                 if (locationSplit[0] == "Iron") {
+        //                     events[i].location = 'Iron City';
+        //                 }
+        //                 else if (locationSplit[0] == "The") {
+        //                     events[i].location = 'The Nick';
+        //                 }
+        //                 else if (locationSplit[0] == "Saturn,") {
+        //                     events[i].location = 'Saturn';
+        //                 }
+        //                 else {
+        //                     events[i].location = '';
+        //                 }
+        //                 var eventArray = calendarArray[calendarArray.length - 1];
+        //                 eventArray.push(events[i]);
+        //             }
+        //         }
+        //         $scope.calendar = calendarArray;
+        //         // console.log(calendarArray);
+        //     });
 
 
         //Getting Ads ====================================
