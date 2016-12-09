@@ -78,6 +78,9 @@
 .homePageCalendar{
    background-color: transparent !important;
 }
+::-webkit-scrollbar { 
+    display: none; 
+}
 .fc-list-item-title{
   color: white;
   font-size: 15px;
