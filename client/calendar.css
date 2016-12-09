@@ -77,6 +77,14 @@
     /*border-bottom: 1px solid black;*/
 }
 
+.fc-list-item-title a{
+    color: rgba(255, 255, 255, .7);
+}
+
+.fc-list-heading-alt{
+    color: darkgray;
+}
+
 .week-date-title {
     color: rgba(255, 255, 255, .7);
     font-size: 14px;
@@ -182,6 +190,6 @@ fc-today{
 }
 
 #eventLocationLine{
-    color: black;
+    color: white;
     margin-right: 3px;
 }
