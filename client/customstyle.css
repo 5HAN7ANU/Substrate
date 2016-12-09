@@ -67,7 +67,9 @@
   font-family: LuloCleanOne;
 }
 .homePageCalendar{
-  background-color: rgba(240, 240, 240, 0);
+  background-color: rgba(0, 0, 0, 0);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .fc-list-item-title{
   color: white;
