@@ -100,6 +100,9 @@ angular.module('Substrate', ['ngRoute', 'ngResource', 'Substrate.controllers', '
             templateUrl: 'views/contactUs.html',
             controller: 'EmailController'
         })
+        .when('/resume', {
+            templateUrl: 'views/shantanu_resume.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
