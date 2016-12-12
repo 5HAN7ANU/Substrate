@@ -118,7 +118,13 @@
 
 /*//=============================================//*/
 
-
+#resume{
+  overflow: auto; 
+  -webkit-overflow-scrolling: touch;
+  /*padding-bottom: 15%;*/
+  margin-bottom: 10%;
+  white-space: nowrap;
+}
 
 /*//========== home page featured event Container=====================//*/
 
